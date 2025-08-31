@@ -22,6 +22,12 @@ public class TrainManager : MonoBehaviour
         [SerializeField] int amazingEffortIncrease;
         public int getAmazingEffortIncrease() { return amazingEffortIncrease; }
     }
+
+    void TrainCow()
+    {
+
+    }
+
 void Start()
     {
         

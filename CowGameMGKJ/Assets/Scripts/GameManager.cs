@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
         //Debug.Log("mouse clicked something, process event");
         if(theObject.CompareTag("Food"))
         {
+            if (playerMouse.getCurCow())
+               // playerMouse.setCurCow(null);
+
             playerMouse.setCurFood(theObject);
             List<GameObject> theCows = cowManager.getCurCows();
             for (int i = 0; i < theCows.Count; i++)
@@ -48,7 +51,8 @@ public class GameManager : MonoBehaviour
 
         else if(theObject.CompareTag("Cow"))
         {
-            Debug.Log("Pet the cow!");
+            playerMouse.setCurCow(theObject);
+            uiManager.ToggleUIGroup("Train");
         }
     }
 

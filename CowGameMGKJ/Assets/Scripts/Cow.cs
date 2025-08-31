@@ -48,6 +48,7 @@ public class Cow : MonoBehaviour
         if(collision.gameObject.CompareTag("Food"))
         {
             cowEat?.Invoke(this, collision.GetComponent<Food>());
+            //Debug.Log("cow is" + this.gameObject);
         }
     }
 

@@ -8,10 +8,11 @@ public class PlayerMouse : MonoBehaviour
     [Header("Refs")]
     [SerializeField] GameObject curFood = null;
     public GameObject getCurFood() { return curFood; }
-    public void setCurFood(GameObject theFood)
-    {
-        curFood = theFood; 
-    }
+    public void setCurFood(GameObject theFood) { curFood = theFood; }
+
+    [SerializeField] GameObject curCow = null;
+    public GameObject getCurCow() { return curCow; }
+    public void setCurCow(GameObject theCow) { curCow = theCow; }
 
     //EVENTS
     public delegate void MouseClickOn(GameObject theObject);
