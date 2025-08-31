@@ -409,6 +409,8 @@
 "Assets/Scripts/FoodManager.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/PlayerMouse.cs"
+"Assets/Scripts/TrainManager.cs"
+"Assets/Scripts/UIManager.cs"
 -langversion:9.0
 
 /deterministic

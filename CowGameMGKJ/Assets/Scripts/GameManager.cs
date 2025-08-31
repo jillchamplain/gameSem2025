@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Refs")]
     [SerializeField] FoodManager foodManager;
     [SerializeField] CowManager cowManager;
+    [SerializeField] UIManager uiManager;
     [SerializeField] PlayerMouse playerMouse;
     private void OnEnable()
     {
@@ -27,8 +28,9 @@ public class GameManager : MonoBehaviour
 
     void OnCowEat(Cow theCow, Food theFood)
     {
-        theCow.setCurrentPower(theCow.getCurrentPower() + theFood.getPower());
+        theCow.setPower(theCow.getPower() + theFood.getPower());
         foodManager.DeleteFood(theFood.gameObject);
+        uiManager.UpdateCowUI(theCow);
     }
 
     void OnMouseClickOn(GameObject theObject)
@@ -63,4 +65,5 @@ public class GameManager : MonoBehaviour
         playerMouse.setCurFood(null);
         
     }
+
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 662553093256741463}
   - component: {fileID: 662553093256741418}
   - component: {fileID: 662553093256741417}
+  - component: {fileID: 1234869315}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Cow
@@ -98,11 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a42351e54b2c12468fef670f23e4de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Seth
+  generation: 0
   currentLevel: 0
   maxLevel: 0
   currentPower: 0
-  maxPower: 0
+  maxPower: 500
+  uiIndex: 0
   thisSprite: {fileID: 0}
 --- !u!61 &662553093256741417
 BoxCollider2D:
@@ -130,3 +133,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!50 &1234869315
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662553093256741462}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -6,14 +6,18 @@ public class Cow : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] string name;
+    public string getName() { return name; }
     [SerializeField] int generation;
+    public int getGen() { return generation; }
 
     [SerializeField] int currentLevel;
+    public int getLevel() { return currentLevel; }
     [SerializeField] int maxLevel;
+    public int getMaxLevel() { return maxLevel; }
 
     [SerializeField] int currentPower;
-    public int getCurrentPower() { return currentPower; }
-    public void setCurrentPower(int newPower)
+    public int getPower() { return currentPower; }
+    public void setPower(int newPower)
     {
         currentPower = newPower;
         if (currentPower > maxPower)
@@ -24,6 +28,9 @@ public class Cow : MonoBehaviour
             
     }
     [SerializeField] int maxPower;
+
+    [SerializeField] int uiIndex;
+    public int getUIIndex() { return uiIndex; }
 
     [Header("Refs")]
     [SerializeField] SpriteRenderer thisSprite;
@@ -42,5 +49,14 @@ public class Cow : MonoBehaviour
         {
             cowEat?.Invoke(this, collision.GetComponent<Food>());
         }
+    }
+
+    public void IncreasePower(int increase)
+    {
+        currentPower += increase;
+        if (currentPower > maxPower)
+            currentPower = maxPower;
+
+
     }
 }
