@@ -27,8 +27,14 @@ public class TrainManager : MonoBehaviour
     {
 
     }
+    /*
+    TrainRegimen SelectRandomTraining()
+    {
+        TrainRegimen = unlockedTrains[0];
+    }
+    */
 
-void Start()
+    void Start()
     {
         
     }

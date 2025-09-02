@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     [Header("Refs")]
     [SerializeField] CowInfoUI[] cowUIs = new CowInfoUI[3];
     [SerializeField] UIGroup[] uiGroups = new UIGroup[4];
+
+    [Serializable]
     struct CowInfoUI
     {
         [SerializeField] GameObject gameObjectRef;
@@ -28,9 +30,6 @@ public class UIManager : MonoBehaviour
         public string getGroupName() { return groupName; }
         [SerializeField] CanvasGroup canvasGroup;
         public CanvasGroup getCanvasGroup() { return canvasGroup; }
-        [SerializeField] bool isOn;
-        public bool getOn() { return isOn; }
-        public void setOn(bool newOn) { isOn = newOn; }
     }
 
     public void ToggleUIGroup(string theGroupName)
@@ -40,15 +39,15 @@ public class UIManager : MonoBehaviour
             if(theGroupName == uiGroups[i].getGroupName())
             {
                 UIGroup theGroup = uiGroups[i];
-                theGroup.setOn(!theGroup.getOn());
                 theGroup.getCanvasGroup().interactable = !theGroup.getCanvasGroup().interactable;
                 theGroup.getCanvasGroup().blocksRaycasts = !theGroup.getCanvasGroup().blocksRaycasts;
-                if (theGroup.getOn())
+                if (theGroup.getCanvasGroup().interactable)
                     theGroup.getCanvasGroup().alpha = 1f;
-                else if (!theGroup.getOn())
+                else if (!theGroup.getCanvasGroup().interactable)
                 {
                     theGroup.getCanvasGroup().alpha = 0f;
-                    Debug.Log("toggle off");
+                    //Debug.Log(theGroup.getCanvasGroup().alpha);
+                    //Debug.Log("toggle off");
                 }
                 
             }
@@ -57,6 +56,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCowUI(Cow theCow)
     {
+        if (theCow == null)
+            return;
+        //Debug.Log("the Cow is " + theCow.gameObject);
         //Debug.Log("cow index is " + theCow.getUIIndex());
         //Debug.Log("cow UIs are " + cowUIs.Length);
         for(int i = 0; i < cowUIs.Length; i++)
@@ -65,7 +67,7 @@ public class UIManager : MonoBehaviour
             {
                 
                 CowInfoUI theUI = cowUIs[i];
-
+                //Debug.Log(theUI.getGameObjectRef());
                 theUI.getNameTF().text = theCow.getName();
                 theUI.getGenTF().text = theCow.getGen().ToString();
                 theUI.getLevelTF().text = theCow.getLevel().ToString();

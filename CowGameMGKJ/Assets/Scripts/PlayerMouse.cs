@@ -23,7 +23,8 @@ public class PlayerMouse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        curFood = null;
+        curCow = null;
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class PlayerMouse : MonoBehaviour
         RaycastHit2D hit = (Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero));
         if(hit.collider != null)
         {
+            //Debug.Log(hit.collider.gameObject);
             mouseClickOn?.Invoke(hit.collider.gameObject);
         }
     }

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         theCow.setPower(theCow.getPower() + theFood.getPower());
         foodManager.DeleteFood(theFood.gameObject);
+        //Debug.Log("the cow is " + theCow.gameObject);
         uiManager.UpdateCowUI(theCow);
     }
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         if(theObject.CompareTag("Food"))
         {
             if (playerMouse.getCurCow())
-               // playerMouse.setCurCow(null);
+              playerMouse.setCurCow(null);
 
             playerMouse.setCurFood(theObject);
             List<GameObject> theCows = cowManager.getCurCows();
