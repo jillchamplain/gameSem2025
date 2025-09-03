@@ -28,10 +28,12 @@ public class GameManager : MonoBehaviour
 
     void OnCowEat(Cow theCow, Food theFood)
     {
+        playerMouse.setCurCow(theCow.gameObject);
         theCow.setPower(theCow.getPower() + theFood.getPower());
         foodManager.DeleteFood(theFood.gameObject);
         //Debug.Log("the cow is " + theCow.gameObject);
         uiManager.UpdateCowUI(theCow);
+        uiManager.ToggleUIGroup("Train");
     }
 
     void OnMouseClickOn(GameObject theObject)
@@ -40,9 +42,12 @@ public class GameManager : MonoBehaviour
         if(theObject.CompareTag("Food"))
         {
             if (playerMouse.getCurCow())
-              playerMouse.setCurCow(null);
+            {
+                playerMouse.setCurCow(null);
+                uiManager.ToggleUIGroup("Train");
+            }
 
-            playerMouse.setCurFood(theObject);
+                playerMouse.setCurFood(theObject);
             List<GameObject> theCows = cowManager.getCurCows();
             for (int i = 0; i < theCows.Count; i++)
             {

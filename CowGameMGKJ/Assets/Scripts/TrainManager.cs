@@ -12,8 +12,8 @@ public class TrainManager : MonoBehaviour
     [Serializable]
     struct TrainRegimen
     {
-        [SerializeField] string regimenName;
-        public string getRegimenName() { return regimenName; }
+        [SerializeField] string name;
+        public string getName() { return name; }
 
         [SerializeField] int goodEffortIncrease;
         public int getGoodEffortIncrease() { return goodEffortIncrease; }
@@ -23,16 +23,25 @@ public class TrainManager : MonoBehaviour
         public int getAmazingEffortIncrease() { return amazingEffortIncrease; }
     }
 
-    void TrainCow()
+    public void TrainCow()
     {
-
+        TrainRegimen theTraining = SelectRandomTraining();
+        Debug.Log(theTraining.getName());
     }
-    /*
+    
     TrainRegimen SelectRandomTraining()
     {
-        TrainRegimen = unlockedTrains[0];
+        TrainRegimen theTraining = unlockedTrains[0];
+        int index = UnityEngine.Random.Range(0, unlockedTrains.Count);
+        for(int i = 0; i < unlockedTrains.Count; i++)
+        {
+            if (i == index)
+                return unlockedTrains[i];
+        }
+
+        return theTraining;
     }
-    */
+    
 
     void Start()
     {
