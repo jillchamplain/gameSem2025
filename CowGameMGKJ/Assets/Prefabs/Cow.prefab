@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 662553093256741416}
   - component: {fileID: 662553093256741463}
-  - component: {fileID: 662553093256741418}
   - component: {fileID: 662553093256741417}
   - component: {fileID: 1234869315}
+  - component: {fileID: 1096313944928793178}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Cow
@@ -87,26 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &662553093256741418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662553093256741462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a42351e54b2c12468fef670f23e4de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Seth
-  generation: 0
-  currentLevel: 0
-  maxLevel: 0
-  currentPower: 0
-  maxPower: 500
-  uiIndex: 0
-  thisSprite: {fileID: 0}
 --- !u!61 &662553093256741417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,3 +134,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1096313944928793178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662553093256741462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a42351e54b2c12468fef670f23e4de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curName: 
+  gen: 0
+  curLevel: 0
+  maxLevel: 0
+  curPower: 0
+  maxPower: 0
+  uiIndex: 0
+  thisSprite: {fileID: 662553093256741463}

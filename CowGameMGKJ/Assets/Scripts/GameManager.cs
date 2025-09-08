@@ -11,6 +11,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] TrainManager trainManager;
     [SerializeField] UIManager uiManager;
     [SerializeField] PlayerMouse playerMouse;
+    [SerializeField] BoxCollider2D spawnZone;
+    public static GameManager instance;
+    public static GameManager getInstance() { return instance; }
+
+    private void Start()
+    {
+        if (instance == null)
+            instance = this;
+    }
     private void OnEnable()
     {
         Cow.cowEat += OnCowEat;
@@ -35,6 +44,7 @@ public class GameManager : MonoBehaviour
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
         theCow.setPower(theCow.getPower() + trainManager.RollTrainingSuccess(theRegimen));
         uiManager.UpdateCowUI(theCow);
+        Debug.Log("updating");
     }
 
     void OnCowEat(Cow theCow, Food theFood)
@@ -98,6 +108,28 @@ public class GameManager : MonoBehaviour
         }
         playerMouse.setCurFood(null);
         
+    }
+
+    public Vector2 SelectRandomSpawn() //NEED TO!!!!!!!!!!!!! CHECK FOR OVERLAP WITH OTHER FOOD AND COWS 
+    {
+        bool canSelectSpawn = false;
+        Vector2 theSpawn = Vector2.zero;
+        theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
+        theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
+        while (!canSelectSpawn)
+        {
+            if (spawnZone.bounds.Contains(theSpawn))
+            {
+                canSelectSpawn = true;
+            }
+            else
+                Debug.Log("spawned Wrong");
+            theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
+            theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
+        }
+        //Debug.Log(theSpawn);
+
+        return theSpawn;
     }
 
 }

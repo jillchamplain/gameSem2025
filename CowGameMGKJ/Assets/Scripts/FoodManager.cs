@@ -13,8 +13,6 @@ public class FoodManager : MonoBehaviour
     [SerializeField] List<GameObject> unlockedFoods;
     [SerializeField] List<GameObject> allFoods;
 
-    [SerializeField] BoxCollider2D spawnZone;
-
     void Update()
     {
         if (canSpawn)
@@ -24,8 +22,8 @@ public class FoodManager : MonoBehaviour
     IEnumerator FoodSpawnTimer()
     {
         canSpawn = false;
-        yield return new WaitForSecondsRealtime(foodSpawnInterval);
         SpawnFood();
+        yield return new WaitForSecondsRealtime(foodSpawnInterval);
         canSpawn = true;
     }
 
@@ -38,7 +36,7 @@ public class FoodManager : MonoBehaviour
     void SpawnFood()
     {
         GameObject newFood = Instantiate(SelectRandomFood(), gameObject.transform);
-        newFood.transform.position = SelectRandomSpawn();
+        newFood.transform.position = GameManager.getInstance().SelectRandomSpawn();
 
         curFoods.Add(newFood);
     }
@@ -54,27 +52,5 @@ public class FoodManager : MonoBehaviour
         }
         return theObject;
 
-    }
-
-    Vector2 SelectRandomSpawn() //NEED TO!!!!!!!!!!!!! CHECK FOR OVERLAP WITH OTHER FOOD AND COWS 
-    {
-        bool canSelectSpawn = false;
-        Vector2 theSpawn = Vector2.zero;
-        theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
-        theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
-        while(!canSelectSpawn)
-        {
-            if (spawnZone.bounds.Contains(theSpawn))
-            {
-                canSelectSpawn = true;
-            }
-            else
-                Debug.Log("spawned Wrong");
-                theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
-                theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
-        }
-        //Debug.Log(theSpawn);
-
-        return theSpawn;
     }
 }

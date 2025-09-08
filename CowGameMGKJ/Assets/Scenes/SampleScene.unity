@@ -642,7 +642,6 @@ MonoBehaviour:
   - {fileID: 5612029381539264166, guid: 3a5a0e886d5a48b48a2499032e7102be, type: 3}
   allFoods:
   - {fileID: 2214501179772298851, guid: e823ec89c8c4f48489ad7ad636056b89, type: 3}
-  spawnZone: {fileID: 484040198}
 --- !u!4 &139421827
 Transform:
   m_ObjectHideFlags: 0
@@ -2006,6 +2005,7 @@ MonoBehaviour:
   - {fileID: 1234869310}
   - {fileID: 1203191769}
   - {fileID: 1283309685}
+  cowPrefab: {fileID: 0}
 --- !u!1 &898691905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,6 +2762,10 @@ PrefabInstance:
     - target: {fileID: 662553093256741463, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_Color.r
       value: 0.4565701
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096313944928793178, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
+      propertyPath: uiIndex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
@@ -3721,6 +3725,7 @@ MonoBehaviour:
   trainManager: {fileID: 485875205}
   uiManager: {fileID: 772889992}
   playerMouse: {fileID: 429313230}
+  spawnZone: {fileID: 484040198}
 --- !u!4 &2041827318
 Transform:
   m_ObjectHideFlags: 0
@@ -3871,6 +3876,10 @@ PrefabInstance:
     - target: {fileID: 662553093256741462, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_Name
       value: Cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096313944928793178, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
+      propertyPath: uiIndex
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55531eb849c59bc40914d68089b844b1, type: 3}

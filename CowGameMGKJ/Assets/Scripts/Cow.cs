@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,29 +6,41 @@ using UnityEngine;
 public class Cow : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] string name;
-    public string getName() { return name; }
-    [SerializeField] int generation;
-    public int getGen() { return generation; }
+    [SerializeField] string curName;
+    public string getName() { return curName; }
+    public void setName(string name) { curName = name; }
 
-    [SerializeField] int currentLevel;
-    public int getLevel() { return currentLevel; }
+    [SerializeField] int gen;
+    public int getGen() { return gen; }
+    public void setGen(int newGen) { gen = newGen; }
+
+    [SerializeField] int curLevel;
+    public int getLevel() { return curLevel; }
+
     [SerializeField] int maxLevel;
     public int getMaxLevel() { return maxLevel; }
+    public void setMaxLevel(int theMax) { maxLevel = theMax; }
 
-    [SerializeField] int currentPower;
-    public int getPower() { return currentPower; }
+    [SerializeField] int curPower;
+    public int getPower() { return curPower; }
     public void setPower(int newPower)
     {
-        currentPower = newPower;
-        if (currentPower > maxPower)
+        curPower = newPower;
+        if (curPower > maxPower)
         {
-            currentPower = maxPower;
+            curPower = maxPower;
             cowMaxLevel?.Invoke(this);
         }
             
     }
     [SerializeField] int maxPower;
+
+    public int getMaxPower() { return maxPower; }
+    public void setMaxPower(int theMax)
+    {
+        maxPower = theMax;
+        setMaxLevel(maxPower % 100);
+    }
 
     [SerializeField] int uiIndex;
     public int getUIIndex() { return uiIndex; }
@@ -41,6 +54,21 @@ public class Cow : MonoBehaviour
 
     public delegate void CowMaxLevel(Cow thisCow);
     public static event CowMaxLevel cowMaxLevel;
+
+
+    public void InitCow(string name, int theGen, int theMaxPower)
+    {
+        setName(name);
+        setGen(theGen);
+        setMaxPower(theMaxPower);
+    }
+
+    public void InitCow()
+    {
+        setName("NULLCOW");
+        setGen(-1);
+        setMaxPower(-1);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
