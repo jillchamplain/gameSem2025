@@ -51,13 +51,4 @@ public class Cow : MonoBehaviour
             //Debug.Log("cow is" + this.gameObject);
         }
     }
-
-    public void IncreasePower(int increase)
-    {
-        currentPower += increase;
-        if (currentPower > maxPower)
-            currentPower = maxPower;
-
-
-    }
 }

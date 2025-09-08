@@ -21,4 +21,13 @@ public class CowManager : MonoBehaviour
     {
         
     }
+    void SpawnCows()
+    {
+
+    }
+
+    void SpawnCow()
+    {
+        
+    }
 }

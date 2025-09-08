@@ -32,15 +32,15 @@ public class UIManager : MonoBehaviour
         public CanvasGroup getCanvasGroup() { return canvasGroup; }
     }
 
-    public void ToggleUIGroup(string theGroupName)
+    public void SetUIGroup(string theGroupName, bool isOn)
     {
         for(int i = 0; i < uiGroups.Length; i++)
         {
             if(theGroupName == uiGroups[i].getGroupName())
             {
                 UIGroup theGroup = uiGroups[i];
-                theGroup.getCanvasGroup().interactable = !theGroup.getCanvasGroup().interactable;
-                theGroup.getCanvasGroup().blocksRaycasts = !theGroup.getCanvasGroup().blocksRaycasts;
+                theGroup.getCanvasGroup().interactable = isOn;
+                theGroup.getCanvasGroup().blocksRaycasts = isOn;
                 if (theGroup.getCanvasGroup().interactable)
                     theGroup.getCanvasGroup().alpha = 1f;
                 else if (!theGroup.getCanvasGroup().interactable)

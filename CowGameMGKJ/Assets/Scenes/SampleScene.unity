@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 662553093256741416, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 662553093256741416, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -654,10 +654,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 484040197}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &183837747
 GameObject:
@@ -743,9 +742,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 485875205}
-        m_TargetAssemblyTypeName: TrainManager, Assembly-CSharp
-        m_MethodName: TrainCow
+      - m_Target: {fileID: 2041827317}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnTrainCow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -972,7 +971,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436231070
 GameObject:
@@ -1120,7 +1119,7 @@ GameObject:
   - component: {fileID: 484040197}
   - component: {fileID: 484040198}
   m_Layer: 2
-  m_Name: Food Spawn Zone
+  m_Name: Spawn Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1133,13 +1132,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484040196}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 14, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 139421827}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &484040198
 BoxCollider2D:
@@ -1231,7 +1230,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1663,7 +1662,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740414085
 GameObject:
@@ -1841,7 +1840,7 @@ RectTransform:
   - {fileID: 1746541903}
   - {fileID: 1049201805}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1988,7 +1987,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &882086647
 MonoBehaviour:
@@ -2698,7 +2697,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 662553093256741416, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 662553093256741416, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3719,6 +3718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodManager: {fileID: 139421826}
   cowManager: {fileID: 882086647}
+  trainManager: {fileID: 485875205}
   uiManager: {fileID: 772889992}
   playerMouse: {fileID: 429313230}
 --- !u!4 &2041827318
@@ -3735,7 +3735,7 @@ Transform:
   m_Children:
   - {fileID: 2000682470}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2085701462
 GameObject:
@@ -3826,7 +3826,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 662553093256741416, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 662553093256741416, guid: 55531eb849c59bc40914d68089b844b1, type: 3}
       propertyPath: m_LocalPosition.x

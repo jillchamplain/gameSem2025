@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     [Header("Refs")]
     [SerializeField] FoodManager foodManager;
     [SerializeField] CowManager cowManager;
+    [SerializeField] TrainManager trainManager;
     [SerializeField] UIManager uiManager;
     [SerializeField] PlayerMouse playerMouse;
     private void OnEnable()
     {
         Cow.cowEat += OnCowEat;
+        Cow.cowMaxLevel += OnCowMaxLevel;
 
         PlayerMouse.mouseClickOn += OnMouseClickOn;
         PlayerMouse.mouseRelease += OnMouseRelease;
@@ -21,9 +23,18 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Cow.cowEat -= OnCowEat;
+        Cow.cowMaxLevel -= OnCowMaxLevel;
 
         PlayerMouse.mouseClickOn -= OnMouseClickOn;
         PlayerMouse.mouseRelease -= OnMouseRelease;
+    }
+
+    public void OnTrainCow()
+    {
+        Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
+        TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
+        theCow.setPower(theCow.getPower() + trainManager.RollTrainingSuccess(theRegimen));
+        uiManager.UpdateCowUI(theCow);
     }
 
     void OnCowEat(Cow theCow, Food theFood)
@@ -33,7 +44,12 @@ public class GameManager : MonoBehaviour
         foodManager.DeleteFood(theFood.gameObject);
         //Debug.Log("the cow is " + theCow.gameObject);
         uiManager.UpdateCowUI(theCow);
-        uiManager.ToggleUIGroup("Train");
+        uiManager.SetUIGroup("Train", false);
+    }
+
+    void OnCowMaxLevel(Cow theCow)
+    {
+        Debug.Log(theCow.gameObject.name + " reached max level!");
     }
 
     void OnMouseClickOn(GameObject theObject)
@@ -44,7 +60,7 @@ public class GameManager : MonoBehaviour
             if (playerMouse.getCurCow())
             {
                 playerMouse.setCurCow(null);
-                uiManager.ToggleUIGroup("Train");
+                uiManager.SetUIGroup("Train", false);
             }
 
                 playerMouse.setCurFood(theObject);
@@ -57,8 +73,16 @@ public class GameManager : MonoBehaviour
 
         else if(theObject.CompareTag("Cow"))
         {
-            playerMouse.setCurCow(theObject);
-            uiManager.ToggleUIGroup("Train");
+            if(playerMouse.getCurCow() == theObject)
+            {
+                playerMouse.setCurCow(null);
+                uiManager.SetUIGroup("Train", false);
+            }
+            else
+            {
+                playerMouse.setCurCow(theObject);
+                uiManager.SetUIGroup("Train", true);
+            }
         }
     }
 
