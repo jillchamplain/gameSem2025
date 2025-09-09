@@ -26,7 +26,7 @@ public class Cow : MonoBehaviour
     public void setPower(int newPower)
     {
         curPower = newPower;
-        if (curPower > maxPower)
+        if (curPower >= maxPower)
         {
             curPower = maxPower;
             cowMaxLevel?.Invoke(this);
@@ -44,6 +44,7 @@ public class Cow : MonoBehaviour
 
     [SerializeField] int uiIndex;
     public int getUIIndex() { return uiIndex; }
+    public void setUIIndex(int newIndex) { uiIndex = newIndex; }
 
     [Header("Refs")]
     [SerializeField] SpriteRenderer thisSprite;

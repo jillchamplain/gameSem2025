@@ -8,9 +8,15 @@ public class CowManager : MonoBehaviour
     [SerializeField] int curGeneration;
     [Header("Refs")]
     [SerializeField] List<GameObject> curCows;
+    public List<GameObject> getCows() { return curCows; }
+
+    public Cow getCowAt(int index) { return curCows[index].GetComponent<Cow>(); }
     [SerializeField] GameObject cowPrefab;
 
-    public List<GameObject> getCurCows() { return curCows; }
+    //EVENTS
+    public delegate void CowSpawned(Cow theCow);
+    public static event CowSpawned cowSpawned;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +28,7 @@ public class CowManager : MonoBehaviour
     {
         
     }
-    void SpawnCows(int numCows)
+    public void SpawnCows(int numCows)
     {
         for(int i = 0; i < numCows; i++)
         {
@@ -30,14 +36,66 @@ public class CowManager : MonoBehaviour
         }
     }
 
-    void SpawnCow()
+    public void SpawnCow()
     {
-        GameObject theObject = GameObject.Instantiate(cowPrefab);
+        GameObject theObject = GameObject.Instantiate(cowPrefab, this.gameObject.transform);
+        theObject.transform.position = GameManager.getInstance().SelectRandomSpawn();
+        theObject.GetComponent<Cow>().InitCow("NONAME", curGeneration + 1, (curGeneration + 1) * 100);
+        theObject.name = (curGeneration + 1).ToString();
+        curCows.Add(theObject);
+        ModifyCowUIIndex();
+        curGeneration++;
+        cowSpawned?.Invoke(theObject.GetComponent<Cow>());
     }
 
-    void SpawnCow(string name)
+    public void SpawnCow(string name)
     {
         GameObject theObject = GameObject.Instantiate(cowPrefab);
         theObject.GetComponent<Cow>().InitCow(name, curGeneration + 1, (curGeneration + 1) * 100);
+        theObject.name = name;
+        curCows.Add(theObject);
+        ModifyCowUIIndex();
+        curGeneration++;
+        cowSpawned?.Invoke(theObject.GetComponent<Cow>());
+    }
+
+    public void DeleteCow(GameObject theCow)
+    {
+        List<GameObject> tempCows = new List<GameObject>();
+        for(int i = 0; i < curCows.Count; i++)
+        {
+            if (curCows[i] != theCow)
+            {
+                tempCows.Add(curCows[i]);
+            }
+        }
+
+        Destroy(theCow);
+        curCows = tempCows;
+        ModifyCowUIIndex();
+    }
+
+    public void DeleteCow()
+    {
+        List<GameObject> tempCows = new List<GameObject>();
+        for (int i = 0; i < curCows.Count; i++)
+        {
+            if (i != 0)
+            {
+                tempCows.Add(curCows[i]);
+            }
+        }
+
+        Destroy(curCows[0]);
+        curCows = tempCows;
+        ModifyCowUIIndex();
+    }
+
+    void ModifyCowUIIndex()
+    {
+        for(int i = 0; i < curCows.Count; i++)
+        {
+            curCows[i].GetComponent<Cow>().setUIIndex(i);
+        }
     }
 }

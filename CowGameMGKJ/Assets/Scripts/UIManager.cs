@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCowUI(Cow theCow)
     {
+        
         if (theCow == null)
             return;
         //Debug.Log("the Cow is " + theCow.gameObject);
@@ -67,7 +68,6 @@ public class UIManager : MonoBehaviour
             {
                 
                 CowInfoUI theUI = cowUIs[i];
-                //Debug.Log(theUI.getGameObjectRef());
                 theUI.getNameTF().text = theCow.getName();
                 theUI.getGenTF().text = theCow.getGen().ToString();
                 theUI.getLevelTF().text = theCow.getLevel().ToString();

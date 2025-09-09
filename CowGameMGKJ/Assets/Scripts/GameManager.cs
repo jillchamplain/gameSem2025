@@ -14,16 +14,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] BoxCollider2D spawnZone;
     public static GameManager instance;
     public static GameManager getInstance() { return instance; }
-
-    private void Start()
-    {
-        if (instance == null)
-            instance = this;
-    }
     private void OnEnable()
     {
         Cow.cowEat += OnCowEat;
         Cow.cowMaxLevel += OnCowMaxLevel;
+
+        CowManager.cowSpawned += OnCowSpawned;
 
         PlayerMouse.mouseClickOn += OnMouseClickOn;
         PlayerMouse.mouseRelease += OnMouseRelease;
@@ -34,11 +30,39 @@ public class GameManager : MonoBehaviour
         Cow.cowEat -= OnCowEat;
         Cow.cowMaxLevel -= OnCowMaxLevel;
 
+        CowManager.cowSpawned -= OnCowSpawned;
+
         PlayerMouse.mouseClickOn -= OnMouseClickOn;
         PlayerMouse.mouseRelease -= OnMouseRelease;
     }
+    private void Start()
+    {
+        if (instance == null)
+            instance = this;
+        SetUpGame();
+    }
 
-    public void OnTrainCow()
+    void SetUpGame()
+    {
+        cowManager.SpawnCows(3);
+        UpdateCowUI();
+    }
+
+    void UpdateCowUI()
+    {
+        for (int i = 0; i < cowManager.getCows().Count; i++)
+        {
+            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+        }
+    }
+
+    void OnCowSpawned(Cow theCow)
+    {
+        UpdateCowUI();
+        Debug.Log("Spawn UI Update");
+    }
+
+    void OnTrainCow()
     {
         Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
@@ -60,6 +84,8 @@ public class GameManager : MonoBehaviour
     void OnCowMaxLevel(Cow theCow)
     {
         Debug.Log(theCow.gameObject.name + " reached max level!");
+        cowManager.DeleteCow(theCow.gameObject);
+        cowManager.SpawnCow();
     }
 
     void OnMouseClickOn(GameObject theObject)
@@ -74,7 +100,7 @@ public class GameManager : MonoBehaviour
             }
 
                 playerMouse.setCurFood(theObject);
-            List<GameObject> theCows = cowManager.getCurCows();
+            List<GameObject> theCows = cowManager.getCows();
             for (int i = 0; i < theCows.Count; i++)
             {
                 Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<CapsuleCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), true);
@@ -101,7 +127,7 @@ public class GameManager : MonoBehaviour
         //renable collision of curFood if any
         if (!playerMouse.getCurFood())
             return;
-        List<GameObject> theCows = cowManager.getCurCows();
+        List<GameObject> theCows = cowManager.getCows();
         for(int i = 0; i < theCows.Count; i++)
         {
             Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<CapsuleCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
