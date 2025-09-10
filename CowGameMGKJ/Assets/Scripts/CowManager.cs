@@ -38,8 +38,8 @@ public class CowManager : MonoBehaviour
 
     public void SpawnCow()
     {
-        GameObject theObject = GameObject.Instantiate(cowPrefab, this.gameObject.transform);
-        theObject.transform.position = GameManager.getInstance().SelectRandomSpawn();
+        GameObject theObject = GameObject.Instantiate(cowPrefab, GameManager.getInstance().SelectRandomSpawn(), Quaternion.identity);
+        theObject.transform.parent = this.gameObject.transform;
         theObject.GetComponent<Cow>().InitCow("NONAME", curGeneration + 1, (curGeneration + 1) * 100);
         theObject.name = (curGeneration + 1).ToString();
         curCows.Add(theObject);
@@ -50,7 +50,8 @@ public class CowManager : MonoBehaviour
 
     public void SpawnCow(string name)
     {
-        GameObject theObject = GameObject.Instantiate(cowPrefab);
+        GameObject theObject = GameObject.Instantiate(cowPrefab, GameManager.getInstance().SelectRandomSpawn(), Quaternion.identity);
+        theObject.transform.parent = this.gameObject.transform;
         theObject.GetComponent<Cow>().InitCow(name, curGeneration + 1, (curGeneration + 1) * 100);
         theObject.name = name;
         curCows.Add(theObject);

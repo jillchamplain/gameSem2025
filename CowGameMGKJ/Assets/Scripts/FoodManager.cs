@@ -10,6 +10,8 @@ public class FoodManager : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] List<GameObject> curFoods;
+    public List<GameObject> getCurFoods() {  return curFoods; }
+    public GameObject getCurFoodAt(int index) { return curFoods[index]; }
     [SerializeField] List<GameObject> unlockedFoods;
     [SerializeField] List<GameObject> allFoods;
 
@@ -35,8 +37,8 @@ public class FoodManager : MonoBehaviour
 
     void SpawnFood()
     {
-        GameObject newFood = Instantiate(SelectRandomFood(), gameObject.transform);
-        newFood.transform.position = GameManager.getInstance().SelectRandomSpawn();
+        GameObject newFood = Instantiate(SelectRandomFood(),GameManager.getInstance().SelectRandomSpawn(), Quaternion.identity);
+        newFood.transform.parent = this.transform;
 
         curFoods.Add(newFood);
     }

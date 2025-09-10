@@ -65,8 +65,13 @@ public class GameManager : MonoBehaviour
         Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
         theCow.setPower(theCow.getPower() + trainManager.RollTrainingSuccess(theRegimen));
+        if (theCow.getPower() >= theCow.getMaxPower())
+        {
+            uiManager.SetUIGroup("Train", false);
+            return;
+        }
         uiManager.UpdateCowUI(theCow);
-        Debug.Log("updating");
+        //Debug.Log("updating");
     }
 
     void OnCowEat(Cow theCow, Food theFood)
@@ -97,6 +102,7 @@ public class GameManager : MonoBehaviour
             if (playerMouse.getCurCow())
             {
                 playerMouse.setCurCow(null);
+                theObject.GetComponent<Cow>().setSelection(false);
                 uiManager.SetUIGroup("Train", false);
             }
 
@@ -104,7 +110,7 @@ public class GameManager : MonoBehaviour
             List<GameObject> theCows = cowManager.getCows();
             for (int i = 0; i < theCows.Count; i++)
             {
-                Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<CapsuleCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), true);
+                Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), true);
             }
         }
 
@@ -113,11 +119,13 @@ public class GameManager : MonoBehaviour
             if(playerMouse.getCurCow() == theObject)
             {
                 playerMouse.setCurCow(null);
+                theObject.GetComponent<Cow>().setSelection(false);
                 uiManager.SetUIGroup("Train", false);
             }
             else
             {
                 playerMouse.setCurCow(theObject);
+                theObject.GetComponent<Cow>().setSelection(true);
                 uiManager.SetUIGroup("Train", true);
             }
         }
@@ -131,13 +139,13 @@ public class GameManager : MonoBehaviour
         List<GameObject> theCows = cowManager.getCows();
         for(int i = 0; i < theCows.Count; i++)
         {
-            Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<CapsuleCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
+            Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
         }
         playerMouse.setCurFood(null);
         
     }
 
-    public Vector2 SelectRandomSpawn() //NEED TO!!!!!!!!!!!!! CHECK FOR OVERLAP WITH OTHER FOOD AND COWS 
+    public Vector2 SelectRandomSpawn() //NEED TO!!!!!!!!!!!!! CHECK FOR OVERLAP WITH OTHER FOOD AND COWS STILL DOESN'T WORK
     {
         bool canSelectSpawn = false;
         Vector2 theSpawn = Vector2.zero;
@@ -149,10 +157,31 @@ public class GameManager : MonoBehaviour
             {
                 canSelectSpawn = true;
             }
-            else
-                Debug.Log("spawned Wrong");
-            theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
-            theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
+            //Check if overlapping Cows
+            for(int i = 0; i < cowManager.getCows().Count; i++)
+            {
+                if (cowManager.getCowAt(i).gameObject.GetComponent<BoxCollider2D>().bounds.Contains(theSpawn))
+                {
+                    canSelectSpawn = false;
+                    //Debug.Log("Overlapped with Cow");
+                }
+            }
+
+            //Check if overlapping Food
+            for(int i = 0; i < foodManager.getCurFoods().Count; i++)
+            {
+                if(foodManager.getCurFoodAt(i).gameObject.GetComponent<BoxCollider2D>().bounds.Contains(theSpawn))
+                {
+                    canSelectSpawn = false;
+                    //Debug.Log("Overlapped with Food");
+                }
+            }
+            if (!canSelectSpawn)
+            {
+                //Debug.Log("spawned Wrong");
+                theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
+                theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
+            }
         }
         //Debug.Log(theSpawn);
 

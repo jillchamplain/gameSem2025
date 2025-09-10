@@ -49,6 +49,18 @@ public class Cow : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] SpriteRenderer thisSprite;
+    [SerializeField] SpriteRenderer thisSelectionSprite;
+    public void setSelection(bool isSelected)
+    {
+        if(isSelected)
+        {
+            thisSelectionSprite.color = new Color(thisSelectionSprite.color.r, thisSelectionSprite.color.g, thisSelectionSprite.color.b, 1.0f);
+        }
+        else
+        {
+                thisSelectionSprite.color = new Color(thisSelectionSprite.color.r, thisSelectionSprite.color.g, thisSelectionSprite.color.b, 0.0f);
+        }
+    }
     [SerializeField] TextMeshProUGUI thisNameLabel;
 
     //EVENTS

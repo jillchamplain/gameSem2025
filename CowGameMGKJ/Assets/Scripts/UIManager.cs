@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System;
@@ -22,6 +23,9 @@ public class UIManager : MonoBehaviour
         public TextMeshProUGUI getLevelTF() { return levelTF; }
         [SerializeField] TextMeshProUGUI powerTF;
         public TextMeshProUGUI getPowerTF() { return powerTF; }
+
+        [SerializeField] Slider powerSlider;
+        public Slider getPowerSlider() { return powerSlider; }
     }
     [Serializable]
     struct UIGroup
@@ -71,10 +75,12 @@ public class UIManager : MonoBehaviour
                 //Debug.Log("name for " + theCow.gameObject + " set to " + theUI.getNameTF().text);
                 theUI.getGenTF().text = theCow.getGen().ToString();
                 //Debug.Log("gen for " + theCow.gameObject + " set to " + theUI.getGenTF().text);
-                theUI.getLevelTF().text = theCow.getLevel().ToString();
+                theUI.getLevelTF().text = theCow.getLevel().ToString() + "/" + theCow.getMaxLevel();
                 //Debug.Log("level for " + theCow.gameObject + " set to " + theUI.getLevelTF().text);
                 theUI.getPowerTF().text = theCow.getPower().ToString();
                 //Debug.Log("power for " + theCow.gameObject + " set to " + theUI.getPowerTF().text);
+                theUI.getPowerSlider().value = theCow.getPower();
+                theUI.getPowerSlider().maxValue = theCow.getMaxPower();
             }
             
         }
