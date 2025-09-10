@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Cow : MonoBehaviour
@@ -48,6 +49,7 @@ public class Cow : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] SpriteRenderer thisSprite;
+    [SerializeField] TextMeshProUGUI thisNameLabel;
 
     //EVENTS
     public delegate void CowEat(Cow thisCow, Food thisFood);
@@ -60,6 +62,7 @@ public class Cow : MonoBehaviour
     public void InitCow(string name, int theGen, int theMaxPower)
     {
         setName(name);
+        thisNameLabel.text = name;
         setGen(theGen);
         setMaxPower(theMaxPower);
     }
@@ -67,6 +70,7 @@ public class Cow : MonoBehaviour
     public void InitCow()
     {
         setName("NULLCOW");
+        thisNameLabel.text = name;
         setGen(-1);
         setMaxPower(-1);
     }

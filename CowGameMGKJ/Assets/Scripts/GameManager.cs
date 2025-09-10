@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
     void SetUpGame()
     {
         cowManager.SpawnCows(3);
-        UpdateCowUI();
     }
 
     void UpdateCowUI()
@@ -59,7 +58,6 @@ public class GameManager : MonoBehaviour
     void OnCowSpawned(Cow theCow)
     {
         UpdateCowUI();
-        Debug.Log("Spawn UI Update");
     }
 
     void OnTrainCow()
@@ -73,11 +71,14 @@ public class GameManager : MonoBehaviour
 
     void OnCowEat(Cow theCow, Food theFood)
     {
+
         playerMouse.setCurCow(theCow.gameObject);
         theCow.setPower(theCow.getPower() + theFood.getPower());
         foodManager.DeleteFood(theFood.gameObject);
         //Debug.Log("the cow is " + theCow.gameObject);
-        uiManager.UpdateCowUI(theCow);
+
+        if(!(theCow.getPower() >= theCow.getMaxPower())) //Prevents feeding from overwriting deletion UI
+            uiManager.UpdateCowUI(theCow);
         uiManager.SetUIGroup("Train", false);
     }
 

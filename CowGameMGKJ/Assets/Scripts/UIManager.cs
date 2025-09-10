@@ -55,8 +55,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void UpdateCowUI(Cow theCow)
-    {
-        
+    {   
         if (theCow == null)
             return;
         //Debug.Log("the Cow is " + theCow.gameObject);
@@ -69,9 +68,13 @@ public class UIManager : MonoBehaviour
                 
                 CowInfoUI theUI = cowUIs[i];
                 theUI.getNameTF().text = theCow.getName();
+                //Debug.Log("name for " + theCow.gameObject + " set to " + theUI.getNameTF().text);
                 theUI.getGenTF().text = theCow.getGen().ToString();
+                //Debug.Log("gen for " + theCow.gameObject + " set to " + theUI.getGenTF().text);
                 theUI.getLevelTF().text = theCow.getLevel().ToString();
+                //Debug.Log("level for " + theCow.gameObject + " set to " + theUI.getLevelTF().text);
                 theUI.getPowerTF().text = theCow.getPower().ToString();
+                //Debug.Log("power for " + theCow.gameObject + " set to " + theUI.getPowerTF().text);
             }
             
         }
