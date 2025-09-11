@@ -128,6 +128,7 @@ public class Cow : MonoBehaviour
     void FeedAnimation()
     {
         thisAnimator.Play("CowFeed");
+        
     }
 
     void RetireAnimation()

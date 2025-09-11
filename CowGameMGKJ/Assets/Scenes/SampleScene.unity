@@ -5131,6 +5131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8be5969fe69bc148bd52b62004945eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles:
+  - name: Power Increase
+    gameObjectRef: {fileID: 5201342433855889978, guid: 1c8c11ac369b73d43b3012e92f06f74c, type: 3}
 --- !u!1 &1946200505
 GameObject:
   m_ObjectHideFlags: 0

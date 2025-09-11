@@ -1,0 +1,42 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ParticleManager : MonoBehaviour
+{
+    [Header("Refs")]
+    [SerializeField] List<Particle> particles;
+    
+    public void SpawnParticleAt(string index, Vector3 spawnPos)
+    {
+
+    }
+
+    public void SpawnTextParticleAt(string index, string text, Vector3 spawnPos)
+    {
+
+    }
+
+    [Serializable]
+    public struct Particle
+    {
+        [SerializeField] string name;
+        public string getName() { return name; }
+        [SerializeField] GameObject gameObjectRef;
+        public GameObject getGameObjectRef() { return gameObjectRef; }
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
