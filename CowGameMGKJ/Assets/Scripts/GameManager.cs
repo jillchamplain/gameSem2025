@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         theCow.setPower(theCow.getPower() + theFood.getPower());
         foodManager.DeleteFood(theFood.gameObject);
         //Debug.Log("the cow is " + theCow.gameObject);
-
+        theCow.PlayAnimation(Cow.CowAnims.FEED);
         if(!(theCow.getPower() >= theCow.getMaxPower())) //Prevents feeding from overwriting deletion UI
             uiManager.UpdateCowUI(theCow);
         uiManager.SetUIGroup("Train", false);
@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
     void OnCowMaxLevel(Cow theCow)
     {
         Debug.Log(theCow.gameObject.name + " reached max level!");
+        theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
         cowManager.DeleteCow(theCow.gameObject);
         cowManager.SpawnCow();
     }

@@ -18,7 +18,7 @@ public class Cow : MonoBehaviour
     [SerializeField] int curLevel;
     public int getLevel() { return curLevel; }
 
-    [SerializeField] int maxLevel;
+    [SerializeField] int maxLevel; //NEED TO FIGURE OUT MATH FOR THIS
     public int getMaxLevel() { return maxLevel; }
     public void setMaxLevel(int theMax) { maxLevel = theMax; }
 
@@ -48,6 +48,7 @@ public class Cow : MonoBehaviour
     public void setUIIndex(int newIndex) { uiIndex = newIndex; }
 
     [Header("Refs")]
+    [SerializeField] Animator thisAnimator;
     [SerializeField] SpriteRenderer thisSprite;
     [SerializeField] SpriteRenderer thisSelectionSprite;
     public void setSelection(bool isSelected)
@@ -85,6 +86,53 @@ public class Cow : MonoBehaviour
         thisNameLabel.text = name;
         setGen(-1);
         setMaxPower(-1);
+    }
+
+    public enum CowAnims
+    {
+        IDLE = 0,
+        SPAWN = 1,
+        FEED = 2,
+        RETIRE = 3,
+        NUM_ANIMS
+    }
+    public void PlayAnimation(CowAnims theAnimation)
+    {
+        switch(theAnimation)
+        {
+            case CowAnims.IDLE:
+                IdleAnimation();
+                break;
+            case CowAnims.SPAWN:
+                SpawnAnimation();
+                break;
+            case CowAnims.FEED:
+                FeedAnimation();
+                break;
+            case CowAnims.RETIRE:
+                RetireAnimation();
+                break;
+        }
+    }
+
+    void IdleAnimation()
+     {
+        thisAnimator.Play("CowIdle");
+     }
+
+    void SpawnAnimation()
+    {
+        thisAnimator.Play("CowSpawn");
+    }
+
+    void FeedAnimation()
+    {
+        thisAnimator.Play("CowFeed");
+    }
+
+    void RetireAnimation()
+    {
+        thisAnimator.Play("CowRetire");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
