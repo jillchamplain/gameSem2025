@@ -61,11 +61,12 @@
     <Compile Include="Assets\Scripts\CowManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMouse.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\CustomParticle.cs" />
     <Compile Include="Assets\Scripts\ParticleManager.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
     <Compile Include="Assets\Scripts\Cow.cs" />
     <Compile Include="Assets\Scripts\FoodManager.cs" />
-    <Compile Include="Assets\Scripts\CustomParticle.cs" />
+    <Compile Include="Assets\Scripts\UIContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

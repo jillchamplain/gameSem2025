@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 132110358}
   - component: {fileID: 132110360}
   - component: {fileID: 132110359}
+  - component: {fileID: 132110361}
   m_Layer: 5
   m_Name: Cow Info 2
   m_TagString: Untagged
@@ -687,6 +688,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132110357}
   m_CullTransparentMesh: 1
+--- !u!114 &132110361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132110357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04020b923df227646bb28d48712f2b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameTF: {fileID: 1366767470}
+  genTF: {fileID: 707275425}
+  levelTF: {fileID: 1716110331}
+  powerTF: {fileID: 194514564}
+  powerSlider: {fileID: 639970314}
 --- !u!1 &139421825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,6 +2711,7 @@ GameObject:
   - component: {fileID: 740414086}
   - component: {fileID: 740414088}
   - component: {fileID: 740414087}
+  - component: {fileID: 740414089}
   m_Layer: 5
   m_Name: Cow Info 1
   m_TagString: Untagged
@@ -2763,6 +2782,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740414085}
   m_CullTransparentMesh: 1
+--- !u!114 &740414089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740414085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04020b923df227646bb28d48712f2b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameTF: {fileID: 1946200507}
+  genTF: {fileID: 64952816}
+  levelTF: {fileID: 527000465}
+  powerTF: {fileID: 119814666}
+  powerSlider: {fileID: 703959481}
 --- !u!1 &772889987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,24 +2916,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cowUIs:
-  - gameObjectRef: {fileID: 740414085}
-    nameTF: {fileID: 1946200507}
-    genTF: {fileID: 64952816}
-    levelTF: {fileID: 527000465}
-    powerTF: {fileID: 119814666}
-    powerSlider: {fileID: 703959481}
-  - gameObjectRef: {fileID: 132110357}
-    nameTF: {fileID: 1366767470}
-    genTF: {fileID: 707275425}
-    levelTF: {fileID: 1716110331}
-    powerTF: {fileID: 194514564}
-    powerSlider: {fileID: 639970314}
-  - gameObjectRef: {fileID: 2115491698}
-    nameTF: {fileID: 47481659}
-    genTF: {fileID: 1797902948}
-    levelTF: {fileID: 404272856}
-    powerTF: {fileID: 1111236699}
-    powerSlider: {fileID: 596571012}
+  - {fileID: 740414089}
+  - {fileID: 132110361}
+  - {fileID: 2115491702}
   uiGroups:
   - groupName: Cow
     canvasGroup: {fileID: 1746541904}
@@ -5280,6 +5301,7 @@ GameObject:
   - component: {fileID: 1947313988}
   - component: {fileID: 1947313990}
   - component: {fileID: 1947313989}
+  - component: {fileID: 1947313991}
   m_Layer: 5
   m_Name: Current Power Bar
   m_TagString: Untagged
@@ -5345,6 +5367,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947313987}
   m_CullTransparentMesh: 1
+--- !u!95 &1947313991
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947313987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 156f9c3fcce817a4e803273df70c5c6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1987333148
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,6 +5653,7 @@ GameObject:
   - component: {fileID: 2115491699}
   - component: {fileID: 2115491701}
   - component: {fileID: 2115491700}
+  - component: {fileID: 2115491702}
   m_Layer: 5
   m_Name: Cow Info 3
   m_TagString: Untagged
@@ -5681,3 +5724,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115491698}
   m_CullTransparentMesh: 1
+--- !u!114 &2115491702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115491698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04020b923df227646bb28d48712f2b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameTF: {fileID: 47481659}
+  genTF: {fileID: 1797902948}
+  levelTF: {fileID: 404272856}
+  powerTF: {fileID: 1111236699}
+  powerSlider: {fileID: 596571012}

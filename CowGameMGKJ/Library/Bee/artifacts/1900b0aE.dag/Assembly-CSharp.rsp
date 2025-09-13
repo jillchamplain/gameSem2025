@@ -412,6 +412,7 @@
 "Assets/Scripts/ParticleManager.cs"
 "Assets/Scripts/PlayerMouse.cs"
 "Assets/Scripts/TrainManager.cs"
+"Assets/Scripts/UIContainer.cs"
 "Assets/Scripts/UIManager.cs"
 -langversion:9.0
 

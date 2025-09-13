@@ -7,26 +7,9 @@ using System;
 public class UIManager : MonoBehaviour
 {
     [Header("Refs")]
-    [SerializeField] CowInfoUI[] cowUIs = new CowInfoUI[3];
+    [SerializeField] UIContainer[] cowUIs = new UIContainer[3];
     [SerializeField] UIGroup[] uiGroups = new UIGroup[4];
 
-    [Serializable]
-    struct CowInfoUI
-    {
-        [SerializeField] GameObject gameObjectRef;
-        public GameObject getGameObjectRef() { return gameObjectRef; }
-        [SerializeField] TextMeshProUGUI nameTF;
-        public TextMeshProUGUI getNameTF() { return nameTF; }
-        [SerializeField] TextMeshProUGUI genTF;
-        public TextMeshProUGUI getGenTF() { return genTF; }
-        [SerializeField] TextMeshProUGUI levelTF;
-        public TextMeshProUGUI getLevelTF() { return levelTF; }
-        [SerializeField] TextMeshProUGUI powerTF;
-        public TextMeshProUGUI getPowerTF() { return powerTF; }
-
-        [SerializeField] Slider powerSlider;
-        public Slider getPowerSlider() { return powerSlider; }
-    }
     [Serializable]
     struct UIGroup
     {
@@ -70,7 +53,7 @@ public class UIManager : MonoBehaviour
             if (theCow.getUIIndex() == i)
             {
                 
-                CowInfoUI theUI = cowUIs[i];
+                UIContainer theUI = cowUIs[i];
                 theUI.getNameTF().text = theCow.getName();
                 //Debug.Log("name for " + theCow.gameObject + " set to " + theUI.getNameTF().text);
                 theUI.getGenTF().text = theCow.getGen().ToString();

@@ -29,16 +29,31 @@ public class Cow : MonoBehaviour
     public void setPower(int newPower)
     {
         curPower = newPower;
-        if (curPower / 100 >= curLevel)
-        {
-            curLevel++;
-            cowLevelUp?.Invoke(this);
-        }
+
         if (curPower >= maxPower)
         {
+            //Debug.Log("current power: " + curPower + " max: " + maxPower);
             curPower = maxPower;
+            //Debug.Log("setting to: " + curPower);
+        }
+
+        if (Mathf.Floor(curPower / 100) >= curLevel)
+        {
+            setLevel((int)Mathf.Floor(curPower / 100));
+            if (getLevel() >= maxLevel)
+                setLevel(getMaxLevel());
+        }
+
+        //load events properly
+        if(curPower >= maxPower)
+        {
             cowMaxLevel?.Invoke(this);
         }
+        else if(Mathf.Floor(curPower / 100) >= curLevel)
+        {
+            cowLevelUp?.Invoke(this);
+        }
+        
             
     }
     [SerializeField] int maxPower;

@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
 
         if (!(theCow.getPower() >= theCow.getMaxPower())) //Prevents feeding from overwriting deletion UI
         {
+            Debug.Log("Cow power: " + theCow.getPower() + " max power: " + theCow.getMaxPower());
             theCow.PlayAnimation(Cow.CowAnims.FEED);
             particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
             uiManager.UpdateCowUI(theCow);
@@ -100,15 +101,18 @@ public class GameManager : MonoBehaviour
 
     void OnCowMaxLevel(Cow theCow)
     {
-        Debug.Log(theCow.gameObject.name + " reached max level!");
+        //Debug.Log(theCow.gameObject.name + " reached max level!");
+        UpdateCowUI();
+        theCow.setSelection(false);
         theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
         
     }
 
     void OnCowRetire(Cow theCow)
     {
+        uiManager.SetUIGroup("Train", false);
+        playerMouse.setCurCow(null);
         cowManager.DeleteCow(theCow.gameObject);
-        UpdateCowUI();
         cowManager.SpawnCow();
     }
 
@@ -118,7 +122,6 @@ public class GameManager : MonoBehaviour
             return;
         Vector3 spawn = new Vector3(theCow.transform.position.x, theCow.transform.position.y + 0.75f,0);
         particleManager.SpawnTextParticleAt("Power Increase", "Level Up!", spawn);
-        uiManager.UpdateCowUI(theCow);
         
     }
 
@@ -129,8 +132,8 @@ public class GameManager : MonoBehaviour
         {
             if (playerMouse.getCurCow())
             {
+                playerMouse.getCurCow().GetComponent<Cow>().setSelection(false);
                 playerMouse.setCurCow(null);
-                theObject.GetComponent<Cow>().setSelection(false);
                 uiManager.SetUIGroup("Train", false);
             }
 
@@ -152,6 +155,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                if (playerMouse.getCurCow())
+                {
+                    playerMouse.getCurCow().GetComponent<Cow>().setSelection(false);
+                }
                 playerMouse.setCurCow(theObject);
                 theObject.GetComponent<Cow>().setSelection(true);
                 uiManager.SetUIGroup("Train", true);
