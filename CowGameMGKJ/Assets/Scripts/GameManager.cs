@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] CowManager cowManager;
     [SerializeField] TrainManager trainManager;
     [SerializeField] UIManager uiManager;
+    [SerializeField] ParticleManager particleManager;
+
     [SerializeField] PlayerMouse playerMouse;
     [SerializeField] BoxCollider2D spawnZone;
     public static GameManager instance;
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
     {
         Cow.cowEat += OnCowEat;
         Cow.cowMaxLevel += OnCowMaxLevel;
+        Cow.cowLevelUp += OnCowLevelUp;
+        Cow.cowRetire += OnCowRetire;
 
         CowManager.cowSpawned += OnCowSpawned;
 
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
     {
         Cow.cowEat -= OnCowEat;
         Cow.cowMaxLevel -= OnCowMaxLevel;
+        Cow.cowLevelUp += OnCowLevelUp;
+        Cow.cowRetire += OnCowRetire;
 
         CowManager.cowSpawned -= OnCowSpawned;
 
@@ -79,20 +85,41 @@ public class GameManager : MonoBehaviour
 
         playerMouse.setCurCow(theCow.gameObject);
         theCow.setPower(theCow.getPower() + theFood.getPower());
+        string powerIncreaseText = "+ " + theFood.getPower();
         foodManager.DeleteFood(theFood.gameObject);
         //Debug.Log("the cow is " + theCow.gameObject);
-        theCow.PlayAnimation(Cow.CowAnims.FEED);
-        if(!(theCow.getPower() >= theCow.getMaxPower())) //Prevents feeding from overwriting deletion UI
+
+        if (!(theCow.getPower() >= theCow.getMaxPower())) //Prevents feeding from overwriting deletion UI
+        {
+            theCow.PlayAnimation(Cow.CowAnims.FEED);
+            particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
             uiManager.UpdateCowUI(theCow);
-        uiManager.SetUIGroup("Train", false);
+        }
+            uiManager.SetUIGroup("Train", false);
     }
 
     void OnCowMaxLevel(Cow theCow)
     {
         Debug.Log(theCow.gameObject.name + " reached max level!");
         theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
+        
+    }
+
+    void OnCowRetire(Cow theCow)
+    {
         cowManager.DeleteCow(theCow.gameObject);
+        UpdateCowUI();
         cowManager.SpawnCow();
+    }
+
+    void OnCowLevelUp(Cow theCow)
+    {
+        if (theCow.getMaxPower() == theCow.getPower())
+            return;
+        Vector3 spawn = new Vector3(theCow.transform.position.x, theCow.transform.position.y + 0.75f,0);
+        particleManager.SpawnTextParticleAt("Power Increase", "Level Up!", spawn);
+        uiManager.UpdateCowUI(theCow);
+        
     }
 
     void OnMouseClickOn(GameObject theObject)
@@ -152,7 +179,11 @@ public class GameManager : MonoBehaviour
         Vector2 theSpawn = Vector2.zero;
         theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
         theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
-        while (!canSelectSpawn)
+
+        int attempt = 0;
+        int numAttempts = 200;
+
+        while (!canSelectSpawn && attempt < numAttempts)
         {
             if (spawnZone.bounds.Contains(theSpawn))
             {
@@ -191,7 +222,12 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("spawned Wrong");
                 theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);
                 theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
+                attempt++;
             }
+        }
+        if(attempt >= numAttempts)
+        {
+            return Vector2.zero;
         }
         //Debug.Log("spawning at " + theSpawn);
 

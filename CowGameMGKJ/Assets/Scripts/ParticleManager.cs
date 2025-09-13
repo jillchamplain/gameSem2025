@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ParticleManager : MonoBehaviour
@@ -10,12 +11,26 @@ public class ParticleManager : MonoBehaviour
     
     public void SpawnParticleAt(string index, Vector3 spawnPos)
     {
-
+        for(int i = 0; i < particles.Count; i++)
+        {
+            if (particles[i].getName() == index)
+            {
+                GameObject theParticle = GameObject.Instantiate(particles[i].getGameObjectRef(), spawnPos, Quaternion.identity);
+                
+            }
+        }
     }
 
     public void SpawnTextParticleAt(string index, string text, Vector3 spawnPos)
     {
-
+        for (int i = 0; i < particles.Count; i++)
+        {
+            if (particles[i].getName() == index)
+            {
+                GameObject theParticle = GameObject.Instantiate(particles[i].getGameObjectRef(), spawnPos, Quaternion.identity);
+                theParticle.GetComponentInChildren<TextMeshProUGUI>().text = text;
+            }
+        }
     }
 
     [Serializable]

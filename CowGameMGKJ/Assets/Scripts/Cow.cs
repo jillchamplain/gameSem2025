@@ -18,6 +18,7 @@ public class Cow : MonoBehaviour
 
     [SerializeField] int curLevel;
     public int getLevel() { return curLevel; }
+    public void setLevel(int level) { curLevel = level; }
 
     [SerializeField] int maxLevel; //NEED TO FIGURE OUT MATH FOR THIS
     public int getMaxLevel() { return maxLevel; }
@@ -28,6 +29,11 @@ public class Cow : MonoBehaviour
     public void setPower(int newPower)
     {
         curPower = newPower;
+        if (curPower / 100 >= curLevel)
+        {
+            curLevel++;
+            cowLevelUp?.Invoke(this);
+        }
         if (curPower >= maxPower)
         {
             curPower = maxPower;
@@ -41,7 +47,7 @@ public class Cow : MonoBehaviour
     public void setMaxPower(int theMax)
     {
         maxPower = theMax;
-        setMaxLevel(maxPower % 100);
+        setMaxLevel(maxPower / 100);
     }
 
     [SerializeField] int uiIndex;
@@ -71,8 +77,14 @@ public class Cow : MonoBehaviour
     public delegate void CowEat(Cow thisCow, Food thisFood);
     public static event CowEat cowEat;
 
+    public delegate void CowRetire(Cow thisCow);
+    public static event CowRetire cowRetire;
+
     public delegate void CowMaxLevel(Cow thisCow);
     public static event CowMaxLevel cowMaxLevel;
+
+    public delegate void CowLevelUp(Cow thisCow);
+    public static event CowLevelUp cowLevelUp;
 
 
     public void InitCow(string name, int theGen, int theMaxPower)
@@ -81,6 +93,7 @@ public class Cow : MonoBehaviour
         thisNameLabel.text = name;
         setGen(theGen);
         setMaxPower(theMaxPower);
+        setLevel(1);
         isInitted = true;
     }
 
@@ -90,6 +103,7 @@ public class Cow : MonoBehaviour
         thisNameLabel.text = name;
         setGen(-1);
         setMaxPower(-1);
+        setLevel(1);
         isInitted = true;
     }
 
@@ -106,39 +120,25 @@ public class Cow : MonoBehaviour
         switch(theAnimation)
         {
             case CowAnims.IDLE:
-                IdleAnimation();
+                thisAnimator.Play("CowIdle");
                 break;
             case CowAnims.SPAWN:
-                SpawnAnimation();
+                thisAnimator.Play("CowSpawn");
                 break;
             case CowAnims.FEED:
-                FeedAnimation();
+                thisAnimator.Play("CowFeed");
                 break;
             case CowAnims.RETIRE:
-                RetireAnimation();
+                thisAnimator.Play("CowRetire");
+                Debug.Log("playing retire");
                 break;
         }
     }
 
-    void IdleAnimation()
-     {
-        thisAnimator.Play("CowIdle");
-     }
-
-    void SpawnAnimation()
+  
+    void Retire()
     {
-        thisAnimator.Play("CowSpawn");
-    }
-
-    void FeedAnimation()
-    {
-        thisAnimator.Play("CowFeed");
-        
-    }
-
-    void RetireAnimation()
-    {
-        thisAnimator.Play("CowRetire");
+        cowRetire?.Invoke(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

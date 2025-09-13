@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bcca8e278e5b644b484035348aecaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodSpawnInterval: 1
+  foodSpawnInterval: 3
   curFoods: []
   unlockedFoods:
   - {fileID: 2214501179772298851, guid: e823ec89c8c4f48489ad7ad636056b89, type: 3}
@@ -1339,7 +1339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481538339
 GameObject:
@@ -2303,7 +2303,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652911874
 GameObject:
@@ -2860,7 +2860,7 @@ RectTransform:
   - {fileID: 1049201805}
   - {fileID: 1177161859}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4792,7 +4792,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5117,7 +5117,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1902078456
 MonoBehaviour:
@@ -5505,6 +5505,7 @@ MonoBehaviour:
   cowManager: {fileID: 882086647}
   trainManager: {fileID: 485875205}
   uiManager: {fileID: 772889992}
+  particleManager: {fileID: 1902078456}
   playerMouse: {fileID: 429313230}
   spawnZone: {fileID: 484040198}
 --- !u!4 &2041827318
