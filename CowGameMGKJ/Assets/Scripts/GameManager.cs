@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public Vector2 SelectRandomSpawn() //NEED TO!!!!!!!!!!!!! CHECK FOR OVERLAP WITH OTHER FOOD AND COWS STILL DOESN'T WORK
+    public Vector2 SelectRandomSpawn(GameObject theObject) //NEED TO!!!!!!!!!!!!! CHECK FOR OVERLAP WITH OTHER FOOD AND COWS STILL DOESN'T WORK
     {
         bool canSelectSpawn = false;
         Vector2 theSpawn = Vector2.zero;
@@ -159,13 +159,14 @@ public class GameManager : MonoBehaviour
                 canSelectSpawn = true;
             }
             //Check if overlapping Cows
-            for(int i = 0; i < cowManager.getCows().Count; i++)
+            /*for(int i = 0; i < cowManager.getCows().Count; i++)
             {
                 if (cowManager.getCowAt(i).gameObject.GetComponent<BoxCollider2D>().bounds.Contains(theSpawn))
                 {
                     canSelectSpawn = false;
                     //Debug.Log("Overlapped with Cow");
                 }
+                
             }
 
             //Check if overlapping Food
@@ -177,6 +178,14 @@ public class GameManager : MonoBehaviour
                     //Debug.Log("Overlapped with Food");
                 }
             }
+            */
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(theSpawn, theObject.transform.localScale.x * 2f);
+            foreach(Collider2D collider in colliders)
+            {
+                canSelectSpawn = false;
+            }
+
             if (!canSelectSpawn)
             {
                 //Debug.Log("spawned Wrong");
@@ -184,7 +193,7 @@ public class GameManager : MonoBehaviour
                 theSpawn.y = Random.Range(spawnZone.bounds.min.y, spawnZone.bounds.max.y);
             }
         }
-        //Debug.Log(theSpawn);
+        //Debug.Log("spawning at " + theSpawn);
 
         return theSpawn;
     }

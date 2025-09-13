@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bcca8e278e5b644b484035348aecaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodSpawnInterval: 3
+  foodSpawnInterval: 1
   curFoods: []
   unlockedFoods:
   - {fileID: 2214501179772298851, guid: e823ec89c8c4f48489ad7ad636056b89, type: 3}

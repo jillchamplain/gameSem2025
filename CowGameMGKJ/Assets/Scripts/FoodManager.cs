@@ -37,7 +37,9 @@ public class FoodManager : MonoBehaviour
 
     void SpawnFood()
     {
-        GameObject newFood = Instantiate(SelectRandomFood(),GameManager.getInstance().SelectRandomSpawn(), Quaternion.identity); //Disable collision with cows until pickup?
+        GameObject foodPrefab = SelectRandomFood();
+        Vector2 spawn = GameManager.instance.SelectRandomSpawn(foodPrefab);
+        GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
         newFood.transform.parent = this.transform;
 
         curFoods.Add(newFood);

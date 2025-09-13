@@ -44,7 +44,7 @@ public class PlayerMouse : MonoBehaviour
         RaycastHit2D hit = (Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero));
         if(hit.collider != null)
         {
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
             mouseClickOn?.Invoke(hit.collider.gameObject);
         }
     }

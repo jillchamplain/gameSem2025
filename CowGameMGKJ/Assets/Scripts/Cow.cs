@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 
@@ -47,6 +48,8 @@ public class Cow : MonoBehaviour
     public int getUIIndex() { return uiIndex; }
     public void setUIIndex(int newIndex) { uiIndex = newIndex; }
 
+    bool isInitted = false;
+
     [Header("Refs")]
     [SerializeField] Animator thisAnimator;
     [SerializeField] SpriteRenderer thisSprite;
@@ -78,6 +81,7 @@ public class Cow : MonoBehaviour
         thisNameLabel.text = name;
         setGen(theGen);
         setMaxPower(theMaxPower);
+        isInitted = true;
     }
 
     public void InitCow()
@@ -86,6 +90,7 @@ public class Cow : MonoBehaviour
         thisNameLabel.text = name;
         setGen(-1);
         setMaxPower(-1);
+        isInitted = true;
     }
 
     public enum CowAnims
@@ -141,6 +146,7 @@ public class Cow : MonoBehaviour
         
         if(collision.gameObject.CompareTag("Food"))
         {
+            //Debug.Log("this gameObject is at " + gameObject.transform.position + " and food is at " + collision.gameObject.transform.position);
             cowEat?.Invoke(this, collision.GetComponent<Food>());
             //Debug.Log("cow is" + this.gameObject);
         }
