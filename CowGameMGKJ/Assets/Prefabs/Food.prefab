@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2214501179772298854}
   - component: {fileID: 3160738352116158682}
   - component: {fileID: 5362227351762472908}
+  - component: {fileID: 3102107184653279658}
   m_Layer: 0
   m_Name: Food
   m_TagString: Food
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 100
   thisSprite: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!50 &3160738352116158682
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +150,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &3102107184653279658
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2214501179772298851}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27bc6a97a948e24429172fd7d523063f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

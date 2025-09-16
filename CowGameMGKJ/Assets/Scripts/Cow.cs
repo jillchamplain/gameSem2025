@@ -65,6 +65,8 @@ public class Cow : MonoBehaviour
         setMaxLevel(maxPower / 100);
     }
 
+    [SerializeField] List<string> traits;
+
     [SerializeField] int uiIndex;
     public int getUIIndex() { return uiIndex; }
     public void setUIIndex(int newIndex) { uiIndex = newIndex; }
@@ -102,13 +104,21 @@ public class Cow : MonoBehaviour
     public static event CowLevelUp cowLevelUp;
 
 
-    public void InitCow(string name, int theGen, int theMaxPower)
+    public void InitCow(string name, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
     {
         setName(name);
         thisNameLabel.text = name;
         setGen(theGen);
         setMaxPower(theMaxPower);
         setLevel(1);
+
+        string firstTrait = trait1;
+        string secondTrait = trait2;
+        string thirdTrait = trait3;
+        traits.Add(firstTrait);
+        traits.Add(secondTrait);
+        traits.Add(thirdTrait);
+
         isInitted = true;
     }
 

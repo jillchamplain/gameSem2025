@@ -115,8 +115,10 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:DOTWEEN
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/DOTween/DOTween.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.17f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
@@ -403,6 +405,14 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
+"Assets/DOTween/Modules/DOTweenModuleAudio.cs"
+"Assets/DOTween/Modules/DOTweenModuleEPOOutline.cs"
+"Assets/DOTween/Modules/DOTweenModulePhysics.cs"
+"Assets/DOTween/Modules/DOTweenModulePhysics2D.cs"
+"Assets/DOTween/Modules/DOTweenModuleSprite.cs"
+"Assets/DOTween/Modules/DOTweenModuleUI.cs"
+"Assets/DOTween/Modules/DOTweenModuleUnityVersion.cs"
+"Assets/DOTween/Modules/DOTweenModuleUtils.cs"
 "Assets/Scripts/Cow.cs"
 "Assets/Scripts/CowManager.cs"
 "Assets/Scripts/CustomParticle.cs"
@@ -411,6 +421,7 @@
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/ParticleManager.cs"
 "Assets/Scripts/PlayerMouse.cs"
+"Assets/Scripts/RaceManager.cs"
 "Assets/Scripts/TrainManager.cs"
 "Assets/Scripts/UIContainer.cs"
 "Assets/Scripts/UIManager.cs"

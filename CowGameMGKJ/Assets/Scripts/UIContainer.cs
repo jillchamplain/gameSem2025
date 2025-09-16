@@ -1,8 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 
 public class UIContainer : MonoBehaviour
@@ -18,4 +19,26 @@ public class UIContainer : MonoBehaviour
     public TextMeshProUGUI getPowerTF() { return powerTF; }
     [SerializeField] Slider powerSlider;
     public Slider getPowerSlider() { return powerSlider; }
+
+    public void setContainer(Cow theCow)
+    {
+        getNameTF().text = theCow.getName();
+        //Debug.Log("name for " + theCow.gameObject + " set to " + theUI.getNameTF().text);
+        getGenTF().text = theCow.getGen().ToString();
+        //Debug.Log("gen for " + theCow.gameObject + " set to " + theUI.getGenTF().text);
+        getLevelTF().text = theCow.getLevel().ToString() + "/" + theCow.getMaxLevel();
+        //Debug.Log("level for " + theCow.gameObject + " set to " + theUI.getLevelTF().text);
+        getPowerTF().text = theCow.getPower().ToString();
+        //Debug.Log("power for " + theCow.gameObject + " set to " + theUI.getPowerTF().text);
+        getPowerSlider().maxValue = theCow.getMaxPower();
+        getPowerSlider().DOValue(theCow.getPower(), 1.0f);
+
+    }
+
+    public void PopAnimation()
+    {
+        DOTween.CompleteAll();
+        this.gameObject.GetComponent<RectTransform>().DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 0.5f, 1);
+
+    }
 }

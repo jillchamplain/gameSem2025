@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 using System;
+using DG.Tweening;
 public class UIManager : MonoBehaviour
 {
     [Header("Refs")]
@@ -42,32 +43,22 @@ public class UIManager : MonoBehaviour
     }
 
     public void UpdateCowUI(Cow theCow)
-    {   
+    {
         if (theCow == null)
             return;
         //Debug.Log("the Cow is " + theCow.gameObject);
         //Debug.Log("cow index is " + theCow.getUIIndex());
         //Debug.Log("cow UIs are " + cowUIs.Length);
-        for(int i = 0; i < cowUIs.Length; i++)
+        for (int i = 0; i < cowUIs.Length; i++)
         {
             if (theCow.getUIIndex() == i)
             {
-                
                 UIContainer theUI = cowUIs[i];
-                theUI.getNameTF().text = theCow.getName();
-                //Debug.Log("name for " + theCow.gameObject + " set to " + theUI.getNameTF().text);
-                theUI.getGenTF().text = theCow.getGen().ToString();
-                //Debug.Log("gen for " + theCow.gameObject + " set to " + theUI.getGenTF().text);
-                theUI.getLevelTF().text = theCow.getLevel().ToString() + "/" + theCow.getMaxLevel();
-                //Debug.Log("level for " + theCow.gameObject + " set to " + theUI.getLevelTF().text);
-                theUI.getPowerTF().text = theCow.getPower().ToString();
-                //Debug.Log("power for " + theCow.gameObject + " set to " + theUI.getPowerTF().text);
-                theUI.getPowerSlider().value = theCow.getPower();
-                theUI.getPowerSlider().maxValue = theCow.getMaxPower();
+                if (theUI.getPowerSlider().value < theCow.getPower())
+                    theUI.PopAnimation();
+                theUI.setContainer(theCow);
             }
-            
         }
-
     }
 
 }

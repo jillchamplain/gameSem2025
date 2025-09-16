@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] FoodManager foodManager;
     [SerializeField] CowManager cowManager;
     [SerializeField] TrainManager trainManager;
+    [SerializeField] RaceManager raceManager;
     [SerializeField] UIManager uiManager;
     [SerializeField] ParticleManager particleManager;
 
@@ -70,14 +71,23 @@ public class GameManager : MonoBehaviour
     {
         Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
-        theCow.setPower(theCow.getPower() + trainManager.RollTrainingSuccess(theRegimen));
+        int increase = trainManager.RollTrainingSuccess(theRegimen);
+        theCow.setPower(theCow.getPower() + increase);
         if (theCow.getPower() >= theCow.getMaxPower())
         {
             uiManager.SetUIGroup("Train", false);
             return;
         }
+        theCow.PlayAnimation(Cow.CowAnims.FEED);
+        string powerIncreaseText = "+ " + increase;
+        particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
         uiManager.UpdateCowUI(theCow);
         //Debug.Log("updating");
+    }
+
+    public void OnRaceCow()
+    {
+        raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>());
     }
 
     void OnCowEat(Cow theCow, Food theFood)
