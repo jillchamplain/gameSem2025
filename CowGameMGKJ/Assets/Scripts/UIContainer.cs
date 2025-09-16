@@ -20,6 +20,10 @@ public class UIContainer : MonoBehaviour
     [SerializeField] Slider powerSlider;
     public Slider getPowerSlider() { return powerSlider; }
 
+    [SerializeField] List<Image> traitImages;
+    public List<Image> getTraitImages() { return traitImages; }
+    public Image getTraitImageAt(int index) { return traitImages[index]; }
+
     public void setContainer(Cow theCow)
     {
         getNameTF().text = theCow.getName();

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
@@ -38,15 +39,15 @@ public class RaceManager : MonoBehaviour
 
         public static bool operator !=(Race raceA, Race raceB)
         {
-            bool isEqual = true;
+            bool isEqual = false;
             if (raceA.getPower() != raceB.getPower())
-                isEqual = false;
+                isEqual = true;
             if (raceA.getTraitAt(0) != raceB.getTraitAt(0))
-                isEqual = false;
+                isEqual = true;
             if (raceA.getTraitAt(1) != raceB.getTraitAt(1))
-                isEqual = false;
+                isEqual = true;
             if (raceA.getTraitAt(2) != raceB.getTraitAt(2))
-                isEqual = false;
+                isEqual = true;
 
             return isEqual;
         }
@@ -57,12 +58,41 @@ public class RaceManager : MonoBehaviour
         [SerializeField] List<Race> races;
         public List<Race> getRaces() { return races; }
         public Race getRaceAt(int index) { return races[index]; }
+
+        public static bool operator ==(League leagueA, League leagueB)
+        {
+            bool isEqual = true;
+            if (leagueA.getRaces().Count != leagueB.getRaces().Count)
+                return false;
+
+            for(int i = 0; i < leagueA.getRaces().Count; i++)
+            {
+                if (leagueA.getRaceAt(i) != leagueB.getRaceAt(i))
+                    isEqual = false;
+            }
+
+            return isEqual;
+        }
+
+        public static bool operator !=(League leagueA, League leagueB)
+        {
+            bool isEqual = false;
+            if (leagueA.getRaces().Count != leagueB.getRaces().Count)
+                return true;
+            
+            for(int i = 0; i < leagueA.getRaces().Count; i++)
+            {
+                if (leagueA.getRaceAt(i) != leagueB.getRaceAt(i))
+                    return true;
+            }
+            return isEqual;
+        }
     }
 
     private void Start()
     {
-        curRace = curLeague.getRaceAt(0);
         curLeague = allLeagues[0];
+        curRace = curLeague.getRaceAt(0);
     }
 
     public void RaceCow(Cow theCow)
@@ -86,6 +116,21 @@ public class RaceManager : MonoBehaviour
                         curRace = curLeague.getRaceAt(i + 1);
                         needNewLeague = false;
                         break;
+                    }
+                }
+            }
+
+            if(needNewLeague)
+            {
+                for(int i = 0; i < allLeagues.Count; i++)
+                {
+                    if(curLeague == allLeagues[i])
+                    {
+                        if(i < allLeagues.Count - 1)
+                        {
+                            curLeague = allLeagues[i + 1];
+                            curRace = curLeague.getRaceAt(0);
+                        }
                     }
                 }
             }

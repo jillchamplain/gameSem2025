@@ -705,6 +705,10 @@ MonoBehaviour:
   levelTF: {fileID: 1716110331}
   powerTF: {fileID: 194514564}
   powerSlider: {fileID: 639970314}
+  traitImages:
+  - {fileID: 212326705}
+  - {fileID: 609849432}
+  - {fileID: 722709586}
 --- !u!1 &139421825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,6 +2803,10 @@ MonoBehaviour:
   levelTF: {fileID: 527000465}
   powerTF: {fileID: 119814666}
   powerSlider: {fileID: 703959481}
+  traitImages:
+  - {fileID: 2097207262}
+  - {fileID: 1781610013}
+  - {fileID: 1664427889}
 --- !u!1 &772889987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,7 +4877,55 @@ MonoBehaviour:
       - 1
       - 2
       - 3
-  allLeagues: []
+  allLeagues:
+  - races:
+    - power: 25
+      traits:
+      - 1
+      - 2
+      - 3
+    - power: 50
+      traits:
+      - 1
+      - 2
+      - 3
+    - power: 75
+      traits:
+      - 1
+      - 2
+      - 3
+  - races:
+    - power: 100
+      traits:
+      - 1
+      - 2
+      - 3
+    - power: 200
+      traits:
+      - 1
+      - 2
+      - 3
+    - power: 350
+      traits:
+      - 1
+      - 2
+      - 3
+  - races:
+    - power: 500
+      traits:
+      - 1
+      - 2
+      - 3
+    - power: 750
+      traits:
+      - 1
+      - 2
+      - 3
+    - power: 1000
+      traits:
+      - 1
+      - 2
+      - 3
 --- !u!4 &1778656776
 Transform:
   m_ObjectHideFlags: 0
@@ -5807,3 +5863,4 @@ MonoBehaviour:
   levelTF: {fileID: 404272856}
   powerTF: {fileID: 1111236699}
   powerSlider: {fileID: 596571012}
+  traitImages: []
