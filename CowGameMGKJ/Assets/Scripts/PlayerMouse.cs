@@ -14,11 +14,18 @@ public class PlayerMouse : MonoBehaviour
     public GameObject getCurCow() { return curCow; }
     public void setCurCow(GameObject theCow) { curCow = theCow; }
 
-    //EVENTS
-    public delegate void MouseClickOn(GameObject theObject);
-    public static event MouseClickOn mouseClickOn;
 
-    public delegate void MouseRelease();
+
+
+    [SerializeField] List<GameObject> selectionList;
+    public List<GameObject> getSelectionList() { return selectionList; }
+    public GameObject getSelectionAt(int index) { return selectionList[index]; }
+
+    //EVENTS
+    public delegate void MouseClick(List<GameObject> theSelectionList);
+    public static event MouseClick mouseClick;
+
+    public delegate void MouseRelease(List<GameObject> theSelectionList);
     public static event MouseRelease mouseRelease;
     // Start is called before the first frame update
     void Start()
@@ -31,21 +38,25 @@ public class PlayerMouse : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-            MouseClick();
-        if (curFood && Input.GetMouseButton(0))
+            ClickMouse();
+        if (curFood && Input.GetMouseButton(0)) //Move this to the food manager script
             curFood.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -(Camera.main.transform.position.z)));
         else if (Input.GetMouseButtonUp(0))
-            mouseRelease?.Invoke();
+        {
+            mouseRelease?.Invoke(selectionList);
+        }
     }
 
-    void MouseClick()
+    void ClickMouse()
     {
         //Debug.Log("click");
         RaycastHit2D hit = (Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero));
         if(hit.collider != null)
         {
             //Debug.Log(hit.collider.gameObject);
-            mouseClickOn?.Invoke(hit.collider.gameObject);
+
+            selectionList.Add(hit.collider.gameObject);
+            mouseClick?.Invoke(selectionList);
         }
     }
 

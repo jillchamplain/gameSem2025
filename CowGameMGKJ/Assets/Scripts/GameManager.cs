@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
         CowManager.cowSpawned += OnCowSpawned;
 
-        PlayerMouse.mouseClickOn += OnMouseClickOn;
+        PlayerMouse.mouseClick += OnMouseClickOn;
         PlayerMouse.mouseRelease += OnMouseRelease;
     }
 
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
         CowManager.cowSpawned -= OnCowSpawned;
 
-        PlayerMouse.mouseClickOn -= OnMouseClickOn;
+        PlayerMouse.mouseClick -= OnMouseClickOn;
         PlayerMouse.mouseRelease -= OnMouseRelease;
     }
     private void Start()
