@@ -14,32 +14,60 @@ public class HomeScreenManager : MonoBehaviour
     [SerializeField] TrainManager trainManager;
     [SerializeField] UIManager uiManager;
 
+    public static HomeScreenManager inst;
+
     void OnEnable()
     {
         PlayerMouse.mouseClick += OnMouseClick;
         PlayerMouse.mouseRelease += OnMouseRelease;
     }
 
-
+    private void OnDisable()
+    {
+        PlayerMouse.mouseClick -= OnMouseClick;
+        PlayerMouse.mouseRelease -= OnMouseRelease;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (inst == null)
+            inst = this;
+        SetUpGame();
     }
 
-    // Update is called once per frame
-    void Update()
+    //SET UP
+    void SetUpGame()
     {
-        
+        cowManager.SpawnCows(3); //Prob give cow manager construct an array?
     }
 
-    void OnMouseClick(List<GameObject> theSelectionList)
+    //UI
+    void UpdateUI()
+    {
+        for (int i = 0; i < cowManager.getCows().Count; i++)
+        {
+            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+        }
+    }
+
+
+
+    //COWS
+    void OnCowSpawned()
+    {
+        UpdateUI();
+    }
+
+
+
+    //MOUSE
+    void OnMouseClick(List<GameObject> theSelectionList) //FIX THIS MORE
     {
         GameObject firstSelected = null;
         GameObject lastSelected = null;
 
-        for(int i = 0; i < theSelectionList.Count; i++)
+        for (int i = 0; i < theSelectionList.Count; i++)
         {
             if (i == 0)
                 firstSelected = theSelectionList[i];
@@ -48,21 +76,20 @@ public class HomeScreenManager : MonoBehaviour
         }
 
         //HANDLE LAST SELECTED OBJECT
-        if(lastSelected.GetComponent<Food>())
+        if (lastSelected.GetComponent<Food>())
         {
             lastSelected.GetComponent<Food>().setSelected(true);
         }
 
-        if(lastSelected.GetComponent<Cow>())
+        if (lastSelected.GetComponent<Cow>())
         {
             //lastSelected.GetComponent<Cow>().setSelected(true);
         }
-        
+
         //HANDLE PREVIOUSLY SELECTED OBJECT
 
     }
-
-    void OnMouseRelease(List<GameObject> theSelectionList)
+    void OnMouseRelease(List<GameObject> theSelectionList) //FIX THIS MORE
     {
         GameObject firstSelected = null;
         GameObject lastSelected = null;
