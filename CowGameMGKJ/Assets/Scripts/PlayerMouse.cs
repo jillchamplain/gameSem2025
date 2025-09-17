@@ -15,17 +15,11 @@ public class PlayerMouse : MonoBehaviour
     public void setCurCow(GameObject theCow) { curCow = theCow; }
 
 
-
-
-    [SerializeField] List<GameObject> selectionList;
-    public List<GameObject> getSelectionList() { return selectionList; }
-    public GameObject getSelectionAt(int index) { return selectionList[index]; }
-
     //EVENTS
-    public delegate void MouseClick(List<GameObject> theSelectionList);
+    public delegate void MouseClick(GameObject theObject);
     public static event MouseClick mouseClick;
 
-    public delegate void MouseRelease(List<GameObject> theSelectionList);
+    public delegate void MouseRelease();
     public static event MouseRelease mouseRelease;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +37,7 @@ public class PlayerMouse : MonoBehaviour
             curFood.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -(Camera.main.transform.position.z)));
         else if (Input.GetMouseButtonUp(0))
         {
-            mouseRelease?.Invoke(selectionList);
+            mouseRelease?.Invoke();
         }
     }
 
@@ -55,8 +49,7 @@ public class PlayerMouse : MonoBehaviour
         {
             //Debug.Log(hit.collider.gameObject);
 
-            selectionList.Add(hit.collider.gameObject);
-            mouseClick?.Invoke(selectionList);
+            mouseClick?.Invoke(hit.collider.gameObject);
         }
     }
 

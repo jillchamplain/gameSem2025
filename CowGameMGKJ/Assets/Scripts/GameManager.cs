@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
             instance = this;
         SetUpGame();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void SetUpGame()
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log(theCow.gameObject.name + " reached max level!");
         UpdateCowUI();
-        theCow.setSelection(false);
+        theCow.setSelected(false);
         theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
         
     }
@@ -142,7 +143,7 @@ public class GameManager : MonoBehaviour
         {
             if (playerMouse.getCurCow())
             {
-                playerMouse.getCurCow().GetComponent<Cow>().setSelection(false);
+                playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
                 playerMouse.setCurCow(null);
                 uiManager.SetUIGroup("Train", false);
             }
@@ -160,17 +161,17 @@ public class GameManager : MonoBehaviour
             if(playerMouse.getCurCow() == theObject)
             {
                 playerMouse.setCurCow(null);
-                theObject.GetComponent<Cow>().setSelection(false);
+                theObject.GetComponent<Cow>().setSelected(false);
                 uiManager.SetUIGroup("Train", false);
             }
             else
             {
                 if (playerMouse.getCurCow())
                 {
-                    playerMouse.getCurCow().GetComponent<Cow>().setSelection(false);
+                    playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
                 }
                 playerMouse.setCurCow(theObject);
-                theObject.GetComponent<Cow>().setSelection(true);
+                theObject.GetComponent<Cow>().setSelected(true);
                 uiManager.SetUIGroup("Train", true);
             }
         }

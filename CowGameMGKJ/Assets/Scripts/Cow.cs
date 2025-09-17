@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class Cow : MonoBehaviour
 {
+
+
+
     [Header("Stats")]
     [SerializeField] string curName;
     public string getName() { return curName; }
@@ -77,7 +80,7 @@ public class Cow : MonoBehaviour
     [SerializeField] Animator thisAnimator;
     [SerializeField] SpriteRenderer thisSprite;
     [SerializeField] SpriteRenderer thisSelectionSprite;
-    public void setSelection(bool isSelected)
+    public void setSelected(bool isSelected)
     {
         if(isSelected)
         {
