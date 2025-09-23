@@ -23,11 +23,17 @@ public class CowManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateCowData(GameData theData)
     {
-        
+        curGeneration = theData.curGeneration;
+
+        //Transforms placeholder cows into cows from data
+        getCowAt(0).InitCow(theData.name1, theData.gen1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
+        getCowAt(1).InitCow(theData.name2, theData.gen2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
+        getCowAt(2).InitCow(theData.name3, theData.gen3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3);
+
     }
+
     public void SpawnCows(int numCows)
     {
         for(int i = 0; i < numCows; i++)
@@ -108,5 +114,5 @@ public class CowManager : MonoBehaviour
         {
             curCows[i].GetComponent<Cow>().setUIIndex(i);
         }
-    }
+    } //MOVE THIS BRUHHHHHHHHH
 }

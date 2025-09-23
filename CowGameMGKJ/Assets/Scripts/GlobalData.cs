@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//MAYBE DELETE
 
 public class GlobalData : MonoBehaviour
 {
     //Need to store cow data
+
 
     public static GlobalData inst;
     [SerializeField] List<GameObject> curCows;
@@ -14,6 +16,8 @@ public class GlobalData : MonoBehaviour
         curCows.Remove(theCow.gameObject);
         UpdateCurCowData();
     }
+
+    [SerializeField] int cowGeneration;
     private void Start()
     {
         inst = this;

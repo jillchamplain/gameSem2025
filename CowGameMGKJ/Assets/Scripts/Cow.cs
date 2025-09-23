@@ -69,10 +69,11 @@ public class Cow : MonoBehaviour
     }
 
     [SerializeField] List<string> traits;
+    public string getTraitAt(int index) { return traits[index]; }
 
     [SerializeField] int uiIndex;
-    public int getUIIndex() { return uiIndex; }
-    public void setUIIndex(int newIndex) { uiIndex = newIndex; }
+    public int getUIIndex() { return uiIndex; } //MOVE THIS SHIT
+    public void setUIIndex(int newIndex) { uiIndex = newIndex; } //BAD
 
     bool isInitted = false;
 
@@ -136,6 +137,27 @@ public class Cow : MonoBehaviour
         isInitted = true;
     }
 
+    public void InitCow(string name, int theGen, int power, int theMaxPower, string trait1, string trait2, string trait3)
+    {
+        setName(name);
+        thisNameLabel.text = name;
+        setGen(theGen);
+        setPower(power);
+        setMaxPower(theMaxPower);
+        setLevel(1);
+
+        string firstTrait = trait1;
+        string secondTrait = trait2;
+        string thirdTrait = trait3;
+        traits.Add(firstTrait);
+        traits.Add(secondTrait);
+        traits.Add(thirdTrait);
+
+        DontDestroyOnLoad(this.gameObject);
+
+        isInitted = true;
+    }
+
     public void InitCow()
     {
         setName("NULLCOW");
@@ -147,6 +169,8 @@ public class Cow : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         isInitted = true;
     }
+
+ 
 
     public enum CowAnims
     {

@@ -3171,6 +3171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curCows: []
+  cowGeneration: 0
 --- !u!1 &1049201804
 GameObject:
   m_ObjectHideFlags: 0
