@@ -40,7 +40,7 @@ public class CowManager : MonoBehaviour
     {
         Vector2 spawn = GameManager.getInstance().SelectRandomSpawn(cowPrefab);
         GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
-        theObject.transform.parent = this.gameObject.transform;
+        //theObject.transform.parent = this.gameObject.transform;
         theObject.GetComponent<Cow>().InitCow("NONAME", curGeneration + 1, (curGeneration + 1) * 100, "1", "2", "3");
         theObject.name = (curGeneration + 1).ToString();
         curCows.Add(theObject);
@@ -53,13 +53,21 @@ public class CowManager : MonoBehaviour
     {
         Vector2 spawn = GameManager.getInstance().SelectRandomSpawn(cowPrefab);
         GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
-        theObject.transform.parent = this.gameObject.transform;
+        //theObject.transform.parent = this.gameObject.transform;
         theObject.GetComponent<Cow>().InitCow(name, curGeneration + 1, (curGeneration + 1) * 100, "1", "2", "3");
         theObject.name = name;
         curCows.Add(theObject);
         ModifyCowUIIndex();
         curGeneration++;
         cowSpawned?.Invoke(theObject.GetComponent<Cow>());
+    }
+
+    public void SpawnCow(Cow theCow)
+    {
+        Vector2 spawn = GameManager.getInstance().SelectRandomSpawn(cowPrefab);
+        GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
+        //theObject.transform.parent = this.gameObject.transform;
+
     }
 
     public void DeleteCow(GameObject theCow)

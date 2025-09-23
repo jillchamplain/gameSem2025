@@ -106,7 +106,16 @@ public class Cow : MonoBehaviour
     public delegate void CowLevelUp(Cow thisCow);
     public static event CowLevelUp cowLevelUp;
 
+    public void InitCow(Cow theCow)
+    {
+        setName(theCow.name);
+        thisNameLabel.text = name;
+        setGen(theCow.gen);
+        setMaxPower(theCow.maxPower);
+        setLevel(theCow.curLevel);
 
+        DontDestroyOnLoad(this.gameObject);
+    }
     public void InitCow(string name, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
     {
         setName(name);
@@ -122,6 +131,8 @@ public class Cow : MonoBehaviour
         traits.Add(secondTrait);
         traits.Add(thirdTrait);
 
+        DontDestroyOnLoad(this.gameObject);
+
         isInitted = true;
     }
 
@@ -132,6 +143,8 @@ public class Cow : MonoBehaviour
         setGen(-1);
         setMaxPower(-1);
         setLevel(1);
+
+        DontDestroyOnLoad(this.gameObject);
         isInitted = true;
     }
 
@@ -158,7 +171,7 @@ public class Cow : MonoBehaviour
                 break;
             case CowAnims.RETIRE:
                 thisAnimator.Play("CowRetire");
-                Debug.Log("playing retire");
+                //Debug.Log("playing retire");
                 break;
         }
     }
@@ -179,4 +192,6 @@ public class Cow : MonoBehaviour
             //Debug.Log("cow is" + this.gameObject);
         }
     }
+
+
 }

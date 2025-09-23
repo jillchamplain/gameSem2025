@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Refs")]
+    [SerializeField] GlobalData globalData;
     [SerializeField] FoodManager foodManager;
     [SerializeField] CowManager cowManager;
     [SerializeField] TrainManager trainManager;
@@ -46,8 +47,8 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        SetUpGame();
         DontDestroyOnLoad(this.gameObject);
+        SetUpGame();
     }
 
     void SetUpGame()
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     void OnCowSpawned(Cow theCow)
     {
+        globalData.AddCow(theCow);
         UpdateCowUI();
     }
 
