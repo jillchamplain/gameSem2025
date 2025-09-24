@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using DG.Tweening;
-public class UIManager : MonoBehaviour
+public class UIManager : Manager
 {
     [Header("Refs")]
     [SerializeField] UIContainer[] cowUIs = new UIContainer[3];

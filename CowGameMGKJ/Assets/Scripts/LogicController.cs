@@ -4,13 +4,37 @@ using UnityEngine;
 
 public class LogicController : MonoBehaviour
 {
-    [SerializeField] ArcTestManager.GameState state;
-    public ArcTestManager.GameState getGameState() { return state; }
-    public void setGameState(ArcTestManager.GameState newState) { state = newState; }
+    [SerializeField] GameState state;
+    public GameState getGameState() { return state; }
+    public void setGameState(GameState newState) { state = newState; }
 
-    private void Awake()
+    [SerializeField] bool isListening;
+    public bool getListening() { return isListening; }
+    public void setListening(bool value) { isListening = value; }
+
+    [SerializeField] List<Manager> managers;
+    public Manager getManager(ManagerType theType) //MAKE MANAGERS NOT KNOW WHAT THEY DO
     {
-        DontDestroyOnLoad(this.gameObject);
+        foreach(Manager manager in managers)
+        {
+            if (manager.type == theType)
+            {
+                return manager;
+            }
+        }
+        return null;
     }
+
+    public void ToggleManagers(bool value)
+    {
+        foreach(Manager manager in managers)
+        {
+            manager.gameObject.SetActive(value);
+        }
+    }
+
+
+
+
 
 }

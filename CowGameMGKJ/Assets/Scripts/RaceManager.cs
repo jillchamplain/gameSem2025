@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
-public class RaceManager : MonoBehaviour
+public class RaceManager : Manager
 {
     [Header("Refs")]
     [SerializeField] Race curRace;

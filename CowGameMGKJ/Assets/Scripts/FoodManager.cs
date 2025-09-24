@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodManager : MonoBehaviour
+public class FoodManager : Manager
 {
     [Header("Stats")]
     [SerializeField] float foodSpawnInterval;
@@ -15,6 +15,9 @@ public class FoodManager : MonoBehaviour
     [SerializeField] List<GameObject> unlockedFoods;
     [SerializeField] List<GameObject> allFoods;
 
+    public delegate void FoodSpawn(GameObject theFood);
+    public static event FoodSpawn foodSpawn;
+
     void Update()
     {
         if (canSpawn)
@@ -24,7 +27,7 @@ public class FoodManager : MonoBehaviour
     IEnumerator FoodSpawnTimer()
     {
         canSpawn = false;
-        SpawnFood();
+        foodSpawn?.Invoke(SelectRandomFood());
         yield return new WaitForSecondsRealtime(foodSpawnInterval);
         canSpawn = true;
     }
@@ -35,10 +38,10 @@ public class FoodManager : MonoBehaviour
         Destroy(theFood);
     }
 
-    void SpawnFood()
+    public void SpawnFood(GameObject theFood, Vector3 spawnPos)
     {
-        GameObject foodPrefab = SelectRandomFood();
-        Vector2 spawn = GameManager.instance.SelectRandomSpawn(foodPrefab); //MOVE THIS 
+        GameObject foodPrefab = theFood;
+        Vector2 spawn = spawnPos; //MOVE THIS 
         GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
         newFood.transform.parent = this.transform;
 

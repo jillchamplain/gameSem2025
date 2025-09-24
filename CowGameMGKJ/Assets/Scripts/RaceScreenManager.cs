@@ -11,7 +11,7 @@ public class RaceScreenManager : MonoBehaviour
     [SerializeField] UIManager uiManager;
     [SerializeField] ParticleManager particleManager;
 
-    [SerializeField] PlayerMouse playerMouse;
+    [SerializeField] MouseManager playerMouse;
     [SerializeField] BoxCollider2D spawnZone;
     public static RaceScreenManager instance;
     public static RaceScreenManager getInstance() { return instance; }
@@ -19,16 +19,16 @@ public class RaceScreenManager : MonoBehaviour
     {
         CowManager.cowSpawned += OnCowSpawned;
 
-        PlayerMouse.mouseClick += OnMouseClickOn;
-        PlayerMouse.mouseRelease += OnMouseRelease;
+        MouseManager.mouseClick += OnMouseClickOn;
+        MouseManager.mouseRelease += OnMouseRelease;
     }
 
     private void OnDisable()
     {
         CowManager.cowSpawned -= OnCowSpawned;
 
-        PlayerMouse.mouseClick -= OnMouseClickOn;
-        PlayerMouse.mouseRelease -= OnMouseRelease;
+        MouseManager.mouseClick -= OnMouseClickOn;
+        MouseManager.mouseRelease -= OnMouseRelease;
     }
     private void Start()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainManager : MonoBehaviour
+public class TrainManager : Manager
 {
     [Header("Refs")]
     [SerializeField] List<TrainRegimen> unlockedTrains;

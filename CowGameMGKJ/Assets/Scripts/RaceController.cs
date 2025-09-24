@@ -14,7 +14,8 @@ public class RaceController : LogicController
     [SerializeField] RaceManager raceManager;
     private void Awake()
     {
-        setGameState(ArcTestManager.GameState.RACE);
+        setGameState(GameState.RACE);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()

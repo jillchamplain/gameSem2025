@@ -66,11 +66,10 @@
     <Compile Include="Assets\Scripts\RaceScreenManager.cs" />
     <Compile Include="Assets\Scripts\CowManager.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Scripts\PlayerMouse.cs" />
+    <Compile Include="Assets\Scripts\MouseManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\HomeController.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\ArcTestManager.cs" />
+    <Compile Include="Assets\Scripts\ArcController.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Scripts\CustomParticle.cs" />
     <Compile Include="Assets\Scripts\GlobalData.cs" />
@@ -85,6 +84,10 @@
     <Compile Include="Assets\Scripts\UIContainer.cs" />
     <Compile Include="Assets\Scripts\FoodManager.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Scripts\SpawnManager.cs" />
+    <Compile Include="Assets\Scripts\Manager.cs" />
+    <Compile Include="Assets\Scripts\ManagerType.cs" />
+    <Compile Include="Assets\Scripts\GameState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -208,8 +208,8 @@ public class Cow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if(collision.gameObject.CompareTag("Food"))
+
+        if (collision.gameObject.CompareTag("Food")) 
         {
             //Debug.Log("this gameObject is at " + gameObject.transform.position + " and food is at " + collision.gameObject.transform.position);
             cowEat?.Invoke(this, collision.GetComponent<Food>());
