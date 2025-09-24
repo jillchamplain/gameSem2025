@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicController : MonoBehaviour
+abstract public class LogicController : MonoBehaviour
 {
     [SerializeField] GameState state;
     public GameState getGameState() { return state; }
@@ -33,8 +33,9 @@ public class LogicController : MonoBehaviour
         }
     }
 
+    abstract public void Reset();
 
-
+    abstract public void Init();
 
 
 }

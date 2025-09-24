@@ -12,6 +12,15 @@ public class FoodManager : Manager
     [SerializeField] List<GameObject> curFoods;
     public List<GameObject> getCurFoods() {  return curFoods; }
     public GameObject getCurFoodAt(int index) { return curFoods[index]; }
+
+    public void setCurFoods(bool value)
+    {
+        foreach(GameObject food in curFoods)
+        {
+            food.SetActive(value);
+        }
+    }
+
     [SerializeField] List<GameObject> unlockedFoods;
     [SerializeField] List<GameObject> allFoods;
 
@@ -24,9 +33,11 @@ public class FoodManager : Manager
             StartCoroutine(FoodSpawnTimer());
     }
 
+
     IEnumerator FoodSpawnTimer()
     {
         canSpawn = false;
+        //Debug.Log("spawning from " + this.gameObject);
         foodSpawn?.Invoke(SelectRandomFood());
         yield return new WaitForSecondsRealtime(foodSpawnInterval);
         canSpawn = true;

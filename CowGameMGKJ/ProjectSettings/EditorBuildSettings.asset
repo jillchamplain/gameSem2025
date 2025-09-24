@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/PersistentDataScene.unity
-    guid: 65faa3cf929d84e43b89c0571b57707c
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: def3541eb45f5d44c9894984996c863f
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/HomeScreen.unity
     guid: a9ef274ca6e2d284b987aedf35082fc0
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/RaceScreen.unity
+    guid: ef11ca11de3c5614da1b92259880652a
   m_configObjects: {}

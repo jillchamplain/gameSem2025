@@ -48,7 +48,7 @@ public class HomeController : LogicController
 
     private void OnDisable()
     {
-        Debug.Log("Disabling " + this.gameObject);
+        //Debug.Log("Disabling " + this.gameObject);
         Cow.cowEat -= OnCowEat;
         Cow.cowMaxLevel -= OnCowMaxLevel;
         Cow.cowLevelUp -= OnCowLevelUp;
@@ -56,8 +56,26 @@ public class HomeController : LogicController
 
         CowManager.cowSpawned -= OnCowSpawned;
 
+        FoodManager.foodSpawn -= OnFoodSpawned;
+
         MouseManager.mouseClick -= OnMouseClick;
         MouseManager.mouseRelease -= OnMouseRelease;
+    }
+
+    public override void Reset()
+    {
+        playerMouse.setCurCow(null);
+        playerMouse.setCurFood(null);
+
+        foodManager.setCurFoods(false);
+        //cowManager.setCows(false); //WILL DO THIS AND REPLACE WITH LOADING IN COWS FROM DATA
+    }
+
+    public override void Init()
+    {
+        //Load Cows in
+        foodManager.setCurFoods(true);
+        cowManager.setCows(true);
     }
 
     private void GameSetUp()
@@ -69,6 +87,8 @@ public class HomeController : LogicController
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
     }
+
+  
 
     private void UpdateUI()
     {
@@ -167,7 +187,7 @@ public class HomeController : LogicController
         if (!getListening())
             return;
 
-        Debug.Log("food spawned by " + this.gameObject);
+        //Debug.Log("food spawned by " + this.gameObject);
         foodManager.SpawnFood(theFood, spawnManager.SelectRandomSpawn(theFood));
     }
 

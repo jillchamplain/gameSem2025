@@ -11,6 +11,14 @@ public class CowManager : Manager
     public List<GameObject> getCows() { return curCows; }
 
     public Cow getCowAt(int index) { return curCows[index].GetComponent<Cow>(); }
+
+    public void setCows(bool value)
+    {
+        foreach(GameObject cow in curCows)
+        {
+            cow.SetActive(value);
+        }
+    }
     [SerializeField] public GameObject cowPrefab;
 
     //EVENTS
@@ -18,10 +26,6 @@ public class CowManager : Manager
     public static event CowSpawned cowSpawned;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     public void UpdateCowData(GameData theData)
     {

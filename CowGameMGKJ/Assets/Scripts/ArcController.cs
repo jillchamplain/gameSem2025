@@ -29,14 +29,31 @@ public class ArcController : MonoBehaviour
 
     public static ArcController inst;
 
+    private void OnEnable()
+    {
+        ArcEventController.switchLogic += ManageState;
+    }
+
+    private void OnDisable()
+    {
+        ArcEventController.switchLogic -= ManageState;
+    }
+
     private void Start()
     {
         setGameState(GameState.TITLE);
+
+        if (inst == null)
+            inst = this;
     }
 
     //STATE ENUM
     //Disables logic controllers?
 
+    public void ManageState(int state)
+    {
+        ManageState((GameState)state);
+    }
 
     public void ManageState(GameState state)
     {
@@ -44,12 +61,14 @@ public class ArcController : MonoBehaviour
         {
             if (controller.getGameState() != state)
             {
+                controller.Reset();
                 controller.setListening(false);
                 controller.ToggleManagers(false);
                 controller.gameObject.SetActive(false);
             }
             else
             {
+                controller.Init();
                 controller.setListening(true);
                 controller.ToggleManagers(true);
                 controller.gameObject.SetActive(true);

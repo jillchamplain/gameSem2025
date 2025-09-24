@@ -39,6 +39,7 @@ public class UIContainer : MonoBehaviour
 
     }
 
+
     public void PopAnimation()
     {
         DOTween.CompleteAll();

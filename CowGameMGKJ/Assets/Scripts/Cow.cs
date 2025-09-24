@@ -114,8 +114,6 @@ public class Cow : MonoBehaviour
         setGen(theCow.gen);
         setMaxPower(theCow.maxPower);
         setLevel(theCow.curLevel);
-
-        DontDestroyOnLoad(this.gameObject);
     }
     public void InitCow(string name, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
     {
