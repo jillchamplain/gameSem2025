@@ -100,7 +100,7 @@ public class RaceManager : Manager
         
         if(theCow.getPower() < curRace.getPower())
         {
-            Debug.Log("Not enough power!");
+            Debug.Log("Not enough power!" + theCow.getPower());
             
         }
         else

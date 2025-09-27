@@ -6,7 +6,7 @@ public class PersistentObjects : MonoBehaviour
 {
     //Manages persistent gameObjects and manages duplicates between scenes
 
-    [SerializeField] static GameObject[] persistentObjects;
+    [SerializeField] static GameObject[] persistentObjects = new GameObject[4];
     [SerializeField] int objectIndex;
     void Awake()
     {

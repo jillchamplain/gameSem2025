@@ -26,11 +26,15 @@ public class RaceController : LogicController
     private void OnEnable()
     {
         MouseManager.mouseClick += OnMouseClick;
+
+        UIEventController.raceCow += OnCowRace;
     }
 
     private void OnDisable()
     {
         MouseManager.mouseClick -= OnMouseClick;
+
+        UIEventController.raceCow -= OnCowRace;
     }
 
     public override void Reset()

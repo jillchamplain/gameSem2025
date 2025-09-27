@@ -31,12 +31,12 @@ public class ArcController : MonoBehaviour
 
     private void OnEnable()
     {
-        ArcEventController.switchLogic += ManageState;
+        UIEventController.switchLogic += ManageState;
     }
 
     private void OnDisable()
     {
-        ArcEventController.switchLogic -= ManageState;
+        UIEventController.switchLogic -= ManageState;
     }
 
     private void Start()
