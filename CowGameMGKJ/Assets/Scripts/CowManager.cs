@@ -5,12 +5,19 @@ using UnityEngine;
 public class CowManager : Manager
 {
     [Header("Stats")]
-    [SerializeField] int curGeneration;
+    [SerializeField] public int curGeneration;
     [Header("Refs")]
     [SerializeField] List<GameObject> curCows;
     public List<GameObject> getCows() { return curCows; }
 
-    public Cow getCowAt(int index) { return curCows[index].GetComponent<Cow>(); }
+    public Cow getCowAt(int index) 
+    {
+        if (index > curCows.Count)
+            return null;
+        if (curCows[index].GetComponent<Cow>())
+            return curCows[index].GetComponent<Cow>();
+        return null;
+    }
 
     public void setCows(bool value)
     {
@@ -32,45 +39,13 @@ public class CowManager : Manager
         curGeneration = theData.curGeneration;
 
         //Transforms placeholder cows into cows from data
-        getCowAt(0).InitCow(theData.name1, theData.gen1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
-        getCowAt(1).InitCow(theData.name2, theData.gen2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
-        getCowAt(2).InitCow(theData.name3, theData.gen3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3);
+        if(theData.gen1 != 0)
+            getCowAt(0).InitCow(theData.name1, theData.gen1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
+        if(theData.gen2 != 0)
+            getCowAt(1).InitCow(theData.name2, theData.gen2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
+        if(theData.gen3 != 0)
+            getCowAt(2).InitCow(theData.name3, theData.gen3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3);
 
-    }
-
-    public void SpawnCows(int numCows)
-    {
-        for(int i = 0; i < numCows; i++)
-        {
-            SpawnCow();
-        }
-    }
-
-    public void SpawnCow()
-    {
-        //Vector2 spawn = GameManager.getInstance().SelectRandomSpawn(cowPrefab);
-        //GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
-        //theObject.transform.parent = this.gameObject.transform;
-        //theObject.GetComponent<Cow>().InitCow("NONAME", curGeneration + 1, (curGeneration + 1) * 100, "1", "2", "3");
-        //theObject.name = (curGeneration + 1).ToString();
-        //curCows.Add(theObject);
-        //ModifyCowUIIndex();
-        //curGeneration++;
-        //cowSpawned?.Invoke(theObject.GetComponent<Cow>());
-    }
-
-    public void SpawnCow(string name)
-    {
-        /*Vector2 spawn = GameManager.getInstance().SelectRandomSpawn(cowPrefab);
-        GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
-        //theObject.transform.parent = this.gameObject.transform;
-        theObject.GetComponent<Cow>().InitCow(name, curGeneration + 1, (curGeneration + 1) * 100, "1", "2", "3");
-        theObject.name = name;
-        curCows.Add(theObject);
-        ModifyCowUIIndex();
-        curGeneration++;
-        cowSpawned?.Invoke(theObject.GetComponent<Cow>());
-        */
     }
 
     public void SpawnCow(Vector3 spawnPos)

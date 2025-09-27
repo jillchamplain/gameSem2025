@@ -64,12 +64,28 @@ public class Cow : MonoBehaviour
     public int getMaxPower() { return maxPower; }
     public void setMaxPower(int theMax)
     {
+        //ERROR HANDLING
+        if(theMax == -1)
+        {
+            maxPower = theMax;
+            return;
+        }
+
         maxPower = theMax;
         setMaxLevel(maxPower / 100);
     }
 
     [SerializeField] List<string> traits;
-    public string getTraitAt(int index) { return traits[index]; }
+    public string getTraitAt(int index)
+    {
+        if (traits == null)
+            return "NULL";
+        if (index >= traits.Count)
+            return "NULL";
+        if (traits[index] != null)
+            return traits[index];
+        return "NULL";
+    }
 
     [SerializeField] int uiIndex;
     public int getUIIndex() { return uiIndex; } //MOVE THIS SHIT
@@ -106,6 +122,7 @@ public class Cow : MonoBehaviour
 
     public delegate void CowLevelUp(Cow thisCow);
     public static event CowLevelUp cowLevelUp;
+
 
     public void InitCow(Cow theCow)
     {

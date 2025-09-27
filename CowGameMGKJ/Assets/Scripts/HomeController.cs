@@ -27,7 +27,7 @@ public class HomeController : LogicController
     {
         if (inst == null)
             inst = this;
-
+        
         GameSetUp();
     }
 
@@ -73,8 +73,7 @@ public class HomeController : LogicController
 
     public override void Init()
     {
-        //Load Cows in
-        foodManager.setCurFoods(true);
+            foodManager.setCurFoods(true);
         cowManager.setCows(true);
     }
 
@@ -106,7 +105,9 @@ public class HomeController : LogicController
         if (!getListening())
             return;
 
+
         UpdateUI();
+        
     }
 
     private void OnCowEat(Cow theCow, Food theFood)
