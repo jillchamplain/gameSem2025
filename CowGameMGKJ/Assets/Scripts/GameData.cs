@@ -44,7 +44,7 @@ public class GameData
     public string pattern3;
 
 
-    public GameData (int gen, Cow cow1, Cow cow2, Cow cow3)
+    public GameData(int gen, Cow cow1, Cow cow2, Cow cow3)
     {
         curGeneration = gen;
 
@@ -60,18 +60,6 @@ public class GameData
             traitB1 = cow1.getTraitAt(1);
             traitC1 = cow1.getTraitAt(2);
         }
-        else
-        {
-            name1 = "NULL";
-            gen1 = -1;
-            level1 = -1;
-            mLevel1 = -1;
-            power1 = -1;
-            mPower1 = -1;
-            traitA1 = "NULL";
-            traitB1 = "NULL";
-            traitC1 = "NULL";
-        }
 
         if (cow2 != null)
         {
@@ -85,18 +73,7 @@ public class GameData
             traitB2 = cow2.getTraitAt(1);
             traitC2 = cow2.getTraitAt(2);
         }
-        else
-        {
-            name2 = "NULL";
-            gen2 = -1;
-            level2 = -1;
-            mLevel2 = -1;
-            power2 = -1;
-            mPower2 = -1;
-            traitA2 = "NULL";
-            traitB2 = "NULL";
-            traitC2 = "NULL";
-        }
+
         if (cow3 != null)
         {
             name3 = cow3.getName();
@@ -109,22 +86,42 @@ public class GameData
             traitB3 = cow3.getTraitAt(1);
             traitC3 = cow3.getTraitAt(2);
         }
-        else
-        {
-            name3 = "NULL";
-            gen3 = -1;
-            level3 = -1;
-            mLevel3 = -1;
-            power3 = -1;
-            mPower3 = -1;
-            traitA3 = "NULL";
-            traitB3 = "NULL";
-            traitC3 = "NULL";
-        }
-
     }
 
 
-    
+    public GameData()
+    {
+        curGeneration = 4;
+
+        name1 = "LIL COW";
+        gen1 = 1;
+        level1 = 0;
+        mLevel1 = 1;
+        power1 = 0;
+        mPower1 = 100;
+        traitA1 = "1";
+        traitB1 = "2";
+        traitC1 = "3";
+
+        name2 = "COW JR";
+        gen2 = 2;
+        level2 = 0;
+        mLevel2 = 2;
+        power2 = 0;
+        mPower2 = 200;
+        traitA2 = "1";
+        traitB2 = "2";
+        traitC2 = "3";
+
+        name3 = "COW III";
+        gen3 = 3;
+        level3 = 0;
+        mLevel3 = 3;
+        power3 = 0;
+        mPower3 = 200;
+        traitA3 = "1";
+        traitB3 = "2";
+        traitC3 = "3";
+    }
 
 }

@@ -64,9 +64,13 @@ public class HomeController : LogicController
 
     public override void Reset()
     {
-        playerMouse.setCurCow(null);
+        if (playerMouse.getCurCow())
+        {
+            playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+            playerMouse.setCurCow(null);
+        }
         playerMouse.setCurFood(null);
-
+        uiManager.SetUIGroup("Train", false);
         foodManager.setCurFoods(false);
         //cowManager.setCows(false); //WILL DO THIS AND REPLACE WITH LOADING IN COWS FROM DATA
     }
@@ -129,6 +133,8 @@ public class HomeController : LogicController
         foodManager.DeleteFood(theFood.gameObject);
 
         theCow.setPower(theCow.getPower() + theFood.getPower()); //Increase cow power
+        SaveCowData();
+
         string powerIncreaseText = "+ " + theFood.getPower();
 
         if(!(theCow.getPower() >= theCow.getMaxPower())) //Run Visual Changes if not retiring
@@ -150,6 +156,9 @@ public class HomeController : LogicController
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
         int increase = trainManager.RollTrainingSuccess(theRegimen);
         theCow.setPower(theCow.getPower() + increase);
+        SaveCowData();
+
+
         if (theCow.getPower() >= theCow.getMaxPower())
         {
             uiManager.SetUIGroup("Train", false);

@@ -35,4 +35,16 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static void ResetGameData()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/gameSaveData";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        GameData data = new GameData();
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
 }

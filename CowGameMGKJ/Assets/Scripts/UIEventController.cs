@@ -16,6 +16,11 @@ public class UIEventController : MonoBehaviour
         switchLogic?.Invoke(state);
     }
 
+    public void OnSaveReset()
+    {
+        SaveSystem.ResetGameData();
+    }
+
     public void OnRaceButton()
     {
         raceCow?.Invoke();

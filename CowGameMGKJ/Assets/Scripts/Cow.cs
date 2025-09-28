@@ -148,8 +148,8 @@ public class Cow : MonoBehaviour
         setName(name);
         thisNameLabel.text = name;
         setGen(theGen);
-        setPower(power);
         setMaxPower(theMaxPower);
+        setPower(power);
         setLevel(1);
 
         string firstTrait = trait1;
