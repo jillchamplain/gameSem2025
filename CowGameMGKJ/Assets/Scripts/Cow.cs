@@ -123,15 +123,6 @@ public class Cow : MonoBehaviour
     public delegate void CowLevelUp(Cow thisCow);
     public static event CowLevelUp cowLevelUp;
 
-
-    public void InitCow(Cow theCow)
-    {
-        setName(theCow.name);
-        thisNameLabel.text = name;
-        setGen(theCow.gen);
-        setMaxPower(theCow.maxPower);
-        setLevel(theCow.curLevel);
-    }
     public void InitCow(string name, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
     {
         setName(name);
@@ -172,19 +163,6 @@ public class Cow : MonoBehaviour
 
         isInitted = true;
     }
-
-    public void InitCow()
-    {
-        setName("NULLCOW");
-        thisNameLabel.text = name;
-        setGen(-1);
-        setMaxPower(-1);
-        setLevel(1);
-
-        DontDestroyOnLoad(this.gameObject);
-        isInitted = true;
-    }
-
  
 
     public enum CowAnims

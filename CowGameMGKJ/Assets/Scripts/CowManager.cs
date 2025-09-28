@@ -34,8 +34,13 @@ public class CowManager : Manager
 
     // Start is called before the first frame update
 
-    public void UpdateCowData(GameData theData)
+    public void InitCurCows(GameData theData)
     {
+        if(theData == null)
+        {
+            Debug.Log("Save file doesn't exist!");
+        }
+
         curGeneration = theData.curGeneration;
 
         //Transforms placeholder cows into cows from data

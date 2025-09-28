@@ -82,9 +82,14 @@ public class HomeController : LogicController
         if (!getListening())
             return;
 
+        //Spawns placeholder cows
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+
+        //Initializes with proper values
+        cowManager.InitCurCows(SaveSystem.LoadGameData());
+        UpdateUI();
     }
 
   
@@ -100,6 +105,11 @@ public class HomeController : LogicController
         }
     }
 
+    private void SaveCowData()
+    {
+        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2));
+    }
+
     private void OnCowSpawned(Cow theCow)
     {
         if (!getListening())
@@ -107,7 +117,6 @@ public class HomeController : LogicController
 
 
         UpdateUI();
-        
     }
 
     private void OnCowEat(Cow theCow, Food theFood)
@@ -129,6 +138,7 @@ public class HomeController : LogicController
             uiManager.UpdateCowUI(theCow);
         }
         uiManager.SetUIGroup("Train", false);
+        SaveCowData();
     }
 
    public void OnCowTrain()
@@ -149,6 +159,7 @@ public class HomeController : LogicController
         string powerIncreaseText = "+ " + increase;
         particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
         UpdateUI();
+        SaveCowData();
     }
 
     private void OnCowLevelUp(Cow theCow)
@@ -160,6 +171,7 @@ public class HomeController : LogicController
             return;
         Vector3 spawn = new Vector3(theCow.transform.position.x, theCow.transform.position.y + 0.75f, 0);
         particleManager.SpawnTextParticleAt("Power Increase", "Level Up!", spawn);
+        SaveCowData();
     }
 
     private void OnCowMaxLevel(Cow theCow)
@@ -170,6 +182,7 @@ public class HomeController : LogicController
         UpdateUI();
         theCow.setSelected(false);
         theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
+        SaveCowData();
     }
 
     private void OnCowRetire(Cow theCow)
@@ -181,6 +194,7 @@ public class HomeController : LogicController
         playerMouse.setCurCow(null);
         cowManager.DeleteCow(theCow.gameObject);
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        SaveCowData();
     }
 
     private void OnFoodSpawned(GameObject theFood)
