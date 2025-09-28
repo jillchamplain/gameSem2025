@@ -42,6 +42,7 @@ public class CowManager : Manager
         }
 
         curGeneration = theData.curGeneration;
+        Debug.Log("Generation: " + curGeneration);
 
         //Transforms placeholder cows into cows from data
         if (theData.gen1 != 0)
@@ -64,16 +65,17 @@ public class CowManager : Manager
 
     public void SpawnCow(Vector3 spawnPos)
     {
+        curGeneration++;
         Vector2 spawn = spawnPos;
         GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
 
-        theObject.GetComponent<Cow>().InitCow("LIL COW", curGeneration + 1, (curGeneration + 1) * 100, "1", "2", "3");
+        theObject.GetComponent<Cow>().InitCow("LIL COW", curGeneration, (curGeneration) * 100, "1", "2", "3");
         theObject.name = "LIL COW";
 
         curCows.Add(theObject);
 
         ModifyCowUIIndex();
-        curGeneration++;
+        
         
         cowSpawned?.Invoke(theObject.GetComponent<Cow>());
         //theObject.transform.parent = this.gameObject.transform;

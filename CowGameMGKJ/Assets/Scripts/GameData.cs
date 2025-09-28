@@ -91,7 +91,7 @@ public class GameData
 
     public GameData()
     {
-        curGeneration = 4;
+        curGeneration = 3;
 
         name1 = "LIL COW";
         gen1 = 1;
