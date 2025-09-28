@@ -7,12 +7,10 @@ public class FoodManager : Manager
     [Header("Stats")]
     [SerializeField] float foodSpawnInterval;
     bool canSpawn = true;
-
     [Header("Refs")]
     [SerializeField] List<GameObject> curFoods;
     public List<GameObject> getCurFoods() {  return curFoods; }
     public GameObject getCurFoodAt(int index) { return curFoods[index]; }
-
     public void setCurFoods(bool value)
     {
         foreach(GameObject food in curFoods)
@@ -20,20 +18,15 @@ public class FoodManager : Manager
             food.SetActive(value);
         }
     }
-
     [SerializeField] List<GameObject> unlockedFoods;
     [SerializeField] List<GameObject> allFoods;
-
     public delegate void FoodSpawn(GameObject theFood);
     public static event FoodSpawn foodSpawn;
-
     void Update()
     {
         if (canSpawn)
             StartCoroutine(FoodSpawnTimer());
     }
-
-
     IEnumerator FoodSpawnTimer()
     {
         canSpawn = false;
@@ -42,13 +35,11 @@ public class FoodManager : Manager
         yield return new WaitForSecondsRealtime(foodSpawnInterval);
         canSpawn = true;
     }
-
     public void DeleteFood(GameObject theFood)
     {
         curFoods.Remove(theFood);
         Destroy(theFood);
     }
-
     public void SpawnFood(GameObject theFood, Vector3 spawnPos)
     {
         GameObject foodPrefab = theFood;
@@ -58,7 +49,6 @@ public class FoodManager : Manager
 
         curFoods.Add(newFood);
     }
-
     GameObject SelectRandomFood()
     {
         GameObject theObject = null;

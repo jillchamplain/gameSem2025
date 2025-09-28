@@ -22,6 +22,8 @@ public class UIManager : Manager
 
     public void SetUIGroup(string theGroupName, bool isOn)
     {
+        if (uiGroups.Length <= 0)
+            return;
         for(int i = 0; i < uiGroups.Length; i++)
         {
             if(theGroupName == uiGroups[i].getGroupName())

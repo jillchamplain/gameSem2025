@@ -7,9 +7,6 @@ using UnityEngine;
 
 public class Cow : MonoBehaviour
 {
-
-
-
     [Header("Stats")]
     [SerializeField] string curName;
     public string getName() { return curName; }
@@ -60,7 +57,6 @@ public class Cow : MonoBehaviour
             
     }
     [SerializeField] int maxPower;
-
     public int getMaxPower() { return maxPower; }
     public void setMaxPower(int theMax)
     {
@@ -74,7 +70,6 @@ public class Cow : MonoBehaviour
         maxPower = theMax;
         setMaxLevel(maxPower / 100);
     }
-
     [SerializeField] List<string> traits;
     public string getTraitAt(int index)
     {
@@ -90,8 +85,6 @@ public class Cow : MonoBehaviour
     [SerializeField] int uiIndex;
     public int getUIIndex() { return uiIndex; } //MOVE THIS SHIT
     public void setUIIndex(int newIndex) { uiIndex = newIndex; } //BAD
-
-    bool isInitted = false;
 
     [Header("Refs")]
     [SerializeField] Animator thisAnimator;
@@ -140,7 +133,6 @@ public class Cow : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        isInitted = true;
     }
 
     public void InitCow(string name, int theGen, int power, int theMaxPower, string trait1, string trait2, string trait3)
@@ -160,8 +152,6 @@ public class Cow : MonoBehaviour
         traits.Add(thirdTrait);
 
         DontDestroyOnLoad(this.gameObject);
-
-        isInitted = true;
     }
  
 

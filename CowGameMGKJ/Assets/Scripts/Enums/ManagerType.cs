@@ -11,4 +11,6 @@ public enum ManagerType
     TRAIN = 3,
     RACE = 4,
     PARTICLE = 5,
+    MOUSE = 6,
+    SPAWN = 7
 }

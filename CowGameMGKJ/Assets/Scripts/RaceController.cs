@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class RaceController : LogicController
@@ -11,7 +12,8 @@ public class RaceController : LogicController
     [SerializeField] UIManager uiManager; //Different UIs > Need to change
     [SerializeField] CowManager cowManager;
     [SerializeField] RaceManager raceManager;
-    [SerializeField] ParticleManager particleManager; //Separate visuals eventually
+    [SerializeField] ParticleManager particleManager;
+    [SerializeField] SpawnManager spawnManager;//Separate visuals eventually
     private void Awake()
     {
         setGameState(GameState.RACE);
@@ -39,13 +41,40 @@ public class RaceController : LogicController
 
     public override void Reset()
     {
-        playerMouse.setCurCow(null);
-        playerMouse.setCurFood(null);
+        if (getListening())
+            return;
+        if (playerMouse.getCurCow())
+        {
+            playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+            playerMouse.setCurCow(null);
+        }
+        cowManager.ClearCows();
     }
 
     public override void Init()
     {
-        
+       InitCows();
+        UpdateUI();
+    }
+
+    private void InitCows()
+    {
+        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+
+        cowManager.InitCurCows(SaveSystem.LoadGameData());
+    }
+
+    private void UpdateUI()
+    {
+        if (!getListening())
+            return;
+
+        for (int i = 0; i < cowManager.getCows().Count; i++)
+        {
+            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+        }
     }
 
     private void OnMouseClick(GameObject theObject)

@@ -8,7 +8,6 @@ using static MouseManager;
 public class HomeController : LogicController
 {
     public static HomeController inst;
-
     [Header("Refs")]
     [SerializeField] MouseManager playerMouse;
     [SerializeField] CowManager cowManager;
@@ -17,20 +16,17 @@ public class HomeController : LogicController
     [SerializeField] SpawnManager spawnManager;
     [SerializeField] ParticleManager particleManager;
     [SerializeField] TrainManager trainManager;
-
     private void Awake()
     {
         setGameState(GameState.HOME);
     }
-
     private void Start()
     {
         if (inst == null)
             inst = this;
-        
-        GameSetUp();
-    }
 
+
+    }
     private void OnEnable()
     {
         Cow.cowEat += OnCowEat;
@@ -45,7 +41,6 @@ public class HomeController : LogicController
         MouseManager.mouseClick += OnMouseClick;
         MouseManager.mouseRelease += OnMouseRelease;
     }
-
     private void OnDisable()
     {
         //Debug.Log("Disabling " + this.gameObject);
@@ -61,9 +56,10 @@ public class HomeController : LogicController
         MouseManager.mouseClick -= OnMouseClick;
         MouseManager.mouseRelease -= OnMouseRelease;
     }
-
     public override void Reset()
     {
+        if (getListening())
+            return;
         if (playerMouse.getCurCow())
         {
             playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
@@ -72,31 +68,26 @@ public class HomeController : LogicController
         playerMouse.setCurFood(null);
         uiManager.SetUIGroup("Train", false);
         foodManager.setCurFoods(false);
-        //cowManager.setCows(false); //WILL DO THIS AND REPLACE WITH LOADING IN COWS FROM DATA
+        cowManager.ClearCows();
+        //Debug.Log("reset home");
     }
 
     public override void Init()
     {
-            foodManager.setCurFoods(true);
-        cowManager.setCows(true);
-    }
-
-    private void GameSetUp()
-    {
-        if (!getListening())
-            return;
-
-        //Spawns placeholder cows
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-
-        //Initializes with proper values
-        cowManager.InitCurCows(SaveSystem.LoadGameData());
+        InitCows();
         UpdateUI();
+        foodManager.setCurFoods(true);
+        Debug.Log("init home");
     }
+    private void InitCows()
+    {
+        Debug.Log(spawnManager);
+        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
 
-  
+        cowManager.InitCurCows(SaveSystem.LoadGameData());
+    }
 
     private void UpdateUI()
     {
@@ -111,6 +102,8 @@ public class HomeController : LogicController
 
     private void SaveCowData()
     {
+        if (!getListening())
+            return;
         SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2));
     }
 

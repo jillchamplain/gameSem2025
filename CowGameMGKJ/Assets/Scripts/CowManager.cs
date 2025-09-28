@@ -9,7 +9,6 @@ public class CowManager : Manager
     [Header("Refs")]
     [SerializeField] List<GameObject> curCows;
     public List<GameObject> getCows() { return curCows; }
-
     public Cow getCowAt(int index) 
     {
         if (index > curCows.Count)
@@ -18,7 +17,6 @@ public class CowManager : Manager
             return curCows[index].GetComponent<Cow>();
         return null;
     }
-
     public void setCows(bool value)
     {
         foreach(GameObject cow in curCows)
@@ -26,13 +24,19 @@ public class CowManager : Manager
             cow.SetActive(value);
         }
     }
+    public void ClearCows()
+    {
+        foreach(GameObject cow in curCows)
+        {
+            Destroy(cow);
+        }
+        curCows.Clear();
+    }
     [SerializeField] public GameObject cowPrefab;
 
     //EVENTS
     public delegate void CowSpawned(Cow theCow);
     public static event CowSpawned cowSpawned;
-
-    // Start is called before the first frame update
 
     public void InitCurCows(GameData theData)
     {
@@ -42,29 +46,29 @@ public class CowManager : Manager
         }
 
         curGeneration = theData.curGeneration;
-        Debug.Log("Generation: " + curGeneration);
+        //Debug.Log("Generation: " + curGeneration);
 
         //Transforms placeholder cows into cows from data
         if (theData.gen1 != 0)
         {
             getCowAt(0).InitCow(theData.name1, theData.gen1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
-            Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
+            //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
         }
         if (theData.gen2 != 0)
         {
             getCowAt(1).InitCow(theData.name2, theData.gen2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
-            Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
+            //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
         }
         if (theData.gen3 != 0)
         {
             getCowAt(2).InitCow(theData.name3, theData.gen3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3);
-            Debug.Log("Cow3: " + theData.name3 + " " + theData.power3 + " " + theData.mPower3 + " " + theData.traitA3 + " " + theData.traitB3 + " " + theData.traitC3);
+            //Debug.Log("Cow3: " + theData.name3 + " " + theData.power3 + " " + theData.mPower3 + " " + theData.traitA3 + " " + theData.traitB3 + " " + theData.traitC3);
         }
 
     }
-
     public void SpawnCow(Vector3 spawnPos)
     {
+        //Debug.Log("Spawning cow at " + spawnPos);
         curGeneration++;
         Vector2 spawn = spawnPos;
         GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
@@ -81,7 +85,6 @@ public class CowManager : Manager
         //theObject.transform.parent = this.gameObject.transform;
 
     }
-
     public void DeleteCow(GameObject theCow)
     {
         List<GameObject> tempCows = new List<GameObject>();
@@ -97,7 +100,6 @@ public class CowManager : Manager
         curCows = tempCows;
         ModifyCowUIIndex();
     }
-
     public void DeleteCow()
     {
         List<GameObject> tempCows = new List<GameObject>();
@@ -113,7 +115,6 @@ public class CowManager : Manager
         curCows = tempCows;
         ModifyCowUIIndex();
     }
-
     void ModifyCowUIIndex()
     {
         for(int i = 0; i < curCows.Count; i++)

@@ -14,15 +14,4 @@ public class Food : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] SpriteRenderer thisSprite;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

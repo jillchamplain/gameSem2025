@@ -11,8 +11,6 @@ public class ArcController : MonoBehaviour
     public GameState getGameState() { return curState; }
     public void setGameState(GameState state) { curState = state; ManageState(curState); }
     public void setGameState(int state) { curState = (GameState)state; ManageState(curState); }
-
-
    [SerializeField] List<LogicController> logicControllers;
     public LogicController getLogicController(GameState state)
     {
@@ -25,20 +23,15 @@ public class ArcController : MonoBehaviour
         LogicController nullController = null;
         return nullController;
     }
-   
-
     public static ArcController inst;
-
     private void OnEnable()
     {
         UIEventController.switchLogic += ManageState;
     }
-
     private void OnDisable()
     {
         UIEventController.switchLogic -= ManageState;
     }
-
     private void Start()
     {
         setGameState(GameState.TITLE);
@@ -46,44 +39,35 @@ public class ArcController : MonoBehaviour
         if (inst == null)
             inst = this;
     }
-
-    //STATE ENUM
-    //Disables logic controllers?
-
     public void ManageState(int state)
     {
         ManageState((GameState)state);
     }
-
     public void ManageState(GameState state)
     {
-        foreach(LogicController controller in logicControllers)
+        //Toggle OFF other managers
+        for(int i = 0; i < logicControllers.Count; i++)
         {
-            if (controller.getGameState() != state)
+            if (logicControllers[i].getGameState() != state)
             {
-                controller.Reset();
-                controller.setListening(false);
-                controller.ToggleManagers(false);
-                controller.gameObject.SetActive(false);
+                logicControllers[i].setListening(false);
+                logicControllers[i].Reset();
+                logicControllers[i].ToggleManagers(false);
+                logicControllers[i].gameObject.SetActive(false);
             }
-            else
+        }
+        //Toggle ON current managers (even if shared by other game states)
+        for (int i = 0; i < logicControllers.Count; i++)
+        {
+            if (logicControllers[i].getGameState() == state)
             {
-                controller.Init();
-                controller.setListening(true);
-                controller.ToggleManagers(true);
-                controller.gameObject.SetActive(true);
+                logicControllers[i].Init();
+                logicControllers[i].setListening(true);
+                logicControllers[i].ToggleManagers(true);
+                logicControllers[i].gameObject.SetActive(true);
             }
         }
 
-        switch (state)
-        {
-            case GameState.TITLE:
-                break;
-            case GameState.HOME:
-                break;
-            case GameState.RACE:
-                break;
-        }
     }
 
 }

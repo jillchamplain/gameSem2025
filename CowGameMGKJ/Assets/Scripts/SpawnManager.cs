@@ -7,6 +7,7 @@ public class SpawnManager : Manager
     [SerializeField] BoxCollider2D spawnZone;
     public Vector2 SelectRandomSpawn(GameObject theObject) //NEED TO!!!!!!!!!!!!! CHECK FOR OVERLAP WITH OTHER FOOD AND COWS STILL DOESN'T WORK
     {
+        Debug.Log(theObject);
         bool canSelectSpawn = false;
         Vector2 theSpawn = Vector2.zero;
         theSpawn.x = Random.Range(spawnZone.bounds.min.x, spawnZone.bounds.max.x);

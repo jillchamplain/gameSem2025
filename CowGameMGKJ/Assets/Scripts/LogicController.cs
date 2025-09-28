@@ -30,12 +30,9 @@ abstract public class LogicController : MonoBehaviour
         foreach(Manager manager in managers)
         {
             manager.gameObject.SetActive(value);
+            //Debug.Log("Setting " + manager.gameObject + " to " + value);
         }
     }
-
     abstract public void Reset();
-
     abstract public void Init();
-
-
 }
