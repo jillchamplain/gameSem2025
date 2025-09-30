@@ -804,7 +804,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2022813561}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HomeController, Assembly-CSharp
         m_MethodName: OnCowTrain
         m_Mode: 1
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5588950765875317771}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIEventController, Assembly-CSharp
         m_MethodName: OnRaceButton
         m_Mode: 1
@@ -3698,7 +3698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5588950765875317771}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIEventController, Assembly-CSharp
         m_MethodName: OnSwitchLogic
         m_Mode: 3
@@ -4668,7 +4668,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5588950765875317771}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIEventController, Assembly-CSharp
         m_MethodName: OnSaveReset
         m_Mode: 1
@@ -5760,6 +5760,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5588950765875317771}
+        m_TargetAssemblyTypeName: UIEventController, Assembly-CSharp
+        m_MethodName: OnSwitchLogic
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1836420598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6845,6 +6857,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4478518079252532365, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478518079252532365, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478518079252532365, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -6883,6 +6903,26 @@ PrefabInstance:
     - target: {fileID: 4478518079252532365, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478518079252532366, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
+      propertyPath: m_Size.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478518079252532366, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478518079252532366, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478518079252532367, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
+      propertyPath: spawnBounds.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478518079252532367, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
+      propertyPath: spawnBounds.y
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}

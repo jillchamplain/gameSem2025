@@ -77,11 +77,11 @@ public class HomeController : LogicController
         InitCows();
         UpdateUI();
         foodManager.setCurFoods(true);
-        Debug.Log("init home");
+        //Debug.Log("init home");
     }
     private void InitCows()
     {
-        Debug.Log(spawnManager);
+        //Debug.Log("initting from home");
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));

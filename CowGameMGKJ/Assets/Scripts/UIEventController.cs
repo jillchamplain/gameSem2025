@@ -21,7 +21,7 @@ public class UIEventController : MonoBehaviour
         SaveSystem.ResetGameData();
     }
 
-    public void OnRaceButton()
+    public void OnRaceButton() //Runs warning about missing script behavior for race button
     {
         raceCow?.Invoke();
     }
