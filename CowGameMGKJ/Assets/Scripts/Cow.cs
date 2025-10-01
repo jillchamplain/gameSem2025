@@ -71,6 +71,7 @@ public class Cow : MonoBehaviour
         setMaxLevel(maxPower / 100);
     }
     [SerializeField] List<string> traits;
+    public List<string> getTraits() { return traits; }
     public string getTraitAt(int index)
     {
         if (traits == null)
@@ -80,6 +81,26 @@ public class Cow : MonoBehaviour
         if (traits[index] != null)
             return traits[index];
         return "NULL";
+    }
+
+    public void setTraits(string trait1, string trait2, string trait3)
+    {
+        traits.Clear();
+        traits.Add(trait1);
+        traits.Add(trait2);
+        traits.Add(trait3);
+
+    }
+
+    public void setTraitAt(int index, string newTrait)
+    {
+        for(int i = 0; i < traits.Count; i++)
+        {
+            if(i == index)
+            {
+                traits[i] = newTrait;
+            }
+        }
     }
 
     [SerializeField] int uiIndex;
@@ -118,6 +139,7 @@ public class Cow : MonoBehaviour
 
     public void InitCow(string theName, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
     {
+        Debug.Log("initting cow");
         setName(theName);
         //Debug.Log("this name is " + theName);
         //Debug.Log("it is set to " + curName);
@@ -126,12 +148,7 @@ public class Cow : MonoBehaviour
         setMaxPower(theMaxPower);
         setLevel(1);
 
-        string firstTrait = trait1;
-        string secondTrait = trait2;
-        string thirdTrait = trait3;
-        traits.Add(firstTrait);
-        traits.Add(secondTrait);
-        traits.Add(thirdTrait);
+        setTraits(trait1, trait2, trait3);
 
         DontDestroyOnLoad(this.gameObject);
 
@@ -139,6 +156,7 @@ public class Cow : MonoBehaviour
 
     public void InitCow(string name, int theGen, int power, int theMaxPower, string trait1, string trait2, string trait3)
     {
+        Debug.Log("initting cow");
         setName(name);
         thisNameLabel.text = name;
         setGen(theGen);
@@ -146,12 +164,7 @@ public class Cow : MonoBehaviour
         setPower(power);
         setLevel(1);
 
-        string firstTrait = trait1;
-        string secondTrait = trait2;
-        string thirdTrait = trait3;
-        traits.Add(firstTrait);
-        traits.Add(secondTrait);
-        traits.Add(thirdTrait);
+        setTraits(trait1, trait2, trait3);
 
         DontDestroyOnLoad(this.gameObject);
     }

@@ -97,10 +97,25 @@ public class RaceManager : Manager
 
     public void RaceCow(Cow theCow)
     {
-        
-        if(theCow.getPower() < curRace.getPower())
+        int tempPower = theCow.getPower();
+
+        //Checking if traits are shared at all
+        //If trait is shared increase cowPower by 5%
+        for(int i = 0; i < theCow.getTraits().Count; i++)
         {
-            Debug.Log("Not enough power!" + theCow.getPower());
+            if(theCow.getTraitAt(i) == curRace.getTraitAt(i))
+            {
+                Debug.Log("Shared trait! " + theCow.getTraitAt(i));
+                tempPower = (int)(tempPower * 1.05f);
+                Debug.Log("Increasing power to " + tempPower);
+            }
+        }
+
+        Debug.Log("Cow's power is: " + tempPower);
+
+        if(tempPower < curRace.getPower())
+        {
+            Debug.Log("Not enough power!" + tempPower);
             
         }
         else
