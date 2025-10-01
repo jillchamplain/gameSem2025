@@ -52,18 +52,18 @@ public class ArcController : MonoBehaviour
             {
                 logicControllers[i].setListening(false);
                 logicControllers[i].Reset();
-                logicControllers[i].ToggleManagers(false);
                 logicControllers[i].gameObject.SetActive(false);
+                logicControllers[i].ToggleManagers(false);
             }
         }
         //Toggle ON current managers (even if shared by other game states)
-        for (int i = 0; i < logicControllers.Count; i++)
+        for (int i = 0; i < logicControllers.Count; i++) //Issues with some behaviors running if order is swapped
         {
             if (logicControllers[i].getGameState() == state)
             {
+                logicControllers[i].ToggleManagers(true);
                 logicControllers[i].Init();
                 logicControllers[i].setListening(true);
-                logicControllers[i].ToggleManagers(true);
                 logicControllers[i].gameObject.SetActive(true);
             }
         }

@@ -11,10 +11,10 @@ public class SpawnManager : Manager
         
         bool canSelectSpawn = false;
         Vector2 theSpawn = Vector2.zero;
-        Debug.Log("ZAX: " + spawnBounds);
+        //Debug.Log("ZAX: " + spawnBounds);
         //Keeps setting initializing cows to 0, -1.25?
         theSpawn.x = Random.Range(-spawnBounds.x, spawnBounds.x);
-        theSpawn.y = Random.Range(-spawnBounds.y, spawnBounds.y);
+        theSpawn.y = Random.Range(-spawnBounds.y - 1.25f, spawnBounds.y - 2);
         int attempt = 0;
         int numAttempts = 200;
 
@@ -26,7 +26,7 @@ public class SpawnManager : Manager
             {
                 isWithinBounds = false;
             }
-            if (theSpawn.y > spawnBounds.y || theSpawn.y < -spawnBounds.y)
+            if (theSpawn.y > spawnBounds.y - 2 || theSpawn.y < -spawnBounds.y - 1.25)
             {
                 isWithinBounds = false;
             }
@@ -36,7 +36,7 @@ public class SpawnManager : Manager
                 canSelectSpawn = true;
             }
             
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(theSpawn, theObject.transform.localScale.x * 2f);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(theSpawn, theObject.transform.localScale.x);
             foreach (Collider2D collider in colliders)
             {
                 //Debug.Log("colliding with " + collider);
@@ -56,7 +56,6 @@ public class SpawnManager : Manager
             //Debug.Log("numAttempts bad: " + attempt);
             return Vector2.zero;
         }
-        Debug.Log("spawn succeeded");
         return theSpawn;
     }
 

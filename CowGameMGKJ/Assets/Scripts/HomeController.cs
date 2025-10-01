@@ -40,6 +40,8 @@ public class HomeController : LogicController
 
         MouseManager.mouseClick += OnMouseClick;
         MouseManager.mouseRelease += OnMouseRelease;
+
+        UIEventController.trainCow += OnCowTrain;
     }
     private void OnDisable()
     {
@@ -55,6 +57,8 @@ public class HomeController : LogicController
 
         MouseManager.mouseClick -= OnMouseClick;
         MouseManager.mouseRelease -= OnMouseRelease;
+
+        UIEventController.trainCow -= OnCowTrain;
     }
     public override void Reset()
     {
@@ -67,7 +71,7 @@ public class HomeController : LogicController
         }
         playerMouse.setCurFood(null);
         uiManager.SetUIGroup("Train", false);
-        foodManager.setCurFoods(false);
+        foodManager.setCurFoods(false); //Need to start calculating for time elapsed
         cowManager.ClearCows();
         //Debug.Log("reset home");
     }
@@ -75,7 +79,6 @@ public class HomeController : LogicController
     public override void Init()
     {
         InitCows();
-        UpdateUI();
         foodManager.setCurFoods(true);
         //Debug.Log("init home");
     }
@@ -87,12 +90,24 @@ public class HomeController : LogicController
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
 
         cowManager.InitCurCows(SaveSystem.LoadGameData());
+        InitUI();
+    }
+
+    private void InitUI()
+    { 
+
+        for (int i = 0; i < cowManager.getCows().Count; i++)
+        {
+            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+        }
     }
 
     private void UpdateUI()
     {
         if (!getListening())
+        {
             return;
+        }
 
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {

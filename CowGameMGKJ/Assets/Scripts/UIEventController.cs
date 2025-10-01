@@ -11,6 +11,9 @@ public class UIEventController : MonoBehaviour
     public delegate void RaceCow();
     public static event RaceCow raceCow;
 
+    public delegate void TrainCow();
+    public static event TrainCow trainCow;
+
     public void OnSwitchLogic(int state)
     {
         switchLogic?.Invoke(state);
@@ -24,5 +27,10 @@ public class UIEventController : MonoBehaviour
     public void OnRaceButton() //Runs warning about missing script behavior for race button
     {
         raceCow?.Invoke();
+    }
+
+    public void OnTrainButton() //Runs warning about missing script behavior for race button
+    {
+        trainCow?.Invoke();
     }
 }

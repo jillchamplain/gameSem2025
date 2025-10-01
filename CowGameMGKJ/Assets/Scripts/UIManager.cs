@@ -46,9 +46,9 @@ public class UIManager : Manager
 
     public void UpdateCowUI(Cow theCow)
     {
+        //Debug.Log("the Cow is " + theCow.gameObject);
         if (theCow == null)
             return;
-        //Debug.Log("the Cow is " + theCow.gameObject);
         //Debug.Log("cow index is " + theCow.getUIIndex());
         //Debug.Log("cow UIs are " + cowUIs.Length);
         for (int i = 0; i < cowUIs.Length; i++)

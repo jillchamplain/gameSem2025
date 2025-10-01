@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3212530745340046604, guid: 75a636ccccc7e664a9703188f8e4c8a3, type: 3}
   m_PrefabInstance: {fileID: 3212530745288848137}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1909231849}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1562222b8d5ee2499dc917d328f5f36, type: 3}
@@ -3537,9 +3537,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1909231849}
         m_TargetAssemblyTypeName: HomeController, Assembly-CSharp
-        m_MethodName: OnCowTrain
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5797,6 +5797,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2415777519062707009, guid: 043b10fc8bcef00468070b240cb37f2f, type: 3}
   m_PrefabInstance: {fileID: 2415777519350579894}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1909231849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3212530745340046605, guid: 75a636ccccc7e664a9703188f8e4c8a3, type: 3}
+  m_PrefabInstance: {fileID: 3212530745288848137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1909990747
 GameObject:
   m_ObjectHideFlags: 0
@@ -6904,7 +6909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478518079252532365, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.25
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4478518079252532365, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6937,10 +6942,6 @@ PrefabInstance:
     - target: {fileID: 4478518079252532365, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4478518079252532367, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
-      propertyPath: type
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e6d8c1c1d57e914ba73744f2d1ebd48, type: 3}
@@ -7150,6 +7151,10 @@ PrefabInstance:
     - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: type
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: foodSpawnInterval
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7971488255845932749, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: m_RootOrder

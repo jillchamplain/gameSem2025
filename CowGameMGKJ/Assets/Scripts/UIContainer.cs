@@ -27,7 +27,7 @@ public class UIContainer : MonoBehaviour
     public void setContainer(Cow theCow)
     {
         getNameTF().text = theCow.getName();
-        //Debug.Log("name for " + theCow.gameObject + " set to " + theUI.getNameTF().text);
+        //Debug.Log("name for " + theCow.getName());
         getGenTF().text = theCow.getGen().ToString();
         //Debug.Log("gen for " + theCow.gameObject + " set to " + theUI.getGenTF().text);
         getLevelTF().text = theCow.getLevel().ToString() + "/" + theCow.getMaxLevel();

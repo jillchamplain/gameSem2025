@@ -116,10 +116,12 @@ public class Cow : MonoBehaviour
     public delegate void CowLevelUp(Cow thisCow);
     public static event CowLevelUp cowLevelUp;
 
-    public void InitCow(string name, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
+    public void InitCow(string theName, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
     {
-        setName(name);
-        thisNameLabel.text = name;
+        setName(theName);
+        //Debug.Log("this name is " + theName);
+        //Debug.Log("it is set to " + curName);
+        thisNameLabel.text = theName;
         setGen(theGen);
         setMaxPower(theMaxPower);
         setLevel(1);

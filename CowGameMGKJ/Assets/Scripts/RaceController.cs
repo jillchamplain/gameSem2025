@@ -64,6 +64,16 @@ public class RaceController : LogicController
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
 
         cowManager.InitCurCows(SaveSystem.LoadGameData());
+        InitUI();
+    }
+
+    private void InitUI()
+    {
+
+        for (int i = 0; i < cowManager.getCows().Count; i++)
+        {
+            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+        }
     }
 
     private void UpdateUI()
