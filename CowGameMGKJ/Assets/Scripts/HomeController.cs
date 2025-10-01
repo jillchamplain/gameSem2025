@@ -78,6 +78,12 @@ public class HomeController : LogicController
 
     public override void Init()
     {
+        if(SaveSystem.LoadGameData() == null)
+        {
+            Debug.Log("file does not exist");
+            SaveSystem.ResetGameData();
+        }
+
         InitCows();
         foodManager.setCurFoods(true);
         //Debug.Log("init home");
@@ -94,8 +100,8 @@ public class HomeController : LogicController
     }
 
     private void InitUI()
-    { 
-
+    {
+        Debug.Log("UI initting");
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
             uiManager.UpdateCowUI(cowManager.getCowAt(i));

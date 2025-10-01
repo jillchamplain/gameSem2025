@@ -53,7 +53,13 @@ public class RaceController : LogicController
 
     public override void Init()
     {
-       InitCows();
+        if (SaveSystem.LoadGameData() == null)
+        {
+            Debug.Log("file does not exist");
+            SaveSystem.ResetGameData();
+        }
+
+        InitCows();
         UpdateUI();
     }
 
