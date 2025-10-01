@@ -7,6 +7,24 @@ public class CowManager : Manager
     [Header("Stats")]
     [SerializeField] public int curGeneration;
     [Header("Refs")]
+    [SerializeField] List<string> randomCowNames;
+    public string getRandomName()
+    {
+        string theName;
+        int index = Random.Range(0, randomCowNames.Count);
+
+        for(int i = 0; i < randomCowNames.Count; i++)
+        {
+            if(i == index)
+            {
+                return randomCowNames[i];
+            }
+        }
+
+        return "NULL";
+    }
+
+
     [SerializeField] List<GameObject> curCows;
     public List<GameObject> getCows() { return curCows; }
     public Cow getCowAt(int index) 
@@ -73,8 +91,9 @@ public class CowManager : Manager
         Vector2 spawn = spawnPos;
         GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
 
-        theObject.GetComponent<Cow>().InitCow("LIL COW", curGeneration, (curGeneration) * 100, "1", "2", "3");
-        theObject.name = "LIL COW";
+        //CHECK IF COWS SHARE NAMES(?)
+        theObject.GetComponent<Cow>().InitCow(getRandomName(), curGeneration, (curGeneration) * 100, "1", "2", "3");
+        theObject.name = getRandomName();
 
         curCows.Add(theObject);
 

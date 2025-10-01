@@ -13,6 +13,7 @@ public class RaceController : LogicController
     [SerializeField] CowManager cowManager;
     [SerializeField] RaceManager raceManager;
     [SerializeField] ParticleManager particleManager;
+    //[SerializeField] FoodManager foodManager; //Need this for unlocking foods
     [SerializeField] SpawnManager spawnManager;//Separate visuals eventually
     private void Awake()
     {
@@ -120,6 +121,10 @@ public class RaceController : LogicController
 
     public void OnCowRace()
     {
-        raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>());
+        if (raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>()))
+        {
+            //foodManager.UnlockFood();
+
+        }
     }
 }

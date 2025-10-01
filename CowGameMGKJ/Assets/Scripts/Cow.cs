@@ -139,7 +139,7 @@ public class Cow : MonoBehaviour
 
     public void InitCow(string theName, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
     {
-        Debug.Log("initting cow");
+        //Debug.Log("initting cow");
         setName(theName);
         //Debug.Log("this name is " + theName);
         //Debug.Log("it is set to " + curName);
@@ -156,7 +156,7 @@ public class Cow : MonoBehaviour
 
     public void InitCow(string name, int theGen, int power, int theMaxPower, string trait1, string trait2, string trait3)
     {
-        Debug.Log("initting cow");
+        //Debug.Log("initting cow");
         setName(name);
         thisNameLabel.text = name;
         setGen(theGen);

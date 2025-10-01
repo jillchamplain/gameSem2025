@@ -22,17 +22,45 @@ public class FoodManager : Manager
     [SerializeField] List<GameObject> allFoods;
     public delegate void FoodSpawn(GameObject theFood);
     public static event FoodSpawn foodSpawn;
+
+    private void OnEnable()
+    {
+        canSpawn = true;
+    }
+
+
+    private void OnDisable()
+    {
+        canSpawn = false;
+    }
     void Update()
     {
+        Debug.Log("canSpawn is " + canSpawn);
         if (canSpawn)
+        {
+            Debug.Log("can spawn food: running coroutine");
             StartCoroutine(FoodSpawnTimer());
+        }
     }
+
+    public void UnlockFood()
+    {
+        //Get index of last unlocked food
+        int index = unlockedFoods.Count - 1;
+        for(int i = 0; i < allFoods.Count; i++)
+        {
+            if (i - 1== index)
+                unlockedFoods.Add(allFoods[i]);
+        }
+    }
+
+    //FOOD SPAWNING LOGIC
     IEnumerator FoodSpawnTimer()
     {
         canSpawn = false;
         //Debug.Log("spawning from " + this.gameObject);
-        foodSpawn?.Invoke(SelectRandomFood());
         yield return new WaitForSecondsRealtime(foodSpawnInterval);
+        foodSpawn?.Invoke(SelectRandomFood());
         canSpawn = true;
     }
     public void DeleteFood(GameObject theFood)

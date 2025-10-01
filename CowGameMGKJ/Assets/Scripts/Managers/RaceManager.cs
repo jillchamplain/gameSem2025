@@ -95,7 +95,7 @@ public class RaceManager : Manager
         curRace = curLeague.getRaceAt(0);
     }
 
-    public void RaceCow(Cow theCow)
+    public bool RaceCow(Cow theCow)
     {
         int tempPower = theCow.getPower();
 
@@ -105,22 +105,23 @@ public class RaceManager : Manager
         {
             if(theCow.getTraitAt(i) == curRace.getTraitAt(i))
             {
-                Debug.Log("Shared trait! " + theCow.getTraitAt(i));
+                //Debug.Log("Shared trait! " + theCow.getTraitAt(i));
                 tempPower = (int)(tempPower * 1.05f);
-                Debug.Log("Increasing power to " + tempPower);
+                //Debug.Log("Increasing power to " + tempPower);
             }
         }
 
-        Debug.Log("Cow's power is: " + tempPower);
+        //Debug.Log("Cow's power is: " + tempPower);
 
         if(tempPower < curRace.getPower())
         {
-            Debug.Log("Not enough power!" + tempPower);
+            //Debug.Log("Not enough power!" + tempPower);
+            return false;
             
         }
         else
         {
-            Debug.Log("You win the race!");
+            //Debug.Log("You win the race!");
             bool needNewLeague = true;
             for(int i = 0; i < curLeague.getRaces().Count; i++)
             {
@@ -149,6 +150,7 @@ public class RaceManager : Manager
                     }
                 }
             }
+            return true;
         }
     }
 }

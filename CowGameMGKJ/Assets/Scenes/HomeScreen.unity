@@ -4405,6 +4405,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 882086647}
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
+      propertyPath: foodManager
+      value: 
+      objectReference: {fileID: 139421826}
+    - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: playerMouse
       value: 
       objectReference: {fileID: 429313230}
@@ -4448,6 +4452,10 @@ PrefabInstance:
       propertyPath: managers.Array.data[5]
       value: 
       objectReference: {fileID: 484040199}
+    - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
+      propertyPath: managers.Array.data[6]
+      value: 
+      objectReference: {fileID: 139421826}
     - target: {fileID: 3724409119987472457, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7125,6 +7133,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2041827318}
     m_Modifications:
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoods.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoods.Array.data[1]
+      value: 
+      objectReference: {fileID: 6770909996756149, guid: 845270f2ec1ba404bb6d872cf3f61e5b, type: 3}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: unlockedFoods.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7971488255845932749, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7282,6 +7302,30 @@ PrefabInstance:
     - target: {fileID: 9174267185471255580, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[0]
+      value: Fluffy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[1]
+      value: Fido
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[2]
+      value: Spots
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[3]
+      value: Mittens
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[4]
+      value: Moo
       objectReference: {fileID: 0}
     - target: {fileID: 9174267185471255582, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: m_Name

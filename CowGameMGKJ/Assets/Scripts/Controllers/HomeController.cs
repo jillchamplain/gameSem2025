@@ -101,7 +101,7 @@ public class HomeController : LogicController
 
     private void InitUI()
     {
-        Debug.Log("UI initting");
+        //Debug.Log("UI initting");
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
             uiManager.UpdateCowUI(cowManager.getCowAt(i));
