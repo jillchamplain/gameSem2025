@@ -26,7 +26,11 @@ public class RaceManager : Manager
             }
         }
         return null;
-    }   
+    }
+
+    //EVENTS
+    public delegate void LeagueClear(RaceReward leagueReward);
+    public static event LeagueClear leagueClear;
 
     private void Start()
     {
@@ -59,7 +63,7 @@ public class RaceManager : Manager
         }
     }
 
-    public bool RaceCow(Cow theCow)
+    public RaceReward RaceCow(Cow theCow)
     {
         int tempPower = theCow.getPower();
 
@@ -80,12 +84,13 @@ public class RaceManager : Manager
         if(tempPower < curRace.getPower())
         {
             Debug.Log("Not enough power! Power needed is: " + curRace.getPower());
-            return false;
+            return RaceReward.NOWIN;
             
         }
         else
         {
             Debug.Log("You win the race! Power needed was: " + curRace.getPower());
+            
             bool needNewLeague = true;
             for(int i = 0; i < curLeague.getRaces().Count; i++)
             {
@@ -103,23 +108,28 @@ public class RaceManager : Manager
 
             if(needNewLeague)
             {
+               
                 for(int i = 0; i < allLeagues.Count; i++)
                 {
                     if(curLeague == allLeagues[i])
                     {
-                        Debug.Log("need new league");
+                        //Debug.Log("need new league");
                         if (i < allLeagues.Count - 1)
                         {
                             curLeague = allLeagues[i + 1];
                             curLeagueIndex = i;
                             curRaceIndex = 0;
                             curRace = curLeague.getRaceAt(0);
+                            needNewLeague = false;
                             i++; //Prevents from skipping ahead and reattributing curRace and curLeague
                         }
                     }
                 }
+                Debug.Log("called event");
+                leagueClear?.Invoke(curLeague.getClearReward());
+                
             }
-            return true;
+            return curRace.getClearReward();
         }
     }
 }

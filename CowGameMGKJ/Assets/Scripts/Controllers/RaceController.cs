@@ -30,13 +30,16 @@ public class RaceController : LogicController
     private void OnEnable()
     {
         MouseManager.mouseClick += OnMouseClick;
+        RaceManager.leagueClear += OnClearLeague;
 
         UIEventController.raceCow += OnCowRace;
+
     }
 
     private void OnDisable()
     {
         MouseManager.mouseClick -= OnMouseClick;
+        RaceManager.leagueClear -= OnClearLeague;
 
         UIEventController.raceCow -= OnCowRace;
     }
@@ -130,12 +133,23 @@ public class RaceController : LogicController
 
     public void OnCowRace()
     {
-        if (raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>()))
+        RaceReward theWin = raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>());
+
+        if (theWin != RaceReward.NOWIN)
         {
-           
-            foodManager.UnlockFood();
-            particleManager.SpawnTextParticleAt("Power Increase", "Unlocked Food!", playerMouse.getCurCow().gameObject.transform.position);
-            particleManager.SpawnTextParticleAt("Power Increase", "You Win!", playerMouse.getCurCow().gameObject.transform.position);
+            switch (theWin)
+            {
+                case RaceReward.NONE:
+                    particleManager.SpawnTextParticleAt("Power Increase", "You Win!", playerMouse.getCurCow().gameObject.transform.position);
+                    break;
+                case RaceReward.FOOD:
+                    foodManager.UnlockFood();
+                    particleManager.SpawnTextParticleAt("Power Increase", "You Win and Unlocked New Food!", playerMouse.getCurCow().gameObject.transform.position);
+                    break;
+                case RaceReward.PATTERN:
+                    particleManager.SpawnTextParticleAt("Power Increase", "You Win and Unlocked New Pattern!", playerMouse.getCurCow().gameObject.transform.position);
+                    break;
+            }
             SaveData();
 
         }
@@ -144,5 +158,23 @@ public class RaceController : LogicController
             particleManager.SpawnTextParticleAt("Power Increase", "You Lose!", playerMouse.getCurCow().gameObject.transform.position);
             SaveData();
         }
+    }
+
+    public void OnClearLeague(RaceReward clearReward)
+    {
+        switch (clearReward)
+        {
+            case RaceReward.NONE:
+                break;
+            case RaceReward.FOOD:
+                foodManager.UnlockFood();
+                Debug.Log(playerMouse.getCurCow());
+                particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Food!", playerMouse.getCurCow().gameObject.transform.position);
+                break;
+            case RaceReward.PATTERN:
+                particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Pattern!", playerMouse.getCurCow().gameObject.transform.position);
+                break;
+        }
+
     }
 }

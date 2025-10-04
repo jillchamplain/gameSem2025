@@ -4,8 +4,9 @@ using UnityEngine;
 
 public enum RaceReward
 { 
-    NONE = -1,
-    FOOD = 1,
+    NOWIN = -1,
+    NONE = 0,
+    FOOD,
     PATTERN,
 }
 
