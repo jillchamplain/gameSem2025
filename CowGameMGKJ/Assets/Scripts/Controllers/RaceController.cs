@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.EditorTools;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class RaceController : LogicController
     [SerializeField] CowManager cowManager;
     [SerializeField] RaceManager raceManager;
     [SerializeField] ParticleManager particleManager;
-    //[SerializeField] FoodManager foodManager; //Need this for unlocking foods
+    [SerializeField] FoodManager foodManager; //Need this for unlocking foods
     [SerializeField] SpawnManager spawnManager;//Separate visuals eventually
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class RaceController : LogicController
             playerMouse.setCurCow(null);
         }
         cowManager.ClearCows();
+        
     }
 
     public override void Init()
@@ -81,6 +83,11 @@ public class RaceController : LogicController
         {
             uiManager.UpdateCowUI(cowManager.getCowAt(i));
         }
+    }
+
+    public void SaveData()
+    {
+        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count);
     }
 
     private void UpdateUI()
@@ -123,8 +130,15 @@ public class RaceController : LogicController
     {
         if (raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>()))
         {
-            //foodManager.UnlockFood();
+            foodManager.UnlockFood();
+            particleManager.SpawnTextParticleAt("Power Increase", "You Win!", playerMouse.getCurCow().gameObject.transform.position);
+            SaveData();
 
+        }
+        else
+        {
+            particleManager.SpawnTextParticleAt("Power Increase", "You Lose!", playerMouse.getCurCow().gameObject.transform.position);
+            SaveData();
         }
     }
 }

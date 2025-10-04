@@ -96,6 +96,7 @@ public class HomeController : LogicController
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
 
         cowManager.InitCurCows(SaveSystem.LoadGameData());
+        foodManager.InitFood(SaveSystem.LoadGameData());
         InitUI();
     }
 
@@ -121,11 +122,11 @@ public class HomeController : LogicController
         }
     }
 
-    private void SaveCowData()
+    private void SaveData()
     {
         if (!getListening())
             return;
-        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2));
+        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count);
     }
 
     private void OnCowSpawned(Cow theCow)
@@ -147,7 +148,7 @@ public class HomeController : LogicController
         foodManager.DeleteFood(theFood.gameObject);
 
         theCow.setPower(theCow.getPower() + theFood.getPower()); //Increase cow power
-        SaveCowData();
+        SaveData();
 
         string powerIncreaseText = "+ " + theFood.getPower();
 
@@ -158,7 +159,7 @@ public class HomeController : LogicController
             uiManager.UpdateCowUI(theCow);
         }
         uiManager.SetUIGroup("Train", false);
-        SaveCowData();
+        SaveData();
     }
 
    public void OnCowTrain()
@@ -170,7 +171,7 @@ public class HomeController : LogicController
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
         int increase = trainManager.RollTrainingSuccess(theRegimen);
         theCow.setPower(theCow.getPower() + increase);
-        SaveCowData();
+        SaveData();
 
 
         if (theCow.getPower() >= theCow.getMaxPower())
@@ -182,7 +183,7 @@ public class HomeController : LogicController
         string powerIncreaseText = "+ " + increase;
         particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
         UpdateUI();
-        SaveCowData();
+        SaveData();
     }
 
     private void OnCowLevelUp(Cow theCow)
@@ -194,7 +195,7 @@ public class HomeController : LogicController
             return;
         Vector3 spawn = new Vector3(theCow.transform.position.x, theCow.transform.position.y + 0.75f, 0);
         particleManager.SpawnTextParticleAt("Power Increase", "Level Up!", spawn);
-        SaveCowData();
+        SaveData();
     }
 
     private void OnCowMaxLevel(Cow theCow)
@@ -205,7 +206,7 @@ public class HomeController : LogicController
         UpdateUI();
         theCow.setSelected(false);
         theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
-        SaveCowData();
+        SaveData();
     }
 
     private void OnCowRetire(Cow theCow)
@@ -217,7 +218,7 @@ public class HomeController : LogicController
         playerMouse.setCurCow(null);
         cowManager.DeleteCow(theCow.gameObject);
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-        SaveCowData();
+        SaveData();
     }
 
     private void OnFoodSpawned(GameObject theFood)

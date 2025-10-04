@@ -1,62 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\",
+  "WorkspaceRootPath": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\documents\\github\\gamesem2025\\cowgamemgkj\\assets\\scripts\\managers\\foodmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\foodmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\documents\\github\\gamesem2025\\cowgamemgkj\\assets\\scripts\\controllers\\racecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\desktop\\gamesem2025\\cowgamemgkj\\assets\\scripts\\controllers\\racecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\controllers\\racecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\documents\\github\\gamesem2025\\cowgamemgkj\\assets\\scripts\\managers\\racemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\racemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\desktop\\gamesem2025\\cowgamemgkj\\assets\\scripts\\managers\\foodmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\foodmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\documents\\github\\gamesem2025\\cowgamemgkj\\assets\\scripts\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\desktop\\gamesem2025\\cowgamemgkj\\assets\\scripts\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\assets\\scripts\\savesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\desktop\\gamesem2025\\cowgamemgkj\\assets\\scripts\\savesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\savesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\assets\\scripts\\uicontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uicontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\assets\\scripts\\cow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\assets\\scripts\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\desktop\\gamesem2025\\cowgamemgkj\\assets\\scripts\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\RaceController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\RaceController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\ArcController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\ArcController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\CowManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\CowManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\UIManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIEventController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\UIEventController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|c:\\users\\jillian.chapin\\desktop\\gamesem2025\\cowgamemgkj\\assets\\scripts\\managers\\cowmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB97BA0D-4C45-3156-374C-32876E22D042}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\cowmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,179 +34,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RaceManager.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\RaceManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\RaceManager.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\RaceManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Managers\\RaceManager.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAiwHsAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T15:36:14.629Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAArwGcAAAAKAAAAAAAAAA==",
+              "Title": "SaveSystem.cs",
+              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\SaveSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SaveSystem.cs",
+              "ToolTip": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\SaveSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SaveSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T15:35:16.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FoodManager.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\FoodManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\FoodManager.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\FoodManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Managers\\FoodManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T15:30:05.468Z",
+              "WhenOpened": "2025-10-04T01:07:06.299Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RaceController.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\RaceController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Controllers\\RaceController.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\RaceController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Controllers\\RaceController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAwwH0AAAAOAAAAAAAAAA==",
+              "Title": "FoodManager.cs",
+              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\FoodManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\FoodManager.cs",
+              "ToolTip": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\FoodManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\FoodManager.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwEUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T15:29:49.684Z",
+              "WhenOpened": "2025-10-04T00:57:28.951Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ArcController.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\ArcController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ArcController.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\ArcController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ArcController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAYwDsAAABxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T00:36:43.09Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameData.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\GameData.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameData.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\GameData.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameData.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T00:26:08.886Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "SaveSystem.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\SaveSystem.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SaveSystem.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\SaveSystem.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SaveSystem.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBEAAAAFAAAAAAAAAA==",
+              "Title": "GameData.cs",
+              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\GameData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameData.cs",
+              "ToolTip": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\GameData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameData.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwGYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T00:25:57.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Cow.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Cow.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Cow.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Cow.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Cow.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAAAHkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T00:24:22.188Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CowManager.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\CowManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CowManager.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\CowManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CowManager.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAIwD8AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T18:25:28.395Z"
+              "WhenOpened": "2025-10-04T00:49:57.808Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "UIContainer.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIContainer.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UIContainer.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIContainer.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UIContainer.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAwwB0AAAAKAAAAAAAAAA==",
+              "Title": "CowManager.cs",
+              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\CowManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\CowManager.cs",
+              "ToolTip": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Managers\\CowManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Managers\\CowManager.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T00:12:14.681Z"
+              "WhenOpened": "2025-10-04T00:57:00.972Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UIManager.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UIManager.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UIManager.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAIwDkAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T23:55:36.342Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UIEventController.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIEventController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UIEventController.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\UIEventController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UIEventController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T19:35:58.916Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\HomeController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HomeController.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\HomeController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HomeController.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAIwFwAAAAqAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAArwNwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T16:54:34.81Z"
+              "WhenOpened": "2025-10-04T00:45:19.389Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "RaceController.cs",
-              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\RaceController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\RaceController.cs",
-              "ToolTip": "C:\\Users\\jillian.chapin\\Documents\\GitHub\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\RaceController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\RaceController.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAcwEIAAAARAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\RaceController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Controllers\\RaceController.cs",
+              "ToolTip": "C:\\Users\\jillian.chapin\\Desktop\\gameSem2025\\CowGameMGKJ\\Assets\\Scripts\\Controllers\\RaceController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Controllers\\RaceController.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAswIwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T00:56:26.662Z"
+              "WhenOpened": "2025-10-04T00:44:55.474Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -43,8 +43,12 @@ public class GameData
     public string traitC3;
     public string pattern3;
 
+    //UNLOCKED FOODS
+    public bool[] unlockedFoodFlags = new bool[5];
 
-    public GameData(int gen, Cow cow1, Cow cow2, Cow cow3)
+    //CURRENT RACE AND LEAGUE
+
+    public GameData(int gen, Cow cow1, Cow cow2, Cow cow3, int numFoodsUnlocked)
     {
         curGeneration = gen;
 
@@ -86,6 +90,18 @@ public class GameData
             traitB3 = cow3.getTraitAt(1);
             traitC3 = cow3.getTraitAt(2);
         }
+
+        //Reset Flags 
+        for(int i = 0; i < unlockedFoodFlags.Length; i++)
+        {
+            unlockedFoodFlags[i] = false;
+        }
+
+        //Attribute flag unlocks by number of food unlocked
+        for(int i = 0; i < numFoodsUnlocked; i++)
+        {
+            unlockedFoodFlags[i] = true;
+        }
     }
 
 
@@ -122,6 +138,14 @@ public class GameData
         traitA3 = "1";
         traitB3 = "2";
         traitC3 = "3";
+
+        for(int i = 0; i < 5; i++)
+        {
+            if (i == 0)
+                unlockedFoodFlags[i] = true;
+            else
+                unlockedFoodFlags[i] = false;
+        }
     }
 
 }

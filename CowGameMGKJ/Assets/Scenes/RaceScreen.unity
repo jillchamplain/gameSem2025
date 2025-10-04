@@ -4562,6 +4562,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 882086647}
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
+      propertyPath: foodManager
+      value: 
+      objectReference: {fileID: 139421826}
+    - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: playerMouse
       value: 
       objectReference: {fileID: 429313230}
@@ -4579,7 +4583,7 @@ PrefabInstance:
       objectReference: {fileID: 1902078456}
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: managers.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: managers.Array.data[0]
@@ -4605,6 +4609,10 @@ PrefabInstance:
       propertyPath: managers.Array.data[5]
       value: 
       objectReference: {fileID: 484040199}
+    - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
+      propertyPath: managers.Array.data[6]
+      value: 
+      objectReference: {fileID: 139421826}
     - target: {fileID: 3724409119987472457, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: m_RootOrder
       value: 1

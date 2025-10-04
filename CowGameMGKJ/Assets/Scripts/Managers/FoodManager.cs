@@ -19,6 +19,7 @@ public class FoodManager : Manager
         }
     }
     [SerializeField] List<GameObject> unlockedFoods;
+    public List<GameObject> getUnlockedFoods() { return unlockedFoods; }
     [SerializeField] List<GameObject> allFoods;
     public delegate void FoodSpawn(GameObject theFood);
     public static event FoodSpawn foodSpawn;
@@ -35,21 +36,38 @@ public class FoodManager : Manager
     }
     void Update()
     {
-        Debug.Log("canSpawn is " + canSpawn);
+        //Debug.Log("canSpawn is " + canSpawn);
         if (canSpawn)
         {
-            Debug.Log("can spawn food: running coroutine");
+            //Debug.Log("can spawn food: running coroutine");
             StartCoroutine(FoodSpawnTimer());
         }
     }
 
+    public void InitFood(GameData theData)
+    {
+        //Reads Save Data to determine what foods the player has unlocked already
+        unlockedFoods.Clear();
+
+        for(int i = 0; i < theData.unlockedFoodFlags.Length; i++)
+        {
+            if (theData.unlockedFoodFlags[i])
+            {
+                unlockedFoods.Add(allFoods[i]);
+            }
+        }
+
+        //BEHAVIOR FOR RESPAWNING FOOD THAT WAS LEFT
+    }
+
     public void UnlockFood()
     {
+        Debug.Log("Unlocking Food");
         //Get index of last unlocked food
         int index = unlockedFoods.Count - 1;
         for(int i = 0; i < allFoods.Count; i++)
         {
-            if (i - 1== index)
+            if (i - 1 == index)
                 unlockedFoods.Add(allFoods[i]);
         }
     }
