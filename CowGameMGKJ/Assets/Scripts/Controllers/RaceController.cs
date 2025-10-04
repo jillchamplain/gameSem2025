@@ -132,7 +132,9 @@ public class RaceController : LogicController
     {
         if (raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>()))
         {
+           
             foodManager.UnlockFood();
+            particleManager.SpawnTextParticleAt("Power Increase", "Unlocked Food!", playerMouse.getCurCow().gameObject.transform.position);
             particleManager.SpawnTextParticleAt("Power Increase", "You Win!", playerMouse.getCurCow().gameObject.transform.position);
             SaveData();
 

@@ -6657,7 +6657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6932,6 +6932,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Race Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4682166027178904323, guid: 49638aaeb617f0e4dbcfb5b5ee3db084, type: 3}
+      propertyPath: allLeagues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ed911f59dce62a49bc7aea99c625a7e, type: 2}
+    - target: {fileID: 4682166027178904323, guid: 49638aaeb617f0e4dbcfb5b5ee3db084, type: 3}
+      propertyPath: allLeagues.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2371f624f608a374196c41f39ad3c386, type: 2}
+    - target: {fileID: 4682166027178904323, guid: 49638aaeb617f0e4dbcfb5b5ee3db084, type: 3}
+      propertyPath: allLeagues.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0363514110a780244b4bbddfe6d8500a, type: 2}
     - target: {fileID: 4682166027178904332, guid: 49638aaeb617f0e4dbcfb5b5ee3db084, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -16,82 +16,17 @@ public class RaceManager : Manager
     public int getCurLeagueIndex() { return curLeagueIndex; }
     [SerializeField] List<League> allLeagues;
     public League getLeague() { return curLeague; }
-
-    [Serializable]
-    public struct Race
+    public League getLeagueAt(int index)
     {
-        [SerializeField] int power;
-        public int getPower() { return power; }
-        [SerializeField] List<string> traits;
-        public List<string> getTraits() { return traits; }
-        public string getTraitAt(int index) { return traits[index]; }
-
-        public static bool operator ==(Race raceA, Race raceB)
+        for(int i  = 0; i < allLeagues.Count; i++)
         {
-            bool isEqual = true;
-            if (raceA.getPower() != raceB.getPower())
-                isEqual = false;
-            if (raceA.getTraitAt(0) != raceB.getTraitAt(0))
-                isEqual = false;
-            if (raceA.getTraitAt(1) != raceB.getTraitAt(1))
-                isEqual = false;
-            if (raceA.getTraitAt(2) != raceB.getTraitAt(2))
-                isEqual = false;
-
-                return isEqual;
-        }
-
-        public static bool operator !=(Race raceA, Race raceB)
-        {
-            bool isEqual = false;
-            if (raceA.getPower() != raceB.getPower())
-                isEqual = true;
-            if (raceA.getTraitAt(0) != raceB.getTraitAt(0))
-                isEqual = true;
-            if (raceA.getTraitAt(1) != raceB.getTraitAt(1))
-                isEqual = true;
-            if (raceA.getTraitAt(2) != raceB.getTraitAt(2))
-                isEqual = true;
-
-            return isEqual;
-        }
-    }
-    [Serializable]
-    public struct League
-    {
-        [SerializeField] List<Race> races;
-        public List<Race> getRaces() { return races; }
-        public Race getRaceAt(int index) { return races[index]; }
-
-        public static bool operator ==(League leagueA, League leagueB)
-        {
-            bool isEqual = true;
-            if (leagueA.getRaces().Count != leagueB.getRaces().Count)
-                return false;
-
-            for(int i = 0; i < leagueA.getRaces().Count; i++)
+            if (i == index)
             {
-                if (leagueA.getRaceAt(i) != leagueB.getRaceAt(i))
-                    isEqual = false;
+                return allLeagues[i];
             }
-
-            return isEqual;
         }
-
-        public static bool operator !=(League leagueA, League leagueB)
-        {
-            bool isEqual = false;
-            if (leagueA.getRaces().Count != leagueB.getRaces().Count)
-                return true;
-            
-            for(int i = 0; i < leagueA.getRaces().Count; i++)
-            {
-                if (leagueA.getRaceAt(i) != leagueB.getRaceAt(i))
-                    return true;
-            }
-            return isEqual;
-        }
-    }
+        return null;
+    }   
 
     private void Start()
     {
