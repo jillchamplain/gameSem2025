@@ -73,6 +73,8 @@ public class RaceController : LogicController
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
 
         cowManager.InitCurCows(SaveSystem.LoadGameData());
+        foodManager.InitFood(SaveSystem.LoadGameData());
+        raceManager.InitRaces(SaveSystem.LoadGameData());
         InitUI();
     }
 
@@ -87,7 +89,7 @@ public class RaceController : LogicController
 
     public void SaveData()
     {
-        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count);
+        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count, raceManager.getCurRaceIndex(), raceManager.getCurLeagueIndex());
     }
 
     private void UpdateUI()

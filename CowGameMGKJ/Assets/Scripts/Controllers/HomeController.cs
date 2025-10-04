@@ -16,6 +16,7 @@ public class HomeController : LogicController
     [SerializeField] SpawnManager spawnManager;
     [SerializeField] ParticleManager particleManager;
     [SerializeField] TrainManager trainManager;
+    [SerializeField] RaceManager raceManager;
     private void Awake()
     {
         setGameState(GameState.HOME);
@@ -97,6 +98,7 @@ public class HomeController : LogicController
 
         cowManager.InitCurCows(SaveSystem.LoadGameData());
         foodManager.InitFood(SaveSystem.LoadGameData());
+        raceManager.InitRaces(SaveSystem.LoadGameData());
         InitUI();
     }
 
@@ -126,7 +128,7 @@ public class HomeController : LogicController
     {
         if (!getListening())
             return;
-        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count);
+        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count, raceManager.getCurRaceIndex(), raceManager.getCurLeagueIndex());
     }
 
     private void OnCowSpawned(Cow theCow)

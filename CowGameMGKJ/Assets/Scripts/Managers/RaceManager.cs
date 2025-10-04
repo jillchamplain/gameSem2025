@@ -9,7 +9,11 @@ public class RaceManager : Manager
 {
     [Header("Refs")]
     [SerializeField] Race curRace;
+    [SerializeField] int curRaceIndex = 0; //index of cur race in league
+    public int getCurRaceIndex() { return curRaceIndex; }
     [SerializeField] League curLeague;
+    [SerializeField] int curLeagueIndex = 0; //index of cur league in league list
+    public int getCurLeagueIndex() { return curLeagueIndex; }
     [SerializeField] List<League> allLeagues;
     public League getLeague() { return curLeague; }
 
@@ -95,6 +99,30 @@ public class RaceManager : Manager
         curRace = curLeague.getRaceAt(0);
     }
 
+    public void InitRaces(GameData theData)
+    {
+        //Find cur league
+        for(int i = 0; i < allLeagues.Count; i++)
+        {
+            if(i == theData.curLeagueID)
+            {
+                curLeagueIndex = i;
+                curLeague = allLeagues[i];
+            }
+        }
+
+
+        //Find cur race
+        for(int i = 0; i < curLeague.getRaces().Count; i++)
+        {
+            if(i == theData.curRaceID)
+            {
+                curRaceIndex = i;
+                curRace = curLeague.getRaceAt(i);
+            }
+        }
+    }
+
     public bool RaceCow(Cow theCow)
     {
         int tempPower = theCow.getPower();
@@ -115,13 +143,13 @@ public class RaceManager : Manager
 
         if(tempPower < curRace.getPower())
         {
-            //Debug.Log("Not enough power!" + tempPower);
+            Debug.Log("Not enough power! Power needed is: " + curRace.getPower());
             return false;
             
         }
         else
         {
-            //Debug.Log("You win the race!");
+            Debug.Log("You win the race! Power needed was: " + curRace.getPower());
             bool needNewLeague = true;
             for(int i = 0; i < curLeague.getRaces().Count; i++)
             {
@@ -130,6 +158,7 @@ public class RaceManager : Manager
                     if (i < curLeague.getRaces().Count - 1)
                     {
                         curRace = curLeague.getRaceAt(i + 1);
+                        curRaceIndex = i + 1;
                         needNewLeague = false;
                         break;
                     }
@@ -142,10 +171,14 @@ public class RaceManager : Manager
                 {
                     if(curLeague == allLeagues[i])
                     {
-                        if(i < allLeagues.Count - 1)
+                        Debug.Log("need new league");
+                        if (i < allLeagues.Count - 1)
                         {
                             curLeague = allLeagues[i + 1];
+                            curLeagueIndex = i;
+                            curRaceIndex = 0;
                             curRace = curLeague.getRaceAt(0);
+                            i++; //Prevents from skipping ahead and reattributing curRace and curLeague
                         }
                     }
                 }

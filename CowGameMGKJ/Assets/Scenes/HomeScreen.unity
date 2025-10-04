@@ -5211,6 +5211,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 429313230}
     - target: {fileID: 4077875117952985693, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
+      propertyPath: raceManager
+      value: 
+      objectReference: {fileID: 1778656775}
+    - target: {fileID: 4077875117952985693, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
       propertyPath: spawnManager
       value: 
       objectReference: {fileID: 484040199}

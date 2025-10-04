@@ -49,6 +49,9 @@ public class FoodManager : Manager
         //Reads Save Data to determine what foods the player has unlocked already
         unlockedFoods.Clear();
 
+        if (allFoods.Count <= 0)
+            return;
+
         for(int i = 0; i < theData.unlockedFoodFlags.Length; i++)
         {
             if (theData.unlockedFoodFlags[i])
@@ -62,7 +65,7 @@ public class FoodManager : Manager
 
     public void UnlockFood()
     {
-        Debug.Log("Unlocking Food");
+        //Debug.Log("Unlocking Food");
         //Get index of last unlocked food
         int index = unlockedFoods.Count - 1;
         for(int i = 0; i < allFoods.Count; i++)

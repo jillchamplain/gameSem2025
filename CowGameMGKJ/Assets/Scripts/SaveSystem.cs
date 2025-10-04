@@ -5,13 +5,13 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem 
 {
-    public static void SaveGameData(int curGen, Cow cow1, Cow cow2, Cow cow3, int numUnlockedFoods)
+    public static void SaveGameData(int curGen, Cow cow1, Cow cow2, Cow cow3, int numUnlockedFoods, int curRaceIndex, int curLeagueIndex)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/gameSaveData";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData(curGen, cow1, cow2, cow3, numUnlockedFoods);
+        GameData data = new GameData(curGen, cow1, cow2, cow3, numUnlockedFoods, curRaceIndex, curLeagueIndex);
 
         formatter.Serialize(stream, data);
         stream.Close();
