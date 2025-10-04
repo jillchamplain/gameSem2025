@@ -101,7 +101,7 @@ public class RaceManager : Manager
 
     public void InitRaces(GameData theData)
     {
-        Debug.Log("initting races");
+      
         //Find cur league
         for(int i = 0; i < allLeagues.Count; i++)
         {

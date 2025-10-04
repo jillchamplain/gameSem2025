@@ -146,7 +146,7 @@ public class Cow : MonoBehaviour
         thisNameLabel.text = theName;
         setGen(theGen);
         setMaxPower(theMaxPower);
-        setLevel(1);
+        setLevel(0);
 
         setTraits(trait1, trait2, trait3);
 
@@ -154,7 +154,7 @@ public class Cow : MonoBehaviour
 
     }
 
-    public void InitCow(string name, int theGen, int power, int theMaxPower, string trait1, string trait2, string trait3)
+    public void InitCow(string name, int theGen, int level, int maxLevel, int power, int theMaxPower, string trait1, string trait2, string trait3)
     {
         //Debug.Log("initting cow");
         setName(name);
@@ -162,7 +162,8 @@ public class Cow : MonoBehaviour
         setGen(theGen);
         setMaxPower(theMaxPower);
         setPower(power);
-        setLevel(1);
+        setLevel(level);
+        setMaxLevel(maxLevel);
 
         setTraits(trait1, trait2, trait3);
 

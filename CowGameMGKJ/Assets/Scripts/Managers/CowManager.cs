@@ -70,17 +70,17 @@ public class CowManager : Manager
         if (theData.gen1 != 0)
         {
             //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
-            getCowAt(0).InitCow(theData.name1, theData.gen1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
+            getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
         }
         if (theData.gen2 != 0)
         {
             //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
-            getCowAt(1).InitCow(theData.name2, theData.gen2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
+            getCowAt(1).InitCow(theData.name2, theData.gen2, theData.level2, theData.mLevel2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
         }
         if (theData.gen3 != 0)
         {
             //Debug.Log("Cow3: " + theData.name3 + " " + theData.power3 + " " + theData.mPower3 + " " + theData.traitA3 + " " + theData.traitB3 + " " + theData.traitC3);
-            getCowAt(2).InitCow(theData.name3, theData.gen3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3);
+            getCowAt(2).InitCow(theData.name3, theData.gen3, theData.level3, theData.mLevel3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3);
         }
 
     }
