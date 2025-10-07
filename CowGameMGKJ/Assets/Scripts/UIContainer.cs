@@ -1,8 +1,9 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIContainer : MonoBehaviour
@@ -124,6 +125,11 @@ public class UIContainer : MonoBehaviour
         public string getElementName() { return elementName; }
     }
 
+    //ANIMATIONS
+    public void PopAnimation()
+    {
+        DOTween.CompleteAll();
+        this.gameObject.GetComponent<RectTransform>().DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 0.5f, 1);
 
-
+    }
 }

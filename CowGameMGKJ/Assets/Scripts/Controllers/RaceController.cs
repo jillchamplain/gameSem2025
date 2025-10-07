@@ -35,6 +35,7 @@ public class RaceController : LogicController
         UIEventController.raceCowPrompt += OnCowRacePrompt;
         UIEventController.noRaceCow += OnNoCowRace;
         UIEventController.raceCow += OnCowRace;
+        UIEventController.popUpOff += OnPopUpOff;
 
     }
 
@@ -46,6 +47,7 @@ public class RaceController : LogicController
         UIEventController.raceCowPrompt -= OnCowRacePrompt;
         UIEventController.noRaceCow -= OnNoCowRace;
         UIEventController.raceCow -= OnCowRace;
+        UIEventController.popUpOff -= OnPopUpOff;
     }
 
     public override void Reset()
@@ -135,19 +137,24 @@ public class RaceController : LogicController
         }
     }
 
-    public void OnCowRacePrompt()
+    private void OnPopUpOff()
+    {
+        uiManager.SetUIGroup("PopUp", false);
+    }
+
+    private void OnCowRacePrompt()
     {
         uiManager.SetUIGroup("Race", true);
         uiManager.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
     }
 
-    public void OnNoCowRace()
+    private void OnNoCowRace()
     {
         uiManager.SetUIGroup("Race", false);
         Debug.Log("toggling off race");
     }
 
-    public void OnCowRace()
+    private void OnCowRace()
     {
         RaceReward theWin = raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>());
 
@@ -156,14 +163,18 @@ public class RaceController : LogicController
             switch (theWin)
             {
                 case RaceReward.NONE:
-                    particleManager.SpawnTextParticleAt("Power Increase", "You Win!", playerMouse.getCurCow().gameObject.transform.position);
+                    uiManager.SetUIGroup("PopUp", true);
+                    uiManager.MakePopUp("You won the race!");
+                    Debug.Log("making pop up");
                     break;
                 case RaceReward.FOOD:
                     foodManager.UnlockFood();
-                    particleManager.SpawnTextParticleAt("Power Increase", "You Win and Unlocked New Food!", playerMouse.getCurCow().gameObject.transform.position);
+                    uiManager.SetUIGroup("PopUp", true);
+                    uiManager.MakePopUp("You won and unlocked a new food!");
                     break;
                 case RaceReward.PATTERN:
-                    particleManager.SpawnTextParticleAt("Power Increase", "You Win and Unlocked New Pattern!", playerMouse.getCurCow().gameObject.transform.position);
+                    uiManager.SetUIGroup("PopUp", true);
+                    uiManager.MakePopUp("You won and unlocked a new pattern!");
                     break;
             }
             SaveData();
@@ -171,12 +182,12 @@ public class RaceController : LogicController
         }
         else
         {
-            particleManager.SpawnTextParticleAt("Power Increase", "You Lose!", playerMouse.getCurCow().gameObject.transform.position);
+            uiManager.MakePopUp("You lost the race");
             SaveData();
         }
     }
 
-    public void OnClearLeague(RaceReward clearReward)
+    private void OnClearLeague(RaceReward clearReward)
     {
        
         switch (clearReward)

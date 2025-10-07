@@ -9,6 +9,9 @@ public class UIEventController : MonoBehaviour
     public delegate void SwitchLogic(int state);
     public static event SwitchLogic switchLogic;
 
+    public delegate void PopUpOff();
+    public static event PopUpOff popUpOff;
+
     public delegate void RaceCowPrompt();
     public static event RaceCowPrompt raceCowPrompt;
 
@@ -29,6 +32,12 @@ public class UIEventController : MonoBehaviour
     public void OnSaveReset()
     {
         SaveSystem.ResetGameData();
+    }
+
+
+    public void OnPopUpButton()
+    {
+        popUpOff?.Invoke();
     }
 
     public void OnRacePromptButton() //Runs warning about missing script behavior for race button

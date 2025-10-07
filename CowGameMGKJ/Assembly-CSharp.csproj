@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Managers\RaceManager.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Scripts\RaceUI.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Scripts\Enums\ManagerType.cs" />
     <Compile Include="Assets\Scripts\Managers\TrainManager.cs" />
@@ -92,7 +93,6 @@
     <Compile Include="Assets\Scripts\Cow.cs" />
     <Compile Include="Assets\Scripts\Controllers\LogicController.cs" />
     <Compile Include="Assets\Scripts\Managers\FoodManager.cs" />
-    <Compile Include="Assets\Scripts\RaceUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -10,6 +10,7 @@ public class UIManager : Manager
     [Header("Refs")]
     [SerializeField] CowUI[] cowUIs = new CowUI[3];
     [SerializeField] UIGroup[] uiGroups = new UIGroup[4];
+    [SerializeField] UIContainer popUp;
     [SerializeField] RaceUI racePrompt;
 
     [Serializable] 
@@ -73,6 +74,13 @@ public class UIManager : Manager
         //Debug.Log("cow UIs are " + cowUIs.Length);
         racePrompt.PopAnimation();
         racePrompt.setContainer(theCow, theRace);
+    }
+
+    public void MakePopUp(string textInfo)
+    {
+        popUp.setTextElement("Info", textInfo);
+        popUp.PopAnimation();
+
     }
 
 }

@@ -43,6 +43,7 @@ public class HomeController : LogicController
         MouseManager.mouseRelease += OnMouseRelease;
 
         UIEventController.trainCow += OnCowTrain;
+        UIEventController.popUpOff += OnPopUpOff;
     }
     private void OnDisable()
     {
@@ -129,6 +130,11 @@ public class HomeController : LogicController
         if (!getListening())
             return;
         SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count, raceManager.getCurRaceIndex(), raceManager.getCurLeagueIndex());
+    }
+
+    private void OnPopUpOff()
+    {
+        uiManager.SetUIGroup("PopUp", false);
     }
 
     private void OnCowSpawned(Cow theCow)
@@ -221,6 +227,8 @@ public class HomeController : LogicController
         cowManager.DeleteCow(theCow.gameObject);
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         SaveData();
+        uiManager.SetUIGroup("PopUp", true);
+        uiManager.MakePopUp(theCow.getName() + " retired!");
     }
 
     private void OnFoodSpawned(GameObject theFood)

@@ -19,11 +19,4 @@ public class CowUI : UIContainer
 
     }
 
-
-    public void PopAnimation()
-    {
-        DOTween.CompleteAll();
-        this.gameObject.GetComponent<RectTransform>().DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 0.5f, 1);
-
-    }
 }
