@@ -32,6 +32,8 @@ public class RaceController : LogicController
         MouseManager.mouseClick += OnMouseClick;
         RaceManager.leagueClear += OnClearLeague;
 
+        UIEventController.raceCowPrompt += OnCowRacePrompt;
+        UIEventController.noRaceCow += OnNoCowRace;
         UIEventController.raceCow += OnCowRace;
 
     }
@@ -41,6 +43,8 @@ public class RaceController : LogicController
         MouseManager.mouseClick -= OnMouseClick;
         RaceManager.leagueClear -= OnClearLeague;
 
+        UIEventController.raceCowPrompt -= OnCowRacePrompt;
+        UIEventController.noRaceCow -= OnNoCowRace;
         UIEventController.raceCow -= OnCowRace;
     }
 
@@ -131,6 +135,18 @@ public class RaceController : LogicController
         }
     }
 
+    public void OnCowRacePrompt()
+    {
+        uiManager.SetUIGroup("Race", true);
+        uiManager.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
+    }
+
+    public void OnNoCowRace()
+    {
+        uiManager.SetUIGroup("Race", false);
+        Debug.Log("toggling off race");
+    }
+
     public void OnCowRace()
     {
         RaceReward theWin = raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>());
@@ -151,7 +167,7 @@ public class RaceController : LogicController
                     break;
             }
             SaveData();
-
+            OnCowRacePrompt();
         }
         else
         {

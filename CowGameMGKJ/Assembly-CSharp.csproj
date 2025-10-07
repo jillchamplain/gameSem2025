@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Managers\CowManager.cs" />
     <Compile Include="Assets\Scripts\Race.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Scripts\CowUI.cs" />
     <Compile Include="Assets\Scripts\Managers\MouseManager.cs" />
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Controllers\HomeController.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Enums\RaceRewards.cs" />
     <Compile Include="Assets\Scripts\CustomParticle.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Scripts\UIContainer.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\Managers\ParticleManager.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
@@ -89,10 +91,8 @@
     <Compile Include="Assets\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\Scripts\Cow.cs" />
     <Compile Include="Assets\Scripts\Controllers\LogicController.cs" />
-    <Compile Include="Assets\Scripts\CowUIContainer.cs" />
     <Compile Include="Assets\Scripts\Managers\FoodManager.cs" />
-    <Compile Include="Assets\Scripts\UIContainer.cs" />
-    <Compile Include="Assets\Scripts\CowUI.cs" />
+    <Compile Include="Assets\Scripts\RaceUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -14,7 +14,7 @@ public class CowUI : UIContainer
         setTextElement("Level", theCow.getLevel().ToString());
         setTextElement("Power", theCow.getPower().ToString());
 
-        setSliderElementMax("Power", theCow.getPower());
+        setSliderElementMax("Power", theCow.getMaxPower());
         getSliderElement("Power").DOValue(theCow.getPower(), 1.0f);
 
     }

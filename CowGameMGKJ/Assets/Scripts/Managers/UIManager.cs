@@ -10,8 +10,9 @@ public class UIManager : Manager
     [Header("Refs")]
     [SerializeField] CowUI[] cowUIs = new CowUI[3];
     [SerializeField] UIGroup[] uiGroups = new UIGroup[4];
+    [SerializeField] RaceUI racePrompt;
 
-    [Serializable]
+    [Serializable] 
     struct UIGroup
     {
         [SerializeField] string groupName;
@@ -61,6 +62,17 @@ public class UIManager : Manager
                 theUI.setContainer(theCow);
             }
         }
+    }
+
+    public void UpdateRaceUI(Cow theCow, Race theRace)
+    {
+        //Debug.Log("the Cow is " + theCow.gameObject);
+        if (theCow == null)
+            return;
+        //Debug.Log("cow index is " + theCow.getUIIndex());
+        //Debug.Log("cow UIs are " + cowUIs.Length);
+        racePrompt.PopAnimation();
+        racePrompt.setContainer(theCow, theRace);
     }
 
 }
