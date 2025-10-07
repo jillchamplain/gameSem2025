@@ -4654,9 +4654,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1254907252}
-  - component: {fileID: 1254907256}
   - component: {fileID: 1254907254}
   - component: {fileID: 1254907253}
+  - component: {fileID: 1254907258}
   - component: {fileID: 1254907255}
   - component: {fileID: 1254907257}
   m_Layer: 5
@@ -4743,18 +4743,6 @@ MonoBehaviour:
     elementName: Info
   sliderElements: []
   imageElements: []
---- !u!225 &1254907256
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254907251}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
 --- !u!114 &1254907257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4781,6 +4769,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &1254907258
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254907251}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1313413906
 GameObject:
   m_ObjectHideFlags: 0
@@ -8752,7 +8752,7 @@ PrefabInstance:
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: uiGroups.Array.data[3].canvasGroup
       value: 
-      objectReference: {fileID: 1254907256}
+      objectReference: {fileID: 1254907258}
     - target: {fileID: 5235996231509918635, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: m_RootOrder
       value: 6

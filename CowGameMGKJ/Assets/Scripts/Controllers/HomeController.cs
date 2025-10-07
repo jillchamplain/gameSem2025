@@ -61,6 +61,7 @@ public class HomeController : LogicController
         MouseManager.mouseRelease -= OnMouseRelease;
 
         UIEventController.trainCow -= OnCowTrain;
+        UIEventController.popUpOff -= OnPopUpOff;
     }
     public override void Reset()
     {
@@ -224,11 +225,12 @@ public class HomeController : LogicController
 
         uiManager.SetUIGroup("Train", false);
         playerMouse.setCurCow(null);
+        uiManager.SetUIGroup("PopUp", true);
+        uiManager.MakePopUp(theCow.getName() + " retired!");
         cowManager.DeleteCow(theCow.gameObject);
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         SaveData();
-        uiManager.SetUIGroup("PopUp", true);
-        uiManager.MakePopUp(theCow.getName() + " retired!");
+       
     }
 
     private void OnFoodSpawned(GameObject theFood)
