@@ -419,6 +419,8 @@
 "Assets/Scripts/Controllers/RaceController.cs"
 "Assets/Scripts/Controllers/UIEventController.cs"
 "Assets/Scripts/Cow.cs"
+"Assets/Scripts/CowUI.cs"
+"Assets/Scripts/CowUIContainer.cs"
 "Assets/Scripts/CustomParticle.cs"
 "Assets/Scripts/Enums/GameState.cs"
 "Assets/Scripts/Enums/ManagerType.cs"

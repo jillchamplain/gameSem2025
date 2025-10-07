@@ -162,6 +162,7 @@ public class RaceController : LogicController
 
     public void OnClearLeague(RaceReward clearReward)
     {
+       
         switch (clearReward)
         {
             case RaceReward.NONE:
@@ -169,10 +170,10 @@ public class RaceController : LogicController
             case RaceReward.FOOD:
                 foodManager.UnlockFood();
                 Debug.Log(playerMouse.getCurCow());
-                particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Food!", playerMouse.getCurCow().gameObject.transform.position);
+                //particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Food!", playerMouse.getCurCow().gameObject.transform.position);
                 break;
             case RaceReward.PATTERN:
-                particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Pattern!", playerMouse.getCurCow().gameObject.transform.position);
+                //particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Pattern!", playerMouse.getCurCow().gameObject.transform.position);
                 break;
         }
 

@@ -8,7 +8,7 @@ using DG.Tweening;
 public class UIManager : Manager
 {
     [Header("Refs")]
-    [SerializeField] UIContainer[] cowUIs = new UIContainer[3];
+    [SerializeField] CowUI[] cowUIs = new CowUI[3];
     [SerializeField] UIGroup[] uiGroups = new UIGroup[4];
 
     [Serializable]
@@ -55,8 +55,8 @@ public class UIManager : Manager
         {
             if (theCow.getUIIndex() == i)
             {
-                UIContainer theUI = cowUIs[i];
-                if (theUI.getPowerSlider().value < theCow.getPower())
+                CowUI theUI = cowUIs[i];
+                if (theUI.getSliderElement("Power").value < theCow.getPower())
                     theUI.PopAnimation();
                 theUI.setContainer(theCow);
             }

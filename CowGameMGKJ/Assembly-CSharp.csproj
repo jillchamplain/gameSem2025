@@ -89,8 +89,10 @@
     <Compile Include="Assets\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\Scripts\Cow.cs" />
     <Compile Include="Assets\Scripts\Controllers\LogicController.cs" />
-    <Compile Include="Assets\Scripts\UIContainer.cs" />
+    <Compile Include="Assets\Scripts\CowUIContainer.cs" />
     <Compile Include="Assets\Scripts\Managers\FoodManager.cs" />
+    <Compile Include="Assets\Scripts\UIContainer.cs" />
+    <Compile Include="Assets\Scripts\CowUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
