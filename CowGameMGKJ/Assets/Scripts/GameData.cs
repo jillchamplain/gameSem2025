@@ -18,6 +18,9 @@ public class GameData
     public string traitB1;
     public string traitC1;
     public string pattern1; //FIGURE OUT PATTERNS
+    public float x1;
+    public float y1;
+    public float z1;
 
     //COW 2
     public string name2;
@@ -30,6 +33,9 @@ public class GameData
     public string traitB2;
     public string traitC2;
     public string pattern2;
+    public float x2;
+    public float y2;
+    public float z2;
 
     //COW 3
     public string name3;
@@ -42,6 +48,9 @@ public class GameData
     public string traitB3;
     public string traitC3;
     public string pattern3;
+    public float x3;
+    public float y3;
+    public float z3;
 
     //UNLOCKED FOODS
     public bool[] unlockedFoodFlags = new bool[5];
@@ -65,6 +74,9 @@ public class GameData
             traitA1 = cow1.getTraitAt(0);
             traitB1 = cow1.getTraitAt(1);
             traitC1 = cow1.getTraitAt(2);
+            x1 = cow1.gameObject.transform.position.x;
+            y1 = cow1.gameObject.transform.position.y;
+            z1 = cow1.gameObject.transform.position.z;
         }
 
         if (cow2 != null)
@@ -78,6 +90,9 @@ public class GameData
             traitA2 = cow2.getTraitAt(0);
             traitB2 = cow2.getTraitAt(1);
             traitC2 = cow2.getTraitAt(2);
+            x2 = cow2.gameObject.transform.position.x;
+            y2 = cow2.gameObject.transform.position.y;
+            z2 = cow2.gameObject.transform.position.z;
         }
 
         if (cow3 != null)
@@ -91,6 +106,9 @@ public class GameData
             traitA3 = cow3.getTraitAt(0);
             traitB3 = cow3.getTraitAt(1);
             traitC3 = cow3.getTraitAt(2);
+            x3 = cow3.gameObject.transform.position.x;
+            y3 = cow3.gameObject.transform.position.y;
+            z3 = cow3.gameObject.transform.position.z;
         }
 
         //Reset Food Flags 
@@ -124,6 +142,9 @@ public class GameData
         traitA1 = "1";
         traitB1 = "2";
         traitC1 = "3";
+        x1 = -1;
+        y1 = -1;
+        z1 = -1;
 
         name2 = "COW JR";
         gen2 = 2;
@@ -134,6 +155,9 @@ public class GameData
         traitA2 = "1";
         traitB2 = "2";
         traitC2 = "3";
+        x2 = -1;
+        y2 = -1;
+        z2 = -1;
 
         name3 = "COW III";
         gen3 = 3;
@@ -144,6 +168,9 @@ public class GameData
         traitA3 = "1";
         traitB3 = "2";
         traitC3 = "3";
+        x3 = -1;
+        y3 = -1;
+        z3 = -1;
 
         for(int i = 0; i < 5; i++)
         {

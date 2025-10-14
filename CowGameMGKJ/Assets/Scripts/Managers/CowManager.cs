@@ -71,16 +71,23 @@ public class CowManager : Manager
         {
             //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
             getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
+            Debug.Log("x:" + theData.x1 + " y:" + theData.y1 + " z:" + theData.z1);
+            if(theData.x1 != -1 && theData.y1 != -1 && theData.z1 != -1)
+                getCowAt(0).transform.position = new Vector3(theData.x1, theData.y1, theData.z1);
         }
         if (theData.gen2 != 0)
         {
             //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
             getCowAt(1).InitCow(theData.name2, theData.gen2, theData.level2, theData.mLevel2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
+            if (theData.x2 != -1 && theData.y2 != -1 && theData.z2 != -1)
+                getCowAt(1).transform.position = new Vector3(theData.x2, theData.y2, theData.z2);
         }
         if (theData.gen3 != 0)
         {
             //Debug.Log("Cow3: " + theData.name3 + " " + theData.power3 + " " + theData.mPower3 + " " + theData.traitA3 + " " + theData.traitB3 + " " + theData.traitC3);
             getCowAt(2).InitCow(theData.name3, theData.gen3, theData.level3, theData.mLevel3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3);
+            if (theData.x3 != -1 && theData.y3 != -1 && theData.z3 != -1)
+                getCowAt(2).transform.position = new Vector3(theData.x3, theData.y3, theData.z3);
         }
 
     }
