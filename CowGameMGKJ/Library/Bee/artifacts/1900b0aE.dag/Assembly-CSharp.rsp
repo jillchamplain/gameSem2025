@@ -417,6 +417,7 @@
 "Assets/Scripts/Controllers/HomeController.cs"
 "Assets/Scripts/Controllers/LogicController.cs"
 "Assets/Scripts/Controllers/RaceController.cs"
+"Assets/Scripts/Controllers/ShopController.cs"
 "Assets/Scripts/Controllers/UIEventController.cs"
 "Assets/Scripts/Cow.cs"
 "Assets/Scripts/CowUI.cs"
@@ -427,6 +428,7 @@
 "Assets/Scripts/Food.cs"
 "Assets/Scripts/GameData.cs"
 "Assets/Scripts/League.cs"
+"Assets/Scripts/Managers/CoinManager.cs"
 "Assets/Scripts/Managers/CowManager.cs"
 "Assets/Scripts/Managers/FoodManager.cs"
 "Assets/Scripts/Managers/Manager.cs"
@@ -442,6 +444,7 @@
 "Assets/Scripts/SaveSystem.cs"
 "Assets/Scripts/SceneLoader.cs"
 "Assets/Scripts/UIContainer.cs"
+"Assets/Scripts/UIGroup.cs"
 -langversion:9.0
 
 /deterministic

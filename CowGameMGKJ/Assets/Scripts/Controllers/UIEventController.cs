@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class UIEventController : MonoBehaviour
@@ -23,6 +24,13 @@ public class UIEventController : MonoBehaviour
 
     public delegate void TrainCow();
     public static event TrainCow trainCow;
+
+
+    public delegate void AddCoin(int coins);
+    public static event AddCoin addCoin;
+
+    public delegate void TakeCoin(int coins);
+    public static event TakeCoin takeCoin;
 
     public void OnSwitchLogic(int state)
     {
@@ -58,5 +66,15 @@ public class UIEventController : MonoBehaviour
     public void OnTrainButton() //Runs warning about missing script behavior for race button
     {
         trainCow?.Invoke();
+    }
+
+    public void OnCoinButton(int coins)
+    {
+        addCoin?.Invoke(coins);
+    }
+
+    public void OnPurchaseButton(int coins)
+    {
+        takeCoin?.Invoke(coins);
     }
 }

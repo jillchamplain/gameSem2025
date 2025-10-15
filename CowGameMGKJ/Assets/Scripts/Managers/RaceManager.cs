@@ -8,6 +8,7 @@ using UnityEngine;
 public class RaceManager : Manager
 {
     [Header("Refs")]
+   
     [SerializeField] Race curRace;
     public Race getCurRace() { return curRace; }
     [SerializeField] int curRaceIndex = 0; //index of cur race in league

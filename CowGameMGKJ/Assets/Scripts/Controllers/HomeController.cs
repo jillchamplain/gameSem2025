@@ -109,7 +109,9 @@ public class HomeController : LogicController
         //Debug.Log("UI initting");
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
-            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+            // uiManager.UpdateCowUI(cowManager.getCowAt(i));
+            uiManager.UpdateUIGroup("Cow", cowManager.getCowAt(i).gameObject, i);
+
         }
     }
 
@@ -122,8 +124,10 @@ public class HomeController : LogicController
 
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
-            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+            uiManager.UpdateUIGroup("Cow", cowManager.getCowAt(i).gameObject, i);
+
         }
+        uiManager.UICleanUp();
     }
 
     private void SaveData()
@@ -145,6 +149,7 @@ public class HomeController : LogicController
 
 
         UpdateUI();
+        
     }
 
     private void OnCowEat(Cow theCow, Food theFood)
@@ -165,7 +170,10 @@ public class HomeController : LogicController
         {
             theCow.PlayAnimation(Cow.CowAnims.FEED); ///MOVE COW VISUALS TO DIFF CLASS
             particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
-            uiManager.UpdateCowUI(theCow);
+            //uiManager.UpdateCowUI(theCow);
+            //uiManager.UpdateUIGroup("Cow", cowManager.getCows());
+            //UpdateUI();
+            uiManager.UpdateUIGroup("Cow", theCow.gameObject, cowManager.getCowIndex(theCow));
         }
         uiManager.SetUIGroup("Train", false);
         SaveData();
@@ -225,8 +233,8 @@ public class HomeController : LogicController
 
         uiManager.SetUIGroup("Train", false);
         playerMouse.setCurCow(null);
-        uiManager.SetUIGroup("PopUp", true);
-        uiManager.MakePopUp(theCow.getName() + " retired!");
+       // uiManager.SetUIGroup("PopUp", true);
+        //uiManager.MakePopUp(theCow.getName() + " retired!");
         cowManager.DeleteCow(theCow.gameObject);
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         SaveData();

@@ -35,6 +35,15 @@ public class CowManager : Manager
             return curCows[index].GetComponent<Cow>();
         return null;
     }
+    public int getCowIndex(Cow theCow)
+    {
+        for(int i = 0; i < curCows.Count;i++)
+        {
+            if (theCow == curCows[i])
+                return i;
+        }
+        return -1;
+    }
     public void setCows(bool value)
     {
         foreach(GameObject cow in curCows)
@@ -71,7 +80,6 @@ public class CowManager : Manager
         {
             //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
             getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
-            Debug.Log("x:" + theData.x1 + " y:" + theData.y1 + " z:" + theData.z1);
             if(theData.x1 != -1 && theData.y1 != -1 && theData.z1 != -1)
                 getCowAt(0).transform.position = new Vector3(theData.x1, theData.y1, theData.z1);
         }

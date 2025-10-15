@@ -1,26 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine;
-using TMPro;
-using System;
 using DG.Tweening;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 public class UIManager : Manager
 {
     [Header("Refs")]
-    [SerializeField] CowUI[] cowUIs = new CowUI[3];
     [SerializeField] UIGroup[] uiGroups = new UIGroup[4];
-    [SerializeField] UIContainer popUp;
-    [SerializeField] RaceUI racePrompt;
-
-    [Serializable] 
-    struct UIGroup
+    public UIGroup getUIGroup(string name)
     {
-        [SerializeField] string groupName;
-        public string getGroupName() { return groupName; }
-        [SerializeField] CanvasGroup canvasGroup;
-        public CanvasGroup getCanvasGroup() { return canvasGroup; }
-    }
+        foreach(UIGroup ui in uiGroups)
+        {
+            if(ui.getGroupName() == name)
+            {
+                return ui;
+            }
+        }
+        return null;
+    } 
 
     public void SetUIGroup(string theGroupName, bool isOn)
     {
@@ -38,15 +34,74 @@ public class UIManager : Manager
                 else if (!theGroup.getCanvasGroup().interactable)
                 {
                     theGroup.getCanvasGroup().alpha = 0f;
-                    //Debug.Log(theGroup.getCanvasGroup().alpha);
-                    //Debug.Log("toggle off");
                 }
-                
             }
         }
     }
 
-    public void UpdateCowUI(Cow theCow)
+    //For COWS
+    public void UpdateUIGroup(string theGroupName, GameObject theCowObject, int index)
+    {
+
+        Cow theCow = theCowObject.GetComponent<Cow>();
+        if (theCow == null)
+            return;
+        UIGroup cowGroup = getUIGroup(theGroupName);
+        if (cowGroup == null)
+            return;
+       
+
+        UIContainer container = cowGroup.getElement(index); //COW UI
+        Debug.Log(container);
+        //If Cow not changing skip
+
+
+
+            container.PopAnimation();
+            container.setTextElement("Name", theCow.getName());
+            container.setTextElement("Gen", theCow.getGen().ToString());
+            container.setTextElement("Level", theCow.getLevel().ToString());
+            container.setTextElement("Power", theCow.getPower().ToString());
+
+            container.setSliderElementMax("Power", theCow.getMaxPower());
+            container.getSliderElement("Power").DOValue(theCow.getPower(), 1.0f);
+
+            
+
+    }
+
+    //For RACES
+    public void UpdateUIGroup(string theGroupName, Cow theCow, Race theRace)
+    {
+        UIContainer container = getUIGroup(theGroupName).getElement("Race Info");
+        if (container == null)
+            return;
+        container.setTextElement("Power", "Power: " + theRace.getPower());
+        container.setTextElement("Traits", theRace.getTraitAt(0) + " " + theRace.getTraitAt(1) + " " + theRace.getTraitAt(2));
+        container.setTextElement("Prompt", "Race with " + theCow.getName() + "?");
+        container.PopAnimation();
+    }
+
+    //For POP UPS
+    public void UpdateUIGroup(string theGroupName, string textInfo)
+    {
+        UIContainer container = getUIGroup(theGroupName).getElement("Pop Up");
+        if (container == null)
+            return;
+        container.setTextElement("Pop Up Info", textInfo);
+    }
+
+    public void UICleanUp()
+    {
+        StartCoroutine(UIAnimCleanup());
+    }
+    IEnumerator UIAnimCleanup()
+    {
+        yield return new WaitForSecondsRealtime(2.0f);
+        DOTween.CompleteAll();
+    }
+
+    /*public void UpdateCowUI(Cow theCow)
     {
         //Debug.Log("the Cow is " + theCow.gameObject);
         if (theCow == null)
@@ -63,9 +118,9 @@ public class UIManager : Manager
                 theUI.setContainer(theCow);
             }
         }
-    }
+    }*/
 
-    public void UpdateRaceUI(Cow theCow, Race theRace)
+    /*public void UpdateRaceUI(Cow theCow, Race theRace)
     {
         //Debug.Log("the Cow is " + theCow.gameObject);
         if (theCow == null)
@@ -74,13 +129,6 @@ public class UIManager : Manager
         //Debug.Log("cow UIs are " + cowUIs.Length);
         racePrompt.PopAnimation();
         racePrompt.setContainer(theCow, theRace);
-    }
-
-    public void MakePopUp(string textInfo)
-    {
-        popUp.setTextElement("Info", textInfo);
-        popUp.PopAnimation();
-
-    }
+    }*/
 
 }

@@ -8,6 +8,11 @@ using UnityEngine.UI;
 
 public class UIContainer : MonoBehaviour
 {
+    [SerializeField] string containerName;
+    public string getContainerName() { return containerName; }
+
+    public virtual void setContainer(Cow theCow) { }
+
     //TEXT
     [SerializeField] List<TextElement> textElements;
     public List<TextElement> getTextElements(){ return textElements; }
@@ -125,11 +130,55 @@ public class UIContainer : MonoBehaviour
         public string getElementName() { return elementName; }
     }
 
+    //BUTTONS
+    [SerializeField] List<ButtonElement> buttonElements;
+    public List<ButtonElement> getButtonElements() { return buttonElements; }
+    public Button getButtonElement(string ID)
+    {
+        foreach (ButtonElement element in buttonElements)
+        {
+            if (element.getElementName() == ID)
+                return element.getButton();
+        }
+
+        return null;
+    }
+
+    public void setButtonElement(string ID, string newButtonText)
+    {
+        foreach (ButtonElement element in buttonElements)
+        {
+            if (element.getElementName() == ID)
+            {
+                element.getButton().GetComponentInChildren<Text>().text = newButtonText;
+                element.setButtonTF(newButtonText);
+            }
+        }
+
+    }
+
+
+
+    [Serializable]
+    public struct ButtonElement
+    {
+        [SerializeField] Button button;
+        public Button getButton() { return button; }
+
+
+        [SerializeField] TextMeshProUGUI buttonTF;
+        public TextMeshProUGUI getButtonTF() { return buttonTF; }
+        public void setButtonTF(string newButtonText) { buttonTF.text = newButtonText; }
+
+
+        [SerializeField] string elementName;
+        public string getElementName() { return elementName; }
+    }
+
     //ANIMATIONS
     public void PopAnimation()
     {
-        DOTween.CompleteAll();
+        
         this.gameObject.GetComponent<RectTransform>().DOPunchScale(new Vector3(0.1f, 0.1f, 0.0f), 0.5f, 1);
-
     }
 }

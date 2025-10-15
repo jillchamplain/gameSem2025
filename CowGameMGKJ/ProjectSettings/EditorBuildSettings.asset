@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RaceScreen.unity
     guid: 5d267940f026e3d4884a6eab08053bc9
+  - enabled: 1
+    path: Assets/Scenes/ShopTest.unity
+    guid: f439b14bcded8ef49aea17d0f811e86d
   m_configObjects: {}

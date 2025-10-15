@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CowUI : UIContainer
 { 
-    public void setContainer(Cow theCow)
+    public override void setContainer(Cow theCow)
     {
 
         setTextElement("Name", theCow.getName());

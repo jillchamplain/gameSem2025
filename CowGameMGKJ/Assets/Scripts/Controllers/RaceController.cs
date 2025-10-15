@@ -88,7 +88,8 @@ public class RaceController : LogicController
 
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
-            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+            //uiManager.UpdateCowUI(cowManager.getCowAt(i));
+            uiManager.UpdateUIGroup("Cow", cowManager.getCowAt(i).gameObject, i);
         }
     }
 
@@ -104,8 +105,9 @@ public class RaceController : LogicController
 
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
-            uiManager.UpdateCowUI(cowManager.getCowAt(i));
+            //uiManager.UpdateCowUI(cowManager.getCowAt(i));
         }
+       // uiManager.UpdateUIGroup("Cow", cowManager.getCows());
     }
 
     private void OnMouseClick(GameObject theObject)
@@ -141,7 +143,7 @@ public class RaceController : LogicController
     private void OnCowRacePrompt()
     {
         uiManager.SetUIGroup("Race", true);
-        uiManager.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
+        //uiManager.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
     }
 
     private void OnNoCowRace()
@@ -159,18 +161,18 @@ public class RaceController : LogicController
             switch (theWin)
             {
                 case RaceReward.NONE:
-                    uiManager.SetUIGroup("PopUp", true);
-                    uiManager.MakePopUp("You won the race!");
+                    //uiManager.SetUIGroup("PopUp", true);
+                    //uiManager.MakePopUp("You won the race!");
                     Debug.Log("making pop up");
                     break;
                 case RaceReward.FOOD:
                     foodManager.UnlockFood();
-                    uiManager.SetUIGroup("PopUp", true);
-                    uiManager.MakePopUp("You won and unlocked a new food!");
+                    //uiManager.SetUIGroup("PopUp", true);
+                    //uiManager.MakePopUp("You won and unlocked a new food!");
                     break;
                 case RaceReward.PATTERN:
-                    uiManager.SetUIGroup("PopUp", true);
-                    uiManager.MakePopUp("You won and unlocked a new pattern!");
+                    //uiManager.SetUIGroup("PopUp", true);
+                    //uiManager.MakePopUp("You won and unlocked a new pattern!");
                     break;
             }
             SaveData();
@@ -178,7 +180,7 @@ public class RaceController : LogicController
         }
         else
         {
-            uiManager.MakePopUp("You lost the race");
+            //uiManager.MakePopUp("You lost the race");
             SaveData();
         }
     }
