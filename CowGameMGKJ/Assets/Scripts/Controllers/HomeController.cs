@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using static Cow;
 using static CowManager;
@@ -17,6 +18,7 @@ public class HomeController : LogicController
     [SerializeField] ParticleManager particleManager;
     [SerializeField] TrainManager trainManager;
     [SerializeField] RaceManager raceManager;
+    [SerializeField] CoinManager coinManager;
     private void Awake()
     {
         setGameState(GameState.HOME);
@@ -88,6 +90,10 @@ public class HomeController : LogicController
         }
 
         InitCows();
+        InitFood();
+        InitRaces();
+        InitCoins();
+        InitUI();
         foodManager.setCurFoods(true);
         //Debug.Log("init home");
     }
@@ -97,11 +103,22 @@ public class HomeController : LogicController
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-
         cowManager.InitCurCows(SaveSystem.LoadGameData());
+    }
+
+    private void InitFood()
+    {
         foodManager.InitFood(SaveSystem.LoadGameData());
+    }
+
+    private void InitRaces()
+    {
         raceManager.InitRaces(SaveSystem.LoadGameData());
-        InitUI();
+    }
+
+    private void InitCoins()
+    {
+        coinManager.InitCoins(SaveSystem.LoadGameData());
     }
 
     private void InitUI()
@@ -113,6 +130,8 @@ public class HomeController : LogicController
             uiManager.UpdateUIGroup("Cow", cowManager.getCowAt(i).gameObject, i);
 
         }
+        uiManager.UICleanUp();
+
     }
 
     private void UpdateUI()
@@ -134,12 +153,12 @@ public class HomeController : LogicController
     {
         if (!getListening())
             return;
-        SaveSystem.SaveGameData(cowManager.curGeneration, cowManager.getCowAt(0), cowManager.getCowAt(1), cowManager.getCowAt(2), foodManager.getUnlockedFoods().Count, raceManager.getCurRaceIndex(), raceManager.getCurLeagueIndex());
+        SaveSystem.SaveGameData(cowManager, foodManager, coinManager, raceManager);
     }
 
     private void OnPopUpOff()
     {
-        uiManager.SetUIGroup("PopUp", false);
+        uiManager.SetUIGroup("Pop Up", false);
     }
 
     private void OnCowSpawned(Cow theCow)
@@ -170,10 +189,8 @@ public class HomeController : LogicController
         {
             theCow.PlayAnimation(Cow.CowAnims.FEED); ///MOVE COW VISUALS TO DIFF CLASS
             particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
-            //uiManager.UpdateCowUI(theCow);
-            //uiManager.UpdateUIGroup("Cow", cowManager.getCows());
-            //UpdateUI();
             uiManager.UpdateUIGroup("Cow", theCow.gameObject, cowManager.getCowIndex(theCow));
+            uiManager.UICleanUp();
         }
         uiManager.SetUIGroup("Train", false);
         SaveData();
@@ -199,7 +216,8 @@ public class HomeController : LogicController
         theCow.PlayAnimation(Cow.CowAnims.FEED);
         string powerIncreaseText = "+ " + increase;
         particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
-        UpdateUI();
+        uiManager.UpdateUIGroup("Cow", theCow.gameObject, cowManager.getCowIndex(theCow));
+        uiManager.UICleanUp();
         SaveData();
     }
 
@@ -221,6 +239,7 @@ public class HomeController : LogicController
             return;
 
         UpdateUI();
+        uiManager.UICleanUp();
         theCow.setSelected(false);
         theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
         SaveData();

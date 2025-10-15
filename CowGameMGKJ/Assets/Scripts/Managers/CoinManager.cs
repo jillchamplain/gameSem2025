@@ -10,4 +10,9 @@ public class CoinManager : Manager
     public void addCoins(int addedCoins) { numCoins += addedCoins; }
     public void takeCoins(int takenCoins) { numCoins -= takenCoins; }
 
+    public void InitCoins(GameData theData)
+    {
+        numCoins = theData.numCoins;
+    }
+
 }

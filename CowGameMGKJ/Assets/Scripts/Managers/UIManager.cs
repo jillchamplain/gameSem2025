@@ -49,13 +49,13 @@ public class UIManager : Manager
         UIGroup cowGroup = getUIGroup(theGroupName);
         if (cowGroup == null)
             return;
-       
 
+        //Debug.Log("the index is " + index);
         UIContainer container = cowGroup.getElement(index); //COW UI
-        Debug.Log(container);
+        //Debug.Log("Returning " + container);
+        if (container == null)
+            return;
         //If Cow not changing skip
-
-
 
             container.PopAnimation();
             container.setTextElement("Name", theCow.getName());
@@ -65,9 +65,6 @@ public class UIManager : Manager
 
             container.setSliderElementMax("Power", theCow.getMaxPower());
             container.getSliderElement("Power").DOValue(theCow.getPower(), 1.0f);
-
-            
-
     }
 
     //For RACES
@@ -76,10 +73,10 @@ public class UIManager : Manager
         UIContainer container = getUIGroup(theGroupName).getElement("Race Info");
         if (container == null)
             return;
+        container.PopAnimation();
         container.setTextElement("Power", "Power: " + theRace.getPower());
         container.setTextElement("Traits", theRace.getTraitAt(0) + " " + theRace.getTraitAt(1) + " " + theRace.getTraitAt(2));
         container.setTextElement("Prompt", "Race with " + theCow.getName() + "?");
-        container.PopAnimation();
     }
 
     //For POP UPS
@@ -88,6 +85,7 @@ public class UIManager : Manager
         UIContainer container = getUIGroup(theGroupName).getElement("Pop Up");
         if (container == null)
             return;
+        container.PopAnimation();
         container.setTextElement("Pop Up Info", textInfo);
     }
 
@@ -97,7 +95,7 @@ public class UIManager : Manager
     }
     IEnumerator UIAnimCleanup()
     {
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSecondsRealtime(0.25f);
         DOTween.CompleteAll();
     }
 

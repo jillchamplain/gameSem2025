@@ -103,10 +103,6 @@ public class Cow : MonoBehaviour
         }
     }
 
-    [SerializeField] int uiIndex;
-    public int getUIIndex() { return uiIndex; } //MOVE THIS SHIT
-    public void setUIIndex(int newIndex) { uiIndex = newIndex; } //BAD
-
     [Header("Refs")]
     [SerializeField] Animator thisAnimator;
     [SerializeField] SpriteRenderer thisSprite;

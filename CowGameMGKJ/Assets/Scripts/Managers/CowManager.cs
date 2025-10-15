@@ -39,7 +39,7 @@ public class CowManager : Manager
     {
         for(int i = 0; i < curCows.Count;i++)
         {
-            if (theCow == curCows[i])
+            if (theCow.gameObject == curCows[i])
                 return i;
         }
         return -1;
@@ -78,13 +78,16 @@ public class CowManager : Manager
         //Transforms placeholder cows into cows from data
         if (theData.gen1 != 0)
         {
-            //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
+            Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
             getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
             if(theData.x1 != -1 && theData.y1 != -1 && theData.z1 != -1)
                 getCowAt(0).transform.position = new Vector3(theData.x1, theData.y1, theData.z1);
         }
+        Debug.Log("gen is " + theData.gen1);
+
         if (theData.gen2 != 0)
         {
+            Debug.Log("cow 2");
             //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
             getCowAt(1).InitCow(theData.name2, theData.gen2, theData.level2, theData.mLevel2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
             if (theData.x2 != -1 && theData.y2 != -1 && theData.z2 != -1)
@@ -111,10 +114,7 @@ public class CowManager : Manager
         theObject.name = getRandomName();
 
         curCows.Add(theObject);
-
-        ModifyCowUIIndex();
-        
-        
+     
         cowSpawned?.Invoke(theObject.GetComponent<Cow>());
         //theObject.transform.parent = this.gameObject.transform;
 
@@ -132,7 +132,6 @@ public class CowManager : Manager
 
         Destroy(theCow);
         curCows = tempCows;
-        ModifyCowUIIndex();
     }
     public void DeleteCow()
     {
@@ -147,13 +146,5 @@ public class CowManager : Manager
 
         Destroy(curCows[0]);
         curCows = tempCows;
-        ModifyCowUIIndex();
     }
-    void ModifyCowUIIndex()
-    {
-        for(int i = 0; i < curCows.Count; i++)
-        {
-            curCows[i].GetComponent<Cow>().setUIIndex(i);
-        }
-    } //MOVE THIS BRUHHHHHHHHH
 }

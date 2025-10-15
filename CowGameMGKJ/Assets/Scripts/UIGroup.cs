@@ -28,6 +28,7 @@ public class UIGroup : MonoBehaviour
         {
             if (i == index)
                 return uiElements[i];
+            //Debug.Log(uiElements[i]);
         }
         return null;
     }

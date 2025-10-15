@@ -7,6 +7,7 @@ public class GameData
 {
     //SAVE DATA
     public int curGeneration;
+    public int numCoins;
     //COW 1
     public string name1;
     public int gen1;
@@ -128,12 +129,87 @@ public class GameData
         
     }
 
+    public GameData(CowManager cowManager, FoodManager foodManager, CoinManager coinManager, RaceManager raceManager)
+    {
+        curGeneration = cowManager.curGeneration;
+        Cow cow1 = cowManager.getCowAt(0);
+        Cow cow2 = cowManager.getCowAt(1);
+        Cow cow3 = cowManager.getCowAt(2);
+
+        if (cow1 != null)
+        {
+            name1 = cow1.getName();
+            gen1 = cow1.getGen();
+            level1 = cow1.getLevel();
+            mLevel1 = cow1.getMaxLevel();
+            power1 = cow1.getPower();
+            mPower1 = cow1.getMaxPower();
+            traitA1 = cow1.getTraitAt(0);
+            traitB1 = cow1.getTraitAt(1);
+            traitC1 = cow1.getTraitAt(2);
+            x1 = cow1.gameObject.transform.position.x;
+            y1 = cow1.gameObject.transform.position.y;
+            z1 = cow1.gameObject.transform.position.z;
+        }
+
+        if (cow2 != null)
+        {
+            name2 = cow2.getName();
+            gen2 = cow2.getGen();
+            level2 = cow2.getLevel();
+            mLevel2 = cow2.getMaxLevel();
+            power2 = cow2.getPower();
+            mPower2 = cow2.getMaxPower();
+            traitA2 = cow2.getTraitAt(0);
+            traitB2 = cow2.getTraitAt(1);
+            traitC2 = cow2.getTraitAt(2);
+            x2 = cow2.gameObject.transform.position.x;
+            y2 = cow2.gameObject.transform.position.y;
+            z2 = cow2.gameObject.transform.position.z;
+        }
+
+        if (cow3 != null)
+        {
+            name3 = cow3.getName();
+            gen3 = cow3.getGen();
+            level3 = cow3.getLevel();
+            mLevel3 = cow3.getMaxLevel();
+            power3 = cow3.getPower();
+            mPower3 = cow3.getMaxPower();
+            traitA3 = cow3.getTraitAt(0);
+            traitB3 = cow3.getTraitAt(1);
+            traitC3 = cow3.getTraitAt(2);
+            x3 = cow3.gameObject.transform.position.x;
+            y3 = cow3.gameObject.transform.position.y;
+            z3 = cow3.gameObject.transform.position.z;
+        }
+
+        //Reset Food Flags 
+        for (int i = 0; i < unlockedFoodFlags.Length; i++)
+        {
+            unlockedFoodFlags[i] = false;
+        }
+
+        //Attribute flag unlocks by number of food unlocked
+        for (int i = 0; i < foodManager.getUnlockedFoods().Count; i++)
+        {
+            unlockedFoodFlags[i] = true;
+        }
+
+        curRaceID = raceManager.getCurRaceIndex();
+        curLeagueID = raceManager.getCurLeagueIndex();
+
+        numCoins = coinManager.getCoins();
+
+    }
+
 
     public GameData()
     {
         curGeneration = 3;
-
+        numCoins = 0;
         name1 = "LIL COW";
+        Debug.Log(name1);
         gen1 = 1;
         level1 = 0;
         mLevel1 = 1;
@@ -182,6 +258,7 @@ public class GameData
 
         curRaceID = 0;
         curLeagueID = 0;
+        numCoins = 0;
     }
 
 }

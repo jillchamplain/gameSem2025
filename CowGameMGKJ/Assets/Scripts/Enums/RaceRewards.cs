@@ -8,5 +8,6 @@ public enum RaceReward
     NONE = 0,
     FOOD,
     PATTERN,
+    COIN,
 }
 
