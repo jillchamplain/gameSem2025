@@ -51,7 +51,7 @@ public class UIManager : Manager
             return;
 
         //Debug.Log("the index is " + index);
-        UIContainer container = cowGroup.getElement(index); //COW UI
+        UIContainer container = cowGroup.getContainer(index); //COW UI
         //Debug.Log("Returning " + container);
         if (container == null)
             return;
@@ -70,7 +70,7 @@ public class UIManager : Manager
     //For RACES
     public void UpdateUIGroup(string theGroupName, Cow theCow, Race theRace)
     {
-        UIContainer container = getUIGroup(theGroupName).getElement("Race Info");
+        UIContainer container = getUIGroup(theGroupName).getContainer("Race Info");
         if (container == null)
             return;
         container.PopAnimation();
@@ -82,7 +82,7 @@ public class UIManager : Manager
     //For POP UPS
     public void UpdateUIGroup(string theGroupName, string textInfo)
     {
-        UIContainer container = getUIGroup(theGroupName).getElement("Pop Up");
+        UIContainer container = getUIGroup(theGroupName).getContainer("Pop Up");
         if (container == null)
             return;
         container.PopAnimation();

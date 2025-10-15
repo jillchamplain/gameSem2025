@@ -8,26 +8,36 @@ public class UIGroup : MonoBehaviour
     public string getGroupName() { return groupName; }
     [SerializeField] CanvasGroup canvasGroup;
     public CanvasGroup getCanvasGroup() { return canvasGroup; }
-
-    [SerializeField] List<UIContainer> uiElements;
-    public UIContainer getElement(string name)
+    public void setCanvasGroup(bool value)
     {
-        foreach (UIContainer ui in uiElements)
+        foreach(UIContainer container in uiContainers)
         {
-            if (ui.getContainerName() == name)
+            container.gameObject.SetActive(value);
+        }
+    }
+
+
+    [SerializeField] List<UIContainer> uiContainers;
+    
+    public List<UIContainer> getContainers() { return uiContainers; }
+    public UIContainer getContainer(string name)
+    {
+        foreach (UIContainer container in uiContainers)
+        {
+            if (container.getContainerName() == name)
             {
-                return ui;
+                return container;
             }
         }
         return null;
     }
 
-    public UIContainer getElement(int index)
+    public UIContainer getContainer(int index)
     {
-        for(int i = 0; i < uiElements.Count; i++)
+        for(int i = 0; i < uiContainers.Count; i++)
         {
             if (i == index)
-                return uiElements[i];
+                return uiContainers[i];
             //Debug.Log(uiElements[i]);
         }
         return null;

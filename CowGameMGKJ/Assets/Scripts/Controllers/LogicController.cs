@@ -33,6 +33,12 @@ abstract public class LogicController : MonoBehaviour
             //Debug.Log("Setting " + manager.gameObject + " to " + value);
         }
     }
+
+    [SerializeField] UIController uiController;
+    public void ToggleUI(bool value)
+    {
+        uiController.ToggleUIGroups(value);
+    }
     abstract public void Reset();
     abstract public void Init();
 }
