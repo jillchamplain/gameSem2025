@@ -50,6 +50,11 @@ public class ArcController : MonoBehaviour
         {
             if (logicControllers[i].getGameState() != state)
             {
+                //Change UI
+                logicControllers[i].uiController.ToggleUIGroups(false);
+                logicControllers[i].uiController.gameObject.SetActive(false);
+                //Debug.Log(logicControllers[i].uiController.gameObject);
+
                 logicControllers[i].setListening(false);
                 logicControllers[i].Reset();
                 logicControllers[i].gameObject.SetActive(false);
@@ -61,6 +66,10 @@ public class ArcController : MonoBehaviour
         {
             if (logicControllers[i].getGameState() == state)
             {
+ 
+                logicControllers[i].uiController.gameObject.SetActive(true);
+                logicControllers[i].uiController.ToggleUIGroups(true);
+
                 logicControllers[i].ToggleManagers(true);
                 logicControllers[i].Init();
                 logicControllers[i].setListening(true);

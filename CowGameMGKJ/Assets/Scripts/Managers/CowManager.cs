@@ -10,7 +10,6 @@ public class CowManager : Manager
     [SerializeField] List<string> randomCowNames;
     public string getRandomName()
     {
-        string theName;
         int index = Random.Range(0, randomCowNames.Count);
 
         for(int i = 0; i < randomCowNames.Count; i++)
@@ -78,16 +77,16 @@ public class CowManager : Manager
         //Transforms placeholder cows into cows from data
         if (theData.gen1 != 0)
         {
-            Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
+            //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
             getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1);
             if(theData.x1 != -1 && theData.y1 != -1 && theData.z1 != -1)
                 getCowAt(0).transform.position = new Vector3(theData.x1, theData.y1, theData.z1);
         }
-        Debug.Log("gen is " + theData.gen1);
+        ///Debug.Log("gen is " + theData.gen1);
 
         if (theData.gen2 != 0)
         {
-            Debug.Log("cow 2");
+            ///Debug.Log("cow 2");
             //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
             getCowAt(1).InitCow(theData.name2, theData.gen2, theData.level2, theData.mLevel2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2);
             if (theData.x2 != -1 && theData.y2 != -1 && theData.z2 != -1)

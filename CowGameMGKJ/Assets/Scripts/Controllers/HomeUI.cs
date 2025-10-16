@@ -5,43 +5,12 @@ using UnityEngine;
 
 public class HomeUI : UIController
 {
-    public UIGroup getUIGroup(string name)
-    {
-        foreach (UIGroup ui in uiGroups)
-        {
-            if (ui.getGroupName() == name)
-            {
-                return ui;
-            }
-        }
-        return null;
-    }
 
-    public void SetUIGroup(string theGroupName, bool isOn)
-    {
-        if (uiGroups.Count <= 0)
-            return;
-        for (int i = 0; i < uiGroups.Count; i++)
-        {
-            if (theGroupName == uiGroups[i].getGroupName())
-            {
-                UIGroup theGroup = uiGroups[i];
-                theGroup.getCanvasGroup().interactable = isOn;
-                theGroup.getCanvasGroup().blocksRaycasts = isOn;
-                if (theGroup.getCanvasGroup().interactable)
-                    theGroup.getCanvasGroup().alpha = 1f;
-                else if (!theGroup.getCanvasGroup().interactable)
-                {
-                    theGroup.getCanvasGroup().alpha = 0f;
-                }
-            }
-        }
-    }
 
     //For COWS
     public void UpdateCowUI(GameObject theCowObject, int index)
     {
-
+        
         Cow theCow = theCowObject.GetComponent<Cow>();
         if (theCow == null)
             return;

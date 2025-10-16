@@ -16,6 +16,7 @@ public class FoodManager : Manager
         foreach(GameObject food in curFoods)
         {
             food.SetActive(value);
+            Debug.Log(food + " is " + value);
         }
     }
     [SerializeField] List<GameObject> unlockedFoods;

@@ -5,8 +5,8 @@ public class RaceController : LogicController
     public static RaceController inst;
 
     [Header("Refs")]
+    [SerializeField] RaceUI raceUI;
     [SerializeField] MouseManager playerMouse;
-    [SerializeField] UIManager uiManager; //Different UIs > Need to change
     [SerializeField] CowManager cowManager;
     [SerializeField] RaceManager raceManager;
     [SerializeField] ParticleManager particleManager;
@@ -73,7 +73,6 @@ public class RaceController : LogicController
         InitRaces();
         InitCoins();
         InitUI();
-        foodManager.setCurFoods(true);
         //Debug.Log("init home");
     }
     private void InitCows()
@@ -87,6 +86,7 @@ public class RaceController : LogicController
 
     private void InitFood()
     {
+        foodManager.setCurFoods(false);
         foodManager.InitFood(SaveSystem.LoadGameData());
     }
 
@@ -106,9 +106,9 @@ public class RaceController : LogicController
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
             //uiManager.UpdateCowUI(cowManager.getCowAt(i));
-            uiManager.UpdateUIGroup("Cow", cowManager.getCowAt(i).gameObject, i);
+            raceUI.UpdateCowUI(cowManager.getCowAt(i).gameObject, i);
         }
-        uiManager.UICleanUp();
+
     }
 
     public void SaveData()
@@ -123,10 +123,10 @@ public class RaceController : LogicController
 
         for (int i = 0; i < cowManager.getCows().Count; i++)
         {
-            uiManager.UpdateUIGroup("Cow", cowManager.getCowAt(i).gameObject, i);
+            raceUI.UpdateCowUI(cowManager.getCowAt(i).gameObject, i);
         }
         // uiManager.UpdateUIGroup("Cow", cowManager.getCows());
-        uiManager.UICleanUp();
+        raceUI.UICleanUp();
     }
 
     private void OnMouseClick(GameObject theObject)
@@ -156,20 +156,21 @@ public class RaceController : LogicController
 
     private void OnPopUpOff()
     {
-        uiManager.SetUIGroup("Pop Up", false);
+        raceUI.setUIGroup("Pop Up", false);
     }
 
     private void OnCowRacePrompt()
     {
-        uiManager.SetUIGroup("Race", true);
-        uiManager.UpdateUIGroup("Race", playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
-        uiManager.UICleanUp();
+        raceUI.setUIGroup("Active", true);
+        Debug.Log("cow race");
+        raceUI.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
+        raceUI.UICleanUp();
         //uiManager.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
     }
 
     private void OnNoCowRace()
     {
-        uiManager.SetUIGroup("Race", false);
+        raceUI.setUIGroup("Active", false);
         Debug.Log("toggling off race");
     }
 
@@ -184,23 +185,23 @@ public class RaceController : LogicController
                 case RaceReward.NONE:
                     //uiManager.SetUIGroup("PopUp", true);
                     //uiManager.MakePopUp("You won the race!");
-                    uiManager.SetUIGroup("Race", false);
-                    uiManager.SetUIGroup("Pop Up", true);
-                    uiManager.UpdateUIGroup("Pop Up", "You won the race!");
-                    uiManager.UICleanUp();
+                    raceUI.setUIGroup("Active", false);
+                    raceUI.setUIGroup("Pop Up", true);
+                    raceUI.UpdatePopUpUI("You won the race!");
+                    raceUI.UICleanUp();
                     break;
                 case RaceReward.FOOD:
                     foodManager.UnlockFood();
-                    uiManager.SetUIGroup("Race", false);
-                    uiManager.SetUIGroup("Pop Up", true);
-                    uiManager.UpdateUIGroup("Pop Up", "You won! Got new food");
-                    uiManager.UICleanUp();
+                    raceUI.setUIGroup("Active", false);
+                    raceUI.setUIGroup("Pop Up", true);
+                    raceUI.UpdatePopUpUI("You won! Got new food");
+                    raceUI.UICleanUp();
                     break;
                 case RaceReward.PATTERN:
-                    uiManager.SetUIGroup("Race", false);
-                    uiManager.SetUIGroup("Pop Up", true);
-                    uiManager.UpdateUIGroup("Pop Up", "You won! Got new pattern");
-                    uiManager.UICleanUp();
+                    raceUI.setUIGroup("Active", false);
+                    raceUI.setUIGroup("Pop Up", true);
+                    raceUI.UpdatePopUpUI("You won! Got new pattern");
+                    raceUI.UICleanUp();
                     break;
                 case RaceReward.COIN:
 
@@ -208,10 +209,10 @@ public class RaceController : LogicController
                     //Calculation for coins granted
                     int coinAmount = cowManager.curGeneration * 100;
                     coinManager.addCoins(coinAmount);
-                    uiManager.SetUIGroup("Race", false);
-                    uiManager.SetUIGroup("Pop Up", true);
-                    uiManager.UpdateUIGroup("Pop Up", "You won! Got " + coinAmount + " coins");
-                    uiManager.UICleanUp();
+                    raceUI.setUIGroup("Active", false);
+                    raceUI.setUIGroup("Pop Up", true);
+                    raceUI.UpdatePopUpUI("You won! Got " + coinAmount + " coins");
+                    raceUI.UICleanUp();
                     break;
             }
             SaveData();
@@ -221,10 +222,10 @@ public class RaceController : LogicController
         {
             //uiManager.MakePopUp("You lost the race");
             Debug.Log("race results");
-            uiManager.SetUIGroup("Race", false);
-            uiManager.SetUIGroup("Pop Up", true);
-            uiManager.UpdateUIGroup("Pop Up", "You lost the race");
-            uiManager.UICleanUp();
+            raceUI.setUIGroup("Active", false);
+            raceUI.setUIGroup("Pop Up", true);
+            raceUI.UpdatePopUpUI("You lost the race");
+            raceUI.UICleanUp();
             SaveData();
         }
     }

@@ -34,7 +34,7 @@ abstract public class LogicController : MonoBehaviour
         }
     }
 
-    [SerializeField] UIController uiController;
+    [SerializeField] public UIController uiController;
     public void ToggleUI(bool value)
     {
         uiController.ToggleUIGroups(value);

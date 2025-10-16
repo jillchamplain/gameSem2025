@@ -10,15 +10,16 @@ public class UIGroup : MonoBehaviour
     public CanvasGroup getCanvasGroup() { return canvasGroup; }
     public void setCanvasGroup(bool value)
     {
-        foreach(UIContainer container in uiContainers)
+        foreach (UIContainer container in uiContainers)
         {
-            container.gameObject.SetActive(value);
+            setContainer(container.getContainerName(), value);
         }
+        gameObject.SetActive(value);
     }
 
 
     [SerializeField] List<UIContainer> uiContainers;
-    
+
     public List<UIContainer> getContainers() { return uiContainers; }
     public UIContainer getContainer(string name)
     {
@@ -34,12 +35,20 @@ public class UIGroup : MonoBehaviour
 
     public UIContainer getContainer(int index)
     {
-        for(int i = 0; i < uiContainers.Count; i++)
+        for (int i = 0; i < uiContainers.Count; i++)
         {
             if (i == index)
                 return uiContainers[i];
             //Debug.Log(uiElements[i]);
         }
         return null;
+    }
+    public void setContainer(string name, bool value)
+    {
+        foreach(UIContainer container in uiContainers)
+        {
+            if (container.getContainerName() == name)
+                container.gameObject.SetActive(value);
+        }
     }
 }

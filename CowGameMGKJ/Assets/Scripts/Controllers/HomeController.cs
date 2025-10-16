@@ -75,7 +75,7 @@ public class HomeController : LogicController
             playerMouse.setCurCow(null);
         }
         playerMouse.setCurFood(null);
-        homeUI.SetUIGroup("Train", false);
+        homeUI.setUIGroup("Train", false);
         foodManager.setCurFoods(false); //Need to start calculating for time elapsed
         cowManager.ClearCows();
         //Debug.Log("reset home");
@@ -127,9 +127,8 @@ public class HomeController : LogicController
         {
             // uiManager.UpdateCowUI(cowManager.getCowAt(i));
             homeUI.UpdateCowUI(cowManager.getCowAt(i).gameObject, i);
-
+            //Debug.Log("updating ui");
         }
-        homeUI.UICleanUp();
 
     }
 
@@ -157,7 +156,7 @@ public class HomeController : LogicController
 
     private void OnPopUpOff()
     {
-        homeUI.SetUIGroup("Pop Up", false);
+        homeUI.setUIGroup("Pop Up", false);
     }
 
     private void OnCowSpawned(Cow theCow)
@@ -191,7 +190,7 @@ public class HomeController : LogicController
             homeUI.UpdateCowUI(theCow.gameObject, cowManager.getCowIndex(theCow));
             homeUI.UICleanUp();
         }
-        homeUI.SetUIGroup("Train", false);
+        homeUI.setUIGroup("Train", false);
         SaveData();
     }
 
@@ -209,7 +208,7 @@ public class HomeController : LogicController
 
         if (theCow.getPower() >= theCow.getMaxPower())
         {
-            homeUI.SetUIGroup("Train", false);
+            homeUI.setUIGroup("Train", false);
             return;
         }
         theCow.PlayAnimation(Cow.CowAnims.FEED);
@@ -249,7 +248,7 @@ public class HomeController : LogicController
         if (!getListening())
             return;
 
-        homeUI.SetUIGroup("Train", false);
+        homeUI.setUIGroup("Train", false);
         playerMouse.setCurCow(null);
        // uiManager.SetUIGroup("PopUp", true);
         //uiManager.MakePopUp(theCow.getName() + " retired!");
@@ -279,7 +278,7 @@ public class HomeController : LogicController
             {
                 playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
                 playerMouse.setCurCow(null);
-                homeUI.SetUIGroup("Train", false);
+                homeUI.setUIGroup("Train", false);
             }
 
             playerMouse.setCurFood(theObject);
@@ -296,7 +295,7 @@ public class HomeController : LogicController
             {
                 playerMouse.setCurCow(null);
                 theObject.GetComponent<Cow>().setSelected(false);
-                homeUI.SetUIGroup("Train", false);
+                homeUI.setUIGroup("Train", false);
             }
             else
             {
@@ -306,7 +305,7 @@ public class HomeController : LogicController
                 }
                 playerMouse.setCurCow(theObject);
                 theObject.GetComponent<Cow>().setSelected(true);
-                homeUI.SetUIGroup("Train", true);
+                homeUI.setUIGroup("Train", true);
             }
         }
     }
