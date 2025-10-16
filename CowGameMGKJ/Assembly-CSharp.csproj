@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Controllers\ArcController.cs" />
     <Compile Include="Assets\Scripts\Enums\RaceRewards.cs" />
     <Compile Include="Assets\Scripts\CustomParticle.cs" />
+    <Compile Include="Assets\Scripts\Controllers\RaceUI.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Scripts\UIContainer.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
@@ -97,7 +98,6 @@
     <Compile Include="Assets\Scripts\Controllers\LogicController.cs" />
     <Compile Include="Assets\Scripts\Managers\CoinManager.cs" />
     <Compile Include="Assets\Scripts\Managers\FoodManager.cs" />
-    <Compile Include="Assets\Scripts\Controllers\RaceUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
