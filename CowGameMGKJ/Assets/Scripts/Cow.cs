@@ -103,6 +103,10 @@ public class Cow : MonoBehaviour
         }
     }
 
+    bool isMaxLevel = false;
+    public bool getIsMaxLevel() { return isMaxLevel; }
+    public void setIsMaxLevel(bool value) { isMaxLevel = value; }
+
     [Header("Refs")]
     [SerializeField] Animator thisAnimator;
     [SerializeField] SpriteRenderer thisSprite;
