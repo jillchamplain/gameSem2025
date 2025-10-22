@@ -135,7 +135,7 @@ public class GameData
         
     }
 
-    public GameData(CowManager cowManager, FoodManager foodManager, CoinManager coinManager, RaceManager raceManager)
+    public GameData(CowManager cowManager, FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
     {
         curGeneration = cowManager.curGeneration;
         Cow cow1 = cowManager.getCowAt(0);
@@ -208,7 +208,29 @@ public class GameData
         curRaceID = raceManager.getCurRaceIndex();
         curLeagueID = raceManager.getCurLeagueIndex();
 
-        numCoins = coinManager.getCoins();
+        numCoins = shopManager.getCoins();
+
+    }
+
+    public GameData(FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
+    {
+       
+        //Reset Food Flags 
+        for (int i = 0; i < unlockedFoodFlags.Length; i++)
+        {
+            unlockedFoodFlags[i] = false;
+        }
+
+        //Attribute flag unlocks by number of food unlocked
+        for (int i = 0; i < foodManager.getUnlockedFoods().Count; i++)
+        {
+            unlockedFoodFlags[i] = true;
+        }
+
+        curRaceID = raceManager.getCurRaceIndex();
+        curLeagueID = raceManager.getCurLeagueIndex();
+
+        numCoins = shopManager.getCoins();
 
     }
 
@@ -218,7 +240,7 @@ public class GameData
         curGeneration = 3;
         numCoins = 0;
         name1 = "LIL COW";
-        Debug.Log(name1);
+       // Debug.Log(name1);
         gen1 = 1;
         level1 = 0;
         mLevel1 = 1;

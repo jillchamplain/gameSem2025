@@ -17,7 +17,7 @@ public class HomeController : LogicController
     [SerializeField] SpawnManager spawnManager;
     [SerializeField] ParticleManager particleManager;
     [SerializeField] TrainManager trainManager;
-    [SerializeField] CoinManager coinManager;
+    [SerializeField] ShopManager shopManager;
     [SerializeField] RaceManager raceManager;
     private void Awake()
     {
@@ -35,7 +35,7 @@ public class HomeController : LogicController
         Cow.cowEat += OnCowEat;
         Cow.cowMaxLevel += OnCowMaxLevel;
         Cow.cowLevelUp += OnCowLevelUp;
-        Cow.cowRetire += OnCowRetire;
+        UIEventController.retireCow += OnCowRetire;
 
         CowManager.cowSpawned += OnCowSpawned;
 
@@ -53,7 +53,7 @@ public class HomeController : LogicController
         Cow.cowEat -= OnCowEat;
         Cow.cowMaxLevel -= OnCowMaxLevel;
         Cow.cowLevelUp -= OnCowLevelUp;
-        Cow.cowRetire -= OnCowRetire;
+        UIEventController.retireCow -= OnCowRetire;
 
         CowManager.cowSpawned -= OnCowSpawned;
 
@@ -117,7 +117,7 @@ public class HomeController : LogicController
     }
     private void InitCoins()
     {
-        coinManager.InitCoins(SaveSystem.LoadGameData());
+        shopManager.InitCoins(SaveSystem.LoadGameData());
     }
 
     private void InitUI()
@@ -151,7 +151,7 @@ public class HomeController : LogicController
     {
         if (!getListening())
             return;
-        SaveSystem.SaveGameData(cowManager, foodManager, coinManager, raceManager);
+        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager);
     }
 
     private void OnPopUpOff()
@@ -238,17 +238,21 @@ public class HomeController : LogicController
 
         UpdateUI();
         homeUI.UICleanUp();
-        theCow.setSelected(false);
-        theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
+        //theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
         SaveData();
     }
 
-    private void OnCowRetire(Cow theCow)
+    private void OnCowRetire()
     {
         if (!getListening())
             return;
 
+        if (!playerMouse.getCurCow().GetComponent<Cow>().getIsMaxLevel())
+            return;
+        Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
+
         homeUI.setUIGroup("Train", false);
+        homeUI.setUIGroup("Retire", false);
         playerMouse.setCurCow(null);
        // uiManager.SetUIGroup("PopUp", true);
         //uiManager.MakePopUp(theCow.getName() + " retired!");
@@ -296,6 +300,7 @@ public class HomeController : LogicController
                 playerMouse.setCurCow(null);
                 theObject.GetComponent<Cow>().setSelected(false);
                 homeUI.setUIGroup("Train", false);
+                homeUI.setUIGroup("Retire", false);
             }
             else
             {
@@ -305,7 +310,16 @@ public class HomeController : LogicController
                 }
                 playerMouse.setCurCow(theObject);
                 theObject.GetComponent<Cow>().setSelected(true);
-                homeUI.setUIGroup("Train", true);
+                if (theObject.GetComponent<Cow>().getIsMaxLevel())
+                {
+                    homeUI.setUIGroup("Train", false);
+                    homeUI.setUIGroup("Retire", true);
+                }
+                else
+                {
+                    homeUI.setUIGroup("Retire", false);
+                    homeUI.setUIGroup("Train", true);
+                }
             }
         }
     }

@@ -12,7 +12,7 @@ public class RaceController : LogicController
     [SerializeField] ParticleManager particleManager;
     [SerializeField] FoodManager foodManager; //Need this for unlocking foods
     [SerializeField] SpawnManager spawnManager;//Separate visuals eventually
-    [SerializeField] CoinManager coinManager;
+    [SerializeField] ShopManager shopManager;
     private void Awake()
     {
         setGameState(GameState.RACE);
@@ -97,7 +97,7 @@ public class RaceController : LogicController
     
     private void InitCoins()
     {
-        coinManager.InitCoins(SaveSystem.LoadGameData());
+        shopManager.InitCoins(SaveSystem.LoadGameData());
     }
 
     private void InitUI()
@@ -113,7 +113,7 @@ public class RaceController : LogicController
 
     public void SaveData()
     {
-        SaveSystem.SaveGameData(cowManager, foodManager, coinManager, raceManager);
+        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager);
     }
 
     private void UpdateUI()
@@ -208,7 +208,7 @@ public class RaceController : LogicController
 
                     //Calculation for coins granted
                     int coinAmount = cowManager.curGeneration * 100;
-                    coinManager.addCoins(coinAmount);
+                    shopManager.addCoins(coinAmount);
                     raceUI.setUIGroup("Active", false);
                     raceUI.setUIGroup("Pop Up", true);
                     raceUI.UpdatePopUpUI("You won! Got " + coinAmount + " coins");

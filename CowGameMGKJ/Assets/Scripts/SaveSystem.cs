@@ -17,17 +17,30 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static void SaveGameData(CowManager cowM, FoodManager foodM, CoinManager coinM, RaceManager raceM)
+    public static void SaveGameData(CowManager cowM, FoodManager foodM, ShopManager shopM, RaceManager raceM)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/gameSaveData";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData(cowM, foodM, coinM, raceM);
+        GameData data = new GameData(cowM, foodM, shopM, raceM);
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
+
+    public static void SaveGameData(FoodManager foodM, ShopManager shopM, RaceManager raceM)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/gameSaveData";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        GameData data = new GameData(foodM, shopM, raceM);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
 
     public static GameData LoadGameData()
     {

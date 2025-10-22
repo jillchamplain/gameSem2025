@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class FoodManager : Manager
 {
+
+
+
+
+
     [Header("Stats")]
     [SerializeField] float foodSpawnInterval;
     bool canSpawn = true;

@@ -47,6 +47,7 @@ public class Cow : MonoBehaviour
         //load events properly
         if(curPower >= maxPower)
         {
+            setIsMaxLevel(true);
             cowMaxLevel?.Invoke(this);
         }
         else if(Mathf.Floor(curPower / 100) >= curLevel)

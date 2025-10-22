@@ -1249,6 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   containerName: 
+  canvasElements: []
   textElements:
   - textTF: {fileID: 1994410372}
     elementName: Info
@@ -2500,6 +2501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   containerName: 
+  canvasElements: []
   textElements:
   - textTF: {fileID: 1909990749}
     elementName: Name
@@ -3191,6 +3193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   containerName: 
+  canvasElements: []
   textElements:
   - textTF: {fileID: 249205084}
     elementName: Name
@@ -4682,6 +4685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   containerName: 
+  canvasElements: []
   textElements:
   - textTF: {fileID: 22315271}
     elementName: Name

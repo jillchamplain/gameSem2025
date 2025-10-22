@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,44 @@ public class UIContainer : MonoBehaviour
     public string getContainerName() { return containerName; }
 
     public virtual void setContainer(Cow theCow) { }
+
+
+    //CANVAS GROUPS > More complicated ui elements i dont wanna deal with 
+    [SerializeField] List<CanvasElement> canvasElements;
+    public List<CanvasElement> getCanvasElements() { return canvasElements; }
+    public CanvasGroup getCanvasElement(string ID)
+    {
+        foreach(CanvasElement element in canvasElements)
+        {
+            if (element.getElementName() == ID)
+                return element.getCanvasGroup();
+        }
+        return null;
+    }
+    public void setCanvasElement(string ID, bool value)
+    {
+        foreach(CanvasElement element in canvasElements)
+        {
+            if(element.getElementName() == ID)
+            {
+                element.getCanvasGroup().interactable = value;
+                element.getCanvasGroup().blocksRaycasts = value;
+                if (value)
+                    element.getCanvasGroup().alpha = 1.0f;
+                else
+                    element.getCanvasGroup().alpha = 0.0f;
+            }
+        }
+    }
+
+    [Serializable]
+    public struct CanvasElement
+    {
+        [SerializeField] CanvasGroup canvasGroup;
+        public CanvasGroup getCanvasGroup() { return canvasGroup; }
+        [SerializeField] string elementName;
+        public string getElementName() { return elementName; }
+    }
 
     //TEXT
     [SerializeField] List<TextElement> textElements;

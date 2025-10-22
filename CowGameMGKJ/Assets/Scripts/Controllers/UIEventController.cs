@@ -32,6 +32,9 @@ public class UIEventController : MonoBehaviour
     public delegate void TakeCoin(int coins);
     public static event TakeCoin takeCoin;
 
+    public delegate void RetireCow();
+    public static event RetireCow retireCow;
+
     public void OnSwitchLogic(int state)
     {
         switchLogic?.Invoke(state);
@@ -48,6 +51,10 @@ public class UIEventController : MonoBehaviour
         popUpOff?.Invoke();
     }
 
+
+
+
+
     public void OnRacePromptButton() //Runs warning about missing script behavior for race button
     {
         raceCowPrompt?.Invoke();
@@ -63,18 +70,31 @@ public class UIEventController : MonoBehaviour
         noRaceCow?.Invoke();
     }
 
+
+
+    public void OnRetireButton()
+    {
+        retireCow?.Invoke();
+    }
+
+
     public void OnTrainButton() //Runs warning about missing script behavior for race button
     {
         trainCow?.Invoke();
     }
 
+
+
+
+
+    //SHOP
     public void OnCoinButton(int coins)
     {
         addCoin?.Invoke(coins);
     }
 
-    public void OnPurchaseButton(int coins)
+    public void OnPurchaseButton(int index)
     {
-        takeCoin?.Invoke(coins);
+        takeCoin?.Invoke(index);
     }
 }
