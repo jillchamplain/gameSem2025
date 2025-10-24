@@ -191,7 +191,7 @@ public class RaceController : LogicController
                     raceUI.UICleanUp();
                     break;
                 case RaceReward.FOOD:
-                    foodManager.UnlockFood();
+                    //foodManager.UnlockFood(); FIX THIS
                     raceUI.setUIGroup("Active", false);
                     raceUI.setUIGroup("Pop Up", true);
                     raceUI.UpdatePopUpUI("You won! Got new food");
@@ -238,7 +238,7 @@ public class RaceController : LogicController
             case RaceReward.NONE:
                 break;
             case RaceReward.FOOD:
-                foodManager.UnlockFood();
+                //foodManager.UnlockFood(); FIX THIS
                 Debug.Log(playerMouse.getCurCow());
                 //particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Food!", playerMouse.getCurCow().gameObject.transform.position);
                 break;

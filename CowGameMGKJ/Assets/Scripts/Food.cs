@@ -6,12 +6,14 @@ using DG.Tweening;
 public class Food : MonoBehaviour
 {
     [Header("Stats")]
+    [SerializeField] string name;
+    public string getName() { return name; }
+    public void setName(string theName) { name = theName; }
     [SerializeField] int power;
     public int getPower() { return power; }
-    [SerializeField] bool isSelected;
-    public bool getSelected() { return isSelected; }
-    public void setSelected(bool status) { isSelected = status; }
-
+    public void setPower(int thePower) { power = thePower; }
+   
     [Header("Refs")]
     [SerializeField] SpriteRenderer thisSprite;
+    public void setSprite(Sprite theSprite) { thisSprite.sprite = theSprite; }
 }

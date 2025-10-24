@@ -88,6 +88,9 @@ public class ShopController : LogicController
     {
         //Read from ShopManager
         ShopItem theItem = shopManager.getItemAt(index);
+
+        if (shopManager.getCoins() - theItem.getCost() <= 0)
+            return;
         shopManager.getItems().Remove(theItem);
         UpdateUI();
         ShopType theType = theItem.getType();
@@ -95,6 +98,7 @@ public class ShopController : LogicController
         {
             case ShopType.FOOD:
                 //Unlock Food > Food Manager
+                foodManager.UnlockFood(theItem);
                 break;
             case ShopType.PATTERN:
                 //Unlock Pattern > Cow Manager

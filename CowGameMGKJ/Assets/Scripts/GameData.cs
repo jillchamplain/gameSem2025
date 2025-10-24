@@ -1,3 +1,4 @@
+using DG.Tweening.Plugins;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,6 +59,9 @@ public class GameData
 
     //UNLOCKED FOODS
     public bool[] unlockedFoodFlags = new bool[5];
+
+    //UNLOCKED FOODS AGAIn
+    public string[] unlockedFoodNames = new string[10];
 
     //CURRENT RACE AND LEAGUE
     public int curLeagueID;
@@ -194,15 +198,25 @@ public class GameData
         }
 
         //Reset Food Flags 
-        for (int i = 0; i < unlockedFoodFlags.Length; i++)
+        /* for (int i = 0; i < unlockedFoodFlags.Length; i++)
+         {
+             unlockedFoodFlags[i] = false;
+         }
+
+         //Attribute flag unlocks by number of food unlocked
+         for (int i = 0; i < foodManager.getUnlockedFoods().Count; i++)
+         {
+             unlockedFoodFlags[i] = true;
+         }*/
+
+        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
         {
-            unlockedFoodFlags[i] = false;
+            unlockedFoodNames[i] = "NULL";
         }
 
-        //Attribute flag unlocks by number of food unlocked
-        for (int i = 0; i < foodManager.getUnlockedFoods().Count; i++)
+        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
         {
-            unlockedFoodFlags[i] = true;
+            unlockedFoodNames[i] = foodManager.getUnlockedFoodDataAt(i).getItemName();
         }
 
         curRaceID = raceManager.getCurRaceIndex();
@@ -222,7 +236,7 @@ public class GameData
         }
 
         //Attribute flag unlocks by number of food unlocked
-        for (int i = 0; i < foodManager.getUnlockedFoods().Count; i++)
+        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
         {
             unlockedFoodFlags[i] = true;
         }
@@ -289,7 +303,7 @@ public class GameData
             else
                 unlockedFoodFlags[i] = false;
         }
-
+        unlockedFoodNames[0] = "Default";
         curRaceID = 0;
         curLeagueID = 0;
         numCoins = 0;

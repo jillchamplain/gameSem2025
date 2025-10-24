@@ -19,7 +19,7 @@ public class HomeUI : UIController
             return;
 
         //Debug.Log("the index is " + index);
-        UIContainer container = cowGroup.getContainer(index); //COW UI
+        UIContainer container = cowGroup.getContainer("Cow" + (index + 1)); //COW UI
         //Debug.Log("Returning " + container);
         if (container == null)
             return;

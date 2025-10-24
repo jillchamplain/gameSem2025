@@ -262,13 +262,13 @@ public class HomeController : LogicController
        
     }
 
-    private void OnFoodSpawned(GameObject theFood)
+    private void OnFoodSpawned(FoodItem theFood)
     {
         if (!getListening())
             return;
 
         //Debug.Log("food spawned by " + this.gameObject);
-        foodManager.SpawnFood(theFood, spawnManager.SelectRandomSpawn(theFood));
+        foodManager.SpawnFood(theFood, spawnManager.SelectRandomSpawn(foodManager.getFoodPrefab()));
     }
 
     private void OnMouseClick(GameObject theObject)

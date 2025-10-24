@@ -28,9 +28,14 @@ public class ShopUI : UIController
     {
         UIGroup theGroup = getUIGroup("Items");
         string ID = "Item" + (index + 1).ToString();
-        Debug.Log(ID);
         UIContainer theContainer = theGroup.getContainer(ID);
-        Debug.Log(theContainer);
+        if (!item)
+        {
+            theContainer.gameObject.SetActive(false);
+            return;
+        }
+
+        theContainer.gameObject.SetActive(true);
         theContainer.setTextElement("Name", item.getItemName());
         theContainer.setTextElement("Price", item.getCost().ToString());
     }

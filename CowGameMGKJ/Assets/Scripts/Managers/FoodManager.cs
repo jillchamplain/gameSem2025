@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class FoodManager : Manager
 {
-
-
-
-
+    //Stores list of fooditem data containers 
+    //Spawns using gameobject prefab and assigns class data from data container
+    //Spawns using timer
 
     [Header("Stats")]
     [SerializeField] float foodSpawnInterval;
     bool canSpawn = true;
     [Header("Refs")]
+    [SerializeField] GameObject foodPrefab;
+    public GameObject getFoodPrefab() { return foodPrefab; }
     [SerializeField] List<GameObject> curFoods;
     public List<GameObject> getCurFoods() {  return curFoods; }
     public GameObject getCurFoodAt(int index) { return curFoods[index]; }
@@ -24,10 +25,21 @@ public class FoodManager : Manager
             Debug.Log(food + " is " + value);
         }
     }
-    [SerializeField] List<GameObject> unlockedFoods;
-    public List<GameObject> getUnlockedFoods() { return unlockedFoods; }
-    [SerializeField] List<GameObject> allFoods;
-    public delegate void FoodSpawn(GameObject theFood);
+    [SerializeField] List<FoodItem> unlockedFoodData;
+    public List<FoodItem> getUnlockedFoodData() { return unlockedFoodData; }
+    public FoodItem getUnlockedFoodDataAt(int index)
+    {
+        for(int i = 0; i < unlockedFoodData.Count; i++)
+        {
+            if (i == index)
+                return unlockedFoodData[i];
+        }
+        return null;
+    }
+    [SerializeField] List<FoodItem> allFoodData;
+
+
+    public delegate void FoodSpawn(FoodItem theFood);
     public static event FoodSpawn foodSpawn;
 
     private void OnEnable()
@@ -53,31 +65,39 @@ public class FoodManager : Manager
     public void InitFood(GameData theData)
     {
         //Reads Save Data to determine what foods the player has unlocked already
-        unlockedFoods.Clear();
+        unlockedFoodData.Clear();
 
-        if (allFoods.Count <= 0)
+        if (allFoodData.Count <= 0)
             return;
 
-        for(int i = 0; i < theData.unlockedFoodFlags.Length; i++)
+        /*for(int i = 0; i < theData.unlockedFoodFlags.Length; i++)
         {
             if (theData.unlockedFoodFlags[i])
             {
-                unlockedFoods.Add(allFoods[i]);
+                unlockedFoodData.Add(allFoodData[i]);
+            }
+        }*/
+        Debug.Log(theData.unlockedFoodNames);
+        for(int i = 0; i < theData.unlockedFoodNames.Length; i++)
+        {
+            if (theData.unlockedFoodNames[i] == allFoodData[i].getItemName())
+            {
+
+                unlockedFoodData.Add(allFoodData[i]);
             }
         }
 
         //BEHAVIOR FOR RESPAWNING FOOD THAT WAS LEFT
     }
-
-    public void UnlockFood()
+     
+    public void UnlockFood(ShopItem item) //Takes purchased ShopItem data from shop and unlocks corresponding fooditem
     {
-        //Debug.Log("Unlocking Food");
-        //Get index of last unlocked food
-        int index = unlockedFoods.Count - 1;
-        for(int i = 0; i < allFoods.Count; i++)
+        foreach(FoodItem food in allFoodData)
         {
-            if (i - 1 == index)
-                unlockedFoods.Add(allFoods[i]);
+            if(food.getItemName() == item.getItemName())
+            {
+                unlockedFoodData.Add(food);
+            }
         }
     }
 
@@ -104,7 +124,25 @@ public class FoodManager : Manager
 
         curFoods.Add(newFood);
     }
-    GameObject SelectRandomFood()
+
+    public void SpawnFood(FoodItem theFood, Vector3 spawnPos)
+    {
+        Vector2 spawn = spawnPos; //MOVE THIS 
+        GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
+        newFood.transform.parent = this.transform;
+
+
+        //Assign data
+        Food newFoodData = newFood.GetComponent<Food>();
+        newFoodData.setName(theFood.getItemName());
+        newFoodData.setPower(theFood.getPower());
+        newFoodData.setSprite(theFood.getSprite());
+        
+
+        curFoods.Add(newFood);
+    }
+
+    /*GameObject SelectRandomFood()
     {
         GameObject theObject = null;
         int index = Random.Range(0, unlockedFoods.Count);
@@ -115,5 +153,18 @@ public class FoodManager : Manager
         }
         return theObject;
 
+    }*/
+
+    FoodItem SelectRandomFood()
+    {
+        FoodItem theItem = null;
+        int index = Random.Range(0, unlockedFoodData.Count);
+        for(int i = 0; i < unlockedFoodData.Count; i++)
+        {
+            if (i == index)
+                return unlockedFoodData[i];
+        }
+        return null;
     }
+    
 }

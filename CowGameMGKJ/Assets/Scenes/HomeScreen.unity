@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 132110358}
   - component: {fileID: 132110360}
   - component: {fileID: 132110359}
-  - component: {fileID: 132110362}
+  - component: {fileID: 132110361}
   m_Layer: 5
   m_Name: Cow Info 2
   m_TagString: Untagged
@@ -644,7 +644,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132110357}
   m_CullTransparentMesh: 1
---- !u!114 &132110362
+--- !u!114 &132110361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -653,30 +653,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 132110357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6549807a2fc595438f554da79431fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 79e03ccffa2db4143bc27c59cd233609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: Cow UI 2
+  containerName: Cow2
   canvasElements: []
   textElements:
+  - textTF: {fileID: 194514564}
+    elementName: Power
   - textTF: {fileID: 1366767470}
     elementName: Name
   - textTF: {fileID: 707275425}
     elementName: Gen
   - textTF: {fileID: 1716110331}
     elementName: Level
-  - textTF: {fileID: 194514564}
-    elementName: Power
   sliderElements:
   - slider: {fileID: 639970314}
     elementName: Power
-  imageElements:
-  - image: {fileID: 212326705}
-    elementName: Trait1
-  - image: {fileID: 609849432}
-    elementName: Trait2
-  - image: {fileID: 722709586}
-    elementName: Trait3
+  imageElements: []
   buttonElements: []
 --- !u!114 &139421826 stripped
 MonoBehaviour:
@@ -2692,7 +2686,7 @@ GameObject:
   - component: {fileID: 740414086}
   - component: {fileID: 740414094}
   - component: {fileID: 740414093}
-  - component: {fileID: 740414092}
+  - component: {fileID: 740414095}
   m_Layer: 5
   m_Name: Cow Info 1
   m_TagString: Untagged
@@ -4174,40 +4168,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &740414092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550513659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6549807a2fc595438f554da79431fe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  containerName: Cow UI 1
-  canvasElements: []
-  textElements:
-  - textTF: {fileID: 1669072625}
-    elementName: Name
-  - textTF: {fileID: 193519811}
-    elementName: Gen
-  - textTF: {fileID: 349723835}
-    elementName: Level
-  - textTF: {fileID: 1752352148}
-    elementName: Power
-  sliderElements:
-  - slider: {fileID: 237350743}
-    elementName: Power
-  imageElements:
-  - image: {fileID: 1903999986}
-    elementName: Trait1
-  - image: {fileID: 664213041}
-    elementName: Trait2
-  - image: {fileID: 82530018}
-    elementName: Trait3
-  buttonElements: []
 --- !u!114 &740414093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4246,6 +4206,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550513659}
   m_CullTransparentMesh: 1
+--- !u!114 &740414095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550513659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e03ccffa2db4143bc27c59cd233609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  containerName: Cow1
+  canvasElements: []
+  textElements:
+  - textTF: {fileID: 1752352148}
+    elementName: Power
+  - textTF: {fileID: 1669072625}
+    elementName: Name
+  - textTF: {fileID: 193519811}
+    elementName: Gen
+  - textTF: {fileID: 349723835}
+    elementName: Level
+  sliderElements:
+  - slider: {fileID: 237350743}
+    elementName: Power
+  imageElements: []
+  buttonElements: []
 --- !u!1 &772889987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7782,14 +7770,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   items:
-  - {fileID: 11400000, guid: 09027035c6967f9448c7f4ccb42b4d69, type: 2}
-  - {fileID: 11400000, guid: 4cadebc61db03d845a042fcecce3dcc3, type: 2}
-  - {fileID: 11400000, guid: ce6f0200007b36142b07a15b7867d6f3, type: 2}
-  - {fileID: 11400000, guid: cd6c17c5e0b28414f904cfb45aa07fec, type: 2}
-  - {fileID: 11400000, guid: 55668e6d27fb44b46b57cfca1c499d05, type: 2}
-  - {fileID: 11400000, guid: 5c9bd47cc29ee1649aed916aa26a55ec, type: 2}
-  - {fileID: 11400000, guid: 88ae835ebe98a814eba34718ed1b98a9, type: 2}
-  - {fileID: 11400000, guid: 09027035c6967f9448c7f4ccb42b4d69, type: 2}
+  - {fileID: 11400000, guid: 906c0bbba09920e44a2660ace0c2c6d5, type: 2}
+  - {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+  - {fileID: 11400000, guid: 4a2bf2a296526794fac98cf9a94bf9fc, type: 2}
+  - {fileID: 11400000, guid: 4a2bf2a296526794fac98cf9a94bf9fc, type: 2}
+  - {fileID: 11400000, guid: 4a2bf2a296526794fac98cf9a94bf9fc, type: 2}
+  - {fileID: 11400000, guid: 4a2bf2a296526794fac98cf9a94bf9fc, type: 2}
   numCoins: 0
 --- !u!1 &1589018164 stripped
 GameObject:
@@ -8546,9 +8532,9 @@ MonoBehaviour:
   groupName: Cow
   canvasGroup: {fileID: 1746541904}
   uiContainers:
-  - {fileID: 740414092}
-  - {fileID: 132110362}
-  - {fileID: 2115491703}
+  - {fileID: 740414095}
+  - {fileID: 132110361}
+  - {fileID: 2115491702}
 --- !u!114 &1752352148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10724,7 +10710,7 @@ GameObject:
   - component: {fileID: 2115491699}
   - component: {fileID: 2115491701}
   - component: {fileID: 2115491700}
-  - component: {fileID: 2115491703}
+  - component: {fileID: 2115491702}
   m_Layer: 5
   m_Name: Cow Info 3
   m_TagString: Untagged
@@ -10795,7 +10781,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115491698}
   m_CullTransparentMesh: 1
---- !u!114 &2115491703
+--- !u!114 &2115491702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10804,30 +10790,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2115491698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6549807a2fc595438f554da79431fe0, type: 3}
+  m_Script: {fileID: 11500000, guid: 79e03ccffa2db4143bc27c59cd233609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: Cow UI 3
+  containerName: Cow3
   canvasElements: []
   textElements:
+  - textTF: {fileID: 1111236699}
+    elementName: Power
   - textTF: {fileID: 47481659}
     elementName: Name
   - textTF: {fileID: 1797902948}
     elementName: Gen
   - textTF: {fileID: 404272856}
     elementName: Level
-  - textTF: {fileID: 1111236699}
-    elementName: Power
   sliderElements:
   - slider: {fileID: 596571012}
     elementName: Power
-  imageElements:
-  - image: {fileID: 1077968899}
-    elementName: Trait1
-  - image: {fileID: 498285417}
-    elementName: Trait2
-  - image: {fileID: 1240847162}
-    elementName: Trait3
+  imageElements: []
   buttonElements: []
 --- !u!114 &2116200761 stripped
 MonoBehaviour:
@@ -11530,15 +11510,15 @@ PrefabInstance:
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: cowUIs.Array.data[0]
       value: 
-      objectReference: {fileID: 740414092}
+      objectReference: {fileID: 0}
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: cowUIs.Array.data[1]
       value: 
-      objectReference: {fileID: 132110362}
+      objectReference: {fileID: 0}
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: cowUIs.Array.data[2]
       value: 
-      objectReference: {fileID: 2115491703}
+      objectReference: {fileID: 0}
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: uiGroups.Array.data[0]
       value: 
@@ -11586,15 +11566,15 @@ PrefabInstance:
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: uiGroups.Array.data[1].uiElements.Array.data[0]
       value: 
-      objectReference: {fileID: 740414092}
+      objectReference: {fileID: 0}
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: uiGroups.Array.data[1].uiElements.Array.data[1]
       value: 
-      objectReference: {fileID: 132110362}
+      objectReference: {fileID: 0}
     - target: {fileID: 5235996231509918634, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: uiGroups.Array.data[1].uiElements.Array.data[2]
       value: 
-      objectReference: {fileID: 2115491703}
+      objectReference: {fileID: 0}
     - target: {fileID: 5235996231509918635, guid: e9149344f0ca38b4b8a6fe882b78914d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -11829,8 +11809,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 2041827318}
     m_Modifications:
     - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: foodPrefab
+      value: 
+      objectReference: {fileID: 2214501179772298851, guid: e823ec89c8c4f48489ad7ad636056b89, type: 3}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: allFoods.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: allFoods.Array.data[1]
@@ -11840,6 +11828,54 @@ PrefabInstance:
       propertyPath: unlockedFoods.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a2bf2a296526794fac98cf9a94bf9fc, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 906c0bbba09920e44a2660ace0c2c6d5, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: allFoodData.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: unlockedFoodData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
+      propertyPath: unlockedFoodData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a2bf2a296526794fac98cf9a94bf9fc, type: 2}
     - target: {fileID: 7971488255845932749, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: m_RootOrder
       value: 5
