@@ -162,7 +162,7 @@ public class RaceController : LogicController
     private void OnCowRacePrompt()
     {
         raceUI.setUIGroup("Active", true);
-        Debug.Log("cow race");
+        //Debug.Log("cow race");
         raceUI.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
         raceUI.UICleanUp();
         //uiManager.UpdateRaceUI(playerMouse.getCurCow().GetComponent<Cow>(), raceManager.getCurRace());
@@ -176,6 +176,7 @@ public class RaceController : LogicController
 
     private void OnCowRace()
     {
+        Race theRace = raceManager.getCurRace();
         RaceReward theWin = raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>());
         
         if (theWin != RaceReward.NOWIN)
@@ -192,6 +193,7 @@ public class RaceController : LogicController
                     break;
                 case RaceReward.FOOD:
                     //foodManager.UnlockFood(); FIX THIS
+                    foodManager.UnlockFood(theRace.getRewardItem());
                     raceUI.setUIGroup("Active", false);
                     raceUI.setUIGroup("Pop Up", true);
                     raceUI.UpdatePopUpUI("You won! Got new food");

@@ -128,10 +128,10 @@ public class RaceManager : Manager
                     }
                 }
                 Debug.Log("called event");
-                leagueClear?.Invoke(curLeague.getClearReward());
+                leagueClear?.Invoke(curLeague.getRewardType());
                 
             }
-            return curRace.getClearReward();
+            return curRace.getRewardType();
         }
     }
 }

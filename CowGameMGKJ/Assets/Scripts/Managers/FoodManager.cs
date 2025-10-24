@@ -22,7 +22,6 @@ public class FoodManager : Manager
         foreach(GameObject food in curFoods)
         {
             food.SetActive(value);
-            Debug.Log(food + " is " + value);
         }
     }
     [SerializeField] List<FoodItem> unlockedFoodData;
@@ -77,13 +76,24 @@ public class FoodManager : Manager
                 unlockedFoodData.Add(allFoodData[i]);
             }
         }*/
-        Debug.Log(theData.unlockedFoodNames);
-        for(int i = 0; i < theData.unlockedFoodNames.Length; i++)
+        //Debug.Log(theData.unlockedFoodNames);
+       /* for(int i = 0; i < theData.unlockedFoodNames.Length; i++)
         {
+            Debug.Log("Name in save is " + theData.unlockedFoodNames[i]);
+             
             if (theData.unlockedFoodNames[i] == allFoodData[i].getItemName())
             {
-
+                Debug.Log("Adding" + allFoodData)
                 unlockedFoodData.Add(allFoodData[i]);
+            }
+        }*/
+
+        foreach(FoodItem food in allFoodData)
+        {
+            for(int i = 0; i < theData.unlockedFoodNames.Length; i++)
+            {
+                if (theData.unlockedFoodNames[i] == food.getItemName())
+                    unlockedFoodData.Add(food);
             }
         }
 
@@ -92,10 +102,14 @@ public class FoodManager : Manager
      
     public void UnlockFood(ShopItem item) //Takes purchased ShopItem data from shop and unlocks corresponding fooditem
     {
+        Debug.Log("WORK");
         foreach(FoodItem food in allFoodData)
         {
+            Debug.Log("food in list is: " + food.getItemName());
+            Debug.Log("food unlocking is " + item.getItemName());
             if(food.getItemName() == item.getItemName())
             {
+                Debug.Log("adding food" + item.getItemName());
                 unlockedFoodData.Add(food);
             }
         }

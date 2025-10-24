@@ -17,4 +17,5 @@ MonoBehaviour:
   - 
   - 
   - 
-  clearReward: 0
+  clearReward: 1
+  rewardItem: {fileID: 0}

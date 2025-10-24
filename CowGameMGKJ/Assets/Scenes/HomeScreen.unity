@@ -11867,7 +11867,7 @@ PrefabInstance:
     - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: allFoodData.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: e140b18c2ecf8d643ae256c5d02c3fcb, type: 2}
+      objectReference: {fileID: 11400000, guid: b4e0ff89cf57d064fa4733ee3b309cf6, type: 2}
     - target: {fileID: 7971488255845932748, guid: e081644cc20d6834b8617c57a78dda65, type: 3}
       propertyPath: unlockedFoodData.Array.size
       value: 1

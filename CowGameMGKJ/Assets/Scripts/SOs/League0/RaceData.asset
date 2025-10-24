@@ -17,4 +17,5 @@ MonoBehaviour:
   - 
   - 
   - 
-  clearReward: 0
+  clearReward: 1
+  rewardItem: {fileID: 11400000, guid: b4e0ff89cf57d064fa4733ee3b309cf6, type: 2}

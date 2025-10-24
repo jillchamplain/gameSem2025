@@ -57,9 +57,6 @@ public class GameData
     public float y3;
     public float z3;
 
-    //UNLOCKED FOODS
-    public bool[] unlockedFoodFlags = new bool[5];
-
     //UNLOCKED FOODS AGAIn
     public string[] unlockedFoodNames = new string[10];
 
@@ -122,17 +119,7 @@ public class GameData
             z3 = cow3.gameObject.transform.position.z;
         }
 
-        //Reset Food Flags 
-        for(int i = 0; i < unlockedFoodFlags.Length; i++)
-        {
-            unlockedFoodFlags[i] = false;
-        }
-
-        //Attribute flag unlocks by number of food unlocked
-        for(int i = 0; i < numFoodsUnlocked; i++)
-        {
-            unlockedFoodFlags[i] = true;
-        }
+    
 
         curRaceID = curRaceIndex;
         curLeagueID = curLeagueIndex;
@@ -209,7 +196,7 @@ public class GameData
              unlockedFoodFlags[i] = true;
          }*/
 
-        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
+        for (int i = 0; i < unlockedFoodNames.Length; i++)
         {
             unlockedFoodNames[i] = "NULL";
         }
@@ -229,17 +216,6 @@ public class GameData
     public GameData(FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
     {
        
-        //Reset Food Flags 
-        for (int i = 0; i < unlockedFoodFlags.Length; i++)
-        {
-            unlockedFoodFlags[i] = false;
-        }
-
-        //Attribute flag unlocks by number of food unlocked
-        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
-        {
-            unlockedFoodFlags[i] = true;
-        }
 
         curRaceID = raceManager.getCurRaceIndex();
         curLeagueID = raceManager.getCurLeagueIndex();
@@ -296,12 +272,9 @@ public class GameData
         y3 = -1;
         z3 = -1;
 
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < unlockedFoodNames.Length; i++)
         {
-            if (i == 0)
-                unlockedFoodFlags[i] = true;
-            else
-                unlockedFoodFlags[i] = false;
+            unlockedFoodNames[i] = "NULL";
         }
         unlockedFoodNames[0] = "Default";
         curRaceID = 0;
