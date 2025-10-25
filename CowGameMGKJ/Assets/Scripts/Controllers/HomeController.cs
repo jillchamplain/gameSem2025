@@ -209,12 +209,20 @@ public class HomeController : LogicController
         if (theCow.getPower() >= theCow.getMaxPower())
         {
             homeUI.setUIGroup("Train", false);
+            homeUI.setUIGroup("Retire", true);
             return;
         }
         theCow.PlayAnimation(Cow.CowAnims.FEED);
         string powerIncreaseText = "+ " + increase;
         particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
         homeUI.UpdateCowUI(theCow.gameObject, cowManager.getCowIndex(theCow));
+
+
+        //Generate coins
+        int coinAmount = (int)Mathf.Ceil(cowManager.curGeneration * (float)1.5);
+        string coinText = "+" + coinAmount.ToString();
+        particleManager.SpawnTextParticleAt("Power Increase", coinText, theCow.gameObject.transform.position);
+        shopManager.addCoins(coinAmount);
         homeUI.UICleanUp();
         SaveData();
     }

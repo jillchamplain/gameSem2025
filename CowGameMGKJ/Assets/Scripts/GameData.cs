@@ -1,6 +1,7 @@
 using DG.Tweening.Plugins;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -196,15 +197,12 @@ public class GameData
              unlockedFoodFlags[i] = true;
          }*/
 
-        for (int i = 0; i < unlockedFoodNames.Length; i++)
+       /* for (int i = 0; i < unlockedFoodNames.Length; i++)
         {
             unlockedFoodNames[i] = "NULL";
         }
-
-        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
-        {
-            unlockedFoodNames[i] = foodManager.getUnlockedFoodDataAt(i).getItemName();
-        }
+       */
+       
 
         curRaceID = raceManager.getCurRaceIndex();
         curLeagueID = raceManager.getCurLeagueIndex();
@@ -215,7 +213,16 @@ public class GameData
 
     public GameData(FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
     {
-       
+
+        Debug.Log(foodManager.getUnlockedFoodData().Count);
+        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
+        {
+            unlockedFoodNames[i] = foodManager.getUnlockedFoodDataAt(i).getItemName();
+        }
+        for (int i = foodManager.getUnlockedFoodData().Count; i < unlockedFoodNames.Length; i++)
+        {
+            unlockedFoodNames[i] = "NULL";
+        }
 
         curRaceID = raceManager.getCurRaceIndex();
         curLeagueID = raceManager.getCurLeagueIndex();
@@ -227,7 +234,7 @@ public class GameData
 
     public GameData()
     {
-        Debug.Log("Being reset");
+        //Debug.Log("Being reset");
         curGeneration = 3;
         numCoins = 0;
         name1 = "LIL COW";

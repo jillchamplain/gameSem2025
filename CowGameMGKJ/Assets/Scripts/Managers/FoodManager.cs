@@ -93,7 +93,15 @@ public class FoodManager : Manager
             for(int i = 0; i < theData.unlockedFoodNames.Length; i++)
             {
                 if (theData.unlockedFoodNames[i] == food.getItemName())
+                {
+                    Debug.Log("Food unlocked is " + food.getItemName());
                     unlockedFoodData.Add(food);
+                }
+                else
+                {
+                    Debug.Log("Food not unlocked is " + theData.unlockedFoodNames[i]);
+                }
+                
             }
         }
 
@@ -105,8 +113,8 @@ public class FoodManager : Manager
         Debug.Log("WORK");
         foreach(FoodItem food in allFoodData)
         {
-            Debug.Log("food in list is: " + food.getItemName());
-            Debug.Log("food unlocking is " + item.getItemName());
+            //Debug.Log("food in list is: " + food.getItemName());
+            //Debug.Log("food unlocking is " + item.getItemName());
             if(food.getItemName() == item.getItemName())
             {
                 Debug.Log("adding food" + item.getItemName());

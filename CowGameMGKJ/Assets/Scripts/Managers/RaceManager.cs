@@ -46,7 +46,7 @@ public class RaceManager : Manager
     public void InitRaces(GameData theData)
     {
 
-        Debug.Log("Current League is:" + theData.curLeagueID);
+        //Debug.Log("Current League is:" + theData.curLeagueID);
         //Find cur league
         for(int i = 0; i < allLeagues.Count; i++)
         {
@@ -57,7 +57,7 @@ public class RaceManager : Manager
             }
         }
 
-        Debug.Log("Current Race is: " + theData.curRaceID);
+        //Debug.Log("Current Race is: " + theData.curRaceID);
         //Find cur race
         for(int i = 0; i < curLeague.getRaces().Count; i++)
         {
