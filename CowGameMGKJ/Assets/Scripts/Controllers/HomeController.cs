@@ -178,19 +178,30 @@ public class HomeController : LogicController
 
         foodManager.DeleteFood(theFood.gameObject);
 
-        theCow.setPower(theCow.getPower() + theFood.getPower()); //Increase cow power
-        SaveData();
-
+       
         string powerIncreaseText = "+ " + theFood.getPower();
 
-        if(!(theCow.getPower() >= theCow.getMaxPower())) //Run Visual Changes if not retiring
+        if(!(theCow.getPower() >= theCow.getMaxPower())) //If Below Max Power > Feed and Increase Power
         {
+            theCow.setPower(theCow.getPower() + theFood.getPower()); //Increase cow power
+
             theCow.PlayAnimation(Cow.CowAnims.FEED); ///MOVE COW VISUALS TO DIFF CLASS
             particleManager.SpawnTextParticleAt("Power Increase", powerIncreaseText, theCow.gameObject.transform.position);
             homeUI.UpdateCowUI(theCow.gameObject, cowManager.getCowIndex(theCow));
-            homeUI.UICleanUp();
         }
+        else // If Max Power > Generate coins
+        {
+            theCow.PlayAnimation(Cow.CowAnims.FEED);
+            //Generate coins
+            int foodPower = theFood.getPower() / 100;
+            int coinAmount = ((int)Mathf.Ceil(cowManager.curGeneration * (float)1.5)) * foodPower;
+            string coinText = "+" + coinAmount.ToString() + " coins!";
+            particleManager.SpawnTextParticleAt("Power Increase", coinText, theCow.gameObject.transform.position);
+            shopManager.addCoins(coinAmount);
+        }
+
         homeUI.setUIGroup("Train", false);
+        homeUI.UICleanUp();
         SaveData();
     }
 
@@ -218,11 +229,6 @@ public class HomeController : LogicController
         homeUI.UpdateCowUI(theCow.gameObject, cowManager.getCowIndex(theCow));
 
 
-        //Generate coins
-        int coinAmount = (int)Mathf.Ceil(cowManager.curGeneration * (float)1.5);
-        string coinText = "+" + coinAmount.ToString();
-        particleManager.SpawnTextParticleAt("Power Increase", coinText, theCow.gameObject.transform.position);
-        shopManager.addCoins(coinAmount);
         homeUI.UICleanUp();
         SaveData();
     }
@@ -291,6 +297,7 @@ public class HomeController : LogicController
                 playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
                 playerMouse.setCurCow(null);
                 homeUI.setUIGroup("Train", false);
+                homeUI.setUIGroup("Retire", false);
             }
 
             playerMouse.setCurFood(theObject);

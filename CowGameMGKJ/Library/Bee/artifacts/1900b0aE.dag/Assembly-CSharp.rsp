@@ -429,6 +429,7 @@
 "Assets/Scripts/Enums/ManagerType.cs"
 "Assets/Scripts/Enums/RaceRewards.cs"
 "Assets/Scripts/Enums/ShopType.cs"
+"Assets/Scripts/Enums/Trait.cs"
 "Assets/Scripts/Food.cs"
 "Assets/Scripts/GameData.cs"
 "Assets/Scripts/Managers/CowManager.cs"

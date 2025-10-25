@@ -7,9 +7,9 @@ public class Race : ScriptableObject
 {
     [SerializeField] int power;
     public int getPower() { return power; }
-    [SerializeField] List<string> traits;
-    public List<string> getTraits() { return traits; }
-    public string getTraitAt(int index) { return traits[index]; }
+    [SerializeField] List<Trait> traits;
+    public List<Trait> getTraits() { return traits; }
+    public Trait getTraitAt(int index) { return traits[index]; }
 
     [SerializeField] RaceReward clearReward;
     public RaceReward getRewardType() { return clearReward; }

@@ -147,18 +147,15 @@ public class UIContainer : MonoBehaviour
         return null;
     }
 
-    /*public void setImageElement(string ID, Image newImage)
+    public void setImageElement(string ID, Sprite newImage)
     {
         foreach (ImageElement element in imageElements)
         {
             if (element.getElementName() == ID)
-                element.getImage() 
+                element.getImage().sprite = newImage;
         }
 
     }
-    */
-
-
 
     [Serializable]
     public struct ImageElement

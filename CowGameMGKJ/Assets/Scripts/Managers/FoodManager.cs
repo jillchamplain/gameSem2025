@@ -94,12 +94,12 @@ public class FoodManager : Manager
             {
                 if (theData.unlockedFoodNames[i] == food.getItemName())
                 {
-                    Debug.Log("Food unlocked is " + food.getItemName());
+                    //Debug.Log("Food unlocked is " + food.getItemName());
                     unlockedFoodData.Add(food);
                 }
                 else
                 {
-                    Debug.Log("Food not unlocked is " + theData.unlockedFoodNames[i]);
+                    //Debug.Log("Food not unlocked is " + theData.unlockedFoodNames[i]);
                 }
                 
             }

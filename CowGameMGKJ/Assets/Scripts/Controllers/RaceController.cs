@@ -143,6 +143,7 @@ public class RaceController : LogicController
             {
                 playerMouse.setCurCow(null);
                 theObject.GetComponent<Cow>().setSelected(false);
+                raceUI.setUIGroup("Passive", false);
             }
             else
             {
@@ -152,6 +153,7 @@ public class RaceController : LogicController
                 }
                 playerMouse.setCurCow(theObject);
                 theObject.GetComponent<Cow>().setSelected(true);
+                raceUI.setUIGroup("Passive", true);
             }
         }
     }

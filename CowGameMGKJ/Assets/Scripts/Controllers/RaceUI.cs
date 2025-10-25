@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class RaceUI : UIController
 {
+    [SerializeField] List<Sprite> traitAssets;
     //For COWS
     public void UpdateCowUI(GameObject theCowObject, int index)
     {
@@ -31,6 +32,13 @@ public class RaceUI : UIController
 
         container.setSliderElementMax("Power", theCow.getMaxPower());
         container.getSliderElement("Power").DOValue(theCow.getPower(), 1.0f);
+
+        Sprite trait1Image = traitAssets[(int)theCow.getTraitAt(0)];
+        container.setImageElement("Trait1", trait1Image);
+        Sprite trait2Image = traitAssets[(int)theCow.getTraitAt(1)];
+        container.setImageElement("Trait2", trait2Image);
+        Sprite trait3Image = traitAssets[(int)theCow.getTraitAt(2)];
+        container.setImageElement("Trait3", trait3Image);
     }
     //For RACES
 
@@ -42,8 +50,14 @@ public class RaceUI : UIController
             return;
         container.PopAnimation();
         container.setTextElement("Power", "Power: " + theRace.getPower());
-        container.setTextElement("Traits", theRace.getTraitAt(0) + " " + theRace.getTraitAt(1) + " " + theRace.getTraitAt(2));
         container.setTextElement("Prompt", "Race with " + theCow.getName() + "?");
+
+        Sprite trait1Image = traitAssets[(int)theRace.getTraitAt(0)];
+        container.setImageElement("Trait1", trait1Image);
+        Sprite trait2Image = traitAssets[(int)theRace.getTraitAt(1)];
+        container.setImageElement("Trait2", trait2Image);
+        Sprite trait3Image = traitAssets[(int)theRace.getTraitAt(2)];
+        container.setImageElement("Trait3", trait3Image);
     }
 
     //For POP UPS

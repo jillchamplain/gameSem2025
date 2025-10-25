@@ -23,7 +23,14 @@ public class CowManager : Manager
         return "NULL";
     }
 
+    public Trait getRandomTrait()
+    {
+        int index = Random.Range(0, (int)Trait.NUM_TRAITS);
 
+        Trait trait = (Trait)index;
+        return trait;
+
+    }
     [SerializeField] List<GameObject> curCows;
     public List<GameObject> getCows() { return curCows; }
     public Cow getCowAt(int index) 
@@ -109,7 +116,26 @@ public class CowManager : Manager
         GameObject theObject = GameObject.Instantiate(cowPrefab, spawn, Quaternion.identity);
 
         //CHECK IF COWS SHARE NAMES(?)
-        theObject.GetComponent<Cow>().InitCow(getRandomName(), curGeneration, (curGeneration) * 100, "1", "2", "3");
+        Trait trait1 = Trait.NULL;
+        Trait trait2 = Trait.NULL;
+        Trait trait3 = Trait.NULL;
+        bool traitsRepeat = true;
+        while(traitsRepeat)
+        {
+            traitsRepeat = false;
+            trait1 = getRandomTrait();
+            trait2 = getRandomTrait();
+            trait3 = getRandomTrait();
+
+            if (trait1 == trait2 || trait1 == trait3)
+                traitsRepeat = true;
+            if (trait2 == trait1 || trait2 == trait3)
+                traitsRepeat = true;
+            if (trait3 == trait1 || trait3 == trait2)
+                traitsRepeat = true;
+        }
+
+        theObject.GetComponent<Cow>().InitCow(getRandomName(), curGeneration, (curGeneration) * 100, (int)trait1, (int)trait2, (int)trait3);
         theObject.name = getRandomName();
 
         curCows.Add(theObject);

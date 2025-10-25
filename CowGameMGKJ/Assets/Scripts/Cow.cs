@@ -71,38 +71,92 @@ public class Cow : MonoBehaviour
         maxPower = theMax;
         setMaxLevel(maxPower / 100);
     }
-    [SerializeField] List<string> traits;
-    public List<string> getTraits() { return traits; }
-    public string getTraitAt(int index)
+    [SerializeField] List<Trait> traits;
+    public List<Trait> getTraits() { return traits; }
+    public Trait getTraitAt(int index)
     {
         if (traits == null)
-            return "NULL";
+            return Trait.NULL;
         if (index >= traits.Count)
-            return "NULL";
+            return Trait.NULL;
         if (traits[index] != null)
             return traits[index];
-        return "NULL";
+        return Trait.NULL;
     }
 
-    public void setTraits(string trait1, string trait2, string trait3)
+    public void setTraits(int trait1, int trait2, int trait3)
     {
+        Trait theTrait1 = (Trait) trait1;
+        Trait theTrait2 = (Trait) trait2;
+        Trait theTrait3 = (Trait) trait3;
         traits.Clear();
-        traits.Add(trait1);
-        traits.Add(trait2);
-        traits.Add(trait3);
+        if(trait1 == -1)
+        {
+            bool repeat = true;
+            while (repeat)
+            {
+                int index = Random.Range(0, (int)Trait.NUM_TRAITS);
+                theTrait1 = (Trait)index;
+                if (theTrait1 == theTrait2 || theTrait1 == theTrait3)
+                    repeat = true;
+                else
+                    repeat = false;
+            }
+        }
+        if(trait2 == -1)
+        {
+            bool repeat = true;
+            while (repeat)
+            {
+                int index = Random.Range(0, (int)Trait.NUM_TRAITS);
+                theTrait2 = (Trait)index;
+                if (theTrait2 == theTrait1 || theTrait2 == theTrait3)
+                    repeat = true;
+                else
+                    repeat = false;
+            }
+        }
+
+        if(trait3 == -1)
+        {
+            bool repeat = true;
+            while (repeat)
+            {
+                int index = Random.Range(0, (int)Trait.NUM_TRAITS);
+                theTrait3 = (Trait)index;
+                if (theTrait3 == theTrait1 || theTrait3 == theTrait2)
+                    repeat = true;
+                else
+                    repeat = false;
+            }
+        }
+        traits.Add(theTrait1);
+        traits.Add(theTrait2);
+        traits.Add(theTrait3);
 
     }
 
-    public void setTraitAt(int index, string newTrait)
+    public void setTraitAt(int index, int newTrait)
     {
         for(int i = 0; i < traits.Count; i++)
         {
             if(i == index)
             {
-                traits[i] = newTrait;
+                traits[i] = (Trait)newTrait;
             }
         }
     }
+    public void setTraitAt(int index, Trait newTrait)
+    {
+        for (int i = 0; i < traits.Count; i++)
+        {
+            if (i == index)
+            {
+                traits[i] = (Trait)newTrait;
+            }
+        }
+    }
+
 
     bool isMaxLevel = false;
     public bool getIsMaxLevel() { return isMaxLevel; }
@@ -138,7 +192,7 @@ public class Cow : MonoBehaviour
     public delegate void CowLevelUp(Cow thisCow);
     public static event CowLevelUp cowLevelUp;
 
-    public void InitCow(string theName, int theGen, int theMaxPower, string trait1, string trait2, string trait3)
+    public void InitCow(string theName, int theGen, int theMaxPower, int trait1, int trait2, int trait3)
     {
         //Debug.Log("initting cow");
         setName(theName);
@@ -155,7 +209,7 @@ public class Cow : MonoBehaviour
 
     }
 
-    public void InitCow(string name, int theGen, int level, int maxLevel, int power, int theMaxPower, string trait1, string trait2, string trait3)
+    public void InitCow(string name, int theGen, int level, int maxLevel, int power, int theMaxPower, int trait1, int trait2, int trait3)
     {
         //Debug.Log("initting cow");
         setName(name);

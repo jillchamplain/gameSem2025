@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: RaceData 1
   m_EditorClassIdentifier: 
   power: 200
-  traits:
-  - 
-  - 
-  - 
+  traits: 000000000500000002000000
   clearReward: 1
   rewardItem: {fileID: 0}
