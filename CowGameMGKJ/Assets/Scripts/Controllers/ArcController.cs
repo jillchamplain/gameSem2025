@@ -12,6 +12,7 @@ public class ArcController : MonoBehaviour
     public void setGameState(GameState state) { curState = state; ManageState(curState); }
     public void setGameState(int state) { curState = (GameState)state; ManageState(curState); }
    [SerializeField] List<LogicController> logicControllers;
+
     public LogicController getLogicController(GameState state)
     {
         foreach(LogicController controller in logicControllers)

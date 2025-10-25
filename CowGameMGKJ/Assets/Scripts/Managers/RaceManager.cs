@@ -34,6 +34,9 @@ public class RaceManager : Manager
     public delegate void LeagueClear(RaceReward leagueReward);
     public static event LeagueClear leagueClear;
 
+    public delegate void AllLeagueClear();
+    public static event AllLeagueClear allLeagueClear;
+
     private void Start()
     {
         curLeague = allLeagues[0];
@@ -42,7 +45,8 @@ public class RaceManager : Manager
 
     public void InitRaces(GameData theData)
     {
-      
+
+        Debug.Log("Current League is:" + theData.curLeagueID);
         //Find cur league
         for(int i = 0; i < allLeagues.Count; i++)
         {
@@ -53,7 +57,7 @@ public class RaceManager : Manager
             }
         }
 
-
+        Debug.Log("Current Race is: " + theData.curRaceID);
         //Find cur race
         for(int i = 0; i < curLeague.getRaces().Count; i++)
         {
@@ -119,15 +123,20 @@ public class RaceManager : Manager
                         if (i < allLeagues.Count - 1)
                         {
                             curLeague = allLeagues[i + 1];
-                            curLeagueIndex = i;
+                            curLeagueIndex = i + 1;
                             curRaceIndex = 0;
                             curRace = curLeague.getRaceAt(0);
                             needNewLeague = false;
                             i++; //Prevents from skipping ahead and reattributing curRace and curLeague
                         }
+                        else
+                        {
+                            //Player has cleared all races
+                            allLeagueClear?.Invoke();
+                            return RaceReward.WONALL;
+                        }
                     }
                 }
-                Debug.Log("called event");
                 leagueClear?.Invoke(curLeague.getRewardType());
                 
             }

@@ -227,6 +227,7 @@ public class GameData
 
     public GameData()
     {
+        Debug.Log("Being reset");
         curGeneration = 3;
         numCoins = 0;
         name1 = "LIL COW";
@@ -263,7 +264,7 @@ public class GameData
         level3 = 0;
         mLevel3 = 3;
         power3 = 0;
-        mPower3 = 200;
+        mPower3 = 300;
         traitA3 = "1";
         traitB3 = "2";
         traitC3 = "3";

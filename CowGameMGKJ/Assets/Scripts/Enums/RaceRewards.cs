@@ -9,5 +9,6 @@ public enum RaceReward
     FOOD,
     PATTERN,
     COIN,
+    WONALL
 }
 

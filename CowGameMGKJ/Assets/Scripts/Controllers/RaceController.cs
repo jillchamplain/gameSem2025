@@ -28,6 +28,7 @@ public class RaceController : LogicController
     {
         MouseManager.mouseClick += OnMouseClick;
         RaceManager.leagueClear += OnClearLeague;
+        RaceManager.allLeagueClear += OnClearLeagueAll;
 
         UIEventController.raceCowPrompt += OnCowRacePrompt;
         UIEventController.noRaceCow += OnNoCowRace;
@@ -40,6 +41,7 @@ public class RaceController : LogicController
     {
         MouseManager.mouseClick -= OnMouseClick;
         RaceManager.leagueClear -= OnClearLeague;
+        RaceManager.allLeagueClear -= OnClearLeagueAll;
 
         UIEventController.raceCowPrompt -= OnCowRacePrompt;
         UIEventController.noRaceCow -= OnNoCowRace;
@@ -171,7 +173,6 @@ public class RaceController : LogicController
     private void OnNoCowRace()
     {
         raceUI.setUIGroup("Active", false);
-        Debug.Log("toggling off race");
     }
 
     private void OnCowRace()
@@ -249,5 +250,10 @@ public class RaceController : LogicController
                 break;
         }
 
+    }
+
+    private void OnClearLeagueAll()
+    {
+        Debug.Log("Won all leagues");
     }
 }
