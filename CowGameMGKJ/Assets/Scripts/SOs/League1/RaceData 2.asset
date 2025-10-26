@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dadce7b7f14f5e44aaed96c3a323eb3, type: 3}
   m_Name: RaceData 2
   m_EditorClassIdentifier: 
-  power: 750
+  power: 4000
   traits: 030000000500000001000000
   clearReward: 0
   rewardItem: {fileID: 0}

@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\CustomParticle.cs" />
     <Compile Include="Assets\Scripts\Controllers\RaceUI.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Scripts\Enums\ClickType.cs" />
     <Compile Include="Assets\Scripts\UIContainer.cs" />
     <Compile Include="Assets\Scripts\Managers\ShopManager.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
@@ -102,7 +103,6 @@
     <Compile Include="Assets\Scripts\Cow.cs" />
     <Compile Include="Assets\Scripts\Controllers\LogicController.cs" />
     <Compile Include="Assets\Scripts\Managers\FoodManager.cs" />
-    <Compile Include="Assets\Scripts\Enums\ClickType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
