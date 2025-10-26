@@ -10,7 +10,10 @@ public class Cow : MonoBehaviour
     [Header("Stats")]
     [SerializeField] string curName;
     public string getName() { return curName; }
-    public void setName(string name) { curName = name; }
+    public void setName(string name)
+    {   curName = name;
+        thisNameLabel.text = name;
+    }
 
     [SerializeField] int gen;
     public int getGen() { return gen; }

@@ -44,6 +44,13 @@ public class HomeUI : UIController
 
     }
 
+    public void ClearRenameUI()
+    {
+        UIGroup theGroup = getUIGroup("Rename");
+        UIContainer theContainer = theGroup.getContainer("Prompt");
+        theContainer.setTextElement("Field", "");
+    }
+
     //For POP UPS
     public void UpdatePopUpUI(string textInfo)
     {
