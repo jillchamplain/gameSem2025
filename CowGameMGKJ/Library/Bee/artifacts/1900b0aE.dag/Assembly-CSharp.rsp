@@ -425,6 +425,7 @@
 "Assets/Scripts/Controllers/UIEventController.cs"
 "Assets/Scripts/Cow.cs"
 "Assets/Scripts/CustomParticle.cs"
+"Assets/Scripts/Enums/ClickType.cs"
 "Assets/Scripts/Enums/GameState.cs"
 "Assets/Scripts/Enums/ManagerType.cs"
 "Assets/Scripts/Enums/RaceRewards.cs"

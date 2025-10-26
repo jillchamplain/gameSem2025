@@ -131,12 +131,13 @@ public class RaceController : LogicController
         raceUI.UICleanUp();
     }
 
-    private void OnMouseClick(GameObject theObject)
+    private void OnMouseClick(GameObject theObject, ClickType type)
     {
         if (!getListening())
             return;
 
-
+        if (type == ClickType.RIGHT)
+            return;
         else if (theObject.CompareTag("Cow"))
         {
             if (playerMouse.getCurCow() == theObject)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 
 public class UIEventController : MonoBehaviour
@@ -34,6 +35,12 @@ public class UIEventController : MonoBehaviour
 
     public delegate void RetireCow();
     public static event RetireCow retireCow;
+
+    public delegate void RenameCow(TextMeshProUGUI tf);
+    public static event RenameCow renameCow;
+
+    public delegate void RenameCowOff();
+    public static event RenameCowOff renameCowOff;
 
     public void OnSwitchLogic(int state)
     {
@@ -72,10 +79,21 @@ public class UIEventController : MonoBehaviour
 
 
 
+    public void OnCowNameYesButton(TextMeshProUGUI tf)
+    {
+        renameCow?.Invoke(tf);
+    }
+
+    public void OnCowNameNoButton()
+    {
+        renameCowOff.Invoke();
+    }
+
     public void OnRetireButton()
     {
         retireCow?.Invoke();
     }
+
 
 
     public void OnTrainButton() //Runs warning about missing script behavior for race button

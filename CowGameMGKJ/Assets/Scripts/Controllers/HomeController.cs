@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using TMPro;
 using UnityEngine;
 using static Cow;
 using static CowManager;
@@ -36,16 +37,19 @@ public class HomeController : LogicController
         Cow.cowMaxLevel += OnCowMaxLevel;
         Cow.cowLevelUp += OnCowLevelUp;
         UIEventController.retireCow += OnCowRetire;
-
+        UIEventController.trainCow += OnCowTrain;
+        UIEventController.renameCow += OnCowRename;
         CowManager.cowSpawned += OnCowSpawned;
+
 
         FoodManager.foodSpawn += OnFoodSpawned;
 
         MouseManager.mouseClick += OnMouseClick;
         MouseManager.mouseRelease += OnMouseRelease;
 
-        UIEventController.trainCow += OnCowTrain;
+       
         UIEventController.popUpOff += OnPopUpOff;
+        UIEventController.renameCowOff += OnRenameOff;
     }
     private void OnDisable()
     {
@@ -54,7 +58,8 @@ public class HomeController : LogicController
         Cow.cowMaxLevel -= OnCowMaxLevel;
         Cow.cowLevelUp -= OnCowLevelUp;
         UIEventController.retireCow -= OnCowRetire;
-
+        UIEventController.trainCow -= OnCowTrain;
+        UIEventController.renameCow -= OnCowRename;
         CowManager.cowSpawned -= OnCowSpawned;
 
         FoodManager.foodSpawn -= OnFoodSpawned;
@@ -62,8 +67,8 @@ public class HomeController : LogicController
         MouseManager.mouseClick -= OnMouseClick;
         MouseManager.mouseRelease -= OnMouseRelease;
 
-        UIEventController.trainCow -= OnCowTrain;
         UIEventController.popUpOff -= OnPopUpOff;
+        UIEventController.renameCowOff -= OnRenameOff;
     }
     public override void Reset()
     {
@@ -156,7 +161,16 @@ public class HomeController : LogicController
 
     private void OnPopUpOff()
     {
+        if (!getListening())
+            return;
         homeUI.setUIGroup("Pop Up", false);
+    }
+
+    private void OnRenameOff()
+    {
+        if (!getListening())
+            return;
+        homeUI.setUIGroup("Rename", false);
     }
 
     private void OnCowSpawned(Cow theCow)
@@ -167,6 +181,16 @@ public class HomeController : LogicController
 
         UpdateUI();
         
+    }
+
+    private void OnCowRename(TextMeshProUGUI tf)
+    {
+        Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
+        theCow.setName(tf.text);
+        homeUI.setUIGroup("Rename", false);
+
+        UpdateUI();
+        SaveData();
     }
 
     private void OnCowEat(Cow theCow, Food theFood)
@@ -285,7 +309,7 @@ public class HomeController : LogicController
         foodManager.SpawnFood(theFood, spawnManager.SelectRandomSpawn(foodManager.getFoodPrefab()));
     }
 
-    private void OnMouseClick(GameObject theObject)
+    private void OnMouseClick(GameObject theObject, ClickType type)
     {
         if (!getListening())
             return;
@@ -310,31 +334,50 @@ public class HomeController : LogicController
 
         else if (theObject.CompareTag("Cow"))
         {
-            if (playerMouse.getCurCow() == theObject)
+            if (type == ClickType.LEFT)
             {
-                playerMouse.setCurCow(null);
-                theObject.GetComponent<Cow>().setSelected(false);
-                homeUI.setUIGroup("Train", false);
-                homeUI.setUIGroup("Retire", false);
+                /*if (playerMouse.getCurCow() == theObject)
+                {
+                    playerMouse.setCurCow(null);
+                    theObject.GetComponent<Cow>().setSelected(false);
+                    homeUI.setUIGroup("Rename", false);
+                    homeUI.setUIGroup("Train", false);
+                    homeUI.setUIGroup("Retire", false);
+                }
+                else
+                {*/
+                    if (playerMouse.getCurCow())
+                    {
+                        playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+                    }
+                    playerMouse.setCurCow(theObject);
+                    theObject.GetComponent<Cow>().setSelected(true);
+                    if (theObject.GetComponent<Cow>().getIsMaxLevel())
+                    {
+                        homeUI.setUIGroup("Rename", false);
+                        homeUI.setUIGroup("Train", false);
+                        homeUI.setUIGroup("Retire", true);
+                    }
+                    else
+                    {
+                        homeUI.setUIGroup("Rename", false);
+                        homeUI.setUIGroup("Retire", false);
+                        homeUI.setUIGroup("Train", true);
+                    }
+                /*}*/
             }
-            else
+            else if(type == ClickType.RIGHT)
             {
+                
                 if (playerMouse.getCurCow())
                 {
                     playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+                    playerMouse.setCurCow(theObject);
+                    theObject.GetComponent<Cow>().setSelected(true);
                 }
                 playerMouse.setCurCow(theObject);
-                theObject.GetComponent<Cow>().setSelected(true);
-                if (theObject.GetComponent<Cow>().getIsMaxLevel())
-                {
-                    homeUI.setUIGroup("Train", false);
-                    homeUI.setUIGroup("Retire", true);
-                }
-                else
-                {
-                    homeUI.setUIGroup("Retire", false);
-                    homeUI.setUIGroup("Train", true);
-                }
+                theObject.GetComponent<Cow>().setSelected(true);       
+                homeUI.setUIGroup("Rename", true);
             }
         }
     }
