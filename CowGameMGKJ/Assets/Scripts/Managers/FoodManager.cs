@@ -110,7 +110,7 @@ public class FoodManager : Manager
      
     public void UnlockFood(ShopItem item) //Takes purchased ShopItem data from shop and unlocks corresponding fooditem
     {
-        Debug.Log("WORK");
+        //Debug.Log("WORK");
         foreach(FoodItem food in allFoodData)
         {
             //Debug.Log("food in list is: " + food.getItemName());

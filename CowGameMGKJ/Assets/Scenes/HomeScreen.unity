@@ -5114,7 +5114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -13812,9 +13812,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: defaultPattern
+      value: 
+      objectReference: {fileID: 11400000, guid: 2691c21f4355c4e499ed5f81be4abc28, type: 2}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: allPatternData.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: randomCowNames.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: allPatternData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2691c21f4355c4e499ed5f81be4abc28, type: 2}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: allPatternData.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 81735af6a27d7bb45920e792f7228885, type: 2}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: allPatternData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ab972a8c54d8d14e8b6b890d35db419, type: 2}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: allPatternData.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: a0097802cc5c5d946a47fdd1aa548820, type: 2}
     - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: randomCowNames.Array.data[0]
       value: Fluffy
@@ -13835,6 +13859,14 @@ PrefabInstance:
       propertyPath: randomCowNames.Array.data[4]
       value: Moo
       objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: unlockedPatternData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: unlockedPatternData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2691c21f4355c4e499ed5f81be4abc28, type: 2}
     - target: {fileID: 9174267185471255582, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: m_Name
       value: Cow Manager

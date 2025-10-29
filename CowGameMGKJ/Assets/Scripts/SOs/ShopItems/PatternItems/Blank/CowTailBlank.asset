@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CowTailBlank
   m_EditorClassIdentifier: 
   ID: Tail
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d3b534429b15b60408f069055702a73f, type: 3}

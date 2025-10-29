@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SnoutSpot
   m_EditorClassIdentifier: 
   ID: Snout
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 8666d62a0744330429a9d0b92665d164, type: 3}

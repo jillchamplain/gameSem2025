@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HeadZebra
   m_EditorClassIdentifier: 
   ID: Head
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: cc68a6f7f9cd83b4f892f13a8d51cecf, type: 3}

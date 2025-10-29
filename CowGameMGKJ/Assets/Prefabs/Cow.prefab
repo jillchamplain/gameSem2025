@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7831564155242100049}
   - component: {fileID: 4481811508017040298}
+  - component: {fileID: 598090758659759475}
   m_Layer: 0
   m_Name: CowSnout
   m_TagString: Untagged
@@ -84,6 +85,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &598090758659759475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407008164849694465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Snout
+  renderer: {fileID: 4481811508017040298}
 --- !u!1 &466174716490048913
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,9 +288,21 @@ MonoBehaviour:
   curPower: 0
   maxPower: 0
   traits: 
+  pattern: 0
   thisAnimator: {fileID: 4440143072703559476}
   thisSprite: {fileID: 291695699631229520}
   thisSelectionSprite: {fileID: 4942916636987613881}
+  renderers:
+  - {fileID: 8520238452103242212}
+  - {fileID: 996690206046645489}
+  - {fileID: 36698919401040098}
+  - {fileID: 598090758659759475}
+  - {fileID: 5750801762431887464}
+  - {fileID: 2516488567739301987}
+  - {fileID: 2470642102739752501}
+  - {fileID: 889245891443622459}
+  - {fileID: 1335968268689685091}
+  - {fileID: 3974602779487920739}
   thisNameLabel: {fileID: 2099264908896599389}
 --- !u!95 &4440143072703559476
 Animator:
@@ -307,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6095347351750612521}
   - component: {fileID: 6605820902333954882}
+  - component: {fileID: 889245891443622459}
   m_Layer: 0
   m_Name: CowLegBL
   m_TagString: Untagged
@@ -381,6 +409,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &889245891443622459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359882263614829073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: LegBL
+  renderer: {fileID: 6605820902333954882}
 --- !u!1 &1568105878032924707
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2654554546351732955}
   - component: {fileID: 7389430606584015992}
+  - component: {fileID: 8520238452103242212}
   m_Layer: 0
   m_Name: CowEarR
   m_TagString: Untagged
@@ -502,6 +545,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8520238452103242212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664850497969295043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: EarR
+  renderer: {fileID: 7389430606584015992}
 --- !u!1 &1800300999168351142
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6135816639796538145}
   - component: {fileID: 3158925316439677838}
+  - component: {fileID: 2470642102739752501}
   m_Layer: 0
   m_Name: CowLegFL
   m_TagString: Untagged
@@ -623,6 +681,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2470642102739752501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906416705174867038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: LegFL
+  renderer: {fileID: 3158925316439677838}
 --- !u!1 &2270991893326004508
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777028156943975788}
   - component: {fileID: 6187184993681393086}
+  - component: {fileID: 3974602779487920739}
   m_Layer: 0
   m_Name: CowTail
   m_TagString: Untagged
@@ -707,6 +780,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3974602779487920739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270991893326004508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Tail
+  renderer: {fileID: 6187184993681393086}
 --- !u!1 &2316262159266098624
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +804,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3529084645894318859}
   - component: {fileID: 1503270938131979650}
+  - component: {fileID: 996690206046645489}
   m_Layer: 0
   m_Name: CowEarL
   m_TagString: Untagged
@@ -791,6 +879,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &996690206046645489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2316262159266098624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: EarL
+  renderer: {fileID: 1503270938131979650}
 --- !u!1 &2512808976596072636
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2906389733985560268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -869,6 +971,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6092651358517446450}
+  - component: {fileID: 5750801762431887464}
+  - component: {fileID: 7417700320774666340}
   m_Layer: 0
   m_Name: Hat Slot
   m_TagString: Untagged
@@ -891,6 +995,72 @@ Transform:
   m_Father: {fileID: 1035175134291740635}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5750801762431887464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977872693782566319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Hat
+  renderer: {fileID: 7417700320774666340}
+--- !u!212 &7417700320774666340
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977872693782566319}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &3457778992798903898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467804531722459300}
   - component: {fileID: 6113345360232416236}
+  - component: {fileID: 36698919401040098}
   m_Layer: 0
   m_Name: CowBaseHead
   m_TagString: Untagged
@@ -1194,6 +1365,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &36698919401040098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3787596167154913867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Head
+  renderer: {fileID: 6113345360232416236}
 --- !u!1 &3882142137939933115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8459626831328151706}
   - component: {fileID: 4763332446166856867}
+  - component: {fileID: 2516488567739301987}
   m_Layer: 0
   m_Name: CowBody
   m_TagString: Untagged
@@ -1362,6 +1548,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2516488567739301987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357645230334098276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Body
+  renderer: {fileID: 4763332446166856867}
 --- !u!1 &4380369962845795170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +2093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7042441376298598006}
   - component: {fileID: 5643358575995162968}
+  - component: {fileID: 1335968268689685091}
   m_Layer: 0
   m_Name: CowLegFR
   m_TagString: Untagged
@@ -1967,3 +2168,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1335968268689685091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072298563382795718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cbab6631909c14eaedd8d3b85cf8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: LegFR
+  renderer: {fileID: 5643358575995162968}

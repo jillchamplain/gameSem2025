@@ -14,6 +14,7 @@ public class Cow : MonoBehaviour
     public void setName(string name)
     {   curName = name;
         thisNameLabel.text = name;
+        gameObject.name = name;
     }
 
     [SerializeField] int gen;
@@ -98,7 +99,7 @@ public class Cow : MonoBehaviour
             bool repeat = true;
             while (repeat)
             {
-                int index = Random.Range(0, (int)Trait.NUM_TRAITS);
+                int index = UnityEngine.Random.Range(0, (int)Trait.NUM_TRAITS);
                 theTrait1 = (Trait)index;
                 if (theTrait1 == theTrait2 || theTrait1 == theTrait3)
                     repeat = true;
@@ -111,7 +112,7 @@ public class Cow : MonoBehaviour
             bool repeat = true;
             while (repeat)
             {
-                int index = Random.Range(0, (int)Trait.NUM_TRAITS);
+                int index = UnityEngine.Random.Range(0, (int)Trait.NUM_TRAITS);
                 theTrait2 = (Trait)index;
                 if (theTrait2 == theTrait1 || theTrait2 == theTrait3)
                     repeat = true;
@@ -125,7 +126,7 @@ public class Cow : MonoBehaviour
             bool repeat = true;
             while (repeat)
             {
-                int index = Random.Range(0, (int)Trait.NUM_TRAITS);
+                int index = UnityEngine.Random.Range(0, (int)Trait.NUM_TRAITS);
                 theTrait3 = (Trait)index;
                 if (theTrait3 == theTrait1 || theTrait3 == theTrait2)
                     repeat = true;
@@ -161,30 +162,53 @@ public class Cow : MonoBehaviour
     bool isMaxLevel = false;
     public bool getIsMaxLevel() { return isMaxLevel; }
     public void setIsMaxLevel(bool value) { isMaxLevel = value; }
+    [SerializeField] Pattern pattern;
+    public Pattern getPattern() { return pattern; }
+    public void setPattern(PatternItem item)
+    {
+        pattern = item.getPattern();
+
+        List<SpriteAsset> assets = item.getAssets();
+        foreach (SpriteAsset sa in assets) //Sets all the sprite renderer sprites to the pattern set
+        {
+            foreach(RendererAsset ra in renderers)
+            {
+                //Debug.Log("Renderer: " + ra.getID() + " Sprite: " + sa.getID());
+                if(ra.getID() == sa.getID())
+                {
+                    //Debug.Log("Setting sprite ");
+                    ra.getSpriteRenderer().sprite = sa.getSprite();
+                }
+            }
+        }
+    }
 
     [Header("Refs")]
     [SerializeField] Animator thisAnimator;
     [SerializeField] SpriteRenderer thisSprite;
     [SerializeField] SpriteRenderer thisSelectionSprite;
-    [SerializeField] Dictionary<string, SpriteRenderer> spriteRenderers;
-    public Dictionary<string, SpriteRenderer> getSpriteRenderers() { return spriteRenderers; }
-    public SpriteRenderer getSpriteRenderer(string ID)
+    [SerializeField] List<RendererAsset> renderers;
+    public List<RendererAsset> getSpriteRenderers() { return renderers; }
+    public SpriteRenderer getSpriteRenderer(string name)
     {
-        if (!spriteRenderers[ID])
-            return null;
-        return spriteRenderers[ID];
+        foreach (RendererAsset ra in renderers)
+        {
+            if (ra.getID() == name)
+                return ra.getSpriteRenderer();
+        }
+        return null;
     }
-
     public void setSpriteRenderer(string ID, Sprite theSprite)
     {
-        if (!spriteRenderers[ID])
-            return;
+        foreach(RendererAsset ra in renderers)
+        { 
+            if(ra.getID() == ID)
+            {
+                ra.getSpriteRenderer().sprite = theSprite;
+            }
+        }
 
-        SpriteRenderer theSr = spriteRenderers[ID];
-        theSr.sprite = theSprite;
     }
-
-
     public void setSelected(bool isSelected)
     {
         if(isSelected)
@@ -228,6 +252,25 @@ public class Cow : MonoBehaviour
 
     }
 
+    public void InitCow(string theName, int theGen, int theMaxPower, int trait1, int trait2, int trait3, PatternItem item)
+    {
+        //Debug.Log("initting cow");
+        setName(theName);
+        //Debug.Log("this name is " + theName);
+        //Debug.Log("it is set to " + curName);
+        thisNameLabel.text = theName;
+        setGen(theGen);
+        setMaxPower(theMaxPower);
+        setLevel(0);
+
+        setTraits(trait1, trait2, trait3);
+
+        setPattern(item);
+
+        DontDestroyOnLoad(this.gameObject);
+
+    }
+
     public void InitCow(string name, int theGen, int level, int maxLevel, int power, int theMaxPower, int trait1, int trait2, int trait3)
     {
         //Debug.Log("initting cow");
@@ -243,7 +286,24 @@ public class Cow : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
- 
+
+    public void InitCow(string name, int theGen, int level, int maxLevel, int power, int theMaxPower, int trait1, int trait2, int trait3, PatternItem pattern)
+    {
+        //Debug.Log("initting cow");
+        setName(name);
+        thisNameLabel.text = name;
+        setGen(theGen);
+        setMaxPower(theMaxPower);
+        setPower(power);
+        setLevel(level);
+        setMaxLevel(maxLevel);
+
+        setTraits(trait1, trait2, trait3);
+
+        setPattern(pattern);
+
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     public enum CowAnims
     {

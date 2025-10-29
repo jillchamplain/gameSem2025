@@ -20,7 +20,7 @@ public class GameData
     public int traitA1;
     public int traitB1;
     public int traitC1;
-    public string pattern1; //FIGURE OUT PATTERNS
+    public int pattern1; //FIGURE OUT PATTERNS
     public bool isMax1;
     public float x1;
     public float y1;
@@ -36,7 +36,7 @@ public class GameData
     public int traitA2; 
     public int traitB2;
     public int traitC2;
-    public string pattern2;
+    public int pattern2;
     public bool isMax2;
     public float x2;
     public float y2;
@@ -52,7 +52,7 @@ public class GameData
     public int traitA3;
     public int traitB3;
     public int traitC3;
-    public string pattern3;
+    public int pattern3;
     public bool isMax3;
     public float x3;
     public float y3;
@@ -60,6 +60,9 @@ public class GameData
 
     //UNLOCKED FOODS AGAIn
     public string[] unlockedFoodNames = new string[10];
+
+    //Unlocked Patterns
+    public string[] unlockedPatternNames = new string[4];
 
     //CURRENT RACE AND LEAGUE
     public int curLeagueID;
@@ -145,6 +148,7 @@ public class GameData
             traitA1 = (int)cow1.getTraitAt(0);
             traitB1 = (int)cow1.getTraitAt(1);
             traitC1 = (int)cow1.getTraitAt(2);
+            pattern1 = (int)cow1.getPattern();
             isMax1 = cow1.getIsMaxLevel();
             x1 = cow1.gameObject.transform.position.x;
             y1 = cow1.gameObject.transform.position.y;
@@ -162,6 +166,7 @@ public class GameData
             traitA2 = (int)cow2.getTraitAt(0);
             traitB2 = (int)cow2.getTraitAt(1);
             traitC2 = (int)cow2.getTraitAt(2);
+            pattern2 = (int)cow2.getPattern();
             isMax2 = cow2.getIsMaxLevel();
             x2 = cow2.gameObject.transform.position.x;
             y2 = cow2.gameObject.transform.position.y;
@@ -179,30 +184,24 @@ public class GameData
             traitA3 = (int)cow3.getTraitAt(0);
             traitB3 = (int)cow3.getTraitAt(1);
             traitC3 = (int)cow3.getTraitAt(2);
+            pattern3 = (int)cow3.getPattern();
             isMax3 = cow3.getIsMaxLevel();
             x3 = cow3.gameObject.transform.position.x;
             y3 = cow3.gameObject.transform.position.y;
             z3 = cow3.gameObject.transform.position.z;
         }
 
-        //Reset Food Flags 
-        /* for (int i = 0; i < unlockedFoodFlags.Length; i++)
-         {
-             unlockedFoodFlags[i] = false;
-         }
 
-         //Attribute flag unlocks by number of food unlocked
-         for (int i = 0; i < foodManager.getUnlockedFoods().Count; i++)
-         {
-             unlockedFoodFlags[i] = true;
-         }*/
-
-       /* for (int i = 0; i < unlockedFoodNames.Length; i++)
+        for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
         {
-            unlockedFoodNames[i] = "NULL";
+            unlockedFoodNames[i] = foodManager.getUnlockedFoodDataAt(i).getItemName();
         }
-       */
-       
+
+        for (int i = 0; i < cowManager.getUnlockedPatternData().Count; i++)
+        {
+            unlockedPatternNames[i] = cowManager.getUnlockedPatternDataAt(i).getItemName();
+        }
+
 
         curRaceID = raceManager.getCurRaceIndex();
         curLeagueID = raceManager.getCurLeagueIndex();
@@ -213,16 +212,16 @@ public class GameData
 
     public GameData(FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
     {
+        /*for (int i = foodManager.getUnlockedFoodData().Count; i < unlockedFoodNames.Length; i++)
+        {
+            unlockedFoodNames[i] = "NULL";
+        }*/
 
-        Debug.Log(foodManager.getUnlockedFoodData().Count);
         for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
         {
             unlockedFoodNames[i] = foodManager.getUnlockedFoodDataAt(i).getItemName();
         }
-        for (int i = foodManager.getUnlockedFoodData().Count; i < unlockedFoodNames.Length; i++)
-        {
-            unlockedFoodNames[i] = "NULL";
-        }
+        
 
         curRaceID = raceManager.getCurRaceIndex();
         curLeagueID = raceManager.getCurLeagueIndex();
@@ -247,6 +246,7 @@ public class GameData
         traitA1 = -1;
         traitB1 = -1;
         traitC1 = -1;
+        pattern1 = 0;
         isMax1 = false;
         x1 = -1;
         y1 = -1;
@@ -261,6 +261,7 @@ public class GameData
         traitA2 = -1;
         traitB2 = -1;
         traitC2 = -1;
+        pattern2 = 0;
         isMax2 = false;
         x2 = -1;
         y2 = -1;
@@ -275,6 +276,7 @@ public class GameData
         traitA3 = -1;
         traitB3 = -1;
         traitC3 = -1;
+        pattern3 = 0;
         isMax3 = false;
         x3 = -1;
         y3 = -1;
@@ -285,6 +287,12 @@ public class GameData
             unlockedFoodNames[i] = "NULL";
         }
         unlockedFoodNames[0] = "Default";
+
+        for (int i = 0; i < unlockedPatternNames.Length; i++)
+        {
+            unlockedPatternNames[i] = "NULL";
+        }
+        unlockedPatternNames[0] = "Blank";
         curRaceID = 0;
         curLeagueID = 0;
         numCoins = 0;

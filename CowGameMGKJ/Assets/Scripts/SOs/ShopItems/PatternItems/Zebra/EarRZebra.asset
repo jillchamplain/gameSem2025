@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EarRZebra
   m_EditorClassIdentifier: 
   ID: EarR
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 879dfac7d9fa1e54d9cbb49bbb7d3237, type: 3}

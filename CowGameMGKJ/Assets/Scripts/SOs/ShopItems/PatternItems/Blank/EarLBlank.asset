@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EarLBlank
   m_EditorClassIdentifier: 
   ID: EarL
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c303c57a74579f14b85be3649deff38f, type: 3}

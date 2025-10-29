@@ -105,9 +105,10 @@ public class HomeController : LogicController
     private void InitCows()
     {
         //Debug.Log("initting from home");
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.InitPatterns(SaveSystem.LoadGameData());
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.InitCurCows(SaveSystem.LoadGameData());
     }
 

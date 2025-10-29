@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EarRSpot
   m_EditorClassIdentifier: 
   ID: EarR
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: efebcf9df3d3dad4b9764703f5165cda, type: 3}

@@ -80,9 +80,9 @@ public class RaceController : LogicController
     private void InitCows()
     {
         //Debug.Log("initting from home");
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
-        cowManager.SpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.InitCurCows(SaveSystem.LoadGameData());
     }
 
@@ -204,6 +204,7 @@ public class RaceController : LogicController
                     raceUI.UICleanUp();
                     break;
                 case RaceReward.PATTERN:
+                    cowManager.UnlockPattern(theRace.getRewardItem());
                     raceUI.setUIGroup("Active", false);
                     raceUI.setUIGroup("Pop Up", true);
                     raceUI.UpdatePopUpUI("You won! Got new pattern");
@@ -238,13 +239,15 @@ public class RaceController : LogicController
 
     private void OnClearLeague(RaceReward clearReward)
     {
-       
+        Debug.Log("league clear");
         switch (clearReward)
         {
             case RaceReward.NONE:
                 break;
             case RaceReward.FOOD:
                 //foodManager.UnlockFood(); FIX THIS
+                
+                
                 Debug.Log(playerMouse.getCurCow());
                 //particleManager.SpawnTextParticleAt("Power Increase", "Unlocked New Food!", playerMouse.getCurCow().gameObject.transform.position);
                 break;

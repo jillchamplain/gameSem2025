@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LegBLTabby
   m_EditorClassIdentifier: 
   ID: LegBL
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f69eae5f085a57f488d995d9e39ec8ae, type: 3}

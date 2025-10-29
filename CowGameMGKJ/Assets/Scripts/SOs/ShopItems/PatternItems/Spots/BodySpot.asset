@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BodySpot
   m_EditorClassIdentifier: 
   ID: Body
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d849b4627da060e43b9accad1fe1ca13, type: 3}

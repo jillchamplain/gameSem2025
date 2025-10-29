@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LegFLSpot
   m_EditorClassIdentifier: 
   ID: LegFL
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 8a7adc9c04de74f4d9757102b1a50b70, type: 3}
