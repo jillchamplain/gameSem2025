@@ -65,6 +65,18 @@ public class CowManager : Manager
         }
         curCows.Clear();
     }
+    [SerializeField] List<PatternItem> unlockedPatternData;
+    public List<PatternItem> getUnlockedPatternData() { return unlockedPatternData; }
+    public PatternItem getUnlockedPatternDataAt(int index)
+    {
+        for(int i = 0; i < unlockedPatternData.Count; i++)
+        {
+            if (i == index)
+                return unlockedPatternData[i];
+        }
+        return null;
+    }
+    [SerializeField] List<PatternItem> allPatternData;
     [SerializeField] public GameObject cowPrefab;
 
     //EVENTS
@@ -106,6 +118,11 @@ public class CowManager : Manager
             if (theData.x3 != -1 && theData.y3 != -1 && theData.z3 != -1)
                 getCowAt(2).transform.position = new Vector3(theData.x3, theData.y3, theData.z3);
         }
+
+    }
+
+    public void UnlockPattern(ShopItem item)
+    {
 
     }
     public void SpawnCow(Vector3 spawnPos)

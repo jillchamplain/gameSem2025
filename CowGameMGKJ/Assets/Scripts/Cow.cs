@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -86,7 +87,6 @@ public class Cow : MonoBehaviour
             return traits[index];
         return Trait.NULL;
     }
-
     public void setTraits(int trait1, int trait2, int trait3)
     {
         Trait theTrait1 = (Trait) trait1;
@@ -138,7 +138,6 @@ public class Cow : MonoBehaviour
         traits.Add(theTrait3);
 
     }
-
     public void setTraitAt(int index, int newTrait)
     {
         for(int i = 0; i < traits.Count; i++)
@@ -159,8 +158,6 @@ public class Cow : MonoBehaviour
             }
         }
     }
-
-
     bool isMaxLevel = false;
     public bool getIsMaxLevel() { return isMaxLevel; }
     public void setIsMaxLevel(bool value) { isMaxLevel = value; }
@@ -169,6 +166,25 @@ public class Cow : MonoBehaviour
     [SerializeField] Animator thisAnimator;
     [SerializeField] SpriteRenderer thisSprite;
     [SerializeField] SpriteRenderer thisSelectionSprite;
+    [SerializeField] Dictionary<string, SpriteRenderer> spriteRenderers;
+    public Dictionary<string, SpriteRenderer> getSpriteRenderers() { return spriteRenderers; }
+    public SpriteRenderer getSpriteRenderer(string ID)
+    {
+        if (!spriteRenderers[ID])
+            return null;
+        return spriteRenderers[ID];
+    }
+
+    public void setSpriteRenderer(string ID, Sprite theSprite)
+    {
+        if (!spriteRenderers[ID])
+            return;
+
+        SpriteRenderer theSr = spriteRenderers[ID];
+        theSr.sprite = theSprite;
+    }
+
+
     public void setSelected(bool isSelected)
     {
         if(isSelected)

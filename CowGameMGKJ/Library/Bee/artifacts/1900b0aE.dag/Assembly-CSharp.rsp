@@ -428,6 +428,7 @@
 "Assets/Scripts/Enums/ClickType.cs"
 "Assets/Scripts/Enums/GameState.cs"
 "Assets/Scripts/Enums/ManagerType.cs"
+"Assets/Scripts/Enums/Pattern.cs"
 "Assets/Scripts/Enums/RaceRewards.cs"
 "Assets/Scripts/Enums/ShopType.cs"
 "Assets/Scripts/Enums/Trait.cs"
@@ -448,8 +449,10 @@
 "Assets/Scripts/SceneLoader.cs"
 "Assets/Scripts/SOs/FoodItem.cs"
 "Assets/Scripts/SOs/League.cs"
+"Assets/Scripts/SOs/PatternItem.cs"
 "Assets/Scripts/SOs/Race.cs"
 "Assets/Scripts/SOs/ShopItem.cs"
+"Assets/Scripts/SOs/SpriteAsset.cs"
 "Assets/Scripts/UIContainer.cs"
 "Assets/Scripts/UIGroup.cs"
 -langversion:9.0

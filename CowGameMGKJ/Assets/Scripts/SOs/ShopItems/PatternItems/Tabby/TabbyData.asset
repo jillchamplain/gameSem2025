@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fddf379b2e2da94f8eb522fae2428bb, type: 3}
+  m_Name: TabbyData
+  m_EditorClassIdentifier: 
+  name: Tabby
+  type: 1
+  sprite: {fileID: 0}
+  cost: 0
+  patternType: 2
+  assets:
+  - {fileID: 11400000, guid: 2484a5250452b934284cfa983820ccc5, type: 2}
+  - {fileID: 11400000, guid: 6f37afe71780f08459894f8a59413e79, type: 2}
+  - {fileID: 11400000, guid: f783dfc842dc7b64489adf8bd6d8ae61, type: 2}
+  - {fileID: 11400000, guid: 99034423cbc1307498abdd42be98678e, type: 2}
+  - {fileID: 11400000, guid: ddfc006e05e444a43acc931f70791ed3, type: 2}
+  - {fileID: 11400000, guid: 45b4d652f21252646b1b62fb66d43945, type: 2}
+  - {fileID: 11400000, guid: 139f263e6304c124da7fa40a758dde60, type: 2}
+  - {fileID: 11400000, guid: 9af2e01bd4061e74d8ea729d9ae89573, type: 2}
+  - {fileID: 11400000, guid: 7a758c63b9d65cc4c8889dfed3579e5a, type: 2}

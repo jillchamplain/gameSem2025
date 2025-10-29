@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fddf379b2e2da94f8eb522fae2428bb, type: 3}
+  m_Name: SpotData
+  m_EditorClassIdentifier: 
+  name: Spots
+  type: 1
+  sprite: {fileID: 0}
+  cost: 0
+  patternType: 1
+  assets:
+  - {fileID: 11400000, guid: afa487ca15bce5d4a85f56e71c6538a4, type: 2}
+  - {fileID: 11400000, guid: 9bef49ab71b4e2d43b34d88dd52c6501, type: 2}
+  - {fileID: 11400000, guid: 6171a4af4f377e54297ca1df9d953a60, type: 2}
+  - {fileID: 11400000, guid: 08c68bd99de9d7246b75f38d1c274777, type: 2}
+  - {fileID: 11400000, guid: 54aab28e221bf454dbffd474e7561198, type: 2}
+  - {fileID: 11400000, guid: 7dc4e9752ac49c041a3313cdfe256d9b, type: 2}
+  - {fileID: 11400000, guid: 432c7a40edb1b7d459fad4a9eb824136, type: 2}
+  - {fileID: 11400000, guid: 41d13c02dac94a44b9de71efdb14d452, type: 2}
+  - {fileID: 11400000, guid: af63ad81ba1d5484f88d9dbe77689fef, type: 2}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fddf379b2e2da94f8eb522fae2428bb, type: 3}
+  m_Name: ZebraData
+  m_EditorClassIdentifier: 
+  name: Zebra
+  type: 1
+  sprite: {fileID: 0}
+  cost: 0
+  patternType: 3
+  assets:
+  - {fileID: 11400000, guid: e056b8d6fd1c04a4294e10b21a9cee99, type: 2}
+  - {fileID: 11400000, guid: 379eaeb41d726ae4b82c64d7acf24e9e, type: 2}
+  - {fileID: 11400000, guid: 0d463bb99fa748243b0ceccdb874b28b, type: 2}
+  - {fileID: 11400000, guid: ca18e37117c837749a233ce683d9fa8a, type: 2}
+  - {fileID: 11400000, guid: 01fa7b8973f85b54795dd11e51a320e0, type: 2}
+  - {fileID: 11400000, guid: a2744d0e2006a054eb3a73f8112876c9, type: 2}
+  - {fileID: 11400000, guid: f77b119e8ee3bf24d8de90170ea5c036, type: 2}
+  - {fileID: 11400000, guid: 8fd9aca1c66815e4f8705e205789d988, type: 2}
+  - {fileID: 11400000, guid: 66f1754fbf353354baaaa8566a23bd2f, type: 2}
