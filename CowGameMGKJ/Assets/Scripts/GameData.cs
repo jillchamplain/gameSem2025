@@ -286,7 +286,7 @@ public class GameData
         {
             unlockedFoodNames[i] = "NULL";
         }
-        unlockedFoodNames[0] = "Default";
+        unlockedFoodNames[0] = "Berry";
 
         for (int i = 0; i < unlockedPatternNames.Length; i++)
         {

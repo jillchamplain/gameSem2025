@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Food
+    uniqueID: 2156105673
+    locked: 0

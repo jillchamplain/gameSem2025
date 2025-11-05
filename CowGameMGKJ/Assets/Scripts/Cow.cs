@@ -318,7 +318,9 @@ public class Cow : MonoBehaviour
         switch(theAnimation)
         {
             case CowAnims.IDLE:
-                thisAnimator.Play("CowIdle");
+                float animStart = UnityEngine.Random.Range(0, 0.05f);
+                Debug.Log(animStart);
+                thisAnimator.Play("CowIdle", 0, animStart);
                 break;
             case CowAnims.SPAWN:
                 thisAnimator.Play("CowSpawn");

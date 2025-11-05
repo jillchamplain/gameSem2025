@@ -74,13 +74,14 @@ public class HomeController : LogicController
     {
         if (getListening())
             return;
+    
         if (playerMouse.getCurCow())
         {
             playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
             playerMouse.setCurCow(null);
         }
         playerMouse.setCurFood(null);
-        homeUI.setUIGroup("Train", false);
+        
         foodManager.setCurFoods(false); //Need to start calculating for time elapsed
         cowManager.ClearCows();
         //Debug.Log("reset home");
@@ -135,7 +136,8 @@ public class HomeController : LogicController
             homeUI.UpdateCowUI(cowManager.getCowAt(i).gameObject, i);
             //Debug.Log("updating ui");
         }
-
+        homeUI.setUIGroup("Retire", false);
+        homeUI.setUIGroup("Train", false);
     }
 
     private void UpdateUI()
@@ -201,7 +203,7 @@ public class HomeController : LogicController
 
         playerMouse.setCurCow(theCow.gameObject); //Store cow
 
-        foodManager.DeleteFood(theFood.gameObject);
+       
 
        
         string powerIncreaseText = "+ " + theFood.getPower();
@@ -224,7 +226,7 @@ public class HomeController : LogicController
             particleManager.SpawnTextParticleAt("Power Increase", coinText, theCow.gameObject.transform.position);
             shopManager.addCoins(coinAmount);
         }
-
+        foodManager.DeleteFood(theFood.gameObject);
         homeUI.setUIGroup("Train", false);
         homeUI.UICleanUp();
         SaveData();

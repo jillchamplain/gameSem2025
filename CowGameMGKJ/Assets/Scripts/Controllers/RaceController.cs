@@ -53,6 +53,7 @@ public class RaceController : LogicController
     {
         if (getListening())
             return;
+        raceUI.setUIGroup("Passive", false);
         if (playerMouse.getCurCow())
         {
             playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);

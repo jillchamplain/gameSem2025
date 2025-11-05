@@ -38,6 +38,7 @@ public class ShopUI : UIController
         theContainer.gameObject.SetActive(true);
         theContainer.setTextElement("Name", item.getItemName());
         theContainer.setTextElement("Price", item.getCost().ToString());
+        theContainer.setImageElement("Icon", item.getSprite());
     }
 
 }

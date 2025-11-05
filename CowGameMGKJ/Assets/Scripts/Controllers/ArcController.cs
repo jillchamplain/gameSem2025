@@ -35,10 +35,10 @@ public class ArcController : MonoBehaviour
     }
     private void Start()
     {
-        setGameState(GameState.TITLE);
 
         if (inst == null)
             inst = this;
+        ManageState(getGameState());
     }
     public void ManageState(int state)
     {

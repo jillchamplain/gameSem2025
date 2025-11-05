@@ -413,6 +413,7 @@
 "Assets/DOTween/Modules/DOTweenModuleUI.cs"
 "Assets/DOTween/Modules/DOTweenModuleUnityVersion.cs"
 "Assets/DOTween/Modules/DOTweenModuleUtils.cs"
+"Assets/SceneActivator.cs"
 "Assets/Scripts/Controllers/ArcController.cs"
 "Assets/Scripts/Controllers/HomeController.cs"
 "Assets/Scripts/Controllers/HomeUI.cs"
