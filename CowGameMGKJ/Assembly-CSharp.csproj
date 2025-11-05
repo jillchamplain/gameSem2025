@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Controllers\RaceController.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
+    <Compile Include="Assets\Scripts\RendererAsset.cs" />
     <Compile Include="Assets\Scripts\PersistentObjects.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\Scripts\Controllers\ShopUI.cs" />
@@ -106,7 +107,6 @@
     <Compile Include="Assets\Scripts\SOs\SpriteAsset.cs" />
     <Compile Include="Assets\Scripts\SOs\PatternItem.cs" />
     <Compile Include="Assets\Scripts\Managers\FoodManager.cs" />
-    <Compile Include="Assets\Scripts\RendererAsset.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
