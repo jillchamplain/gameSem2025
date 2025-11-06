@@ -10,6 +10,7 @@ public class UIGroup : MonoBehaviour
     public CanvasGroup getCanvasGroup() { return canvasGroup; }
     public void setCanvasGroup(bool value)
     {
+        //Debug.Log(gameObject + "is setting elements to" + value);
         foreach (UIContainer container in uiContainers)
         {
             setContainer(container.getContainerName(), value);

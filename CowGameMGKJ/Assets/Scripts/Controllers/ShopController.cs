@@ -12,6 +12,8 @@ public class ShopController : LogicController
     [SerializeField] ShopManager shopManager;
     [SerializeField] FoodManager foodManager;
     [SerializeField] RaceManager raceManager;
+    [SerializeField] CowManager cowManager;
+    [SerializeField] SpawnManager spawnManager;
     [SerializeField] ShopUI shopUI;
     // Start is called before the first frame update
     private void Awake()
@@ -55,12 +57,24 @@ public class ShopController : LogicController
             SaveSystem.ResetGameData();
         }
         InitCoins();
+        InitCows();
         InitUI();
     }
 
     public void SaveData()
     {
-        SaveSystem.SaveGameData(foodManager, shopManager, raceManager);
+        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager);
+    }
+    
+    public void InitCows()
+    {
+        //Debug.Log("initting from home");
+        cowManager.InitPatterns(SaveSystem.LoadGameData());
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
+        cowManager.InitCurCows(SaveSystem.LoadGameData());
+        cowManager.setCows(false); //Hides Cows;
     }
 
     public void InitCoins()
