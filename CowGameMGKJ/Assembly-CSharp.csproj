@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\SOs\SpriteAsset.cs" />
     <Compile Include="Assets\Scripts\SOs\PatternItem.cs" />
     <Compile Include="Assets\Scripts\Managers\FoodManager.cs" />
+    <Compile Include="Assets\Scripts\Enums\MouseState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

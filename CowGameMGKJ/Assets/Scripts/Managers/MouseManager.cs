@@ -14,6 +14,14 @@ public class MouseManager : Manager
     public GameObject getCurCow() { return curCow; }
     public void setCurCow(GameObject theCow) { curCow = theCow; }
 
+    [SerializeField] MouseState curMouseState;
+    public MouseState getCurMouseState() { return curMouseState; }
+
+    public void setCurMouseState(MouseState state) {curMouseState = state; }
+
+    [SerializeField] bool isHolding;
+    public bool getIsHolding() { return isHolding; }
+    public void setIsHolding(bool value) { isHolding = value; }
 
     //EVENTS
     public delegate void MouseClick(GameObject theObject, ClickType click);
@@ -31,15 +39,31 @@ public class MouseManager : Manager
     // Update is called once per frame
     void Update()
     {
+        if (curMouseState == MouseState.HOLD)
+        {
+            if (curFood && Input.GetMouseButton(0)) //Move this to the food manager script
+                curFood.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -(Camera.main.transform.position.z)));
+            else if (curCow && Input.GetMouseButton(0))
+            {
+                Debug.Log("dragging cow");
+                curCow.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -(Camera.main.transform.position.z)));
+            }
+        }
+
+        //Sending Click Types
+
         if (Input.GetMouseButtonDown(0))
             ClickMouse(ClickType.LEFT);
         else if (Input.GetMouseButtonDown(1))
             ClickMouse(ClickType.RIGHT);
-        if (curFood && Input.GetMouseButton(0)) //Move this to the food manager script
-            curFood.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -(Camera.main.transform.position.z)));
+       
+        if(Input.GetMouseButton(0))
+        {
+            ClickMouse(ClickType.HOLD);
+        }
         else if (Input.GetMouseButtonUp(0))
         {
-            mouseRelease?.Invoke();
+            ClickMouse(ClickType.RELEASE);
         }
     }
 
@@ -51,7 +75,21 @@ public class MouseManager : Manager
         {
             //Debug.Log(hit.collider.gameObject);
 
-            mouseClick?.Invoke(hit.collider.gameObject, type);
+            mouseClick?.Invoke(hit.collider.gameObject, type);                                 
+        }
+    }
+
+
+    public IEnumerator HoldTimer()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        if (isHolding)
+        {
+            setCurMouseState(MouseState.HOLD);
+        }
+        else
+        {
+            setCurMouseState(MouseState.FREE);
         }
     }
 

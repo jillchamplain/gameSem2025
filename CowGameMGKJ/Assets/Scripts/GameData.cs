@@ -212,10 +212,10 @@ public class GameData
 
     public GameData(FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
     {
-        /*for (int i = foodManager.getUnlockedFoodData().Count; i < unlockedFoodNames.Length; i++)
+        for (int i = foodManager.getUnlockedFoodData().Count; i < unlockedFoodNames.Length; i++)
         {
             unlockedFoodNames[i] = "NULL";
-        }*/
+        }
 
         for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
         {
@@ -233,7 +233,7 @@ public class GameData
 
     public GameData()
     {
-        //Debug.Log("Being reset");
+        Debug.Log("Being reset");
         curGeneration = 3;
         numCoins = 0;
         name1 = "LIL COW";

@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Banana
   type: 0
   sprite: {fileID: 21300000, guid: 5d91e278f0bbc9b47ad3cbe8ec32f515, type: 3}
-  cost: 200
+  cost: 1000
   power: 500

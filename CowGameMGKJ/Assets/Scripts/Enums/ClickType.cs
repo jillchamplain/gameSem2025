@@ -7,6 +7,9 @@ public enum ClickType
     NULL = -1,
     LEFT,
     MIDDLE,
-    RIGHT
+    RIGHT,
+    RELEASE,
+    HOLD,
+    NUM_CLICK_TYPES,
 }
 

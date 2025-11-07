@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Corn
   type: 0
   sprite: {fileID: 21300000, guid: dd198c601e52680499b7aacfa870571f, type: 3}
-  cost: 100
+  cost: 500
   power: 300

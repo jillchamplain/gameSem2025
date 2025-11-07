@@ -429,6 +429,7 @@
 "Assets/Scripts/Enums/ClickType.cs"
 "Assets/Scripts/Enums/GameState.cs"
 "Assets/Scripts/Enums/ManagerType.cs"
+"Assets/Scripts/Enums/MouseState.cs"
 "Assets/Scripts/Enums/Pattern.cs"
 "Assets/Scripts/Enums/RaceRewards.cs"
 "Assets/Scripts/Enums/ShopType.cs"
