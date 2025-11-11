@@ -74,7 +74,7 @@ public class MouseManager : Manager
         if(hit.collider != null)
         {
             //Debug.Log(hit.collider.gameObject);
-
+            
             mouseClick?.Invoke(hit.collider.gameObject, type);                                 
         }
     }

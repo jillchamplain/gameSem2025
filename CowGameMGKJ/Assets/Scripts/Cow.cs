@@ -307,10 +307,12 @@ public class Cow : MonoBehaviour
 
     public enum CowAnims
     {
-        IDLE = 0,
-        SPAWN = 1,
-        FEED = 2,
-        RETIRE = 3,
+        NULL = -1,
+        IDLE,
+        HOLD,
+        SPAWN,
+        FEED,
+        RETIRE,
         NUM_ANIMS
     }
     public void PlayAnimation(CowAnims theAnimation)
@@ -321,6 +323,11 @@ public class Cow : MonoBehaviour
                 float animStart = UnityEngine.Random.Range(0, 0.05f);
                 Debug.Log(animStart);
                 thisAnimator.Play("CowIdle", 0, animStart);
+                break;
+            case CowAnims.HOLD:
+                float animStart2 = UnityEngine.Random.Range(0, 0.05f);
+                if(!thisAnimator.GetCurrentAnimatorStateInfo(0).IsName("CowHoldIdle"))
+                    thisAnimator.Play("CowHoldIdle", 0, animStart2);
                 break;
             case CowAnims.SPAWN:
                 thisAnimator.Play("CowSpawn");

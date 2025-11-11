@@ -10,6 +10,7 @@ public enum ClickType
     RIGHT,
     RELEASE,
     HOLD,
+    HOLDING,
     NUM_CLICK_TYPES,
 }
 

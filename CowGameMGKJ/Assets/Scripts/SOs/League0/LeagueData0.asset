@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1712e68b7175fb741b8e92fcaa6ef5fd, type: 2}
   - {fileID: 11400000, guid: 8faffcad1dc07ac47a4719d145929d83, type: 2}
   - {fileID: 11400000, guid: a5f38589b6f89984387de7ba336f3079, type: 2}
-  clearReward: 1
-  rewardItem: {fileID: 11400000, guid: b4e0ff89cf57d064fa4733ee3b309cf6, type: 2}
+  clearReward: 2
+  rewardItem: {fileID: 11400000, guid: 81735af6a27d7bb45920e792f7228885, type: 2}

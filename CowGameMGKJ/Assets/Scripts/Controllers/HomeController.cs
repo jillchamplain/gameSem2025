@@ -438,9 +438,18 @@ public class HomeController : LogicController
         //Click COW
         if (theObject.CompareTag("Cow"))
         {
+            if(playerMouse.getCurMouseState() == MouseState.HOLD)
+            {
+                playerMouse.getCurCow().GetComponent<Cow>().PlayAnimation(CowAnims.HOLD);
+            }
             //Disable Food Collision
            
         }
+    }
+
+    private void OnMouseHolding(GameObject theObject)
+    {
+
     }
 
     private void OnMouseRelease(GameObject theObject)
@@ -450,6 +459,11 @@ public class HomeController : LogicController
 
         playerMouse.setIsHolding(false);
         playerMouse.setCurMouseState(MouseState.FREE);
+        if(playerMouse.getCurCow())
+        {
+            Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
+            theCow.PlayAnimation(CowAnims.IDLE);
+        }
 
         //Release FOOD
         if (playerMouse.getCurFood())
