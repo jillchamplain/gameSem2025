@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Zebra
   type: 1
-  sprite: {fileID: 0}
-  cost: 0
+  sprite: {fileID: 21300000, guid: c5fd3f735b09bcc4184c0cec3c07ca2d, type: 3}
+  cost: 2000
   patternType: 3
   assets:
   - {fileID: 11400000, guid: e056b8d6fd1c04a4294e10b21a9cee99, type: 2}

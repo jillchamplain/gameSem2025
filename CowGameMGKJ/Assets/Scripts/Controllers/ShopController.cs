@@ -27,14 +27,25 @@ public class ShopController : LogicController
 
     private void OnEnable()
     {
-        UIEventController.addCoin += OnAddCoins;
-        UIEventController.takeCoin += OnPurchase;
+        UIEventController.foodTab += UpdateUIType;
+        UIEventController.cosmeticsTab += UpdateUIType;
+        UIEventController.patternsTab += UpdateUIType;
+
+        UIEventController.purchaseFood += OnPurchaseFood;
+        UIEventController.purchaseCosmetic += OnPurchaseCosmetic;
+        UIEventController.purchasePattern += OnPurchasePattern;
     }
 
     private void OnDisable()
     {
+        UIEventController.foodTab -= UpdateUIType;
+        UIEventController.cosmeticsTab -= UpdateUIType;
+        UIEventController.patternsTab -= UpdateUIType;
         UIEventController.addCoin -= OnAddCoins;
-        UIEventController.takeCoin -= OnPurchase;
+
+        UIEventController.purchaseFood -= OnPurchaseFood;
+        UIEventController.purchaseCosmetic -= OnPurchaseCosmetic;
+        UIEventController.purchasePattern -= OnPurchasePattern;
     }
 
     // Update is called once per frame
@@ -85,33 +96,86 @@ public class ShopController : LogicController
     public void InitUI()
     {
         shopUI.setUIGroup("Shop", true);
-        shopUI.setUIGroup("Items", true);
+        UpdateUIType(ShopType.FOOD);
         UpdateUI();
     }
 
     public void UpdateUI()
     {
         shopUI.UpdateCoinUI(shopManager.getCoins());
-        for (int i = 0; i < 4; i++)
+        switch (shopUI.getCurShopType())
         {
-            shopUI.UpdatePurchaseUI(shopManager.getItemAt(i), i);
+           
+            case ShopType.FOOD:
+                for (int i = 0; i < 4; i++)
+                {
+                    shopUI.UpdateItemsUI(shopUI.getCurShopType(), shopManager.getFoodItemAt(i), i);
+                    
+                }
+                break;
+            case ShopType.COSMETIC:
+                for (int i = 0; i < 4; i++)
+                {
+                    shopUI.UpdateItemsUI(shopUI.getCurShopType(), shopManager.getCosmeticItemAt(i), i);
+                }
+                break;
+            case ShopType.PATTERN:
+                for (int i = 0; i < 4; i++)
+                {
+                    Debug.Log("updating pattern");
+                    shopUI.UpdateItemsUI(shopUI.getCurShopType(), shopManager.getPatternItemAt(i), i);
+                }
+                break;
         }
+
+        /*for (int i = 0; i < 4; i++)
+        {
+            shopUI.UpdatePurchaseUI(shopManager.getFoodItemAt(i), i);
+        }*/
     }
 
-    void OnPurchase(int index)
+    public void UpdateUIType(ShopType type)
     {
-        //Read from ShopManager
-        ShopItem theItem = shopManager.getItemAt(index);
-
-        if (shopManager.getCoins() - theItem.getCost() <= 0)
-            return;
-        shopManager.getItems().Remove(theItem);
+        shopUI.setCurShopType(type);
         UpdateUI();
+        
+    }
+
+    /*void OnPurchase(int index)
+    {
+
+        //Read from ShopManager
+        ShopItem theItem;
         ShopType theType = theItem.getType();
+
+        //Get Item Based on Type
         switch (theType)
         {
             case ShopType.FOOD:
                 //Unlock Food > Food Manager
+                theItem = shopManager.getFoodItemAt(index);
+                foodManager.UnlockFood(theItem);
+                break;
+            case ShopType.PATTERN:
+                //Unlock Pattern > Cow Manager
+                break;
+            case ShopType.COSMETIC:
+                //Figure this out
+                break;
+        }
+
+        if (shopManager.getCoins() - theItem.getCost() <= 0)
+            return;
+
+        shopManager.takeCoins(theItem.getCost());
+        shopUI.UpdateCoinUI(shopManager.getCoins());
+
+        //Unlock Item
+        switch (theType)
+        {
+            case ShopType.FOOD:
+                //Unlock Food > Food Manager
+                theItem = shopManager.getFoodItemAt(index);
                 foodManager.UnlockFood(theItem);
                 break;
             case ShopType.PATTERN:
@@ -123,15 +187,59 @@ public class ShopController : LogicController
         }
 
 
+
+        shopManager.getFoodItems().Remove(theItem);
+        UpdateUI();
+
+           
+        SaveData();
+    }*/
+
+    void OnPurchaseFood(int index)
+    {
+        ShopItem theItem = shopManager.getFoodItemAt(index);
+
+        if (shopManager.getCoins() - theItem.getCost() <= 0)
+            return;
+
         shopManager.takeCoins(theItem.getCost());
         shopUI.UpdateCoinUI(shopManager.getCoins());
 
-        
+        //Unlock Food
+        foodManager.UnlockFood(theItem);
+
+        shopManager.getFoodItems().Remove(theItem);
+        UpdateUI();
+
+
         SaveData();
+
     }
 
+    void OnPurchaseCosmetic(int index)
+    {
+
+    }
+
+    void OnPurchasePattern(int index)
+    {
+        ShopItem theItem = shopManager.getPatternItemAt(index);
+
+        if (shopManager.getCoins() - theItem.getCost() <= 0)
+            return;
+
+        shopManager.takeCoins(theItem.getCost());
+        shopUI.UpdateCoinUI(shopManager.getCoins());
+
+        //Unlock Food
+        cowManager.UnlockPattern(theItem);
+
+        shopManager.getPatternItems().Remove(theItem);
+        UpdateUI();
 
 
+        SaveData();
+    }
     void OnAddCoins(int amount)
     {
         shopManager.addCoins(amount);

@@ -176,7 +176,7 @@ public class RaceController : LogicController
             {
                 playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
                 playerMouse.setCurCow(null);
-                raceUI.setUIGroup("Race", false);
+                raceUI.setUIGroup("Passive", false);
                
             }
 
@@ -184,7 +184,7 @@ public class RaceController : LogicController
             {
                 playerMouse.setCurCow(theObject);
                 theObject.GetComponent<Cow>().setSelected(true);
-                raceUI.setUIGroup("Race", true);
+                raceUI.setUIGroup("Passive", true);
             }
         }
     }
@@ -205,7 +205,7 @@ public class RaceController : LogicController
             }
             playerMouse.setCurCow(theObject);
             theObject.GetComponent<Cow>().setSelected(true);
-            raceUI.setUIGroup("Race", true);
+            raceUI.setUIGroup("Passive", true);
         }
     }
 
@@ -259,7 +259,7 @@ public class RaceController : LogicController
         {
             playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
             playerMouse.setCurCow(null);
-            raceUI.setUIGroup("Race", false);
+            raceUI.setUIGroup("Passive", false);
         }
     }
 

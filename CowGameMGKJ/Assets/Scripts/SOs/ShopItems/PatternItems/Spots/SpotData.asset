@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Spots
   type: 1
-  sprite: {fileID: 0}
-  cost: 0
+  sprite: {fileID: 21300000, guid: 6a05e37a53fdd1b438c0e4e5cdb58b1c, type: 3}
+  cost: 500
   patternType: 1
   assets:
   - {fileID: 11400000, guid: afa487ca15bce5d4a85f56e71c6538a4, type: 2}

@@ -30,8 +30,23 @@ public class UIEventController : MonoBehaviour
     public delegate void AddCoin(int coins);
     public static event AddCoin addCoin;
 
-    public delegate void TakeCoin(int coins);
-    public static event TakeCoin takeCoin;
+    public delegate void PurchaseFood(int index);
+    public static event PurchaseFood purchaseFood;
+
+    public delegate void PurchaseCosmetic(int index);
+    public static event PurchaseCosmetic purchaseCosmetic;
+
+    public delegate void PurchasePattern(int index);
+    public static event PurchasePattern purchasePattern;
+
+    public delegate void FoodTab(ShopType type);
+    public static event FoodTab foodTab;
+
+    public delegate void CosmeticsTab(ShopType type);
+    public static event CosmeticsTab cosmeticsTab;
+
+    public delegate void PatternsTab(ShopType type);
+    public static event PatternsTab patternsTab;
 
     public delegate void RetireCow();
     public static event RetireCow retireCow;
@@ -59,9 +74,20 @@ public class UIEventController : MonoBehaviour
     }
 
 
+    public void OnFoodTab()
+    {
+        foodTab?.Invoke(ShopType.FOOD);
+    }
 
+    public void OnCosmeticsTab()
+    {
+        cosmeticsTab?.Invoke(ShopType.COSMETIC);
+    }
 
-
+    public void OnPatternsTab()
+    {
+        patternsTab?.Invoke(ShopType.PATTERN);
+    }
     public void OnRacePromptButton() //Runs warning about missing script behavior for race button
     {
         raceCowPrompt?.Invoke();
@@ -111,8 +137,18 @@ public class UIEventController : MonoBehaviour
         addCoin?.Invoke(coins);
     }
 
-    public void OnPurchaseButton(int index)
+    public void OnPurchaseFoodButton(int index)
     {
-        takeCoin?.Invoke(index);
+        purchaseFood?.Invoke(index);
+    }
+
+    public void OnPurchaseCosmeticButton(int index)
+    {
+        purchaseCosmetic?.Invoke(index);
+    }
+
+    public void OnPurchasePatternButton(int index)
+    {
+        purchasePattern?.Invoke(index);
     }
 }
