@@ -1,10 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class ShopManager : Manager
 {
     [SerializeField] List<ShopItem> foodItems;
+    public void InitFoodItems(GameData theData, FoodManager foodManager)
+    {
+        foodItems.Clear();
+        for(int i = 0; i < foodManager.getAllFoodData().Count; i++) //Populate List
+        {
+            foodItems.Add(foodManager.getFoodDataAt(i));
+        }
+       
+        //Remove food that has been unlocked
+        foreach(string name in theData.unlockedFoodNames)
+        {
+            if (getFoodItem(name))
+            {
+                foodItems.Remove(getFoodItem(name));
+            }
+        }
+    }
     public List<ShopItem> getFoodItems() { return foodItems; }
     public ShopItem getFoodItemAt(int index) //Use index passed from UI Buttons
     {
@@ -26,6 +45,12 @@ public class ShopManager : Manager
     }
 
     [SerializeField] List<ShopItem> cosmeticItems;
+
+    public void InitCosmeticItems(GameData theData)
+    {
+
+    }
+
     public List<ShopItem> getCosmeticItems() { return cosmeticItems; }
     public ShopItem getCosmeticItemAt(int index) //Use index passed from UI Buttons
     {
@@ -47,6 +72,25 @@ public class ShopManager : Manager
     }
 
     [SerializeField] List<ShopItem> patternItems;
+
+    public void InitPatternItems(GameData theData, CowManager cowManager)
+    {
+        patternItems.Clear();
+        for (int i = 0; i < cowManager.getAllPatternData().Count; i++) //Populate List
+        {
+            patternItems.Add(cowManager.getPatternAt(i));
+        }
+
+        //Remove food that has been unlocked
+        foreach (string name in theData.unlockedPatternNames)
+        {
+            if (getPatternItem(name))
+            {
+                patternItems.Remove(getPatternItem(name));
+            }
+        }
+    }
+
     public List<ShopItem> getPatternItems() { return patternItems; }
     public ShopItem getPatternItemAt(int index) //Use index passed from UI Buttons
     {

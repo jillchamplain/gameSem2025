@@ -69,6 +69,7 @@ public class ShopController : LogicController
         }
         InitCoins();
         InitCows();
+        InitItems();
         InitUI();
     }
 
@@ -86,6 +87,13 @@ public class ShopController : LogicController
         cowManager.DefaultSpawnCow(spawnManager.SelectRandomSpawn(cowManager.cowPrefab));
         cowManager.InitCurCows(SaveSystem.LoadGameData());
         cowManager.setCows(false); //Hides Cows;
+    }
+
+    public void InitItems()
+    {
+        shopManager.InitFoodItems(SaveSystem.LoadGameData(), foodManager);
+        shopManager.InitCosmeticItems(SaveSystem.LoadGameData());
+        shopManager.InitPatternItems(SaveSystem.LoadGameData(), cowManager);
     }
 
     public void InitCoins()
@@ -199,7 +207,10 @@ public class ShopController : LogicController
     {
         ShopItem theItem = shopManager.getFoodItemAt(index);
 
-        if (shopManager.getCoins() - theItem.getCost() <= 0)
+        if (shopManager.getCoins() == 0)
+            return;
+
+        if (shopManager.getCoins() - theItem.getCost() < 0)
             return;
 
         shopManager.takeCoins(theItem.getCost());
@@ -225,7 +236,10 @@ public class ShopController : LogicController
     {
         ShopItem theItem = shopManager.getPatternItemAt(index);
 
-        if (shopManager.getCoins() - theItem.getCost() <= 0)
+        if (shopManager.getCoins() == 0)
+            return;
+
+        if (shopManager.getCoins() - theItem.getCost() < 0)
             return;
 
         shopManager.takeCoins(theItem.getCost());

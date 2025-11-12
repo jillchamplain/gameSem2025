@@ -94,6 +94,18 @@ public class CowManager : Manager
         return null;
     }
     [SerializeField] List<PatternItem> allPatternData;
+
+    public List<PatternItem> getAllPatternData() { return allPatternData; }
+
+    public PatternItem getPatternAt(int index)
+    {
+        for(int i = 0; i < allPatternData.Count; i++)
+        {
+            if (i == index)
+                return allPatternData[i];
+        }
+        return null;
+    }
     [SerializeField] PatternItem defaultPattern;
     [SerializeField] public GameObject cowPrefab;
     //EVENTS
@@ -132,7 +144,7 @@ public class CowManager : Manager
         if (theData.gen1 != 0)
         {
             PatternItem item1 = getUnlockedPatternData(theData.pattern1);
-            Debug.Log(item1);
+            
             //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
             getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1, item1);
             if(theData.x1 != -1 && theData.y1 != -1 && theData.z1 != -1)
@@ -143,7 +155,7 @@ public class CowManager : Manager
         if (theData.gen2 != 0)
         {
             PatternItem item2 = getUnlockedPatternData(theData.pattern2);
-            Debug.Log(item2);
+            
             ///Debug.Log("cow 2");
             //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
             getCowAt(1).InitCow(theData.name2, theData.gen2, theData.level2, theData.mLevel2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2, item2);
