@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   type: 1
+  traitType: 4
   spriteRenderer: {fileID: 4150342000760529199}
 --- !u!61 &8866190468867241472
 BoxCollider2D:

@@ -36,6 +36,7 @@ public class HomeController : LogicController
         Cow.cowEat += OnCowEat;
         Cow.cowMaxLevel += OnCowMaxLevel;
         Cow.cowLevelUp += OnCowLevelUp;
+        Cow.cowEquip += OnCowEquip;
         UIEventController.retireCow += OnCowRetire;
         UIEventController.trainCow += OnCowTrain;
         UIEventController.renameCow += OnCowRename;
@@ -56,6 +57,7 @@ public class HomeController : LogicController
         Cow.cowEat -= OnCowEat;
         Cow.cowMaxLevel -= OnCowMaxLevel;
         Cow.cowLevelUp -= OnCowLevelUp;
+        Cow.cowEquip -= OnCowEquip;
         UIEventController.retireCow -= OnCowRetire;
         UIEventController.trainCow -= OnCowTrain;
         UIEventController.renameCow -= OnCowRename;
@@ -263,9 +265,12 @@ public class HomeController : LogicController
         homeUI.UICleanUp();
         SaveData();
     }
-    private void OnCowEquip(Cosmetic item)
+    private void OnCowEquip(GameObject theCow, Cosmetic item)
     {
-
+        theCow.GetComponent<Cow>().Equip(item);
+        theCow.GetComponent<Cow>().setTraitAt((int)item.getType() - 1, item.getTraitType());
+        //Destroy(item.gameObject);
+        UpdateUI();
     }
     private void OnCowLevelUp(Cow theCow)
     {

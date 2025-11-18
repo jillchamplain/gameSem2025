@@ -88,6 +88,45 @@ public class Cow : MonoBehaviour
             return traits[index];
         return Trait.NULL;
     }
+    public void setTraitRandom(int trait)
+    {
+        int index = UnityEngine.Random.Range(0, 3);
+        bool canSet = false;
+        while(!canSet)
+        {
+            index = UnityEngine.Random.Range(0, 3);
+            switch (index)
+            {
+                case 0:
+                    if (getTraitAt(0) == (Trait)trait)
+                    {
+                        canSet = false;
+                    }
+                    else
+                        canSet = true;
+                        break;
+                case 1:
+                    if (getTraitAt(1) == (Trait)trait)
+                    {
+                        canSet = false;
+                    }
+                    else
+                        canSet = true;
+                        break;
+                case 2:
+                    if (getTraitAt(2) == (Trait)trait)
+                    {
+                        canSet = false;
+                    }
+                    else
+                        canSet = true;
+                        break;
+            }
+            if (getTraitAt(0) == getTraitAt(1) && getTraitAt(0) == getTraitAt(2))
+                canSet = true;
+        }
+        setTraitAt(index, trait);
+    }
     public void setTraits(int trait1, int trait2, int trait3)
     {
         Trait theTrait1 = (Trait) trait1;
@@ -235,7 +274,7 @@ public class Cow : MonoBehaviour
     public delegate void CowLevelUp(Cow thisCow);
     public static event CowLevelUp cowLevelUp;
 
-    public delegate void CowEquip(Cosmetic item);
+    public delegate void CowEquip(GameObject thisCow,Cosmetic item);
     public static event CowEquip cowEquip;
 
 
@@ -350,7 +389,7 @@ public class Cow : MonoBehaviour
         cowRetire?.Invoke(this);
     }
 
-    private void Equip(Cosmetic item)
+    public void Equip(Cosmetic item)
     {
         switch (item.getType())
         {
@@ -382,6 +421,7 @@ public class Cow : MonoBehaviour
                 }
                 break;
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -395,8 +435,8 @@ public class Cow : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("Cosmetic"))
         {
-            cowEquip?.Invoke(collision.gameObject.GetComponent<Cosmetic>());
-            Equip(collision.gameObject.GetComponent<Cosmetic>());
+            cowEquip?.Invoke(gameObject, collision.gameObject.GetComponent<Cosmetic>());
+           
             //Destroy(collision.gameObject);
         }
     }

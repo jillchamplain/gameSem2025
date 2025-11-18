@@ -18,6 +18,9 @@ public class Cosmetic : MonoBehaviour
     [SerializeField] EquipCosmetic type;
     public EquipCosmetic getType() { return type; }
 
+    [SerializeField] Trait traitType;
+    public Trait getTraitType() { return traitType; }
+
     [SerializeField] SpriteRenderer spriteRenderer;
     public SpriteRenderer getSpriteRenderer() { return spriteRenderer; }
 
