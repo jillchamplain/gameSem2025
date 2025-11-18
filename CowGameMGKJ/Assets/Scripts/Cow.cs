@@ -235,6 +235,10 @@ public class Cow : MonoBehaviour
     public delegate void CowLevelUp(Cow thisCow);
     public static event CowLevelUp cowLevelUp;
 
+    public delegate void CowEquip(Cosmetic item);
+    public static event CowEquip cowEquip;
+
+
     public void InitCow(string theName, int theGen, int theMaxPower, int trait1, int trait2, int trait3)
     {
         //Debug.Log("initting cow");
@@ -340,12 +344,44 @@ public class Cow : MonoBehaviour
                 //Debug.Log("playing retire");
                 break;
         }
-    }
-
-  
+    } 
     void Retire()
     {
         cowRetire?.Invoke(this);
+    }
+
+    private void Equip(Cosmetic item)
+    {
+        switch (item.getType())
+        {
+            case EquipCosmetic.HAT:
+                foreach(RendererAsset asset in renderers)
+                {
+                    if(asset.getID() == "Hat")
+                    {
+                        asset.getSpriteRenderer().sprite = item.getSpriteRenderer().sprite;
+                    }
+                }
+                break;
+            case EquipCosmetic.TOP:
+                foreach (RendererAsset asset in renderers)
+                {
+                    if (asset.getID() == "Top")
+                    {
+                        asset.getSpriteRenderer().sprite = item.getSpriteRenderer().sprite;
+                    }
+                }
+                break;
+            case EquipCosmetic.BOT:
+                foreach (RendererAsset asset in renderers)
+                {
+                    if (asset.getID() == "Bot")
+                    {
+                        asset.getSpriteRenderer().sprite = item.getSpriteRenderer().sprite;
+                    }
+                }
+                break;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -356,6 +392,12 @@ public class Cow : MonoBehaviour
             //Debug.Log("this gameObject is at " + gameObject.transform.position + " and food is at " + collision.gameObject.transform.position);
             cowEat?.Invoke(this, collision.GetComponent<Food>());
             //Debug.Log("cow is" + this.gameObject);
+        }
+        if(collision.gameObject.CompareTag("Cosmetic"))
+        {
+            cowEquip?.Invoke(collision.gameObject.GetComponent<Cosmetic>());
+            Equip(collision.gameObject.GetComponent<Cosmetic>());
+            //Destroy(collision.gameObject);
         }
     }
 

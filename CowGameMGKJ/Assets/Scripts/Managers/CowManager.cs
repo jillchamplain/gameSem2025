@@ -211,8 +211,10 @@ public class CowManager : Manager
         }
 
         PatternItem pattern = getRandomPattern();
+        float theBase = (float)curGeneration * 100f;
+        float maxPower = (theBase * 1.07f) + Random.Range(0, (curGeneration / 4) * 255);
 
-        theObject.GetComponent<Cow>().InitCow(getRandomName(), curGeneration, (curGeneration) * 100, (int)trait1, (int)trait2, (int)trait3, pattern);
+        theObject.GetComponent<Cow>().InitCow(getRandomName(), curGeneration, (int)maxPower, (int)trait1, (int)trait2, (int)trait3, pattern);
 
         curCows.Add(theObject);
      

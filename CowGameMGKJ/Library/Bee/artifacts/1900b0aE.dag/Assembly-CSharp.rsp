@@ -423,6 +423,7 @@
 "Assets/Scripts/Controllers/ShopUI.cs"
 "Assets/Scripts/Controllers/UIController.cs"
 "Assets/Scripts/Controllers/UIEventController.cs"
+"Assets/Scripts/Cosmetic.cs"
 "Assets/Scripts/Cow.cs"
 "Assets/Scripts/CustomParticle.cs"
 "Assets/Scripts/Enums/ClickType.cs"

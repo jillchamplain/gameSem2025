@@ -14,6 +14,11 @@ public class MouseManager : Manager
     public GameObject getCurCow() { return curCow; }
     public void setCurCow(GameObject theCow) { curCow = theCow; }
 
+    [SerializeField] GameObject curCosmetic = null;
+    public GameObject getCurCosmetic() { return curCosmetic; }
+
+    public void setCurCosmetic(GameObject theCosmetic) { curCosmetic = theCosmetic; }
+
     [SerializeField] MouseState curMouseState;
     public MouseState getCurMouseState() { return curMouseState; }
 
@@ -43,6 +48,8 @@ public class MouseManager : Manager
         {
             if (curFood && Input.GetMouseButton(0)) //Move this to the food manager script
                 curFood.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -(Camera.main.transform.position.z)));
+            else if (curCosmetic && Input.GetMouseButton(0))
+                curCosmetic.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -(Camera.main.transform.position.z)));
             else if (curCow && Input.GetMouseButton(0))
             {
                 Debug.Log("dragging cow");

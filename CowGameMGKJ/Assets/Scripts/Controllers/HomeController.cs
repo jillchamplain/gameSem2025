@@ -134,6 +134,7 @@ public class HomeController : LogicController
             homeUI.UpdateCowUI(cowManager.getCowAt(i).gameObject, i);
             //Debug.Log("updating ui");
         }
+        homeUI.UpdateCoins(shopManager.getCoins());
         homeUI.setUIGroup("Retire", false);
         homeUI.setUIGroup("Train", false);
     }
@@ -151,6 +152,8 @@ public class HomeController : LogicController
 
         }
         homeUI.UICleanUp();
+        homeUI.UpdateCoins(shopManager.getCoins());
+        Debug.Log("kdjfkdjfdkjfk");
     }
 
     private void SaveData()
@@ -219,15 +222,17 @@ public class HomeController : LogicController
             theCow.PlayAnimation(Cow.CowAnims.FEED);
             //Generate coins
             int foodPower = theFood.getPower() / 100;
-            int coinAmount = ((int)Mathf.Ceil(cowManager.curGeneration * (float)1.5)) * foodPower;
+            int coinAmount = ((int)Mathf.Ceil(cowManager.curGeneration * (float)2.5f)) * foodPower;
             string coinText = "+" + coinAmount.ToString() + " coins!";
             particleManager.SpawnTextParticleAt("Power Increase", coinText, theCow.gameObject.transform.position);
             shopManager.addCoins(coinAmount);
         }
         foodManager.DeleteFood(theFood.gameObject);
         homeUI.setUIGroup("Train", false);
+        UpdateUI();
         homeUI.UICleanUp();
         SaveData();
+        
     }
 
    public void OnCowTrain()
@@ -237,7 +242,8 @@ public class HomeController : LogicController
 
         Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
-        int increase = trainManager.RollTrainingSuccess(theRegimen);
+        int increase = trainManager.RollTrainingSuccess(theRegimen) * (cowManager.curGeneration);
+        increase = (int)(increase * 0.1f);
         theCow.setPower(theCow.getPower() + increase);
         SaveData();
 
@@ -257,7 +263,10 @@ public class HomeController : LogicController
         homeUI.UICleanUp();
         SaveData();
     }
+    private void OnCowEquip(Cosmetic item)
+    {
 
+    }
     private void OnCowLevelUp(Cow theCow)
     {
         if (!getListening())
@@ -364,6 +373,34 @@ public class HomeController : LogicController
             }
         }
 
+        if(theObject.CompareTag("Cosmetic"))
+        {
+            if(playerMouse.getCurCow())
+            {
+                playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+                playerMouse.setCurCow(null);
+                homeUI.setUIGroup("Train", false);
+                homeUI.setUIGroup("Retire", false);
+            }
+            else if(playerMouse.getCurFood())
+            {
+                List<GameObject> theCows = cowManager.getCows();
+                for (int i = 0; i < theCows.Count; i++)
+                {
+                    Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
+                }
+                playerMouse.setCurFood(null);
+            }
+
+            //Disable Food Collision
+            playerMouse.setCurCosmetic(theObject);
+            List<GameObject> theCows2 = cowManager.getCows();
+            for (int i = 0; i < theCows2.Count; i++)
+            {
+                Physics2D.IgnoreCollision(playerMouse.getCurCosmetic().GetComponent<BoxCollider2D>(), theCows2[i].GetComponent<BoxCollider2D>(), true);
+            }
+        }
+
         //Click COW
         if (theObject.CompareTag("Cow"))
         {
@@ -424,6 +461,16 @@ public class HomeController : LogicController
 
         Debug.Log("Holding");
 
+        if(theObject.CompareTag("Cosmetic"))
+        {
+            //Disable Food Collision
+            List<GameObject> theCows = cowManager.getCows();
+            for (int i = 0; i < theCows.Count; i++)
+            {
+                Physics2D.IgnoreCollision(playerMouse.getCurCosmetic().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), true);
+            }
+        }
+
         //Click FOOD
         if (theObject.CompareTag("Food"))
         {
@@ -447,11 +494,6 @@ public class HomeController : LogicController
         }
     }
 
-    private void OnMouseHolding(GameObject theObject)
-    {
-
-    }
-
     private void OnMouseRelease(GameObject theObject)
     {
         if (!getListening())
@@ -464,6 +506,18 @@ public class HomeController : LogicController
             Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
             theCow.PlayAnimation(CowAnims.IDLE);
         }
+
+        //Release FOOD
+        if (playerMouse.getCurCosmetic())
+        {
+            List<GameObject> theCows = cowManager.getCows();
+            for (int i = 0; i < theCows.Count; i++)
+            {
+                Physics2D.IgnoreCollision(playerMouse.getCurCosmetic().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
+            }
+            playerMouse.setCurCosmetic(null);
+        }
+
 
         //Release FOOD
         if (playerMouse.getCurFood())
@@ -481,7 +535,7 @@ public class HomeController : LogicController
         {
             playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
             playerMouse.setCurCow(null);
-            homeUI.setUIGroup("Train", false);
+            //homeUI.setUIGroup("Train", false);
             homeUI.setUIGroup("Retire", false);
         }
     }
@@ -497,7 +551,7 @@ public class HomeController : LogicController
             {
                 playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
                 playerMouse.setCurCow(null);
-                homeUI.setUIGroup("Train", false);
+                //homeUI.setUIGroup("Train", false);
                 homeUI.setUIGroup("Retire", false);
             }
 
@@ -536,14 +590,14 @@ public class HomeController : LogicController
                     if (theObject.GetComponent<Cow>().getIsMaxLevel())
                     {
                         homeUI.setUIGroup("Rename", false);
-                        homeUI.setUIGroup("Train", false);
+                        //homeUI.setUIGroup("Train", false);
                         homeUI.setUIGroup("Retire", true);
                     }
                     else
                     {
                         homeUI.setUIGroup("Rename", false);
                         homeUI.setUIGroup("Retire", false);
-                        homeUI.setUIGroup("Train", true);
+                        //homeUI.setUIGroup("Train", true);
                     }
                 }
                     

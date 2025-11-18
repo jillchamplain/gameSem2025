@@ -51,6 +51,12 @@ public class HomeUI : UIController
         theContainer.setTextElement("Field", "");
     }
 
+    public void UpdateCoins(int value)
+    {
+        UIContainer theContainer = getUIGroup("HomeCoins").getContainer("Coins2");
+        theContainer.getTextElement("Coins2").text = value.ToString();
+    }
+
     //For POP UPS
     public void UpdatePopUpUI(string textInfo)
     {
