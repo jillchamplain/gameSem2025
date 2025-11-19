@@ -14,6 +14,7 @@ public class ShopController : LogicController
     [SerializeField] RaceManager raceManager;
     [SerializeField] CowManager cowManager;
     [SerializeField] SpawnManager spawnManager;
+    [SerializeField] CosmeticManager cosmeticManager;
     [SerializeField] ShopUI shopUI;
     // Start is called before the first frame update
     private void Awake()
@@ -92,7 +93,7 @@ public class ShopController : LogicController
     public void InitItems()
     {
         shopManager.InitFoodItems(SaveSystem.LoadGameData(), foodManager);
-        shopManager.InitCosmeticItems(SaveSystem.LoadGameData());
+        shopManager.InitCosmeticItems(SaveSystem.LoadGameData(), cosmeticManager);
         shopManager.InitPatternItems(SaveSystem.LoadGameData(), cowManager);
     }
 
@@ -229,7 +230,22 @@ public class ShopController : LogicController
 
     void OnPurchaseCosmetic(int index)
     {
+        ShopItem theItem = shopManager.getCosmeticItemAt(index);
 
+        if (shopManager.getCoins() == 0)
+            return;
+
+        if (shopManager.getCoins() - theItem.getCost() < 0)
+            return;
+
+        shopManager.takeCoins(theItem.getCost());
+        shopUI.UpdateCoinUI(shopManager.getCoins());
+
+        //Spawn cosmetic item when returning home
+        UpdateUI();
+
+
+        SaveData();
     }
 
     void OnPurchasePattern(int index)

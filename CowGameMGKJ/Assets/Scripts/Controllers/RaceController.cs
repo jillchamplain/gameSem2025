@@ -314,6 +314,7 @@ public class RaceController : LogicController
     {
         Race theRace = raceManager.getCurRace();
         RaceReward theWin = raceManager.RaceCow(playerMouse.getCurCow().GetComponent<Cow>());
+        Debug.Log("Raced:" + theWin);
         
         if (theWin != RaceReward.NOWIN)
         {

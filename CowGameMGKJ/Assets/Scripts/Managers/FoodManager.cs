@@ -49,6 +49,18 @@ public class FoodManager : Manager
         return null;
     }
 
+    [SerializeField] List<FoodItem> purchasedFoodData;
+    public List<FoodItem> getPurchasedFoodData() { return purchasedFoodData; }
+    public FoodItem getPurchasedFoodDataAt(int index)
+    {
+        for(int i = 0; i <  purchasedFoodData.Count; i++)
+        {
+            if (i == index)
+                return purchasedFoodData[i];
+        }
+        return null;
+    }
+
     public delegate void FoodSpawn(FoodItem theFood);
     public static event FoodSpawn foodSpawn;
 

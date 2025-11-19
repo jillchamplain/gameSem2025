@@ -10,9 +10,9 @@ public class ShopManager : Manager
     public void InitFoodItems(GameData theData, FoodManager foodManager)
     {
         foodItems.Clear();
-        for(int i = 0; i < foodManager.getAllFoodData().Count; i++) //Populate List
+        for(int i = 0; i < foodManager.getUnlockedFoodData().Count; i++) //Populate List
         {
-            foodItems.Add(foodManager.getFoodDataAt(i));
+            foodItems.Add(foodManager.getUnlockedFoodDataAt(i));
         }
        
         //Remove food that has been unlocked
@@ -46,9 +46,14 @@ public class ShopManager : Manager
 
     [SerializeField] List<ShopItem> cosmeticItems;
 
-    public void InitCosmeticItems(GameData theData)
+    public void InitCosmeticItems(GameData theData, CosmeticManager cosmeticManager)
     {
-
+        cosmeticItems.Clear();
+        for(int i = 0; i < cosmeticManager.getUnlockedCosmeticItems().Count; i++)
+        {
+            cosmeticItems.Add(cosmeticManager.getUnlockedCosmeticAt(i));
+        }
+        //Populate List with items 
     }
 
     public List<ShopItem> getCosmeticItems() { return cosmeticItems; }

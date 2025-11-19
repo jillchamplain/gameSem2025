@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 500
   traits: 050000000100000004000000
-  clearReward: 3
-  rewardItem: {fileID: 0}
+  clearReward: 1
+  rewardItem: {fileID: 11400000, guid: 906c0bbba09920e44a2660ace0c2c6d5, type: 2}

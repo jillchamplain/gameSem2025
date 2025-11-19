@@ -106,6 +106,17 @@ public class CowManager : Manager
         }
         return null;
     }
+    [SerializeField] List<PatternItem> purchasedPatternData;
+    public List<PatternItem> getPurchasedPatternData() { return purchasedPatternData; }
+    public PatternItem getPurchasedPatternDataAt(int index)
+    {
+        for(int i = 0; i < purchasedPatternData.Count; i++)
+        {
+            if (i == index)
+                return purchasedPatternData[i];
+        }
+        return null;
+    }
     [SerializeField] PatternItem defaultPattern;
     [SerializeField] public GameObject cowPrefab;
     //EVENTS
