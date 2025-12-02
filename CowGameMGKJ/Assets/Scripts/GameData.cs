@@ -60,9 +60,11 @@ public class GameData
 
     //UNLOCKED FOODS AGAIn
     public string[] unlockedFoodNames = new string[10];
+    public string[] purchasedFoodNames = new string[10];
 
     //Unlocked Patterns
     public string[] unlockedPatternNames = new string[4];
+    public string[] purchasedPatternNames = new string[4];
 
     //CURRENT RACE AND LEAGUE
     public int curLeagueID;
@@ -197,9 +199,19 @@ public class GameData
             unlockedFoodNames[i] = foodManager.getUnlockedFoodDataAt(i).getItemName();
         }
 
+        for (int i = 0; i < foodManager.getPurchasedFoodData().Count; i++)
+        {
+            purchasedFoodNames[i] = foodManager.getPurchasedFoodDataAt(i).getItemName();
+        }
+
+
         for (int i = 0; i < cowManager.getUnlockedPatternData().Count; i++)
         {
             unlockedPatternNames[i] = cowManager.getUnlockedPatternDataAt(i).getItemName();
+        }
+        for(int i = 0; i < cowManager.getPurchasedPatternData().Count; i++)
+        {
+            purchasedPatternNames[i] = cowManager.getPurchasedPatternDataAt(i).getItemName();
         }
 
 
@@ -286,13 +298,27 @@ public class GameData
         {
             unlockedFoodNames[i] = "NULL";
         }
-        unlockedFoodNames[0] = "Berry";
+
+        for (int i = 0; i < purchasedFoodNames.Length; i++)
+        {
+           purchasedFoodNames[i] = "NULL";
+        }
+        purchasedFoodNames[0] = "Berry";
+
+
 
         for (int i = 0; i < unlockedPatternNames.Length; i++)
         {
             unlockedPatternNames[i] = "NULL";
         }
-        unlockedPatternNames[0] = "Blank";
+
+        for (int i = 0; i < purchasedPatternNames.Length; i++)
+        {
+            purchasedPatternNames[i] = "NULL";
+        }
+        purchasedPatternNames[0] = "Blank";
+
+
         curRaceID = 0;
         curLeagueID = 0;
         numCoins = 0;

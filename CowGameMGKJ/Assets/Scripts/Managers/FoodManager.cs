@@ -88,6 +88,7 @@ public class FoodManager : Manager
     {
         //Reads Save Data to determine what foods the player has unlocked already
         unlockedFoodData.Clear();
+        purchasedFoodData.Clear();
 
         if (allFoodData.Count <= 0)
             return;
@@ -120,11 +121,14 @@ public class FoodManager : Manager
                     Debug.Log("Food unlocked is " + food.getItemName());
                     unlockedFoodData.Add(food);
                 }
-                else
-                {
-                    //Debug.Log("Food not unlocked is " + theData.unlockedFoodNames[i]);
-                }
                 
+            }
+            for(int i = 0; i < theData.purchasedFoodNames.Length; i++)
+            {
+                if (theData.purchasedFoodNames[i] == food.getItemName())
+                {
+                    purchasedFoodData.Add(food);
+                }
             }
         }
 
@@ -142,6 +146,18 @@ public class FoodManager : Manager
             {
                 Debug.Log("adding food" + item.getItemName());
                 unlockedFoodData.Add(food);
+            }
+        }
+    }
+
+    public void PurchaseFood(ShopItem item)
+    {
+        foreach(FoodItem food in allFoodData)
+        {
+            if(food.getItemName() == item.getItemName())
+            {
+                unlockedFoodData.Remove(food);
+                purchasedFoodData.Add(food);
             }
         }
     }
@@ -203,11 +219,11 @@ public class FoodManager : Manager
     FoodItem SelectRandomFood()
     {
         FoodItem theItem = null;
-        int index = Random.Range(0, unlockedFoodData.Count);
-        for(int i = 0; i < unlockedFoodData.Count; i++)
+        int index = Random.Range(0, purchasedFoodData.Count);
+        for(int i = 0; i < purchasedFoodData.Count; i++)
         {
             if (i == index)
-                return unlockedFoodData[i];
+                return purchasedFoodData[i];
         }
         return null;
     }

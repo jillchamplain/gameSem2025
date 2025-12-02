@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Pancake
   type: 0
   sprite: {fileID: 21300000, guid: a78b53f0f1621a947861b82c2eb4bc48, type: 3}
-  cost: 2000
+  cost: 1000
   power: 800

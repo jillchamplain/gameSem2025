@@ -13,16 +13,9 @@ public class ShopManager : Manager
         for(int i = 0; i < foodManager.getUnlockedFoodData().Count; i++) //Populate List
         {
             foodItems.Add(foodManager.getUnlockedFoodDataAt(i));
+            Debug.Log("adding food " + foodManager.getUnlockedFoodDataAt(i));
         }
        
-        //Remove food that has been unlocked
-        foreach(string name in theData.unlockedFoodNames)
-        {
-            if (getFoodItem(name))
-            {
-                foodItems.Remove(getFoodItem(name));
-            }
-        }
     }
     public List<ShopItem> getFoodItems() { return foodItems; }
     public ShopItem getFoodItemAt(int index) //Use index passed from UI Buttons

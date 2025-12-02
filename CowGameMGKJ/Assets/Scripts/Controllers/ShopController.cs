@@ -218,7 +218,7 @@ public class ShopController : LogicController
         shopUI.UpdateCoinUI(shopManager.getCoins());
 
         //Unlock Food
-        foodManager.UnlockFood(theItem);
+        foodManager.PurchaseFood(theItem);
 
         shopManager.getFoodItems().Remove(theItem);
         UpdateUI();

@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Cupcake
   type: 0
   sprite: {fileID: 21300000, guid: 82195c315e7345f4cb92923c7c392e26, type: 3}
-  cost: 4000
+  cost: 2000
   power: 1280

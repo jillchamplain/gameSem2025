@@ -343,6 +343,7 @@ public class Cow : MonoBehaviour
 
         setTraits(trait1, trait2, trait3);
 
+        //Debug.Log(pattern);
         setPattern(pattern);
 
         DontDestroyOnLoad(this.gameObject);

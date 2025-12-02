@@ -33,8 +33,8 @@ public class CowManager : Manager
     }
     public PatternItem getRandomPattern()
     {
-        int index = Random.Range(0, (int)unlockedPatternData.Count);
-        PatternItem item = unlockedPatternData[index];
+        int index = Random.Range(0, (int)purchasedPatternData.Count);
+        PatternItem item = purchasedPatternData[index];
         return item;
     }
     [SerializeField] List<GameObject> curCows;
@@ -108,6 +108,17 @@ public class CowManager : Manager
     }
     [SerializeField] List<PatternItem> purchasedPatternData;
     public List<PatternItem> getPurchasedPatternData() { return purchasedPatternData; }
+    public PatternItem getPurchasedPatternData(int type)
+    {
+        foreach(PatternItem pi in purchasedPatternData)
+        {
+            if(pi.getPattern() == (Pattern)type)
+            {
+                return pi;
+            }
+        }
+        return null;
+    }
     public PatternItem getPurchasedPatternDataAt(int index)
     {
         for(int i = 0; i < purchasedPatternData.Count; i++)
@@ -154,7 +165,7 @@ public class CowManager : Manager
         //Transforms placeholder cows into cows from data
         if (theData.gen1 != 0)
         {
-            PatternItem item1 = getUnlockedPatternData(theData.pattern1);
+            PatternItem item1 = getPurchasedPatternData(theData.pattern1);
             
             //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
             getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1, item1);
@@ -165,7 +176,7 @@ public class CowManager : Manager
 
         if (theData.gen2 != 0)
         {
-            PatternItem item2 = getUnlockedPatternData(theData.pattern2);
+            PatternItem item2 = getPurchasedPatternData(theData.pattern2);
             
             ///Debug.Log("cow 2");
             //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
@@ -175,7 +186,7 @@ public class CowManager : Manager
         }
         if (theData.gen3 != 0)
         {
-            PatternItem item3 = getUnlockedPatternData(theData.pattern3);
+            PatternItem item3 = getPurchasedPatternData(theData.pattern3);
             //Debug.Log("Cow3: " + theData.name3 + " " + theData.power3 + " " + theData.mPower3 + " " + theData.traitA3 + " " + theData.traitB3 + " " + theData.traitC3);
             getCowAt(2).InitCow(theData.name3, theData.gen3, theData.level3, theData.mLevel3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3, item3);
             if (theData.x3 != -1 && theData.y3 != -1 && theData.z3 != -1)
