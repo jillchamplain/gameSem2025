@@ -91,7 +91,6 @@ public class RaceController : LogicController
 
     private void InitFood()
     {
-        foodManager.setCurFoods(false);
         foodManager.InitFood(SaveSystem.LoadGameData());
     }
 

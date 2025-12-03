@@ -82,8 +82,8 @@ public class HomeController : LogicController
             playerMouse.setCurCow(null);
         }
         playerMouse.setCurFood(null);
-        
-        foodManager.setCurFoods(false); //Need to start calculating for time elapsed
+        foodManager.ClearFood();
+        Debug.Log("clearing food");
         cowManager.ClearCows();
         //Debug.Log("reset home");
     }
@@ -101,7 +101,7 @@ public class HomeController : LogicController
         InitRaces();
         InitCoins();
         InitUI();
-        foodManager.setCurFoods(true);
+        foodManager.SpawnAllFood(SaveSystem.LoadGameData());
         //Debug.Log("init home");
     }
     private void InitCows()
@@ -156,7 +156,7 @@ public class HomeController : LogicController
         }
         homeUI.UICleanUp();
         homeUI.UpdateCoins(shopManager.getCoins());
-        Debug.Log("kdjfkdjfdkjfk");
+        //Debug.Log("kdjfkdjfdkjfk");
     }
 
     private void SaveData()
@@ -466,7 +466,7 @@ public class HomeController : LogicController
         if (!getListening())
             return;
 
-        Debug.Log("Holding");
+        //Debug.Log("Holding");
 
         if(theObject.CompareTag("Cosmetic"))
         {

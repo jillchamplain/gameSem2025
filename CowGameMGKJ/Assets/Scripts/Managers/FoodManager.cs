@@ -24,6 +24,14 @@ public class FoodManager : Manager
             food.SetActive(value);
         }
     }
+    public void ClearFood()
+    {
+        foreach(GameObject food in curFoods)
+        {
+            Destroy(food);
+        }
+        curFoods.Clear();
+    }
 
     [SerializeField] List<FoodItem> curFoodData;
     public List<FoodItem> getCurFoodData() { return curFoodData; }
@@ -163,7 +171,6 @@ public class FoodManager : Manager
                 }
             }
         }
-        SpawnAllFood(theData);
 
         //BEHAVIOR FOR RESPAWNING FOOD THAT WAS LEFT
     }
@@ -212,6 +219,7 @@ public class FoodManager : Manager
 
     public void SpawnAllFood(GameData theData)
     {
+        Debug.Log("spawning all food in");
         for (int i = 0; i < curFoodData.Count; i++)
         {
             SpawnFood(getFoodDataWithName(theData.currentFoodNames[i]), new Vector3(theData.currentFoodPosX[i], theData.currentFoodPosY[i], theData.currentFoodPosZ[i]));
@@ -231,6 +239,8 @@ public class FoodManager : Manager
 
     public void SpawnFood(FoodItem theFood, Vector3 spawnPos)
     {
+        if (!theFood)
+            return;
         Vector2 spawn = spawnPos; //MOVE THIS 
         GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
         newFood.transform.parent = this.transform;
