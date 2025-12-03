@@ -24,6 +24,20 @@ public class FoodManager : Manager
             food.SetActive(value);
         }
     }
+
+    [SerializeField] List<FoodItem> curFoodData;
+    public List<FoodItem> getCurFoodData() { return curFoodData; }
+    public FoodItem getCurFoodDataAt(int index)
+    {
+        for(int i = 0; i < curFoodData.Count; i++)
+        {
+            if (i == index)
+                return curFoodData[i];
+        }
+        return null;
+    }
+
+
     [SerializeField] List<FoodItem> unlockedFoodData;
     public List<FoodItem> getUnlockedFoodData() { return unlockedFoodData; }
     public FoodItem getUnlockedFoodDataAt(int index)
@@ -45,6 +59,16 @@ public class FoodManager : Manager
             {
                 return allFoodData[i];
             }
+        }
+        return null;
+    }
+
+    public FoodItem getFoodDataWithName(string name)
+    {
+        for (int i = 0; i < allFoodData.Count; i++)
+        {
+            if (allFoodData[i].getItemName() == name)
+                return allFoodData[i];
         }
         return null;
     }
@@ -130,7 +154,16 @@ public class FoodManager : Manager
                     purchasedFoodData.Add(food);
                 }
             }
+            ///Debug.Log(theData.currentFoodNames);
+            for(int i = 0; i < theData.currentFoodNames.Length; i++)
+            {
+                if (theData.currentFoodNames[i] == food.getItemName())
+                {
+                    curFoodData.Add(food);
+                }
+            }
         }
+        SpawnAllFood(theData);
 
         //BEHAVIOR FOR RESPAWNING FOOD THAT WAS LEFT
     }
@@ -176,6 +209,16 @@ public class FoodManager : Manager
         curFoods.Remove(theFood);
         Destroy(theFood);
     }
+
+    public void SpawnAllFood(GameData theData)
+    {
+        for (int i = 0; i < curFoodData.Count; i++)
+        {
+            SpawnFood(getFoodDataWithName(theData.currentFoodNames[i]), new Vector3(theData.currentFoodPosX[i], theData.currentFoodPosY[i], theData.currentFoodPosZ[i]));
+        }
+    }
+    
+
     public void SpawnFood(GameObject theFood, Vector3 spawnPos)
     {
         GameObject foodPrefab = theFood;

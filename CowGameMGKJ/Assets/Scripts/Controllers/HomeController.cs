@@ -323,6 +323,7 @@ public class HomeController : LogicController
 
         //Debug.Log("food spawned by " + this.gameObject);
         foodManager.SpawnFood(theFood, spawnManager.SelectRandomSpawn(foodManager.getFoodPrefab()));
+        SaveData();
     }
 
     private void OnMouseProcess(GameObject theObject, ClickType type)

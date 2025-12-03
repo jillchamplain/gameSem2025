@@ -64,7 +64,10 @@ public class GameData
     public string[] unlockedFoodNames = new string[10];
     public string[] purchasedFoodNames = new string[10];
     public string[] currentFoodNames = new string[100];
-    public Vector3[] currentFoodPos = new Vector3[100];
+    //public Vector3[] currentFoodPos = new Vector3[100];
+    public float[] currentFoodPosX = new float[100];
+    public float[] currentFoodPosY = new float[100];
+    public float[] currentFoodPosZ = new float[100];
     
 
     //Unlocked Patterns
@@ -74,7 +77,10 @@ public class GameData
     //Cosmetics
     public string[] unlockedCosmeticNames = new string[10];
     public string[] purchasedCosmeticNames = new string[100];
-    public Vector3[] purchasedCosmeticPos = new Vector3[100];
+    //public Vector3[] purchasedCosmeticPos = new Vector3[100];
+    public float[] purchasedCosmeticPosX = new float[100];
+    public float[] purchasedCosmeticPosY = new float[100];
+    public float[] purchasedCosmeticPosZ = new float[100];
 
     //CURRENT RACE AND LEAGUE
     public int curLeagueID;
@@ -223,7 +229,10 @@ public class GameData
 
         for(int i = 0; i < foodManager.getCurFoods().Count; i++)
         {
-            currentFoodPos[i] = foodManager.getCurFoodAt(i).gameObject.transform.position;
+            //currentFoodPos[i] = foodManager.getCurFoodAt(i).gameObject.transform.position;
+            currentFoodPosX[i] = foodManager.getCurFoodAt(i).gameObject.transform.position.x;
+            currentFoodPosY[i] = foodManager.getCurFoodAt(i).gameObject.transform.position.y;
+            currentFoodPosZ[i] = foodManager.getCurFoodAt(i).gameObject.transform.position.z;
         }
 
 
@@ -254,7 +263,10 @@ public class GameData
 
         for(int i = 0; i < cosmeticManager.getCurrentCosmeticItems().Count(); i++)
         {
-            purchasedCosmeticPos[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position;
+            //purchasedCosmeticPos[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position;
+            purchasedCosmeticPosX[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position.x;
+            purchasedCosmeticPosY[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position.y;
+            purchasedCosmeticPosZ[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position.z;
         }
 
 
@@ -353,9 +365,11 @@ public class GameData
             currentFoodNames[i] = "NULL";
         }
 
-        for(int i = 0; i < currentFoodPos.Length; i++)
+        for(int i = 0; i < currentFoodPosX.Length; i++)
         {
-            currentFoodPos[i] = Vector3.zero;
+            currentFoodPosX[i] = 0;
+            currentFoodPosY[i] = 0;
+            currentFoodPosZ[i] = 0;
         }
 
         for (int i = 0; i < unlockedPatternNames.Length; i++)
@@ -374,9 +388,11 @@ public class GameData
             purchasedCosmeticNames[i] = "NULL";
         }
 
-        for(int i = 0; i< purchasedCosmeticPos.Length; i++)
+        for(int i = 0; i< purchasedCosmeticPosX.Length; i++)
         {
-            purchasedCosmeticPos[i] = Vector3.zero;
+            purchasedCosmeticPosX[i] = 0;
+            purchasedCosmeticPosY[i] = 0;
+            purchasedCosmeticPosZ[i] = 0;
         }
 
         curRaceID = 0;

@@ -93,6 +93,7 @@ public class CosmeticManager : Manager
                 }
             }
         }
+        SpawnCosmetics(theData);
         
     }
 
@@ -107,9 +108,17 @@ public class CosmeticManager : Manager
         }
     }
 
-    public void SpawnCosmetic()
+    public void SpawnCosmetics(GameData theData)
     {
+        for(int i = 0; i < purchasedCosmeticItems.Count; i++)
+        {
+            SpawnCosmetic(theData.purchasedCosmeticNames[i], new Vector3(theData.purchasedCosmeticPosX[i], theData.purchasedCosmeticPosY[i], theData.purchasedCosmeticPosZ[i]));
+        }
+    }
 
+    public void SpawnCosmetic(string name, Vector3 pos)
+    {
+        Debug.Log("Should spawn " + name + " at " + pos);
     }
 
     //public ShopItem getCosmeticItemAt(int index)
