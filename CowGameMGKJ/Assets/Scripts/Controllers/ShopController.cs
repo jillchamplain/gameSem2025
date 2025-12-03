@@ -76,7 +76,7 @@ public class ShopController : LogicController
 
     public void SaveData()
     {
-        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager);
+        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager, cosmeticManager);
     }
     
     public void InitCows()
@@ -240,6 +240,8 @@ public class ShopController : LogicController
 
         shopManager.takeCoins(theItem.getCost());
         shopUI.UpdateCoinUI(shopManager.getCoins());
+
+        cosmeticManager.PurchaseCosmetic(theItem);
 
         //Spawn cosmetic item when returning home
         UpdateUI();

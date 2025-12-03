@@ -2,7 +2,9 @@ using DG.Tweening.Plugins;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class GameData 
@@ -61,10 +63,18 @@ public class GameData
     //UNLOCKED FOODS AGAIn
     public string[] unlockedFoodNames = new string[10];
     public string[] purchasedFoodNames = new string[10];
+    public string[] currentFoodNames = new string[100];
+    public Vector3[] currentFoodPos = new Vector3[100];
+    
 
     //Unlocked Patterns
     public string[] unlockedPatternNames = new string[4];
     public string[] purchasedPatternNames = new string[4];
+
+    //Cosmetics
+    public string[] unlockedCosmeticNames = new string[10];
+    public string[] purchasedCosmeticNames = new string[100];
+    public Vector3[] purchasedCosmeticPos = new Vector3[100];
 
     //CURRENT RACE AND LEAGUE
     public int curLeagueID;
@@ -132,7 +142,7 @@ public class GameData
         
     }
 
-    public GameData(CowManager cowManager, FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
+    public GameData(CowManager cowManager, FoodManager foodManager, ShopManager shopManager, RaceManager raceManager, CosmeticManager cosmeticManager)
     {
         curGeneration = cowManager.curGeneration;
         Cow cow1 = cowManager.getCowAt(0);
@@ -193,25 +203,58 @@ public class GameData
             z3 = cow3.gameObject.transform.position.z;
         }
 
-
+        //Types of food to purchase in store
         for (int i = 0; i < foodManager.getUnlockedFoodData().Count; i++)
         {
             unlockedFoodNames[i] = foodManager.getUnlockedFoodDataAt(i).getItemName();
         }
 
+        //Types of food can spawn
         for (int i = 0; i < foodManager.getPurchasedFoodData().Count; i++)
         {
             purchasedFoodNames[i] = foodManager.getPurchasedFoodDataAt(i).getItemName();
         }
 
+        //Current foods spawned
+        for(int i = 0; i < foodManager.getCurFoods().Count; i++)
+        {
+            currentFoodNames[i] = foodManager.getCurFoodAt(i).GetComponent<Food>().getName();
+        }
 
+        for(int i = 0; i < foodManager.getCurFoods().Count; i++)
+        {
+            currentFoodPos[i] = foodManager.getCurFoodAt(i).gameObject.transform.position;
+        }
+
+
+
+        //Types of patterns to purchase in store
         for (int i = 0; i < cowManager.getUnlockedPatternData().Count; i++)
         {
             unlockedPatternNames[i] = cowManager.getUnlockedPatternDataAt(i).getItemName();
         }
+        //Types of pattern can spawn
         for(int i = 0; i < cowManager.getPurchasedPatternData().Count; i++)
         {
             purchasedPatternNames[i] = cowManager.getPurchasedPatternDataAt(i).getItemName();
+        }
+
+
+        //Types of cosmetics to purchase in store
+        for(int i = 0; i < cosmeticManager.getUnlockedCosmeticItems().Count(); i++)
+        {
+            unlockedCosmeticNames[i] = cosmeticManager.getUnlockedCosmeticAt(i).getItemName();
+        }
+
+        //Types of cosmetics to spawn 
+        for(int i = 0; i < cosmeticManager.getPurchasedCosmeticItems().Count(); i++)
+        {
+            purchasedCosmeticNames[i] = cosmeticManager.getPurchasedCosmeticAt(i).getItemName();
+        }
+
+        for(int i = 0; i < cosmeticManager.getCurrentCosmeticItems().Count(); i++)
+        {
+            purchasedCosmeticPos[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position;
         }
 
 
@@ -305,7 +348,15 @@ public class GameData
         }
         purchasedFoodNames[0] = "Berry";
 
+        for(int i = 0; i < currentFoodNames.Length; i++)
+        {
+            currentFoodNames[i] = "NULL";
+        }
 
+        for(int i = 0; i < currentFoodPos.Length; i++)
+        {
+            currentFoodPos[i] = Vector3.zero;
+        }
 
         for (int i = 0; i < unlockedPatternNames.Length; i++)
         {
@@ -318,6 +369,15 @@ public class GameData
         }
         purchasedPatternNames[0] = "Blank";
 
+        for(int i = 0; i < purchasedCosmeticNames.Length; i++)
+        {
+            purchasedCosmeticNames[i] = "NULL";
+        }
+
+        for(int i = 0; i< purchasedCosmeticPos.Length; i++)
+        {
+            purchasedCosmeticPos[i] = Vector3.zero;
+        }
 
         curRaceID = 0;
         curLeagueID = 0;

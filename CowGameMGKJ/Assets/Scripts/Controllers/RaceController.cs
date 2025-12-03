@@ -14,6 +14,7 @@ public class RaceController : LogicController
     [SerializeField] FoodManager foodManager; //Need this for unlocking foods
     [SerializeField] SpawnManager spawnManager;//Separate visuals eventually
     [SerializeField] ShopManager shopManager;
+    [SerializeField] CosmeticManager cosmeticManager;
     private void Awake()
     {
         setGameState(GameState.RACE);
@@ -117,7 +118,7 @@ public class RaceController : LogicController
 
     public void SaveData()
     {
-        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager);
+        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager, cosmeticManager);
     }
 
     private void UpdateUI()

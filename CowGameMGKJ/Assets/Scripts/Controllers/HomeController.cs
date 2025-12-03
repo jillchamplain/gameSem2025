@@ -20,6 +20,7 @@ public class HomeController : LogicController
     [SerializeField] TrainManager trainManager;
     [SerializeField] ShopManager shopManager;
     [SerializeField] RaceManager raceManager;
+    [SerializeField] CosmeticManager cosmeticManager;
     private void Awake()
     {
         setGameState(GameState.HOME);
@@ -162,7 +163,7 @@ public class HomeController : LogicController
     {
         if (!getListening())
             return;
-        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager);
+        SaveSystem.SaveGameData(cowManager, foodManager, shopManager, raceManager, cosmeticManager);
     }
 
     private void OnPopUpOff()

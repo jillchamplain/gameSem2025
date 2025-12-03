@@ -3421,12 +3421,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   cosmeticItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  unlockedCosmeticItems: []
-  spawnCosmeticItems: []
+  - {fileID: 11400000, guid: 6e26dec979aee3242a6129ed9af6c773, type: 2}
+  currentCosmeticItems: []
+  unlockedCosmeticItems:
+  - {fileID: 11400000, guid: 6e26dec979aee3242a6129ed9af6c773, type: 2}
+  purchasedCosmeticItems: []
 --- !u!1 &454824158
 GameObject:
   m_ObjectHideFlags: 0
@@ -7399,6 +7398,10 @@ PrefabInstance:
       propertyPath: managers.Array.data[7]
       value: 
       objectReference: {fileID: 431348145}
+    - target: {fileID: 4066470471315178606, guid: 7535f1d7b6525984e8790208d7fc35ed, type: 3}
+      propertyPath: managers.Array.data[8]
+      value: 
+      objectReference: {fileID: 431348145}
     - target: {fileID: 4066470471315178608, guid: 7535f1d7b6525984e8790208d7fc35ed, type: 3}
       propertyPath: m_Name
       value: Shop Logic Controller
@@ -11170,12 +11173,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 371527536}
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
+      propertyPath: cosmeticManager
+      value: 
+      objectReference: {fileID: 431348145}
+    - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: particleManager
       value: 
       objectReference: {fileID: 1902078456}
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: managers.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: managers.Array.data[0]
@@ -11208,7 +11215,7 @@ PrefabInstance:
     - target: {fileID: 3724409119987472456, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: managers.Array.data[7]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 431348145}
     - target: {fileID: 3724409119987472457, guid: 8c771cbf4cc4d1040b62a0f0dffd7370, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -12737,12 +12744,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1122832761}
     - target: {fileID: 4077875117952985693, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
+      propertyPath: cosmeticManager
+      value: 
+      objectReference: {fileID: 431348145}
+    - target: {fileID: 4077875117952985693, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
       propertyPath: particleManager
       value: 
       objectReference: {fileID: 1902078456}
     - target: {fileID: 4077875117952985693, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
       propertyPath: managers.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4077875117952985693, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
       propertyPath: managers.Array.data[0]
@@ -12779,7 +12790,7 @@ PrefabInstance:
     - target: {fileID: 4077875117952985693, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
       propertyPath: managers.Array.data[8]
       value: 
-      objectReference: {fileID: 1778656775}
+      objectReference: {fileID: 431348145}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e669e64b132bce4cb9b6c8df4649c26, type: 3}
 --- !u!4 &1744287868 stripped

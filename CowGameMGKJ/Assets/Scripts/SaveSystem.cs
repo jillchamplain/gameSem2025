@@ -17,13 +17,13 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static void SaveGameData(CowManager cowM, FoodManager foodM, ShopManager shopM, RaceManager raceM)
+    public static void SaveGameData(CowManager cowM, FoodManager foodM, ShopManager shopM, RaceManager raceM, CosmeticManager cosM)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/gameSaveData";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData(cowM, foodM, shopM, raceM);
+        GameData data = new GameData(cowM, foodM, shopM, raceM, cosM);
 
         formatter.Serialize(stream, data);
         stream.Close();
