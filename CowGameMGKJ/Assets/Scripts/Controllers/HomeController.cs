@@ -95,14 +95,20 @@ public class HomeController : LogicController
             Debug.Log("file does not exist");
             SaveSystem.ResetGameData();
         }
-
+       
         InitCows();
         InitFood();
         InitRaces();
         InitCoins();
         InitUI();
         foodManager.SpawnAllFood(SaveSystem.LoadGameData());
+        InitCosmetics();
         //Debug.Log("init home");
+    }
+
+    private void  InitCosmetics()
+    {
+        cosmeticManager.InitCosmeticItems(SaveSystem.LoadGameData());
     }
     private void InitCows()
     {

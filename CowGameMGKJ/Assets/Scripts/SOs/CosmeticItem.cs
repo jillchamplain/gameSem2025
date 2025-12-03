@@ -7,4 +7,7 @@ public class CosmeticItem : ShopItem
 {
     [SerializeField] EquipCosmetic cosmeticType;
     public EquipCosmetic getCosmeticType() { return cosmeticType; }
+
+    [SerializeField] Trait traitType;
+    public Trait getTraitType() { return traitType; }
 }

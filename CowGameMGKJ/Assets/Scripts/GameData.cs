@@ -222,17 +222,17 @@ public class GameData
         }
 
         //Current foods spawned
-        for(int i = 0; i < foodManager.getCurFoods().Count; i++)
+        for(int i = 0; i < foodManager.getCurFoodData().Count; i++)
         {
-            currentFoodNames[i] = foodManager.getCurFoodAt(i).GetComponent<Food>().getName();
+            currentFoodNames[i] = foodManager.getCurFoodDataAt(i).getItemName();
         }
 
-        for(int i = 0; i < foodManager.getCurFoods().Count; i++)
+        for(int i = 0; i < foodManager.getCurFoodPos().Count; i++)
         {
             //currentFoodPos[i] = foodManager.getCurFoodAt(i).gameObject.transform.position;
-            currentFoodPosX[i] = foodManager.getCurFoodAt(i).gameObject.transform.position.x;
-            currentFoodPosY[i] = foodManager.getCurFoodAt(i).gameObject.transform.position.y;
-            currentFoodPosZ[i] = foodManager.getCurFoodAt(i).gameObject.transform.position.z;
+            currentFoodPosX[i] = foodManager.getCurFoodPosAt(i).x;
+            currentFoodPosY[i] = foodManager.getCurFoodPosAt(i).y;
+            currentFoodPosZ[i] = foodManager.getCurFoodPosAt(i).z;
         }
 
 
@@ -264,9 +264,9 @@ public class GameData
         for(int i = 0; i < cosmeticManager.getCurrentCosmeticItems().Count(); i++)
         {
             //purchasedCosmeticPos[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position;
-            purchasedCosmeticPosX[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position.x;
-            purchasedCosmeticPosY[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position.y;
-            purchasedCosmeticPosZ[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position.z;
+            purchasedCosmeticPosX[i] = cosmeticManager.getCurCosmeticPosAt(i).x;
+            purchasedCosmeticPosY[i] = cosmeticManager.getCurCosmeticPosAt(i).y;
+            purchasedCosmeticPosZ[i] = cosmeticManager.getCurCosmeticPosAt(i).z;
         }
 
 
@@ -382,6 +382,13 @@ public class GameData
             purchasedPatternNames[i] = "NULL";
         }
         purchasedPatternNames[0] = "Blank";
+
+        for(int i = 0; i < unlockedCosmeticNames.Length; i++)
+        {
+            unlockedCosmeticNames[i] = "NULL";
+        }
+
+        unlockedCosmeticNames[0] = "Party Hat";
 
         for(int i = 0; i < purchasedCosmeticNames.Length; i++)
         {

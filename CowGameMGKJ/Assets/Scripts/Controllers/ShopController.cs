@@ -241,7 +241,7 @@ public class ShopController : LogicController
         shopManager.takeCoins(theItem.getCost());
         shopUI.UpdateCoinUI(shopManager.getCoins());
 
-        cosmeticManager.PurchaseCosmetic(theItem);
+        cosmeticManager.PurchaseCosmetic(theItem, spawnManager.SelectRandomSpawn(cosmeticManager.cosmeticPrefab));
 
         //Spawn cosmetic item when returning home
         UpdateUI();

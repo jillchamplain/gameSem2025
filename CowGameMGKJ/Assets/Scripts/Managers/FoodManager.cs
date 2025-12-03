@@ -45,6 +45,17 @@ public class FoodManager : Manager
         return null;
     }
 
+    [SerializeField] List<Vector3> curFoodPos;
+    public List<Vector3> getCurFoodPos() { return curFoodPos; }
+    public Vector3 getCurFoodPosAt(int index)
+    {
+        for(int i = 0; i < curFoodPos.Count; i++)
+        {
+            if (i == index)
+                return curFoodPos[i];
+        }
+        return Vector3.zero;
+    }
 
     [SerializeField] List<FoodItem> unlockedFoodData;
     public List<FoodItem> getUnlockedFoodData() { return unlockedFoodData; }
@@ -121,6 +132,9 @@ public class FoodManager : Manager
         //Reads Save Data to determine what foods the player has unlocked already
         unlockedFoodData.Clear();
         purchasedFoodData.Clear();
+        curFoodData.Clear();
+        curFoodPos.Clear();
+        curFoods.Clear();
 
         if (allFoodData.Count <= 0)
             return;
@@ -213,7 +227,15 @@ public class FoodManager : Manager
     }
     public void DeleteFood(GameObject theFood)
     {
+        int index = 0;
+        for(int i = 0; i < curFoods.Count; i++)
+        {
+            if (curFoods[i] == theFood)
+                index = i;
+        }
         curFoods.Remove(theFood);
+        curFoodData.Remove(getCurFoodDataAt(index));
+        curFoodPos.Remove(getCurFoodPosAt(index));
         Destroy(theFood);
     }
 
@@ -222,25 +244,31 @@ public class FoodManager : Manager
         Debug.Log("spawning all food in");
         for (int i = 0; i < curFoodData.Count; i++)
         {
-            SpawnFood(getFoodDataWithName(theData.currentFoodNames[i]), new Vector3(theData.currentFoodPosX[i], theData.currentFoodPosY[i], theData.currentFoodPosZ[i]));
+            SpawnFoodFromData(getFoodDataWithName(theData.currentFoodNames[i]), new Vector3(theData.currentFoodPosX[i], theData.currentFoodPosY[i], theData.currentFoodPosZ[i]));
         }
     }
     
 
     public void SpawnFood(GameObject theFood, Vector3 spawnPos)
     {
+        if (!theFood)
+            return;
+
         GameObject foodPrefab = theFood;
         Vector2 spawn = spawnPos; //MOVE THIS 
         GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
         newFood.transform.parent = this.transform;
 
         curFoods.Add(newFood);
+        curFoodPos.Add(newFood.transform.position);
     }
 
     public void SpawnFood(FoodItem theFood, Vector3 spawnPos)
     {
         if (!theFood)
+        {
             return;
+        }
         Vector2 spawn = spawnPos; //MOVE THIS 
         GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
         newFood.transform.parent = this.transform;
@@ -251,9 +279,30 @@ public class FoodManager : Manager
         newFoodData.setName(theFood.getItemName());
         newFoodData.setPower(theFood.getPower());
         newFoodData.setSprite(theFood.getSprite());
-        
 
+        curFoodData.Add(theFood);
         curFoods.Add(newFood);
+        curFoodPos.Add(newFood.transform.position);
+    }
+
+    public void SpawnFoodFromData(FoodItem theFood, Vector3 spawnPos)
+    {
+        if (!theFood)
+        {
+            return;
+        }
+        Vector2 spawn = spawnPos; //MOVE THIS 
+        GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
+        newFood.transform.parent = this.transform;
+
+
+        //Assign data
+        Food newFoodData = newFood.GetComponent<Food>();
+        newFoodData.setName(theFood.getItemName());
+        newFoodData.setPower(theFood.getPower());
+        newFoodData.setSprite(theFood.getSprite());
+        curFoods.Add(newFood);
+        curFoodPos.Add(newFood.transform.position);
     }
 
     /*GameObject SelectRandomFood()
