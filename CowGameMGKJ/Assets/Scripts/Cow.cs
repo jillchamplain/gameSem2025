@@ -260,7 +260,27 @@ public class Cow : MonoBehaviour
         }
     }
     [SerializeField] TextMeshProUGUI thisNameLabel;
-    [SerializeField] 
+    [SerializeField] string hat; //get name from save data, get sprite from cosmetic manager
+    public string getHat() { return hat; }
+    public void setHat(CosmeticItem item)
+    {
+        getSpriteRenderer("Hat").sprite = item.getSprite();
+        hat = item.getItemName();
+    }
+    [SerializeField] string top;
+    public string getTop() { return top; }
+    public void setTop(CosmeticItem item)
+    {
+        getSpriteRenderer("Top").sprite = item.getSprite();
+        top = item.getItemName();
+    }
+    [SerializeField] string bot;
+    public string getBot() { return bot; }
+    public void setBot(CosmeticItem item)
+    {
+        getSpriteRenderer("Bot").sprite = item.getSprite();
+        bot = item.getItemName();
+    }
 
     //EVENTS
     public delegate void CowEat(Cow thisCow, Food thisFood);
@@ -310,6 +330,9 @@ public class Cow : MonoBehaviour
         setTraits(trait1, trait2, trait3);
 
         setPattern(item);
+        hat = "NULL";
+        top = "NULL";
+        bot = "NULL";
 
         DontDestroyOnLoad(this.gameObject);
 
@@ -331,7 +354,7 @@ public class Cow : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void InitCow(string name, int theGen, int level, int maxLevel, int power, int theMaxPower, int trait1, int trait2, int trait3, PatternItem pattern)
+    public void InitCow(string name, int theGen, int level, int maxLevel, int power, int theMaxPower, int trait1, int trait2, int trait3, PatternItem pattern, string hat, string top, string bot)
     {
         //Debug.Log("initting cow");
         setName(name);
@@ -346,6 +369,11 @@ public class Cow : MonoBehaviour
 
         //Debug.Log(pattern);
         setPattern(pattern);
+
+        this.hat = hat;
+        this.top = top;
+        this.bot = bot;
+        //Equip on spawn!
 
         DontDestroyOnLoad(this.gameObject);
     }
@@ -391,36 +419,20 @@ public class Cow : MonoBehaviour
         cowRetire?.Invoke(this);
     }
 
-    public void Equip(Cosmetic item)
+    public void Equip(CosmeticItem item)
     {
-        switch (item.getType())
+        if (!item)
+            return;
+        switch (item.getCosmeticType())
         {
             case EquipCosmetic.HAT:
-                foreach(RendererAsset asset in renderers)
-                {
-                    if(asset.getID() == "Hat")
-                    {
-                        asset.getSpriteRenderer().sprite = item.getSpriteRenderer().sprite;
-                    }
-                }
+                setHat(item);
                 break;
             case EquipCosmetic.TOP:
-                foreach (RendererAsset asset in renderers)
-                {
-                    if (asset.getID() == "Top")
-                    {
-                        asset.getSpriteRenderer().sprite = item.getSpriteRenderer().sprite;
-                    }
-                }
+                setTop(item);
                 break;
             case EquipCosmetic.BOT:
-                foreach (RendererAsset asset in renderers)
-                {
-                    if (asset.getID() == "Bot")
-                    {
-                        asset.getSpriteRenderer().sprite = item.getSpriteRenderer().sprite;
-                    }
-                }
+                setBot(item);
                 break;
         }
 

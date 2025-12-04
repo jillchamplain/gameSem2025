@@ -168,7 +168,7 @@ public class CowManager : Manager
             PatternItem item1 = getPurchasedPatternData(theData.pattern1);
             
             //Debug.Log("Cow1: " + theData.name1 + " " + theData.power1 + " " + theData.mPower1 + " " + theData.traitA1 + " " + theData.traitB1 + " " + theData.traitC1);
-            getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1, item1);
+            getCowAt(0).InitCow(theData.name1, theData.gen1, theData.level1, theData.mLevel1, theData.power1, theData.mPower1, theData.traitA1, theData.traitB1, theData.traitC1, item1, theData.hat1, theData.top1, theData.bot1);
             if(theData.x1 != -1 && theData.y1 != -1 && theData.z1 != -1)
                 getCowAt(0).transform.position = new Vector3(theData.x1, theData.y1, theData.z1);
         }
@@ -180,7 +180,7 @@ public class CowManager : Manager
             
             ///Debug.Log("cow 2");
             //Debug.Log("Cow2: " + theData.name2 + " " + theData.power2 + " " + theData.mPower2 + " " + theData.traitA2 + " " + theData.traitB2 + " " + theData.traitC2);
-            getCowAt(1).InitCow(theData.name2, theData.gen2, theData.level2, theData.mLevel2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2, item2);
+            getCowAt(1).InitCow(theData.name2, theData.gen2, theData.level2, theData.mLevel2, theData.power2, theData.mPower2, theData.traitA2, theData.traitB2, theData.traitC2, item2, theData.hat2, theData.top2, theData.bot2);
             if (theData.x2 != -1 && theData.y2 != -1 && theData.z2 != -1)
                 getCowAt(1).transform.position = new Vector3(theData.x2, theData.y2, theData.z2);
         }
@@ -188,7 +188,7 @@ public class CowManager : Manager
         {
             PatternItem item3 = getPurchasedPatternData(theData.pattern3);
             //Debug.Log("Cow3: " + theData.name3 + " " + theData.power3 + " " + theData.mPower3 + " " + theData.traitA3 + " " + theData.traitB3 + " " + theData.traitC3);
-            getCowAt(2).InitCow(theData.name3, theData.gen3, theData.level3, theData.mLevel3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3, item3);
+            getCowAt(2).InitCow(theData.name3, theData.gen3, theData.level3, theData.mLevel3, theData.power3, theData.mPower3, theData.traitA3, theData.traitB3, theData.traitC3, item3, theData.hat3, theData.top3, theData.bot3);
             if (theData.x3 != -1 && theData.y3 != -1 && theData.z3 != -1)
                 getCowAt(2).transform.position = new Vector3(theData.x3, theData.y3, theData.z3);
         }
@@ -202,6 +202,17 @@ public class CowManager : Manager
             if(pi.getItemName() == item.getItemName())
             {
                 unlockedPatternData.Add(pi);
+            }
+        }
+    }
+
+    public void PurchasePattern(ShopItem item)
+    {
+        foreach(PatternItem pi in allPatternData)
+        {
+            if(pi.getItemName() == item.getItemName())
+            {
+                purchasedPatternData.Add(pi);
             }
         }
     }

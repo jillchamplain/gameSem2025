@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Cow;
 using static CowManager;
@@ -23,6 +24,7 @@ public class HomeController : LogicController
     [SerializeField] CosmeticManager cosmeticManager;
 
     bool shouldSpawnCosmetics = false;
+    bool shouldEquipCows = false;
     private void Awake()
     {
         setGameState(GameState.HOME);
@@ -41,6 +43,11 @@ public class HomeController : LogicController
         {
                 shouldSpawnCosmetics = false;
                 cosmeticManager.SpawnCosmetics(SaveSystem.LoadGameData());
+        }
+        if(shouldEquipCows)
+        {
+            shouldEquipCows = false;
+            EquipCows();
         }
     }
     private void OnEnable()
@@ -122,6 +129,7 @@ public class HomeController : LogicController
         InitCosmetics();
         cosmeticManager.SpawnCosmetics(SaveSystem.LoadGameData());
         shouldSpawnCosmetics = true;
+        shouldEquipCows = true;
         //Debug.Log("init home");
     }
 
@@ -209,7 +217,8 @@ public class HomeController : LogicController
         if (!getListening())
             return;
 
-
+        //Equip Cow Items
+       
         UpdateUI();
         
     }
@@ -287,9 +296,23 @@ public class HomeController : LogicController
         homeUI.UICleanUp();
         SaveData();
     }
+
+    private void EquipCows()
+    {
+        for (int i = 0; i < cowManager.getCows().Count; i++)
+        {
+            Cow theCow = cowManager.getCowAt(i);
+            if(theCow.GetComponent<Cow>().getHat() != null)
+                theCow.Equip(cosmeticManager.getCosmeticItemWithName(theCow.GetComponent<Cow>().getHat()));
+            if(theCow.GetComponent<Cow>().getTop() != null)
+                theCow.Equip(cosmeticManager.getCosmeticItemWithName(theCow.GetComponent<Cow>().getTop()));
+            if(theCow.GetComponent<Cow>().getBot() != null)
+            theCow.Equip(cosmeticManager.getCosmeticItemWithName(theCow.GetComponent<Cow>().getBot()));
+        }
+    }
     private void OnCowEquip(GameObject theCow, Cosmetic item)
     {
-        theCow.GetComponent<Cow>().Equip(item);
+        theCow.GetComponent<Cow>().Equip(cosmeticManager.getCosmeticItemWithName(item.getName()));
         theCow.GetComponent<Cow>().setTraitAt((int)item.getType() - 1, item.getTraitType());
 
         cosmeticManager.DeleteCosmetic(item.gameObject);

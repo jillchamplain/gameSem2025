@@ -10,4 +10,5 @@ public class CosmeticItem : ShopItem
 
     [SerializeField] Trait traitType;
     public Trait getTraitType() { return traitType; }
+
 }

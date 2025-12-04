@@ -3423,9 +3423,11 @@ MonoBehaviour:
   cosmeticPrefab: {fileID: 8866190468867241476, guid: b8960a5c145ec0c49a6315fbf2db4511, type: 3}
   cosmeticItems:
   - {fileID: 11400000, guid: 6e26dec979aee3242a6129ed9af6c773, type: 2}
+  - {fileID: 11400000, guid: e05dd5f507d7d284ba1399bafdff2b90, type: 2}
   currentCosmeticItems: []
   unlockedCosmeticItems:
   - {fileID: 11400000, guid: 6e26dec979aee3242a6129ed9af6c773, type: 2}
+  - {fileID: 11400000, guid: e05dd5f507d7d284ba1399bafdff2b90, type: 2}
   purchasedCosmeticItems: []
   curCosmeticPos: []
 --- !u!1 &454824158

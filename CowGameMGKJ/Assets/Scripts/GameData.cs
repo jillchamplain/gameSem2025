@@ -27,6 +27,9 @@ public class GameData
     public float x1;
     public float y1;
     public float z1;
+    public string hat1;
+    public string top1;
+    public string bot1;
 
     //COW 2
     public string name2;
@@ -43,6 +46,9 @@ public class GameData
     public float x2;
     public float y2;
     public float z2;
+    public string hat2;
+    public string top2;
+    public string bot2;
 
     //COW 3
     public string name3;
@@ -59,6 +65,9 @@ public class GameData
     public float x3;
     public float y3;
     public float z3;
+    public string hat3;
+    public string top3;
+    public string bot3;
 
     //UNLOCKED FOODS AGAIn
     public string[] unlockedFoodNames = new string[10];
@@ -171,6 +180,9 @@ public class GameData
             x1 = cow1.gameObject.transform.position.x;
             y1 = cow1.gameObject.transform.position.y;
             z1 = cow1.gameObject.transform.position.z;
+            hat1 = cow1.getHat();
+            top1 = cow1.getTop();
+            bot1 = cow1.getTop();
         }
 
         if (cow2 != null)
@@ -189,6 +201,9 @@ public class GameData
             x2 = cow2.gameObject.transform.position.x;
             y2 = cow2.gameObject.transform.position.y;
             z2 = cow2.gameObject.transform.position.z;
+            hat2 = cow2.getHat();
+            top2 = cow2.getTop();
+            bot2 = cow2.getBot();
         }
 
         if (cow3 != null)
@@ -207,6 +222,9 @@ public class GameData
             x3 = cow3.gameObject.transform.position.x;
             y3 = cow3.gameObject.transform.position.y;
             z3 = cow3.gameObject.transform.position.z;
+            hat3 = cow3.getHat();
+            top3 = cow3.getTop();
+            bot3 = cow3.getBot();
         }
 
         //Types of food to purchase in store
@@ -318,6 +336,9 @@ public class GameData
         x1 = -1;
         y1 = -1;
         z1 = -1;
+        hat1 = "NULL";
+        top1 = "NULL";
+        bot1 = "NULL";
 
         name2 = "COW JR";
         gen2 = 2;
@@ -333,6 +354,9 @@ public class GameData
         x2 = -1;
         y2 = -1;
         z2 = -1;
+        hat2 = "NULL";
+        top2 = "NULL";
+        bot2 = "NULL";
 
         name3 = "COW III";
         gen3 = 3;
@@ -348,6 +372,9 @@ public class GameData
         x3 = -1;
         y3 = -1;
         z3 = -1;
+        hat3 = "NULL";
+        top3 = "NULL";
+        bot3 = "NULL";
 
         for (int i = 0; i < unlockedFoodNames.Length; i++)
         {
