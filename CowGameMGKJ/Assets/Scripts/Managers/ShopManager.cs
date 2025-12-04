@@ -76,16 +76,7 @@ public class ShopManager : Manager
         patternItems.Clear();
         for (int i = 0; i < cowManager.getAllPatternData().Count; i++) //Populate List
         {
-            patternItems.Add(cowManager.getPatternAt(i));
-        }
-
-        //Remove food that has been unlocked
-        foreach (string name in theData.unlockedPatternNames)
-        {
-            if (getPatternItem(name))
-            {
-                patternItems.Remove(getPatternItem(name));
-            }
+            patternItems.Add(cowManager.getUnlockedPatternDataAt(i));
         }
     }
 
