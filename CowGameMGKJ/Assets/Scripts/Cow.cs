@@ -260,6 +260,7 @@ public class Cow : MonoBehaviour
         }
     }
     [SerializeField] TextMeshProUGUI thisNameLabel;
+    [SerializeField] 
 
     //EVENTS
     public delegate void CowEat(Cow thisCow, Food thisFood);
@@ -365,7 +366,7 @@ public class Cow : MonoBehaviour
         {
             case CowAnims.IDLE:
                 float animStart = UnityEngine.Random.Range(0, 0.05f);
-                Debug.Log(animStart);
+               // Debug.Log(animStart);
                 thisAnimator.Play("CowIdle", 0, animStart);
                 break;
             case CowAnims.HOLD:

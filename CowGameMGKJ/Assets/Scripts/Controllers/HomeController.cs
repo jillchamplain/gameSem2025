@@ -21,6 +21,8 @@ public class HomeController : LogicController
     [SerializeField] ShopManager shopManager;
     [SerializeField] RaceManager raceManager;
     [SerializeField] CosmeticManager cosmeticManager;
+
+    bool shouldSpawnCosmetics = false;
     private void Awake()
     {
         setGameState(GameState.HOME);
@@ -31,6 +33,15 @@ public class HomeController : LogicController
             inst = this;
 
 
+    }
+
+    private void Update()
+    {
+        if (shouldSpawnCosmetics)
+        {
+                shouldSpawnCosmetics = false;
+                cosmeticManager.SpawnCosmetics(SaveSystem.LoadGameData());
+        }
     }
     private void OnEnable()
     {
@@ -48,6 +59,8 @@ public class HomeController : LogicController
 
         MouseManager.mouseClick += OnMouseProcess;
 
+
+        CosmeticManager.cosmeticSpawn += OnCosmeticSpawn;
        
         UIEventController.popUpOff += OnPopUpOff;
         UIEventController.renameCowOff += OnRenameOff;
@@ -68,6 +81,8 @@ public class HomeController : LogicController
 
         MouseManager.mouseClick -= OnMouseProcess;
 
+        CosmeticManager.cosmeticSpawn -= OnCosmeticSpawn;
+
         UIEventController.popUpOff -= OnPopUpOff;
         UIEventController.renameCowOff -= OnRenameOff;
     }
@@ -86,6 +101,8 @@ public class HomeController : LogicController
         Debug.Log("clearing food");
         cowManager.ClearCows();
         //Debug.Log("reset home");
+        cosmeticManager.ClearCosmetics();
+        shouldSpawnCosmetics = false;
     }
 
     public override void Init()
@@ -103,6 +120,8 @@ public class HomeController : LogicController
         InitUI();
         foodManager.SpawnAllFood(SaveSystem.LoadGameData());
         InitCosmetics();
+        cosmeticManager.SpawnCosmetics(SaveSystem.LoadGameData());
+        shouldSpawnCosmetics = true;
         //Debug.Log("init home");
     }
 
@@ -178,7 +197,6 @@ public class HomeController : LogicController
             return;
         homeUI.setUIGroup("Pop Up", false);
     }
-
     private void OnRenameOff()
     {
         if (!getListening())
@@ -195,7 +213,6 @@ public class HomeController : LogicController
         UpdateUI();
         
     }
-
     private void OnCowRename(TextMeshProUGUI tf)
     {
         Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
@@ -205,7 +222,6 @@ public class HomeController : LogicController
         UpdateUI();
         SaveData();
     }
-
     private void OnCowEat(Cow theCow, Food theFood)
     {
         if (!getListening())
@@ -243,7 +259,6 @@ public class HomeController : LogicController
         SaveData();
         
     }
-
    public void OnCowTrain()
     {
         if (!getListening())
@@ -276,8 +291,10 @@ public class HomeController : LogicController
     {
         theCow.GetComponent<Cow>().Equip(item);
         theCow.GetComponent<Cow>().setTraitAt((int)item.getType() - 1, item.getTraitType());
-        //Destroy(item.gameObject);
+
+        cosmeticManager.DeleteCosmetic(item.gameObject);
         UpdateUI();
+        SaveData();
     }
     private void OnCowLevelUp(Cow theCow)
     {
@@ -290,7 +307,6 @@ public class HomeController : LogicController
         particleManager.SpawnTextParticleAt("Power Increase", "Level Up!", spawn);
         SaveData();
     }
-
     private void OnCowMaxLevel(Cow theCow)
     {
         if (!getListening())
@@ -301,7 +317,6 @@ public class HomeController : LogicController
         //theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
         SaveData();
     }
-
     private void OnCowRetire()
     {
         if (!getListening())
@@ -324,12 +339,18 @@ public class HomeController : LogicController
 
     private void OnFoodSpawned(FoodItem theFood)
     {
-        if (!getListening())
-            return;
+       
 
         //Debug.Log("food spawned by " + this.gameObject);
         foodManager.SpawnFood(theFood, spawnManager.SelectRandomSpawn(foodManager.getFoodPrefab()));
         SaveData();
+    }
+
+    private void OnCosmeticSpawn(CosmeticItem theItem)
+    {
+        
+        Debug.Log("spawnign");
+        cosmeticManager.SpawnCosmetic(theItem, spawnManager.SelectRandomSpawn(cosmeticManager.cosmeticPrefab));
     }
 
     private void OnMouseProcess(GameObject theObject, ClickType type)
@@ -356,7 +377,6 @@ public class HomeController : LogicController
         }
 
     }
-
     private void OnMouseLeftClick(GameObject theObject)
     {
         if (!getListening())
@@ -446,7 +466,6 @@ public class HomeController : LogicController
             }
         }
     }
-
     private void OnMouseRightClick(GameObject theObject)
     {
         if (!getListening())
@@ -466,7 +485,6 @@ public class HomeController : LogicController
             homeUI.setUIGroup("Rename", true);
         }
     }
-
     private void OnMouseHold(GameObject theObject)
     {
         if (!getListening())
@@ -506,7 +524,6 @@ public class HomeController : LogicController
            
         }
     }
-
     private void OnMouseRelease(GameObject theObject)
     {
         if (!getListening())
@@ -552,7 +569,6 @@ public class HomeController : LogicController
             homeUI.setUIGroup("Retire", false);
         }
     }
-
     private void OnMouseClick(GameObject theObject, ClickType type)
     {
         if (!getListening())
@@ -639,7 +655,6 @@ public class HomeController : LogicController
             }
         }
     }
-
     private void OnMouseRelease()
     {
         if (!getListening())

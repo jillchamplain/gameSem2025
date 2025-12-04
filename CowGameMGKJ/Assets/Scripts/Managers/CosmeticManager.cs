@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CosmeticManager : Manager
 {
+    public delegate void CosmeticSpawn(CosmeticItem cos);
+    public static event CosmeticSpawn cosmeticSpawn;
     //List of cosmetic items that should be unlocked when initted
     //
     [SerializeField] public GameObject cosmeticPrefab;
@@ -91,7 +93,32 @@ public class CosmeticManager : Manager
         }
         return Vector3.zero;
     }
+    
+    public void DeleteCosmetic(GameObject theCosmetic)
+    {
+        CosmeticItem item = getCosmeticItemWithName(theCosmetic.GetComponent<Cosmetic>().getName());
+        Vector3 pos = theCosmetic.transform.position;
 
+        int index = 0;
+        for(int i = 0; i < currentCosmeticItems.Count; i++)
+        {
+            if (currentCosmeticItems[i] == theCosmetic)
+                index = i;
+        }
+        currentCosmeticItems.Remove(theCosmetic);
+        purchasedCosmeticItems.Remove(getPurchasedCosmeticAt(index));
+        curCosmeticPos.Remove(getCurCosmeticPosAt(index));
+        Destroy(theCosmetic);
+    }
+
+    public void ClearCosmetics()
+    {
+        foreach(GameObject cos in currentCosmeticItems)
+        {
+            Destroy(cos);
+        }
+        currentCosmeticItems.Clear();
+    }
     public void InitCosmeticItems(GameData theData)
     {
         unlockedCosmeticItems.Clear();
@@ -116,7 +143,7 @@ public class CosmeticManager : Manager
                 }
             }
         }
-        SpawnCosmetics(theData);
+
         
     }
 
@@ -136,9 +163,38 @@ public class CosmeticManager : Manager
     public void SpawnCosmetics(GameData theData)
     {
         for(int i = 0; i < purchasedCosmeticItems.Count; i++)
-        {
-            SpawnCosmetic(getCosmeticItemWithName(theData.purchasedCosmeticNames[i]), new Vector3(theData.purchasedCosmeticPosX[i], theData.purchasedCosmeticPosY[i], theData.purchasedCosmeticPosZ[i]));
-        }
+        {//check if vector.zero
+            if (theData.purchasedCosmeticPosX[i] == 0 && theData.purchasedCosmeticPosY[i] == 0 && theData.purchasedCosmeticPosZ[i] == 0)
+            {
+                cosmeticSpawn?.Invoke(getCosmeticItemWithName(theData.purchasedCosmeticNames[i]));
+                Debug.Log("spawn cos");
+            }
+            else
+            {
+                Debug.Log("spawnign from data");
+                SpawnCosmeticFromData(getCosmeticItemWithName(theData.purchasedCosmeticNames[i]), new Vector3(theData.purchasedCosmeticPosX[i], theData.purchasedCosmeticPosY[i], theData.purchasedCosmeticPosZ[i]));
+            }
+            }
+    }
+
+    public void SpawnCosmeticFromData(CosmeticItem item, Vector3 pos)
+    {
+        Debug.Log("Should spawn " + name + " at " + pos);
+        Vector2 spawn = pos; //MOVE THIS 
+        GameObject newCos = Instantiate(cosmeticPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
+        newCos.transform.parent = this.transform;
+
+        //Assign data
+        Cosmetic newCosData = newCos.GetComponent<Cosmetic>();
+        newCosData.setName(item.getItemName());
+        newCosData.setType(item.getCosmeticType());
+        newCosData.setTraitType(item.getTraitType());
+        newCosData.setSprite(item.getSprite());
+        
+        currentCosmeticItems.Add(newCos);
+       
+
+
     }
 
     public void SpawnCosmetic(CosmeticItem item, Vector3 pos)
@@ -154,7 +210,7 @@ public class CosmeticManager : Manager
         newCosData.setType(item.getCosmeticType());
         newCosData.setTraitType(item.getTraitType());
         newCosData.setSprite(item.getSprite());
-        
+
         currentCosmeticItems.Add(newCos);
         curCosmeticPos.Add(newCos.transform.position);
 
