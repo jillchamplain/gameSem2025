@@ -84,7 +84,7 @@ public class GameData
     public string[] purchasedPatternNames = new string[4];
 
     //Cosmetics
-    public string[] unlockedCosmeticNames = new string[10];
+    public string[] unlockedCosmeticNames = new string[13];
     public string[] purchasedCosmeticNames = new string[100];
     //public Vector3[] purchasedCosmeticPos = new Vector3[100];
     public float[] purchasedCosmeticPosX = new float[100];
@@ -182,7 +182,7 @@ public class GameData
             z1 = cow1.gameObject.transform.position.z;
             hat1 = cow1.getHat();
             top1 = cow1.getTop();
-            bot1 = cow1.getTop();
+            bot1 = cow1.getBot();
         }
 
         if (cow2 != null)

@@ -3423,11 +3423,33 @@ MonoBehaviour:
   cosmeticPrefab: {fileID: 8866190468867241476, guid: b8960a5c145ec0c49a6315fbf2db4511, type: 3}
   cosmeticItems:
   - {fileID: 11400000, guid: 6e26dec979aee3242a6129ed9af6c773, type: 2}
+  - {fileID: 11400000, guid: 77d511df015241049bd8809610b33051, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: c73870c0eeb8d3648adf04f20672a497, type: 2}
+  - {fileID: 11400000, guid: 5a954e62c9d74fd40b5b51267c2b3f16, type: 2}
+  - {fileID: 11400000, guid: 9f5d7b42a97a35d4685bc13f39508bda, type: 2}
+  - {fileID: 11400000, guid: 1d90cbcfa0700184e873919e3c74e09e, type: 2}
+  - {fileID: 11400000, guid: c844959906f4f40478d84166e781fa6e, type: 2}
+  - {fileID: 11400000, guid: f7092d5f9023a6e4586acb93ffe52618, type: 2}
+  - {fileID: 11400000, guid: 4de3874a1d178464391024828fe06120, type: 2}
+  - {fileID: 11400000, guid: ada1eedeeb8f90b4f99d851eec924d74, type: 2}
+  - {fileID: 11400000, guid: 6a762d562f60db24b9d1284653d30196, type: 2}
   - {fileID: 11400000, guid: e05dd5f507d7d284ba1399bafdff2b90, type: 2}
   currentCosmeticItems: []
   unlockedCosmeticItems:
   - {fileID: 11400000, guid: 6e26dec979aee3242a6129ed9af6c773, type: 2}
+  - {fileID: 11400000, guid: 77d511df015241049bd8809610b33051, type: 2}
   - {fileID: 11400000, guid: e05dd5f507d7d284ba1399bafdff2b90, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
+  - {fileID: 11400000, guid: 615b8a4f184adbb47945180c6cf953ee, type: 2}
   purchasedCosmeticItems: []
   curCosmeticPos: []
 --- !u!1 &454824158
@@ -8361,6 +8383,44 @@ MonoBehaviour:
   canvasGroup: {fileID: 1049201806}
   uiContainers:
   - {fileID: 1589018169}
+--- !u!114 &1049201808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77096731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 1
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 2147483647
+--- !u!223 &1049201809
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77096731}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1060003959
 GameObject:
   m_ObjectHideFlags: 0

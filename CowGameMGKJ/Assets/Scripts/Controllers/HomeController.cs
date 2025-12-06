@@ -65,7 +65,7 @@ public class HomeController : LogicController
         FoodManager.foodSpawn += OnFoodSpawned;
 
         MouseManager.mouseClick += OnMouseProcess;
-
+        //MouseManager.mouseDeselect += OnMouseDeselect;
 
         CosmeticManager.cosmeticSpawn += OnCosmeticSpawn;
        
@@ -87,6 +87,7 @@ public class HomeController : LogicController
         FoodManager.foodSpawn -= OnFoodSpawned;
 
         MouseManager.mouseClick -= OnMouseProcess;
+        //MouseManager.mouseDeselect -= OnMouseDeselect;
 
         CosmeticManager.cosmeticSpawn -= OnCosmeticSpawn;
 
@@ -260,10 +261,11 @@ public class HomeController : LogicController
             string coinText = "+" + coinAmount.ToString() + " coins!";
             particleManager.SpawnTextParticleAt("Power Increase", coinText, theCow.gameObject.transform.position);
             shopManager.addCoins(coinAmount);
+            
         }
         foodManager.DeleteFood(theFood.gameObject);
         homeUI.setUIGroup("Train", false);
-        UpdateUI();
+       
         homeUI.UICleanUp();
         SaveData();
         
@@ -335,7 +337,7 @@ public class HomeController : LogicController
         if (!getListening())
             return;
 
-        UpdateUI();
+        homeUI.UpdateCowUI(theCow.gameObject, cowManager.getCowIndex(theCow));
         homeUI.UICleanUp();
         //theCow.PlayAnimation(Cow.CowAnims.RETIRE); //Hook up so deleting waits for animationt to play
         SaveData();
@@ -404,6 +406,7 @@ public class HomeController : LogicController
     {
         if (!getListening())
             return;
+      
         playerMouse.setCurMouseState(MouseState.FREE);
         playerMouse.setIsHolding(false);
         StartCoroutine(playerMouse.HoldTimer());
@@ -472,6 +475,11 @@ public class HomeController : LogicController
 
             else
             {
+                if (playerMouse.getCurCow())
+                {
+                    playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+                    playerMouse.setCurCow(null);
+                }
                 playerMouse.setCurCow(theObject);
                 theObject.GetComponent<Cow>().setSelected(true);
                 if (theObject.GetComponent<Cow>().getIsMaxLevel())
@@ -487,6 +495,10 @@ public class HomeController : LogicController
                     homeUI.setUIGroup("Train", true);
                 }
             }
+        }
+        else
+        {
+            Debug.Log("selected " + theObject.name);
         }
     }
     private void OnMouseRightClick(GameObject theObject)
@@ -539,9 +551,14 @@ public class HomeController : LogicController
         //Click COW
         if (theObject.CompareTag("Cow"))
         {
+            List<GameObject> theCos = cosmeticManager.getCurrentCosmeticItems();
             if(playerMouse.getCurMouseState() == MouseState.HOLD)
             {
                 playerMouse.getCurCow().GetComponent<Cow>().PlayAnimation(CowAnims.HOLD);
+                for (int i = 0; i < theCos.Count; i++)
+                {
+                    Physics2D.IgnoreCollision(playerMouse.getCurCow().GetComponent<BoxCollider2D>(), theCos[i].GetComponent<BoxCollider2D>(), true);
+                }
             }
             //Disable Food Collision
            
@@ -589,6 +606,26 @@ public class HomeController : LogicController
             playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
             playerMouse.setCurCow(null);
             //homeUI.setUIGroup("Train", false);
+            homeUI.setUIGroup("Retire", false);
+        }
+    }
+
+    private void OnMouseDeselect()
+    {
+        if (playerMouse.getCurCosmetic())
+        {
+            playerMouse.setCurCosmetic(null);
+        }
+        if (playerMouse.getCurFood())
+        {
+            playerMouse.setCurFood(null);
+        }
+        if (playerMouse.getCurCow())
+        {
+            playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+            playerMouse.setCurCow(null);
+            homeUI.setUIGroup("Rename", false);
+            homeUI.setUIGroup("Train", false);
             homeUI.setUIGroup("Retire", false);
         }
     }

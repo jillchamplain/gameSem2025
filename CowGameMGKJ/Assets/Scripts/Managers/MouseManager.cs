@@ -34,6 +34,9 @@ public class MouseManager : Manager
 
     public delegate void MouseRelease();
     public static event MouseRelease mouseRelease;
+
+    public delegate void MouseDeselect();
+    public static event MouseDeselect mouseDeselect;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +86,10 @@ public class MouseManager : Manager
             //Debug.Log(hit.collider.gameObject);
             
             mouseClick?.Invoke(hit.collider.gameObject, type);                                 
+        }
+        else
+        {
+            mouseDeselect?.Invoke();
         }
     }
 
