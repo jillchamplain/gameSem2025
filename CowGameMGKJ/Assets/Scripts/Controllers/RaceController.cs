@@ -15,6 +15,7 @@ public class RaceController : LogicController
     [SerializeField] SpawnManager spawnManager;//Separate visuals eventually
     [SerializeField] ShopManager shopManager;
     [SerializeField] CosmeticManager cosmeticManager;
+    bool shouldEquipCows = false;
     private void Awake()
     {
         setGameState(GameState.RACE);
@@ -24,6 +25,15 @@ public class RaceController : LogicController
     {
         if (inst == null)
             inst = this;
+    }
+
+    private void Update()
+    {
+        if (shouldEquipCows)
+        {
+            shouldEquipCows = false;
+            EquipCows();
+        }
     }
 
     private void OnEnable()
@@ -78,7 +88,14 @@ public class RaceController : LogicController
         InitRaces();
         InitCoins();
         InitUI();
+        InitCosmetics();
         //Debug.Log("init home");
+        shouldEquipCows = true;
+    }
+
+    private void InitCosmetics()
+    {
+
     }
     private void InitCows()
     {
@@ -234,7 +251,7 @@ public class RaceController : LogicController
 
         }
     }
-
+  
     private void OnMouseRelease(GameObject theObject)
     {
         if (!getListening())
@@ -262,7 +279,6 @@ public class RaceController : LogicController
             raceUI.setUIGroup("Passive", false);
         }
     }
-
     private void OnMouseClick(GameObject theObject, ClickType type)
     {
         if (!getListening())
@@ -367,6 +383,20 @@ public class RaceController : LogicController
             raceUI.UpdatePopUpUI("You lost the race");
             raceUI.UICleanUp();
             SaveData();
+        }
+    }
+
+    private void EquipCows()
+    {
+        for (int i = 0; i < cowManager.getCows().Count; i++)
+        {
+            Cow theCow = cowManager.getCowAt(i);
+            if (theCow.GetComponent<Cow>().getHat() != null)
+                theCow.Equip(cosmeticManager.getCosmeticItemWithName(theCow.GetComponent<Cow>().getHat()));
+            if (theCow.GetComponent<Cow>().getTop() != null)
+                theCow.Equip(cosmeticManager.getCosmeticItemWithName(theCow.GetComponent<Cow>().getTop()));
+            if (theCow.GetComponent<Cow>().getBot() != null)
+                theCow.Equip(cosmeticManager.getCosmeticItemWithName(theCow.GetComponent<Cow>().getBot()));
         }
     }
 
