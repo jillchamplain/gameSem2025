@@ -236,12 +236,19 @@ public class HomeController : LogicController
     {
         if (!getListening())
             return;
+        Debug.Log("eating from " + theCow.gameObject);
 
-        playerMouse.setCurCow(theCow.gameObject); //Store cow
-
+        //Store cow
+        if (theFood.getEaten())
+        {
+            Debug.Log(theFood.gameObject.name + " has been eaten already");
+            return;
+        }
        
+        //Both eating
+        //Both events triggered
+        //Stay considered eating
 
-       
         string powerIncreaseText = "+ " + theFood.getPower();
 
         if(!(theCow.getPower() >= theCow.getMaxPower())) //If Below Max Power > Feed and Increase Power
@@ -263,12 +270,14 @@ public class HomeController : LogicController
             shopManager.addCoins(coinAmount);
             
         }
+        
         foodManager.DeleteFood(theFood.gameObject);
         homeUI.setUIGroup("Train", false);
        
         homeUI.UICleanUp();
         SaveData();
-        
+        theFood.setEaten(true);
+
     }
    public void OnCowTrain()
     {
@@ -498,7 +507,7 @@ public class HomeController : LogicController
         }
         else
         {
-            Debug.Log("selected " + theObject.name);
+            //Debug.Log("selected " + theObject.name);
         }
     }
     private void OnMouseRightClick(GameObject theObject)

@@ -16,4 +16,8 @@ public class Food : MonoBehaviour
     [Header("Refs")]
     [SerializeField] SpriteRenderer thisSprite;
     public void setSprite(Sprite theSprite) { thisSprite.sprite = theSprite; }
+
+     bool hasBeenEaten = false;
+    public bool getEaten() { return hasBeenEaten; }
+    public void setEaten(bool newEat) { hasBeenEaten = newEat; }
 }

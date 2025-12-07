@@ -282,6 +282,10 @@ public class Cow : MonoBehaviour
         bot = item.getItemName();
     }
 
+    bool isEating = false;
+    public bool getEating() { return isEating; }
+    public void setEating(bool newEat) { isEating = newEat; }
+
     //EVENTS
     public delegate void CowEat(Cow thisCow, Food thisFood);
     public static event CowEat cowEat;

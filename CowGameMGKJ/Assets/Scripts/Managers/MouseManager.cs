@@ -42,6 +42,7 @@ public class MouseManager : Manager
     {
         curFood = null;
         curCow = null;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame

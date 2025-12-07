@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639003974253375809
+      ticks: 639007372233485532
     m_Hash: 4101188584
   m_LockFileStatus:
     m_FilePath: C:/Users/jillian.chapin/Desktop/gameSem2025/CowGameMGKJ/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639003974253375809
+      ticks: 639007372233485532
     m_Hash: 1750747171
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -1031,6 +1031,7 @@ m_ResolvedPackages:
     - 5.0.1
     - 5.0.2
     - 5.0.3
+    - 5.0.4
     compatible:
     - 4.5.2
     - 4.6.0
@@ -1062,6 +1063,7 @@ m_ResolvedPackages:
     - 5.0.1
     - 5.0.2
     - 5.0.3
+    - 5.0.4
     verified: 4.5.2
   dependencies:
   - name: com.unity.ugui
@@ -4675,6 +4677,7 @@ m_ResolvedPackages:
     - 6.0.3
     - 6.1.0
     - 6.1.1
+    - 6.2.0
     compatible:
     - 4.2.0
     - 4.3.0
