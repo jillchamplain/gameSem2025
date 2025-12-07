@@ -2,26 +2,37 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ArcController
+    - Cosmetic
+    - CosmeticItem
+    - CosmeticManager
     - Cow
     - CowManager
-    - CowUI
     - CustomParticle
     - Food
+    - FoodItem
     - FoodManager
     - HomeController
+    - HomeUI
     - League
     - MouseManager
     - ParticleManager
+    - PatternItem
     - PersistentObjects
     - Race
     - RaceController
     - RaceManager
     - RaceUI
+    - RendererAsset
     - SceneLoader
+    - ShopController
+    - ShopManager
+    - ShopUI
     - SpawnManager
+    - SpriteAsset
     - TrainManager
     - UIContainer
     - UIEventController
+    - UIGroup
     - UIManager
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
@@ -29,6 +40,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    Unity.2D.Sprite.Editor.dll:
+    - UnityEditor.U2D.Sprites.SpriteEditorWindow
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -87,6 +100,7 @@ ScriptsOnlyBuild:
     - UnityEditor.ShaderGraph.SubGraphAsset
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -109,6 +123,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
@@ -123,10 +138,10 @@ ScriptsOnlyBuild:
     Assembly-CSharp:
     - ParticleManager/Particle
     - TrainManager/TrainRegimen
+    - UIContainer/ButtonElement
     - UIContainer/ImageElement
     - UIContainer/SliderElement
     - UIContainer/TextElement
-    - UIManager/UIGroup
     DOTween:
     - DG.Tweening.Core.DOTweenSettings/ModulesSetup
     - DG.Tweening.Core.DOTweenSettings/SafeModeOptions
@@ -148,6 +163,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_InputField/OnChangeEvent
+    - TMPro.TMP_InputField/SelectionEvent
+    - TMPro.TMP_InputField/SubmitEvent
+    - TMPro.TMP_InputField/TextSelectionEvent
+    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
@@ -179,14 +199,89 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
   - assembly: Assembly-CSharp
-    fullTypeName: HomeController
-    methodName: OnCowTrain
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
-    methodName: OnRacePromptButton
+    methodName: OnPurchasePatternButton
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
-    methodName: OnPopUpButton
+    methodName: OnPurchasePatternButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseFoodButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchasePatternButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchasePatternButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseFoodButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseFoodButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseFoodButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPurchaseCosmeticButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnCowNameYesButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnFoodTab
   - assembly: Assembly-CSharp
     fullTypeName: ArcController
     methodName: ManageState
@@ -195,10 +290,49 @@ ScriptsOnlyBuild:
     methodName: LoadScene
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
+    methodName: OnPatternsTab
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnRetireButton
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnSwitchLogic
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPopUpButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnCowNameNoButton
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnSwitchLogic
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
     methodName: OnRaceNoButton
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
+    methodName: OnCosmeticsTab
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
     methodName: OnSaveReset
+  - assembly: Assembly-CSharp
+    fullTypeName: HomeController
+    methodName: OnCowTrain
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnSwitchLogic
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnRacePromptButton
   - assembly: Assembly-CSharp
     fullTypeName: SceneLoader
     methodName: LoadScene
@@ -268,6 +402,18 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
     methodName: OnRacePromptButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnPopUpButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnCoinButton
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Assembly-CSharp
+    fullTypeName: UIEventController
+    methodName: OnSwitchLogic
   sceneClasses:
     Assets/Scenes/HomeScreen.unity:
     - Class: 1
@@ -317,135 +463,161 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2044}
     - Class: 114
-      Script: {instanceID: 2566}
+      Script: {instanceID: 2086}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2568}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 3276}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 3300}
+      Script: {instanceID: 3246}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3304}
     - Class: 114
-      Script: {instanceID: 3432}
+      Script: {instanceID: 3354}
     - Class: 114
-      Script: {instanceID: 3512}
+      Script: {instanceID: 3436}
     - Class: 114
-      Script: {instanceID: 3610}
+      Script: {instanceID: 3516}
     - Class: 114
-      Script: {instanceID: 3648}
+      Script: {instanceID: 3614}
     - Class: 114
-      Script: {instanceID: 3660}
+      Script: {instanceID: 3652}
     - Class: 114
-      Script: {instanceID: 4226}
+      Script: {instanceID: 3664}
     - Class: 114
-      Script: {instanceID: 4754}
+      Script: {instanceID: 4230}
     - Class: 114
-      Script: {instanceID: 5064}
+      Script: {instanceID: 4498}
     - Class: 114
-      Script: {instanceID: 5128}
+      Script: {instanceID: 4760}
     - Class: 114
-      Script: {instanceID: 5188}
+      Script: {instanceID: 4870}
     - Class: 114
-      Script: {instanceID: 5200}
+      Script: {instanceID: 5038}
     - Class: 114
-      Script: {instanceID: 5336}
+      Script: {instanceID: 5072}
     - Class: 114
-      Script: {instanceID: 5394}
+      Script: {instanceID: 5096}
     - Class: 114
-      Script: {instanceID: 5414}
+      Script: {instanceID: 5138}
     - Class: 114
-      Script: {instanceID: 5922}
+      Script: {instanceID: 5208}
     - Class: 114
-      Script: {instanceID: 5928}
+      Script: {instanceID: 5344}
     - Class: 114
-      Script: {instanceID: 5998}
+      Script: {instanceID: 5402}
     - Class: 114
-      Script: {instanceID: 6100}
+      Script: {instanceID: 5422}
     - Class: 114
-      Script: {instanceID: 6176}
+      Script: {instanceID: 5930}
     - Class: 114
-      Script: {instanceID: 6250}
+      Script: {instanceID: 5936}
     - Class: 114
-      Script: {instanceID: 6564}
+      Script: {instanceID: 6006}
     - Class: 114
-      Script: {instanceID: 7090}
+      Script: {instanceID: 6110}
     - Class: 114
-      Script: {instanceID: 7520}
+      Script: {instanceID: 6186}
     - Class: 114
-      Script: {instanceID: 7812}
+      Script: {instanceID: 6260}
     - Class: 114
-      Script: {instanceID: 8476}
+      Script: {instanceID: 6390}
     - Class: 114
-      Script: {instanceID: 8542}
+      Script: {instanceID: 6576}
     - Class: 114
-      Script: {instanceID: 8694}
+      Script: {instanceID: 6878}
     - Class: 114
-      Script: {instanceID: 8898}
+      Script: {instanceID: 7104}
     - Class: 114
-      Script: {instanceID: 9016}
+      Script: {instanceID: 7534}
     - Class: 114
-      Script: {instanceID: 9474}
+      Script: {instanceID: 7826}
     - Class: 114
-      Script: {instanceID: 9570}
+      Script: {instanceID: 7876}
     - Class: 114
-      Script: {instanceID: 9882}
+      Script: {instanceID: 8492}
     - Class: 114
-      Script: {instanceID: 10150}
+      Script: {instanceID: 8558}
     - Class: 114
-      Script: {instanceID: 10250}
+      Script: {instanceID: 8712}
     - Class: 114
-      Script: {instanceID: 10398}
+      Script: {instanceID: 8916}
     - Class: 114
-      Script: {instanceID: 10510}
+      Script: {instanceID: 9036}
     - Class: 114
-      Script: {instanceID: 10584}
+      Script: {instanceID: 9494}
     - Class: 114
-      Script: {instanceID: 11150}
+      Script: {instanceID: 9590}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 9604}
     - Class: 114
-      Script: {instanceID: 11194}
+      Script: {instanceID: 9906}
     - Class: 114
-      Script: {instanceID: 11214}
+      Script: {instanceID: 10176}
     - Class: 114
-      Script: {instanceID: 11246}
+      Script: {instanceID: 10276}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 10426}
     - Class: 114
-      Script: {instanceID: 11272}
+      Script: {instanceID: 10538}
     - Class: 114
-      Script: {instanceID: 11484}
+      Script: {instanceID: 10612}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11110}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11178}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11210}
     - Class: 114
-      Script: {instanceID: 12106}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 12250}
+      Script: {instanceID: 11242}
     - Class: 114
-      Script: {instanceID: 12332}
+      Script: {instanceID: 11274}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 11282}
     - Class: 114
-      Script: {instanceID: 12428}
+      Script: {instanceID: 11300}
     - Class: 114
-      Script: {instanceID: 12558}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 13000}
+      Script: {instanceID: 11514}
     - Class: 114
-      Script: {instanceID: 13084}
+      Script: {instanceID: 11540}
     - Class: 114
-      Script: {instanceID: 13328}
+      Script: {instanceID: 11796}
     - Class: 114
-      Script: {instanceID: 13824}
+      Script: {instanceID: 11898}
     - Class: 114
-      Script: {instanceID: 13932}
+      Script: {instanceID: 12136}
+    - Class: 114
+      Script: {instanceID: 12280}
+    - Class: 114
+      Script: {instanceID: 12362}
+    - Class: 114
+      Script: {instanceID: 12374}
+    - Class: 114
+      Script: {instanceID: 12458}
+    - Class: 114
+      Script: {instanceID: 12488}
+    - Class: 114
+      Script: {instanceID: 12590}
+    - Class: 114
+      Script: {instanceID: 13034}
+    - Class: 114
+      Script: {instanceID: 13118}
+    - Class: 114
+      Script: {instanceID: 13362}
+    - Class: 114
+      Script: {instanceID: 13588}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 13862}
+    - Class: 114
+      Script: {instanceID: 13970}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -453,6 +625,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 210
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -500,65 +674,75 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1822}
     - Class: 114
+      Script: {instanceID: 1918}
+    - Class: 114
       Script: {instanceID: 2044}
     - Class: 114
-      Script: {instanceID: 2682}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 3276}
+      Script: {instanceID: 3304}
     - Class: 114
-      Script: {instanceID: 3300}
+      Script: {instanceID: 3354}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3614}
     - Class: 114
-      Script: {instanceID: 3610}
+      Script: {instanceID: 3664}
     - Class: 114
-      Script: {instanceID: 3660}
+      Script: {instanceID: 4498}
     - Class: 114
-      Script: {instanceID: 4754}
+      Script: {instanceID: 4760}
     - Class: 114
-      Script: {instanceID: 5128}
+      Script: {instanceID: 5038}
     - Class: 114
-      Script: {instanceID: 5188}
+      Script: {instanceID: 5072}
     - Class: 114
-      Script: {instanceID: 5336}
+      Script: {instanceID: 5138}
     - Class: 114
-      Script: {instanceID: 5928}
+      Script: {instanceID: 5344}
     - Class: 114
-      Script: {instanceID: 6250}
+      Script: {instanceID: 5936}
     - Class: 114
-      Script: {instanceID: 7090}
+      Script: {instanceID: 6260}
     - Class: 114
-      Script: {instanceID: 7812}
+      Script: {instanceID: 7104}
     - Class: 114
-      Script: {instanceID: 8898}
+      Script: {instanceID: 7826}
     - Class: 114
-      Script: {instanceID: 9016}
+      Script: {instanceID: 8916}
     - Class: 114
-      Script: {instanceID: 9474}
+      Script: {instanceID: 9036}
     - Class: 114
-      Script: {instanceID: 10398}
+      Script: {instanceID: 9494}
     - Class: 114
-      Script: {instanceID: 11150}
+      Script: {instanceID: 10426}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 11178}
     - Class: 114
-      Script: {instanceID: 11194}
+      Script: {instanceID: 11210}
     - Class: 114
-      Script: {instanceID: 11246}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11254}
+      Script: {instanceID: 11274}
     - Class: 114
-      Script: {instanceID: 11272}
+      Script: {instanceID: 11300}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11540}
     - Class: 114
-      Script: {instanceID: 12332}
+      Script: {instanceID: 11898}
     - Class: 114
-      Script: {instanceID: 13084}
+      Script: {instanceID: 12362}
     - Class: 114
-      Script: {instanceID: 13932}
+      Script: {instanceID: 13118}
+    - Class: 114
+      Script: {instanceID: 13970}
+    - Class: 114
+      Script: {instanceID: 31520}
+    - Class: 114
+      Script: {instanceID: 81772}
+    - Class: 114
+      Script: {instanceID: 81774}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -566,6 +750,129 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 210
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 225
+      Script: {instanceID: 0}
+    Assets/Scenes/ShopTest.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1814}
+    - Class: 114
+      Script: {instanceID: 1818}
+    - Class: 114
+      Script: {instanceID: 1822}
+    - Class: 114
+      Script: {instanceID: 2044}
+    - Class: 114
+      Script: {instanceID: 2684}
+    - Class: 114
+      Script: {instanceID: 3304}
+    - Class: 114
+      Script: {instanceID: 3354}
+    - Class: 114
+      Script: {instanceID: 3614}
+    - Class: 114
+      Script: {instanceID: 3664}
+    - Class: 114
+      Script: {instanceID: 4760}
+    - Class: 114
+      Script: {instanceID: 4870}
+    - Class: 114
+      Script: {instanceID: 5038}
+    - Class: 114
+      Script: {instanceID: 5138}
+    - Class: 114
+      Script: {instanceID: 5344}
+    - Class: 114
+      Script: {instanceID: 5936}
+    - Class: 114
+      Script: {instanceID: 6260}
+    - Class: 114
+      Script: {instanceID: 7104}
+    - Class: 114
+      Script: {instanceID: 7826}
+    - Class: 114
+      Script: {instanceID: 8916}
+    - Class: 114
+      Script: {instanceID: 9036}
+    - Class: 114
+      Script: {instanceID: 9494}
+    - Class: 114
+      Script: {instanceID: 10426}
+    - Class: 114
+      Script: {instanceID: 11178}
+    - Class: 114
+      Script: {instanceID: 11210}
+    - Class: 114
+      Script: {instanceID: 11222}
+    - Class: 114
+      Script: {instanceID: 11274}
+    - Class: 114
+      Script: {instanceID: 11300}
+    - Class: 114
+      Script: {instanceID: 11384}
+    - Class: 114
+      Script: {instanceID: 11540}
+    - Class: 114
+      Script: {instanceID: 11898}
+    - Class: 114
+      Script: {instanceID: 12362}
+    - Class: 114
+      Script: {instanceID: 13118}
+    - Class: 114
+      Script: {instanceID: 13970}
+    - Class: 114
+      Script: {instanceID: 31520}
+    - Class: 114
+      Script: {instanceID: 81772}
+    - Class: 114
+      Script: {instanceID: 81774}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 210
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -624,7 +931,7 @@ ScriptsOnlyBuild:
     className: PanelRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 503c6bcd94182df581f4492d341943db
+      Hash: a5010e380ea7ce146bb12e39cad149a2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: League
@@ -658,6 +965,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIEventController
+  - hash:
+      serializedVersion: 2
+      Hash: 58e1b81f4c1c00278f689cceef068afd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Cosmetic
   - hash:
       serializedVersion: 2
       Hash: 8e13bb05c31d315b9db3d7ff2211c3a9
@@ -726,6 +1039,12 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
+      Hash: beaef7e36bc2043225c419caaad004e7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CosmeticItem
+  - hash:
+      serializedVersion: 2
       Hash: c822eec45bd7c5f6d7c8a2d82a6feb07
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -792,12 +1111,6 @@ ScriptsOnlyBuild:
     className: DOTweenSettings
   - hash:
       serializedVersion: 2
-      Hash: 5620c126de2fdb30359f01f423e3c3c2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: RaceUI
-  - hash:
-      serializedVersion: 2
       Hash: ca3c715b2b37e6685a9585341fed70f3
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
@@ -810,7 +1123,7 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: 6661a99bfeb400813cf8f2f1811964a1
+      Hash: b3b82649724b9d7adee449fde8b2f970
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -990,6 +1303,12 @@ ScriptsOnlyBuild:
     className: Bloom
   - hash:
       serializedVersion: 2
+      Hash: cc38d973a624111d3572ee2d7616825a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FoodItem
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1026,7 +1345,7 @@ ScriptsOnlyBuild:
     className: BufferManager
   - hash:
       serializedVersion: 2
-      Hash: da958e092a926ed86b3a5519cfc566e9
+      Hash: 63a0b908b78622bf66f7c219afa9e0c0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CowManager
@@ -1062,7 +1381,13 @@ ScriptsOnlyBuild:
     className: TransitionArmModel
   - hash:
       serializedVersion: 2
-      Hash: 489d8772665ed766df4f1b241e6ded73
+      Hash: 0ba72e69f10daa958b66adfef376b287
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopController
+  - hash:
+      serializedVersion: 2
+      Hash: 3ba957794e3d52b2f67e93c15cd30dfc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Race
@@ -1072,6 +1397,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Tilemap.Extras.dll
     namespaceName: UnityEngine.Tilemaps
     className: GridInformation
+  - hash:
+      serializedVersion: 2
+      Hash: 05ec20f1a26f4dde3c2db2db459a2011
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HomeUI
   - hash:
       serializedVersion: 2
       Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
@@ -1086,19 +1417,13 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionEnter2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 5620c126de2fdb30359f01f423e3c3c2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CowUI
-  - hash:
-      serializedVersion: 2
       Hash: 5e1eefcd5106de6c2e85908a3b2d3f04
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerIndirectToggle
   - hash:
       serializedVersion: 2
-      Hash: cb37f61fc128b8b51a6ae1195a1b452d
+      Hash: feba57c7676a96a1d0fdc6a72294ab1a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MouseManager
@@ -1188,6 +1513,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIntField
   - hash:
       serializedVersion: 2
+      Hash: 031e37fec256fdf099bd5cac1f3397aa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopItem
+  - hash:
+      serializedVersion: 2
       Hash: 91bbe67c3e33d61ae760936f043db32a
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1206,7 +1537,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerBitField
   - hash:
       serializedVersion: 2
-      Hash: caaec6f589396eb3af5dbbb6c86492cf
+      Hash: 3f779ae30147ba32d1f9a59c1acbd56f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HomeController
@@ -1234,6 +1565,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: UnityEngine.U2D
     className: SpriteShapeController
+  - hash:
+      serializedVersion: 2
+      Hash: 6234a46ea2453ede57113bcf32b1d61a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIGroup
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1282,6 +1619,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: PositionAsUV1
+  - hash:
+      serializedVersion: 2
+      Hash: 568ebe0cea1b852e2a01e4898f79be43
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CosmeticManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1438,6 +1781,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnToggleValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 05ec20f1a26f4dde3c2db2db459a2011
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RaceUI
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1614,7 +1963,7 @@ ScriptsOnlyBuild:
     className: RuleOverrideTile
   - hash:
       serializedVersion: 2
-      Hash: 5620c126de2fdb30359f01f423e3c3c2
+      Hash: 7d329c81ef7d18743bfe2a1a5e5bef1b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIContainer
@@ -1684,6 +2033,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: c346c1881694ee7e26f4d4eabeb63f6c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopManager
   - hash:
       serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
@@ -1896,7 +2251,7 @@ ScriptsOnlyBuild:
     className: Light2D
   - hash:
       serializedVersion: 2
-      Hash: e3daeba98a98de12a6ca79505337ffb4
+      Hash: 36e7b2e8c4cfe8083d4984bdc268c849
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RaceController
@@ -1926,7 +2281,7 @@ ScriptsOnlyBuild:
     className: SceneLoader
   - hash:
       serializedVersion: 2
-      Hash: 53f425eb4e296a4a0579c3e46ccce31e
+      Hash: 68367535e0e505d068137833fc84e75b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Food
@@ -1942,6 +2297,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: ChannelMixer
+  - hash:
+      serializedVersion: 2
+      Hash: b0ab893eded6963be4ca76ea961668df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RendererAsset
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -2058,6 +2419,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerCanvas
   - hash:
       serializedVersion: 2
+      Hash: d71486e90f87e6ab9efbe04180a55a9a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopUI
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -2124,6 +2491,12 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
+      Hash: 2c526d5139da0663a98874a30d269e46
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIController
+  - hash:
+      serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -2154,7 +2527,7 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
-      Hash: 9acb9edce289df5dfdb210974b448aa9
+      Hash: 28524020663209992626934bf6e7ccaf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Cow
@@ -2208,6 +2581,18 @@ ScriptsOnlyBuild:
     className: SpriteLibraryAsset
   - hash:
       serializedVersion: 2
+      Hash: 97763b87eb7ab98325ab55eeaeb03d3f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpriteAsset
+  - hash:
+      serializedVersion: 2
+      Hash: ad1a5a392cc940f6173c0422953303d6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PatternItem
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -2220,7 +2605,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerFoldout
   - hash:
       serializedVersion: 2
-      Hash: d65ffd74a0844f421acdc1fd388f4392
+      Hash: c88bb32e91805d111ca66a3b4c10f51a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FoodManager
@@ -2234,4 +2619,5 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/HomeScreen.unity
   - Assets/Scenes/RaceScreen.unity
+  - Assets/Scenes/ShopTest.unity
   playerPath: C:/Users/jillian.chapin/Desktop/GameSemBuilds/CowGameMGKJ.exe
