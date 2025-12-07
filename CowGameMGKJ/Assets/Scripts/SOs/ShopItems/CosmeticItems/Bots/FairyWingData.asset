@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fairy Wing
   type: 2
-  sprite: {fileID: 21300000, guid: 9baae5e874c83cb4ea1eaeb7b707a914, type: 3}
+  sprite: {fileID: 21300000, guid: 0aa0ae997e70c3d49bec9b8f31673171, type: 3}
   cost: 100
   cosmeticType: 3
-  traitType: 4
+  traitType: 0

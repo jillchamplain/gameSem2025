@@ -123,7 +123,7 @@ public class ShopController : LogicController
                 }
                 break;
             case ShopType.COSMETIC:
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 18; i++)
                 {
                     shopUI.UpdateItemsUI(shopUI.getCurShopType(), shopManager.getCosmeticItemAt(i), i);
                 }

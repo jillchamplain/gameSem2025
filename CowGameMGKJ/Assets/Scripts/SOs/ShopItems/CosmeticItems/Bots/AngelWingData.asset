@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Angel Wing
   type: 2
-  sprite: {fileID: 21300000, guid: 55e88c6104f370240a20d751909204db, type: 3}
+  sprite: {fileID: 21300000, guid: 42be26ac1d1b5c3498acb108bee67c60, type: 3}
   cost: 100
   cosmeticType: 3
   traitType: 5

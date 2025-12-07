@@ -84,7 +84,7 @@ public class GameData
     public string[] purchasedPatternNames = new string[4];
 
     //Cosmetics
-    public string[] unlockedCosmeticNames = new string[13];
+    public string[] unlockedCosmeticNames = new string[18];
     public string[] purchasedCosmeticNames = new string[100];
     //public Vector3[] purchasedCosmeticPos = new Vector3[100];
     public float[] purchasedCosmeticPosX = new float[100];
