@@ -73,7 +73,7 @@ public class RaceManager : Manager
     {
         RaceReward theReward = curRace.getRewardType();
         int tempPower = theCow.getPower();
-
+        
         //Checking if traits are shared at all
         //If trait is shared increase cowPower by 5%
         for(int i = 0; i < theCow.getTraits().Count; i++)

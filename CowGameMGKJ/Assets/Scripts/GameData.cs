@@ -295,6 +295,117 @@ public class GameData
 
     }
 
+    public GameData(CowManager cowManager, ShopManager shopManager, RaceManager raceManager, CosmeticManager cosmeticManager)
+    {
+        curGeneration = cowManager.curGeneration;
+        Cow cow1 = cowManager.getCowAt(0);
+        Cow cow2 = cowManager.getCowAt(1);
+        Cow cow3 = cowManager.getCowAt(2);
+
+        if (cow1 != null)
+        {
+            name1 = cow1.getName();
+            gen1 = cow1.getGen();
+            level1 = cow1.getLevel();
+            mLevel1 = cow1.getMaxLevel();
+            power1 = cow1.getPower();
+            mPower1 = cow1.getMaxPower();
+            traitA1 = (int)cow1.getTraitAt(0);
+            traitB1 = (int)cow1.getTraitAt(1);
+            traitC1 = (int)cow1.getTraitAt(2);
+            pattern1 = (int)cow1.getPattern();
+            isMax1 = cow1.getIsMaxLevel();
+            x1 = cow1.gameObject.transform.position.x;
+            y1 = cow1.gameObject.transform.position.y;
+            z1 = cow1.gameObject.transform.position.z;
+            hat1 = cow1.getHat();
+            top1 = cow1.getTop();
+            bot1 = cow1.getBot();
+        }
+
+        if (cow2 != null)
+        {
+            name2 = cow2.getName();
+            gen2 = cow2.getGen();
+            level2 = cow2.getLevel();
+            mLevel2 = cow2.getMaxLevel();
+            power2 = cow2.getPower();
+            mPower2 = cow2.getMaxPower();
+            traitA2 = (int)cow2.getTraitAt(0);
+            traitB2 = (int)cow2.getTraitAt(1);
+            traitC2 = (int)cow2.getTraitAt(2);
+            pattern2 = (int)cow2.getPattern();
+            isMax2 = cow2.getIsMaxLevel();
+            x2 = cow2.gameObject.transform.position.x;
+            y2 = cow2.gameObject.transform.position.y;
+            z2 = cow2.gameObject.transform.position.z;
+            hat2 = cow2.getHat();
+            top2 = cow2.getTop();
+            bot2 = cow2.getBot();
+        }
+
+        if (cow3 != null)
+        {
+            name3 = cow3.getName();
+            gen3 = cow3.getGen();
+            level3 = cow3.getLevel();
+            mLevel3 = cow3.getMaxLevel();
+            power3 = cow3.getPower();
+            mPower3 = cow3.getMaxPower();
+            traitA3 = (int)cow3.getTraitAt(0);
+            traitB3 = (int)cow3.getTraitAt(1);
+            traitC3 = (int)cow3.getTraitAt(2);
+            pattern3 = (int)cow3.getPattern();
+            isMax3 = cow3.getIsMaxLevel();
+            x3 = cow3.gameObject.transform.position.x;
+            y3 = cow3.gameObject.transform.position.y;
+            z3 = cow3.gameObject.transform.position.z;
+            hat3 = cow3.getHat();
+            top3 = cow3.getTop();
+            bot3 = cow3.getBot();
+        }
+
+
+
+        //Types of patterns to purchase in store
+        for (int i = 0; i < cowManager.getUnlockedPatternData().Count; i++)
+        {
+            unlockedPatternNames[i] = cowManager.getUnlockedPatternDataAt(i).getItemName();
+        }
+        //Types of pattern can spawn
+        for (int i = 0; i < cowManager.getPurchasedPatternData().Count; i++)
+        {
+            purchasedPatternNames[i] = cowManager.getPurchasedPatternDataAt(i).getItemName();
+        }
+
+
+        //Types of cosmetics to purchase in store
+        for (int i = 0; i < cosmeticManager.getUnlockedCosmeticItems().Count(); i++)
+        {
+            unlockedCosmeticNames[i] = cosmeticManager.getUnlockedCosmeticAt(i).getItemName();
+        }
+
+        //Types of cosmetics to spawn 
+        for (int i = 0; i < cosmeticManager.getPurchasedCosmeticItems().Count(); i++)
+        {
+            purchasedCosmeticNames[i] = cosmeticManager.getPurchasedCosmeticAt(i).getItemName();
+        }
+
+        for (int i = 0; i < cosmeticManager.getCurrentCosmeticItems().Count(); i++)
+        {
+            //purchasedCosmeticPos[i] = cosmeticManager.getCurrentCosmeticItemAt(i).transform.position;
+            purchasedCosmeticPosX[i] = cosmeticManager.getCurCosmeticPosAt(i).x;
+            purchasedCosmeticPosY[i] = cosmeticManager.getCurCosmeticPosAt(i).y;
+            purchasedCosmeticPosZ[i] = cosmeticManager.getCurCosmeticPosAt(i).z;
+        }
+
+
+        curRaceID = raceManager.getCurRaceIndex();
+        curLeagueID = raceManager.getCurLeagueIndex();
+
+        numCoins = shopManager.getCoins();
+    }
+
     public GameData(FoodManager foodManager, ShopManager shopManager, RaceManager raceManager)
     {
         for (int i = foodManager.getUnlockedFoodData().Count; i < unlockedFoodNames.Length; i++)

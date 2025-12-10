@@ -16,4 +16,4 @@ MonoBehaviour:
   type: 0
   sprite: {fileID: 21300000, guid: 09c762fa1085de84ba77bbc83fe5b2e9, type: 3}
   cost: 0
-  power: 200
+  power: 100

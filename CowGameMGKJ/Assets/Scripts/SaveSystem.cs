@@ -41,6 +41,18 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void SaveGameData(CowManager cowM, ShopManager shopM, RaceManager raceM, CosmeticManager cosmeticM)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/gameSaveData";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        GameData data = new GameData(cowM, shopM, raceM, cosmeticM);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
 
     public static GameData LoadGameData()
     {

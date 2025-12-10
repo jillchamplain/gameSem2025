@@ -184,6 +184,11 @@ public class FoodManager : Manager
                     curFoodData.Add(food);
                 }
             }
+            for(int i = 0; i < theData.currentFoodPosX.Length; i++)
+            {
+               // if (!(theData.currentFoodPosX[i] == 0 && theData.currentFoodPosY[i] == 0 && theData.currentFoodPosZ[]))
+                //curFoodPos.Add(new Vector3(theData.currentFoodPosX[i], theData.currentFoodPosY[i], theData.currentFoodPosZ[i]));
+            }
         }
 
         //BEHAVIOR FOR RESPAWNING FOOD THAT WAS LEFT

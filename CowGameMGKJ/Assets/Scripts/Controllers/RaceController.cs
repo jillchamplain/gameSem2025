@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Cow;
 
 public class RaceController : LogicController
@@ -448,6 +449,7 @@ public class RaceController : LogicController
 
     private void OnClearLeagueAll()
     {
-        Debug.Log("Won all leagues");
+        SceneManager.LoadScene("EndScreen");
     }
+    
 }

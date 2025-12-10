@@ -108,8 +108,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -198,6 +200,42 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
     - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: SceneLoader
+    methodName: LoadScene
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
+    methodName: OnDecrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
+    methodName: OnIncrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
+    methodName: OnIncrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
+    methodName: OnDecrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
+    methodName: OnScrollbarClicked
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
+    methodName: OnScrollbarClicked
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
+    methodName: OnIncrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
+    methodName: OnDecrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
+    methodName: OnDecrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
+    methodName: OnIncrement
+  - assembly: Unity.RenderPipelines.Core.Runtime
+    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
+    methodName: ResetDebugManager
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
     methodName: OnPurchaseCosmeticButton
@@ -342,39 +380,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
     methodName: OnRaceButton
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
-    methodName: OnDecrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
-    methodName: OnIncrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
-    methodName: OnIncrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerUIntField
-    methodName: OnDecrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
-    methodName: OnScrollbarClicked
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
-    methodName: OnScrollbarClicked
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnIncrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnDecrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnDecrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerIntField
-    methodName: OnIncrement
-  - assembly: Unity.RenderPipelines.Core.Runtime
-    fullTypeName: UnityEngine.Rendering.UI.DebugUIHandlerPanel
-    methodName: ResetDebugManager
   - assembly: Assembly-CSharp
     fullTypeName: UIEventController
     methodName: OnSwitchLogic
@@ -428,8 +433,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 50
       Script: {instanceID: 0}
     - Class: 61
@@ -447,47 +450,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1814}
     - Class: 114
-      Script: {instanceID: 1816}
-    - Class: 114
       Script: {instanceID: 1818}
-    - Class: 114
-      Script: {instanceID: 1820}
     - Class: 114
       Script: {instanceID: 1822}
     - Class: 114
-      Script: {instanceID: 1828}
-    - Class: 114
       Script: {instanceID: 1918}
-    - Class: 114
-      Script: {instanceID: 1982}
     - Class: 114
       Script: {instanceID: 2044}
     - Class: 114
       Script: {instanceID: 2086}
     - Class: 114
-      Script: {instanceID: 2568}
-    - Class: 114
       Script: {instanceID: 2684}
     - Class: 114
       Script: {instanceID: 2806}
-    - Class: 114
-      Script: {instanceID: 3246}
     - Class: 114
       Script: {instanceID: 3304}
     - Class: 114
       Script: {instanceID: 3354}
     - Class: 114
-      Script: {instanceID: 3436}
-    - Class: 114
-      Script: {instanceID: 3516}
-    - Class: 114
       Script: {instanceID: 3614}
     - Class: 114
-      Script: {instanceID: 3652}
-    - Class: 114
       Script: {instanceID: 3664}
-    - Class: 114
-      Script: {instanceID: 4230}
     - Class: 114
       Script: {instanceID: 4498}
     - Class: 114
@@ -503,45 +486,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5138}
     - Class: 114
-      Script: {instanceID: 5208}
-    - Class: 114
       Script: {instanceID: 5344}
     - Class: 114
-      Script: {instanceID: 5402}
-    - Class: 114
-      Script: {instanceID: 5422}
-    - Class: 114
-      Script: {instanceID: 5930}
-    - Class: 114
       Script: {instanceID: 5936}
-    - Class: 114
-      Script: {instanceID: 6006}
-    - Class: 114
-      Script: {instanceID: 6110}
-    - Class: 114
-      Script: {instanceID: 6186}
     - Class: 114
       Script: {instanceID: 6260}
     - Class: 114
       Script: {instanceID: 6390}
     - Class: 114
-      Script: {instanceID: 6576}
-    - Class: 114
       Script: {instanceID: 6878}
     - Class: 114
       Script: {instanceID: 7104}
     - Class: 114
-      Script: {instanceID: 7534}
-    - Class: 114
       Script: {instanceID: 7826}
     - Class: 114
       Script: {instanceID: 7876}
-    - Class: 114
-      Script: {instanceID: 8492}
-    - Class: 114
-      Script: {instanceID: 8558}
-    - Class: 114
-      Script: {instanceID: 8712}
     - Class: 114
       Script: {instanceID: 8916}
     - Class: 114
@@ -549,21 +508,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9494}
     - Class: 114
-      Script: {instanceID: 9590}
-    - Class: 114
       Script: {instanceID: 9604}
     - Class: 114
-      Script: {instanceID: 9906}
-    - Class: 114
-      Script: {instanceID: 10176}
-    - Class: 114
-      Script: {instanceID: 10276}
-    - Class: 114
       Script: {instanceID: 10426}
-    - Class: 114
-      Script: {instanceID: 10538}
-    - Class: 114
-      Script: {instanceID: 10612}
     - Class: 114
       Script: {instanceID: 11110}
     - Class: 114
@@ -573,8 +520,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11242}
-    - Class: 114
       Script: {instanceID: 11274}
     - Class: 114
       Script: {instanceID: 11282}
@@ -583,39 +528,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 11514}
-    - Class: 114
       Script: {instanceID: 11540}
-    - Class: 114
-      Script: {instanceID: 11796}
     - Class: 114
       Script: {instanceID: 11898}
     - Class: 114
-      Script: {instanceID: 12136}
-    - Class: 114
-      Script: {instanceID: 12280}
-    - Class: 114
       Script: {instanceID: 12362}
-    - Class: 114
-      Script: {instanceID: 12374}
-    - Class: 114
-      Script: {instanceID: 12458}
     - Class: 114
       Script: {instanceID: 12488}
     - Class: 114
-      Script: {instanceID: 12590}
-    - Class: 114
-      Script: {instanceID: 13034}
-    - Class: 114
       Script: {instanceID: 13118}
-    - Class: 114
-      Script: {instanceID: 13362}
     - Class: 114
       Script: {instanceID: 13588}
     - Class: 114
       Script: {instanceID: 13626}
-    - Class: 114
-      Script: {instanceID: 13862}
     - Class: 114
       Script: {instanceID: 13970}
     - Class: 115
@@ -736,13 +661,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13118}
     - Class: 114
+      Script: {instanceID: 13588}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
       Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 31520}
+      Script: {instanceID: 31534}
     - Class: 114
-      Script: {instanceID: 81772}
+      Script: {instanceID: 41122}
     - Class: 114
-      Script: {instanceID: 81774}
+      Script: {instanceID: 41138}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -859,11 +788,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 31520}
+      Script: {instanceID: 31534}
     - Class: 114
-      Script: {instanceID: 81772}
+      Script: {instanceID: 41122}
     - Class: 114
-      Script: {instanceID: 81774}
+      Script: {instanceID: 41138}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -885,6 +814,143 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 225
+      Script: {instanceID: 0}
+    Assets/Scenes/TitleScreen.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1814}
+    - Class: 114
+      Script: {instanceID: 1816}
+    - Class: 114
+      Script: {instanceID: 1818}
+    - Class: 114
+      Script: {instanceID: 1820}
+    - Class: 114
+      Script: {instanceID: 1822}
+    - Class: 114
+      Script: {instanceID: 1828}
+    - Class: 114
+      Script: {instanceID: 1982}
+    - Class: 114
+      Script: {instanceID: 2568}
+    - Class: 114
+      Script: {instanceID: 3246}
+    - Class: 114
+      Script: {instanceID: 3304}
+    - Class: 114
+      Script: {instanceID: 3436}
+    - Class: 114
+      Script: {instanceID: 3516}
+    - Class: 114
+      Script: {instanceID: 3652}
+    - Class: 114
+      Script: {instanceID: 4230}
+    - Class: 114
+      Script: {instanceID: 5138}
+    - Class: 114
+      Script: {instanceID: 5208}
+    - Class: 114
+      Script: {instanceID: 5402}
+    - Class: 114
+      Script: {instanceID: 5422}
+    - Class: 114
+      Script: {instanceID: 5930}
+    - Class: 114
+      Script: {instanceID: 5936}
+    - Class: 114
+      Script: {instanceID: 6006}
+    - Class: 114
+      Script: {instanceID: 6110}
+    - Class: 114
+      Script: {instanceID: 6186}
+    - Class: 114
+      Script: {instanceID: 6576}
+    - Class: 114
+      Script: {instanceID: 7534}
+    - Class: 114
+      Script: {instanceID: 8492}
+    - Class: 114
+      Script: {instanceID: 8558}
+    - Class: 114
+      Script: {instanceID: 8712}
+    - Class: 114
+      Script: {instanceID: 8916}
+    - Class: 114
+      Script: {instanceID: 9494}
+    - Class: 114
+      Script: {instanceID: 9590}
+    - Class: 114
+      Script: {instanceID: 9906}
+    - Class: 114
+      Script: {instanceID: 10176}
+    - Class: 114
+      Script: {instanceID: 10276}
+    - Class: 114
+      Script: {instanceID: 10538}
+    - Class: 114
+      Script: {instanceID: 10612}
+    - Class: 114
+      Script: {instanceID: 11242}
+    - Class: 114
+      Script: {instanceID: 11274}
+    - Class: 114
+      Script: {instanceID: 11300}
+    - Class: 114
+      Script: {instanceID: 11514}
+    - Class: 114
+      Script: {instanceID: 11796}
+    - Class: 114
+      Script: {instanceID: 11898}
+    - Class: 114
+      Script: {instanceID: 12136}
+    - Class: 114
+      Script: {instanceID: 12280}
+    - Class: 114
+      Script: {instanceID: 12362}
+    - Class: 114
+      Script: {instanceID: 12374}
+    - Class: 114
+      Script: {instanceID: 12458}
+    - Class: 114
+      Script: {instanceID: 12590}
+    - Class: 114
+      Script: {instanceID: 13034}
+    - Class: 114
+      Script: {instanceID: 13362}
+    - Class: 114
+      Script: {instanceID: 13862}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -2617,6 +2683,7 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
+  - Assets/Scenes/TitleScreen.unity
   - Assets/Scenes/HomeScreen.unity
   - Assets/Scenes/RaceScreen.unity
   - Assets/Scenes/ShopTest.unity

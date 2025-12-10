@@ -15070,7 +15070,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1573345437
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18759,7 +18759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1924973872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21802,6 +21802,10 @@ PrefabInstance:
       value: Race Manager
       objectReference: {fileID: 0}
     - target: {fileID: 4682166027178904323, guid: 49638aaeb617f0e4dbcfb5b5ee3db084, type: 3}
+      propertyPath: allLeagues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4682166027178904323, guid: 49638aaeb617f0e4dbcfb5b5ee3db084, type: 3}
       propertyPath: allLeagues.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 8ed911f59dce62a49bc7aea99c625a7e, type: 2}
@@ -22322,7 +22326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: randomCowNames.Array.size
-      value: 5
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: allPatternData.Array.data[0]
@@ -22359,6 +22363,86 @@ PrefabInstance:
     - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: randomCowNames.Array.data[4]
       value: Moo
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[5]
+      value: Betsy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[6]
+      value: Fredrick
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[7]
+      value: Emma
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[8]
+      value: Eric
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[9]
+      value: Caroline
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[10]
+      value: Claudia
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[11]
+      value: Jill
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[12]
+      value: Hoover
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[13]
+      value: Malt
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[14]
+      value: Walter
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[15]
+      value: Walter Jr
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[16]
+      value: Skylar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[17]
+      value: Adam
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[18]
+      value: Luke
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[19]
+      value: Jon
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[20]
+      value: Maxwell
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[21]
+      value: Konrad
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[22]
+      value: O' Neil
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[23]
+      value: Matthew
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
+      propertyPath: randomCowNames.Array.data[24]
+      value: Matthew
       objectReference: {fileID: 0}
     - target: {fileID: 9174267185471255581, guid: 709b7188b0b8a1347a7ad87d06cd67c2, type: 3}
       propertyPath: unlockedPatternData.Array.size
