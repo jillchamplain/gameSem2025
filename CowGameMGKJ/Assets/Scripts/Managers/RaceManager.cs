@@ -71,17 +71,21 @@ public class RaceManager : Manager
 
     public RaceReward RaceCow(Cow theCow)
     {
+        RaceReward theReward = curRace.getRewardType();
         int tempPower = theCow.getPower();
 
         //Checking if traits are shared at all
         //If trait is shared increase cowPower by 5%
         for(int i = 0; i < theCow.getTraits().Count; i++)
         {
-            if(theCow.getTraitAt(i) == curRace.getTraitAt(i))
+            for(int j = 0; j < 3; j++)
             {
-                //Debug.Log("Shared trait! " + theCow.getTraitAt(i));
-                tempPower = (int)(tempPower * 2.3f);
-                //Debug.Log("Increasing power to " + tempPower);
+                if (theCow.getTraitAt(i) == curRace.getTraitAt(j))
+                {
+                    //Debug.Log("Shared trait! " + theCow.getTraitAt(i));
+                    tempPower = (int)(tempPower * 1.3f);
+                    Debug.Log("Increasing power to " + tempPower);
+                }
             }
         }
 
@@ -140,7 +144,7 @@ public class RaceManager : Manager
                 leagueClear?.Invoke(curLeague.getRewardType());
                 
             }
-            return curRace.getRewardType();
+            return theReward;
         }
     }
 }
