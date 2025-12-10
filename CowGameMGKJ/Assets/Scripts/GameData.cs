@@ -416,8 +416,26 @@ public class GameData
         }
 
         unlockedCosmeticNames[0] = "Party Hat";
+        unlockedCosmeticNames[1] = "Bowtie";
+        unlockedCosmeticNames[2] = "Angel Wing";
+        unlockedCosmeticNames[3] = "Sunglasses";
+        unlockedCosmeticNames[4] = "Chain";
+        unlockedCosmeticNames[5] = "Devil Wing";
+        unlockedCosmeticNames[6] = "Fedora";
+        unlockedCosmeticNames[7] = "Locket";
+        unlockedCosmeticNames[8] = "Fairy Wing";
+        unlockedCosmeticNames[9] = "Cowboy Hat";
+        unlockedCosmeticNames[10] = "Pearl Necklace";
+        unlockedCosmeticNames[11] = "Belt";
+        unlockedCosmeticNames[12] = "Chef Hat";
+        unlockedCosmeticNames[13] = "Snake Boa";
+        unlockedCosmeticNames[14] = "Shorts";
+        unlockedCosmeticNames[15] = "Bow";
+        unlockedCosmeticNames[16] = "Tie";
+        unlockedCosmeticNames[17] = "Tutu";
 
-        for(int i = 0; i < purchasedCosmeticNames.Length; i++)
+
+        for (int i = 0; i < purchasedCosmeticNames.Length; i++)
         {
             purchasedCosmeticNames[i] = "NULL";
         }

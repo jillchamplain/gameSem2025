@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static Cow;
 
 public class RaceController : LogicController
 {
@@ -174,16 +175,19 @@ public class RaceController : LogicController
         }
 
     }
-
     private void OnMouseLeftClick(GameObject theObject)
     {
         if (!getListening())
             return;
+
         playerMouse.setCurMouseState(MouseState.FREE);
         playerMouse.setIsHolding(false);
         StartCoroutine(playerMouse.HoldTimer());
         playerMouse.setIsHolding(true);
+        //Click FOOD
        
+
+      
 
         //Click COW
         if (theObject.CompareTag("Cow"))
@@ -194,18 +198,26 @@ public class RaceController : LogicController
                 playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
                 playerMouse.setCurCow(null);
                 raceUI.setUIGroup("Passive", false);
-               
+
             }
 
             else
             {
+                if (playerMouse.getCurCow())
+                {
+                    playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
+                    playerMouse.setCurCow(null);
+                }
                 playerMouse.setCurCow(theObject);
                 theObject.GetComponent<Cow>().setSelected(true);
                 raceUI.setUIGroup("Passive", true);
             }
         }
+        else
+        {
+            //Debug.Log("selected " + theObject.name);
+        }
     }
-
     private void OnMouseRightClick(GameObject theObject)
     {
         if (!getListening())
@@ -222,36 +234,33 @@ public class RaceController : LogicController
             }
             playerMouse.setCurCow(theObject);
             theObject.GetComponent<Cow>().setSelected(true);
-            raceUI.setUIGroup("Passive", true);
         }
     }
-
     private void OnMouseHold(GameObject theObject)
     {
         if (!getListening())
             return;
 
-        Debug.Log("Holding");
+        //Debug.Log("Holding");
 
-        //Click FOOD
-        if (theObject.CompareTag("Food"))
-        {
-            //Disable Food Collision
-            List<GameObject> theCows = cowManager.getCows();
-            for (int i = 0; i < theCows.Count; i++)
-            {
-                Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), true);
-            }
-        }
+       
 
         //Click COW
         if (theObject.CompareTag("Cow"))
         {
+            List<GameObject> theCos = cosmeticManager.getCurrentCosmeticItems();
+            if (playerMouse.getCurMouseState() == MouseState.HOLD)
+            {
+                playerMouse.getCurCow().GetComponent<Cow>().PlayAnimation(CowAnims.HOLD);
+                for (int i = 0; i < theCos.Count; i++)
+                {
+                    Physics2D.IgnoreCollision(playerMouse.getCurCow().GetComponent<BoxCollider2D>(), theCos[i].GetComponent<BoxCollider2D>(), true);
+                }
+            }
             //Disable Food Collision
 
         }
     }
-  
     private void OnMouseRelease(GameObject theObject)
     {
         if (!getListening())
@@ -259,6 +268,19 @@ public class RaceController : LogicController
 
         playerMouse.setIsHolding(false);
         playerMouse.setCurMouseState(MouseState.FREE);
+
+        //Release FOOD
+        if (playerMouse.getCurCosmetic())
+        {
+            List<GameObject> theCows = cowManager.getCows();
+            for (int i = 0; i < theCows.Count; i++)
+            {
+                Physics2D.IgnoreCollision(playerMouse.getCurCosmetic().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
+            }
+            playerMouse.setCurCosmetic(null);
+            SaveData();
+        }
+
 
         //Release FOOD
         if (playerMouse.getCurFood())
@@ -269,14 +291,17 @@ public class RaceController : LogicController
                 Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
             }
             playerMouse.setCurFood(null);
+            SaveData();
         }
 
         //Release COW
-        if (playerMouse.getCurCow() && playerMouse.getCurMouseState() == MouseState.HOLD)
+        if (playerMouse.getCurCow())
         {
-            playerMouse.getCurCow().GetComponent<Cow>().setSelected(false);
-            playerMouse.setCurCow(null);
-            raceUI.setUIGroup("Passive", false);
+            Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
+            theCow.PlayAnimation(CowAnims.IDLE);
+            //homeUI.setUIGroup("Train", false);
+            //homeUI.setUIGroup("Retire", false);
+            SaveData();
         }
     }
     private void OnMouseClick(GameObject theObject, ClickType type)

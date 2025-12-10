@@ -229,6 +229,7 @@ public class ShopController : LogicController
 
     void OnPurchaseCosmetic(int index)
     {
+        Debug.Log("passing in index: " + index);
         ShopItem theItem = shopManager.getCosmeticItemAt(index);
 
         if (shopManager.getCoins() == 0)

@@ -269,6 +269,9 @@ public class FoodManager : Manager
         {
             return;
         }
+
+        if (spawnPos == Vector3.zero)
+            return;
         Vector2 spawn = spawnPos; //MOVE THIS 
         GameObject newFood = Instantiate(foodPrefab, spawn, Quaternion.identity); //Disable collision with cows until pickup?
         newFood.transform.parent = this.transform;

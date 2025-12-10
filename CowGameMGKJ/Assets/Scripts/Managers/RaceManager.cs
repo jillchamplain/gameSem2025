@@ -80,7 +80,7 @@ public class RaceManager : Manager
             if(theCow.getTraitAt(i) == curRace.getTraitAt(i))
             {
                 //Debug.Log("Shared trait! " + theCow.getTraitAt(i));
-                tempPower = (int)(tempPower * 1.05f);
+                tempPower = (int)(tempPower * 2.3f);
                 //Debug.Log("Increasing power to " + tempPower);
             }
         }

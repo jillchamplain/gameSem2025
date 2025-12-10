@@ -125,6 +125,7 @@ public class CosmeticManager : Manager
         purchasedCosmeticItems.Clear();
         currentCosmeticItems.Clear();
         curCosmeticPos.Clear();
+
         foreach(CosmeticItem item in cosmeticItems)
         {
             for(int i = 0; i < theData.unlockedCosmeticNames.Length; i++)
@@ -153,6 +154,7 @@ public class CosmeticManager : Manager
         {
             if(cos.getItemName() == item.getItemName())
             {
+                Debug.Log("Item name is " + item.getItemName());
                 purchasedCosmeticItems.Add(cos);
                 curCosmeticPos.Add(pos);
                 //get position

@@ -128,7 +128,6 @@ public class HomeController : LogicController
         InitUI();
         foodManager.SpawnAllFood(SaveSystem.LoadGameData());
         InitCosmetics();
-        cosmeticManager.SpawnCosmetics(SaveSystem.LoadGameData());
         shouldSpawnCosmetics = true;
         shouldEquipCows = true;
         //Debug.Log("init home");
@@ -287,9 +286,9 @@ public class HomeController : LogicController
 
         Cow theCow = playerMouse.getCurCow().GetComponent<Cow>();
         TrainManager.TrainRegimen theRegimen = trainManager.SelectRandomTraining();
-        int increase = trainManager.RollTrainingSuccess(theRegimen) * (cowManager.curGeneration);
+        float increase = trainManager.RollTrainingSuccess(theRegimen) * (((float)cowManager.curGeneration) * .5f);
         increase = (int)(increase * 0.1f);
-        theCow.setPower(theCow.getPower() + increase);
+        theCow.setPower(theCow.getPower() + (int)increase);
         SaveData();
 
 
@@ -591,6 +590,7 @@ public class HomeController : LogicController
                 Physics2D.IgnoreCollision(playerMouse.getCurCosmetic().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
             }
             playerMouse.setCurCosmetic(null);
+            SaveData();
         }
 
 
@@ -603,6 +603,7 @@ public class HomeController : LogicController
                 Physics2D.IgnoreCollision(playerMouse.getCurFood().GetComponent<BoxCollider2D>(), theCows[i].GetComponent<BoxCollider2D>(), false);
             }
             playerMouse.setCurFood(null);
+            SaveData();
         }
 
         //Release COW
@@ -612,6 +613,7 @@ public class HomeController : LogicController
             theCow.PlayAnimation(CowAnims.IDLE);
             //homeUI.setUIGroup("Train", false);
             //homeUI.setUIGroup("Retire", false);
+            SaveData();
         }
     }
 }
